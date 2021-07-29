@@ -22,6 +22,8 @@
               "extensions": [".js", ".jsx"]
             }
           ],
-          "quotes": ["error", "double"]
+          "quotes": ["error", "double"],
+          "arrow-body-style": 0,
+          "import/prefer-default-export": "off"
     }
 }
