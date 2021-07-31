@@ -3,6 +3,9 @@ import { Button } from "../../components";
 
 export const Home = () => {
   return (
-    <Button width="200px" />
+    <>
+      <Button />
+      <Button width="300px" />
+    </>
   );
 };
