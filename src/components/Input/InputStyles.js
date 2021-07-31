@@ -10,7 +10,7 @@ export const Input = styled.input`
   box-shadow: 0 0 0 0;
   outline: 0;
 `;
-export const Label = styled.p`
+export const Label = styled.label`
   margin-bottom: 8px;
   font-size: 16px;
   line-height: 19px;
