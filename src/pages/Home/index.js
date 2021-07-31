@@ -4,8 +4,7 @@ import { Button } from "../../components";
 export const Home = () => {
   return (
     <>
-      <Button />
-      <Button width="300px" />
+      <Button>Teste</Button>
     </>
   );
 };
