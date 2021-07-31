@@ -1,13 +1,8 @@
 import React from "react";
-import { Button } from "../../components/ButtonComponent";
+import { Button } from "../../components";
 
-const Home = () => {
-  return;
-    <>
-      <div>home works</div>
-
-      <Button />
-    </>;
+export const Home = () => {
+  return (
+    <Button width="200px" />
+  );
 };
-
-export default Home;

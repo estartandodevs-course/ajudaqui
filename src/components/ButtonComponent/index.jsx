@@ -1,4 +1,4 @@
-import * as S from "./ButtonStyled.js";
+import * as S from "./ButtonStyled";
 
 export const Button = () => {
   return (
