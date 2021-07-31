@@ -3,12 +3,13 @@ import * as S from "./InputStyles";
 
 
 export const Input = (props) => {
-  const { label } = props;
+  const { label, type } = props;
+
   return (
-    <div>
+    <>
       <S.Label>{label}</S.Label>
-      <S.Input type="text" />
-    </div>
+      <S.Input type={type} />
+    </>
 
   );
 };
