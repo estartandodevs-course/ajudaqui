@@ -1,50 +1,36 @@
 import styled from "styled-components";
 
-export const Typography = styled.h1`
-  font-family: ${({ font }) => font || "Open Sans"};
-
-  font-size: ${({ fontSize }) => {
-    switch (fontSize) {
-      case "title":
-        return "28px";
-      case "subheading":
-        return "22px";
-      case "text":
-        return "16px";
-      case "button" || "link":
-        return "14px";
-      case "subtitle":
-        return "12px";
-      default:
-        "text";
-    }
+const h1 = styled.h1`
+  font-size: ${(props) => props.theme.typography.h1?.fontSize};
+  color: ${(props) => props.color || props.theme.pallete.colors.text};
+  font-weight: ${(props) => {
+    return props.weight || `${props.theme.typography.h1?.fontWeight}`;
   }};
-
-  font-weight: ${({ fontWeight }) => {
-    switch (fontWeight) {
-      case "regular":
-        return 400;
-      case "medium":
-        return 500;
-      case "bold":
-        return 700;
-      default:
-        "regular";
-    }
-  }};
-
-  color: ${({ fontColor }) => {
-    switch (fontColor) {
-      case "standard":
-        return "#0C011B";
-      case "dark-gray":
-        return "#2C2834";
-      case "light-gray":
-        return "#47454F";
-      case "white":
-        return "#FFf";
-      default:
-        "standard";
-    }
-  }};
+  font-family: ${(props) => props.theme.typography.h2?.fontFamily};
 `;
+
+const h2 = styled.h2`
+  font-size: ${(props) => props.theme.typography.h2?.fontSize};
+  color: ${(props) => props.color || props.theme.pallete.colors.text};
+  font-weight: ${(props) => {
+    return props.weight || `${props.theme.typography.h2?.fontWeight}`;
+  }};
+  font-family: ${(props) => props.theme.typography.h2?.fontFamily};
+`;
+
+const body1 = styled.p`
+  font-size: ${(props) => props.theme.typography.body1?.fontSize};
+  color: ${(props) => props.color || props.theme.palette.color.text};
+  font-weight: ${(props) => {
+    return props.weight || `${props.theme.typography.body1?.fontWeight}`;
+  }};
+  font-family: ${(props) => `${props.theme.typography.body1?.fontFamily}`};
+`;
+
+const Typographies = {
+  h1,
+  h2,
+  body1,
+};
+
+export { Typographies };
