@@ -1,23 +1,29 @@
 import React from "react";
-import * as S from "./TypographyStyled";
+import PropTypes from "prop-types";
+import { Typographies } from "./TypographyStyled";
 
-export const Typography = ({
-  children,
-  font,
-  fontSize,
-  fontWeight,
-  fontColor,
-  type = "h1",
-}) => {
+const Typography = (
+  {
+    children,
+    variant,
+    color,
+    weight,
+  },
+) => {
+  Typography.propTypes = {
+    children: PropTypes.node.isRequired,
+    variant: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
+    weight: PropTypes.string.isRequired,
+  };
+
+  const Element = Typographies[variant];
+
   return (
-    <S.Typography
-      as={type}
-      font={font}
-      fontSize={fontSize}
-      fontWeight={fontWeight}
-      fontColor={fontColor}
-    >
+    <Element color={color} weight={weight}>
       {children}
-    </S.Typography>
+    </Element>
   );
 };
+
+export { Typography };
