@@ -16,7 +16,6 @@ const Typography = (
   return (
     <Element color={color} weight={weight} {...restProps}>
       {children}
-      {children}
     </Element>
   );
 };
