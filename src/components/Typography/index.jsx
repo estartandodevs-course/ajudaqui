@@ -2,6 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Typographies } from "./TypographyStyled";
 
+Typography.propTypes = {
+  children: PropTypes.node,
+  variant: PropTypes.string,
+  color: PropTypes.string,
+  weight: PropTypes.string,
+};
+
 const Typography = (
   {
     children,
@@ -9,21 +16,20 @@ const Typography = (
     color,
     weight,
   },
-) => {
-  Typography.propTypes = {
-    children: PropTypes.node.isRequired,
-    variant: PropTypes.string.isRequired,
-    color: PropTypes.string.isRequired,
-    weight: PropTypes.string.isRequired,
-  };
-
-  const Element = Typographies[variant];
-
-  return (
-    <Element color={color} weight={weight}>
+  ) => {
+    
+    const Element = Typographies[variant];
+    
+    return (
+      <Element color={color} weight={weight}>
       {children}
     </Element>
   );
 };
+
+
+Typography.defaultProps = {
+  variant: "body1",
+}
 
 export { Typography };

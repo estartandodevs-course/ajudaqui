@@ -6,7 +6,7 @@ const h1 = styled.h1`
   font-weight: ${(props) => {
     return props.weight || `${props.theme.typography.h1?.fontWeight}`;
   }};
-  font-family: ${(props) => props.theme.typography.h2?.fontFamily};
+  font-family: ${(props) => props.theme.typography.h1?.fontFamily};
 `;
 
 const h2 = styled.h2`
