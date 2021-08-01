@@ -1,5 +1,5 @@
 const theme = {
-  pallete: {
+  palette: {
     colors: {
       primary: "#5e38a8",
       primaryVariant: "#4e3681",
@@ -30,7 +30,7 @@ const theme = {
       fontSize: "1.375rem",
     },
     body1: {
-      fontFamily: "Robto",
+      fontFamily: "Roboto",
       fontWeight: 400,
       fontSize: {
         text: "1rem",
