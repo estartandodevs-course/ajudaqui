@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const h1 = styled.h1`
   font-size: ${(props) => props.theme.typography.h1?.fontSize};
-  color: ${(props) => props.color || props.theme.pallete.colors.text};
+  color: ${(props) => props.color || props.theme.palette.colors.text};
   font-weight: ${(props) => {
     return props.weight || `${props.theme.typography.h1?.fontWeight}`;
   }};
@@ -11,7 +11,7 @@ const h1 = styled.h1`
 
 const h2 = styled.h2`
   font-size: ${(props) => props.theme.typography.h2?.fontSize};
-  color: ${(props) => props.color || props.theme.pallete.colors.text};
+  color: ${(props) => props.color || props.theme.palette.colors.text};
   font-weight: ${(props) => {
     return props.weight || `${props.theme.typography.h2?.fontWeight}`;
   }};
