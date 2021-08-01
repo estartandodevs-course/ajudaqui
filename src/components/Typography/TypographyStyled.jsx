@@ -19,7 +19,7 @@ const h2 = styled.h2`
 `;
 
 const body1 = styled.p`
-  font-size: ${(props) => props.theme.typography.body1?.fontSize};
+  font-size: ${(props) => props.theme.typography.body1?.fontSizeText};
   color: ${(props) => props.color || props.theme.palette.colors.text};
   font-weight: ${(props) => {
     return props.weight || `${props.theme.typography.body1?.fontWeight}`;
