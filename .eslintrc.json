@@ -20,12 +20,9 @@
       }
     ],
     "quotes": ["error", "double"],
-    "arrow-body-style": 0,
     "import/prefer-default-export": "off",
     "react/prop-types": 0,
     "react/react-in-jsx-scope": "off",
-    "linebreak-style": 0,
-    "no-multiple-empty-lines": [2, { "max": 2 }],
-    "object-curly-newline": 0
+    "arrow-body-style": 0
   }
 }
