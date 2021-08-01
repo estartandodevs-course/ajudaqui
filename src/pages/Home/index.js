@@ -1,7 +1,10 @@
 import React from "react";
+import { Button } from "../../components";
 
-const Home = () => {
-  return <div>home works</div>;
+export const Home = () => {
+  return (
+    <>
+      <Button>Teste</Button>
+    </>
+  );
 };
-
-export default Home;
