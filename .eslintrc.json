@@ -27,6 +27,7 @@
           "import/prefer-default-export": "off",
           "react/prop-types": 0,
           "react/react-in-jsx-scope": "off",
-          "object-curly-newline": 0
+          "object-curly-newline": 0,
+          "react/jsx-props-no-spreading": "off"
     }
 }
