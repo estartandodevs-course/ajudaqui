@@ -1,6 +1,28 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { theme } from "../../styles/themes";
 import { Typography } from "..";
+
+const variants = {
+  default: css`
+    background: ${(props) => {
+    return props.theme.palette.colors.white;
+  }};
+  `,
+  outlined: css`
+    background: ${(props) => {
+    return props.theme.palette.colors.white;
+  }};
+    border-image:  ${(props) => props.theme.palette.colors.gradientBackground};
+    border-width: 2px;
+    border-style: solid;
+    box-shadow: ${(props) => props.theme.shadow};
+  `,
+  secondary: css`
+    background: ${(props) => {
+    return props.theme.palette.colors.secondary;
+  }};
+  `,
+};
 
 export const ContainerCard = styled.div`
   width: ${(props) => props.width};
@@ -11,11 +33,8 @@ export const ContainerCard = styled.div`
   flex-direction: ${(props) => props.flexDirection};
   justify-content: center;
   align-items: center;
-  background: ${(props) => {
-    return props.background || props.theme.palette.colors.gradientBackground;
-  }};
-  box-shadow: ${(props) => props.shadow || props.theme.shadow};
   border-radius: 5px;
+  ${(props) => props.variant && variants[props.variant]};
 `;
 
 export const IconCard = styled.img`
