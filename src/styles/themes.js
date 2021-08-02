@@ -17,7 +17,7 @@ const theme = {
       white: "#fff",
       emergency: "#bc1610",
       gradientBackground:
-        "linear-gradient(114.44deg, #5E38A8 1.51%, #481CA7 100%)",
+        "linear-gradient(114.44deg, rgb(94, 56, 168),rgb(72, 28, 167)) 1",
     },
   },
 
