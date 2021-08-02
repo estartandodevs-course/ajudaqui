@@ -8,14 +8,12 @@ export const Container = styled.div`
   flex-direction: column;
   position: relative;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   `;
 export const Title = styled(Typography).attrs({
   variant: "h2",
-  weight: 400,
   color: "#4E3681",
 })`
-  margin-top: 30px;
   `;
 export const Subtitle = styled(Typography).attrs({
   variant: "body1",
