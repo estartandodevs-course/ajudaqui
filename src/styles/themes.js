@@ -1,4 +1,5 @@
 const theme = {
+  shadow: ["0px 4px 4px rgba(0, 0, 0, 0.25)"],
   palette: {
     colors: {
       primary: "#5e38a8",
@@ -14,8 +15,10 @@ const theme = {
         grayish: "#F9F7FB",
       },
       white: "#fff",
+      emergency: "#bc1610",
+      gradientBackground:
+        "linear-gradient(114.44deg, rgb(94, 56, 168),rgb(72, 28, 167)) 1",
     },
-    emergency: "#bc1610",
   },
 
   typography: {
@@ -32,11 +35,14 @@ const theme = {
     body1: {
       fontFamily: "Roboto",
       fontWeight: 400,
-      fontSize: {
-        text: "1rem",
-        subtitles: "0.875rem",
-      },
+      fontSizeText: "1rem",
+      fontSizeSubtitles: "0.875rem",
     },
+  },
+
+  margins: {
+    marginLateral: "24px",
+    marginUpAndDown: "32px",
   },
 };
 
