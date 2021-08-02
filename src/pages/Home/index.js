@@ -1,10 +1,10 @@
 import React from "react";
-import { Button } from "../../components";
+import { SplashScreen } from "../../components";
 
 export const Home = () => {
   return (
     <>
-      <Button>Teste</Button>
+      <SplashScreen />
     </>
   );
 };
