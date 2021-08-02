@@ -6,11 +6,10 @@ export const Card = ({
   children,
   width,
   height,
+  variant = "default",
   flexDirection,
   background,
-  showIcon,
   day,
-  shadow,
   ...restProps
 }) => {
   return (
@@ -18,15 +17,11 @@ export const Card = ({
       width={width}
       height={height}
       flexDirection={flexDirection}
-      background={background}
-      shadow={shadow}
+      variant={variant}
       {...restProps}
     >
-      {showIcon ? (
-        <S.IconCard {...restProps} />
-      ) : (
-        <S.DaysCard>{day}</S.DaysCard>
-      )}
+      <S.IconCard {...restProps} />
+      {day && <S.DaysCard>{day}</S.DaysCard>}
       <S.DescriptionCard>{children}</S.DescriptionCard>
     </S.ContainerCard>
   );
@@ -37,10 +32,7 @@ Card.propTypes = {
   width: PropTypes.string,
   height: PropTypes.string,
   flexDirection: PropTypes.string,
-  background: PropTypes.string,
-  showIcon: PropTypes.bool,
   day: PropTypes.string,
-  shadow: PropTypes.bool || PropTypes.string,
   border: PropTypes.string,
 };
 
@@ -48,7 +40,5 @@ Card.defaultProps = {
   width: "140px",
   height: "80px",
   flexDirection: "column",
-  showIcon: false,
-  day: "25/08",
-  shadow: true,
+  day: "",
 };
