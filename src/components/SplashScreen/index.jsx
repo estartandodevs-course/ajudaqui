@@ -4,7 +4,6 @@ import * as S from "./SplashScreenStyled";
 export const SplashScreen = () => {
   return (
     <S.Container>
-      <S.ImageTop src="/assets/svg/detalhe topo tela.svg" />
       <S.Title>
         Precisando de ajuda?
       </S.Title>
@@ -12,7 +11,6 @@ export const SplashScreen = () => {
       <S.ImageCenter src="/assets/images/logo.png" />
       <S.ImageSubLogo src="/assets/svg/ajudaqui.svg" />
       <Button style={{ zIndex: "1" }}>Começar</Button>
-      <S.ImageBottom src="/assets/svg/detalhe baixo tela.svg" />
     </S.Container>
   );
 };

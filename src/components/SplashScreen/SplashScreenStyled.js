@@ -19,16 +19,9 @@ export const Title = styled(Typography).attrs({
   `;
 export const Subtitle = styled(Typography).attrs({
   variant: "body1",
-  weight: 400,
   color: "#4E3681",
 })`
-
-    `;
-export const ImageTop = styled.img`
-  position: static;
-  max-width: 100%;
-  top: 0;
-`;
+  `;
 
 export const ImageCenter = styled.img`
   margin-top: 32px;
@@ -39,11 +32,4 @@ export const ImageCenter = styled.img`
 export const ImageSubLogo = styled.img`
   margin-top: 10px;
   margin-bottom: 43px;
-`;
-
-export const ImageBottom = styled.img`
-  position: static;
-  max-width: 100%;
-  bottom: 0;
-  left: 0px;
 `;
