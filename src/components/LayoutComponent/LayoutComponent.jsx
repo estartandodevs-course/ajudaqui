@@ -1,4 +1,3 @@
-// import { SplashScreen } from "../SplashScreen";
 import * as S from "./LayoutStyled";
 
 export const Layout = ({ hasTabBar = false }) => {
