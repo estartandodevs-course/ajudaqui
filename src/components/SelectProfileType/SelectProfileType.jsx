@@ -5,12 +5,27 @@ import { Card } from "../Card";
 
 function SelectProfileType() {
   return (
-    <div>
-      <S.InputCheck name="check" id="check" type="checkbox" />
-      <label htmlFor="check">
-        <Card variant="outlined" width="300px" />
-      </label>
-    </div>
+    <S.ContainerInput>
+      <>
+        <S.InputCheck name="check" id="check" type="checkbox" />
+        <label htmlFor="check">
+          <div>
+            <Card variant="outlined" width="140px" height="155px" src="/assets/svg/card-idoso.svg" textAlign="center">
+              Idoso ou responsável pelo idoso
+            </Card>
+          </div>
+        </label>
+      </>
+
+      <>
+        <S.TesteInputCheck name="testecheck" id="testecheck" type="checkbox" />
+        <label htmlFor="testecheck">
+          <Card variant="outlined" width="140px" height="155px" src="/assets/svg/card-voluntario.svg" textAlign="center">
+            Voluntário
+          </Card>
+        </label>
+      </>
+    </S.ContainerInput>
 
   );
 }
