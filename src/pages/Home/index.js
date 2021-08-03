@@ -1,10 +1,10 @@
 import React from "react";
-import { SplashScreen } from "../../components";
+import { TabBar } from "../../components";
 
 export const Home = () => {
   return (
     <>
-      <SplashScreen />
+      <TabBar />
     </>
   );
 };
