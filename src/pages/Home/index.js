@@ -1,6 +1,5 @@
 import React from "react";
-import { SplashScreen } from "../../components";
-import { Layout } from "../../components/Layout/Layout";
+import { SplashScreen, Layout } from "../../components";
 
 export const Home = () => {
   return (
