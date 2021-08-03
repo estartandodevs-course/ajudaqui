@@ -8,8 +8,7 @@ export const SplashScreen = () => {
         Precisando de ajuda?
       </S.Title>
       <S.Subtitle>Encontre um voluntário(a)</S.Subtitle>
-      <S.ImageCenter src="/assets/images/logo.png" />
-      <S.ImageSubLogo src="/assets/svg/ajudaqui.svg" />
+      <S.ImageCenter src="/assets/svg/Logo completa.svg" />
       <Button style={{ zIndex: "1" }}>Começar</Button>
     </S.Container>
   );
