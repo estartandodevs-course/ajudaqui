@@ -1,9 +1,10 @@
 import React from "react";
-import { SplashScreen } from "../../components";
+import { Layout, SplashScreen } from "../../components";
 
 export const Home = () => {
   return (
     <>
+      <Layout />
       <SplashScreen />
     </>
   );
