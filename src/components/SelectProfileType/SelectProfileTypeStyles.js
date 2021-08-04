@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const InputCheck = styled.input`
+export const ElderlyInputCheck = styled.input`
   display: none;
 
   &:checked ~ label > div > div {
@@ -8,7 +8,7 @@ export const InputCheck = styled.input`
     border-image: ${(props) => props.theme.palette.colors.gradientBackground};
   }
 `;
-export const TesteInputCheck = styled.input`
+export const VoluntayInputCheck = styled.input`
   display: none;
   &:checked ~ label > div {
     border: 2px solid;

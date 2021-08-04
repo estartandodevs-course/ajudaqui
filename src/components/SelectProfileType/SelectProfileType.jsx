@@ -7,7 +7,7 @@ function SelectProfileType() {
   return (
     <S.ContainerInput>
       <>
-        <S.InputCheck name="check" id="check" type="checkbox" />
+        <S.ElderlyInputCheck name="check" id="check" type="checkbox" />
         <label htmlFor="check">
           <div>
             <Card variant="outlined" width="140px" height="155px" src="/assets/svg/card-idoso.svg" textAlign="center">
@@ -18,7 +18,7 @@ function SelectProfileType() {
       </>
 
       <>
-        <S.TesteInputCheck name="testecheck" id="testecheck" type="checkbox" />
+        <S.VoluntayInputCheck name="testecheck" id="testecheck" type="checkbox" />
         <label htmlFor="testecheck">
           <Card variant="outlined" width="140px" height="155px" src="/assets/svg/card-voluntario.svg" textAlign="center">
             Voluntário
