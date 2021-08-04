@@ -7,11 +7,12 @@ export const TabBar = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-items: center;
-  position: fixed;
-  bottom: 0;
+  position: relative;
   border-top: 2px solid;
   border-image: ${(props) => `${props.theme.palette.colors.gradientBackground} 1`};
-  `;
+  align-self: flex-end;
+  height: 64px;
+`;
 
 export const IconContent = styled.div`
   display: flex;
@@ -21,14 +22,25 @@ export const IconContent = styled.div`
   margin: 8px 0;
   padding: 0 20px;
   cursor: pointer;
-  `;
+`;
 
 export const Ball = styled.div`
+  position: absolute;
   width: 12px;
   height: 12px;
-  margin-top: -7px;
-  background: ${(props) => (!props.$isActive ? "transparent" : props.theme.palette.colors.gradientBackground)};
+  top: -7px;
+  left:${(props) => `
+    calc(
+      calc(
+        calc(
+          calc(100% / 4) / 2
+        ) * ${props.$dotPosition}
+      ) - 7px
+    );
+  `};
+  background: ${(props) => props.theme.palette.colors.gradientBackground};
   border-radius: 100%;
+  transition: .2s ease-in-out;
 `;
 
 export const ImageIcon = styled.img`
