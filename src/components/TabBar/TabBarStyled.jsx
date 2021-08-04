@@ -4,19 +4,31 @@ import { Typography } from "..";
 
 export const TabBar = styled.div`
   width: 100%;
-  display:flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
   position: fixed;
   bottom: 0;
   border-top: 2px solid;
-  border-image: ${(props) => props.theme.palette.colors.gradientBackground};
+  border-image: ${(props) => `${props.theme.palette.colors.gradientBackground} 1`};
   `;
 
 export const IconContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 6px 0;
+  width: 25%;
+  margin: 8px 0;
+  padding: 0 20px;
+  cursor: pointer;
+  `;
+
+export const Ball = styled.div`
+  width: 12px;
+  height: 12px;
+  margin-top: -7px;
+  background: ${(props) => (!props.$isActive ? "transparent" : props.theme.palette.colors.gradientBackground)};
+  border-radius: 100%;
 `;
 
 export const ImageIcon = styled.img`
