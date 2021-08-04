@@ -23,11 +23,9 @@ export const Subtitle = styled(Typography).attrs({
 
 export const ImageCenter = styled.img`
   margin-top: 32px;
+  margin-bottom: 43px;
   text-align: center;
   max-width: 203px;
   max-height: 203px;
 `;
-export const ImageSubLogo = styled.img`
-  margin-top: 10px;
-  margin-bottom: 43px;
-`;
+

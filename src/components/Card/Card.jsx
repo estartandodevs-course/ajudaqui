@@ -10,6 +10,7 @@ export const Card = ({
   flexDirection,
   background,
   day,
+  textAlign,
   ...restProps
 }) => {
   return (
@@ -22,7 +23,9 @@ export const Card = ({
     >
       <S.IconCard {...restProps} />
       {day && <S.DaysCard>{day}</S.DaysCard>}
-      <S.DescriptionCard>{children}</S.DescriptionCard>
+      <S.DescriptionCard textAlign={textAlign}>
+        {children}
+      </S.DescriptionCard>
     </S.ContainerCard>
   );
 };
@@ -34,6 +37,7 @@ Card.propTypes = {
   flexDirection: PropTypes.string,
   day: PropTypes.string,
   border: PropTypes.string,
+  textAlign: PropTypes.string,
 };
 
 Card.defaultProps = {

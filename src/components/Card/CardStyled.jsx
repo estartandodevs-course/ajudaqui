@@ -12,9 +12,6 @@ const variants = {
     background: ${(props) => {
     return props.theme.palette.colors.white;
   }};
-    border-image:  ${(props) => props.theme.palette.colors.gradientBackground};
-    border-width: 2px;
-    border-style: solid;
     box-shadow: ${(props) => props.theme.shadow};
   `,
   secondary: css`
@@ -44,9 +41,11 @@ export const IconCard = styled.img`
 
 export const DescriptionCard = styled(Typography).attrs({
   variant: "body1",
-  color: theme.palette.colors.white,
+  color: theme.palette.colors.text,
   weight: "500",
-})``;
+})`
+   text-align: ${(props) => props.textAlign} ;
+`;
 
 export const DaysCard = styled(Typography).attrs({
   variant: "body1",
