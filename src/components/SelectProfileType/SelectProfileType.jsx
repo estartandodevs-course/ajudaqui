@@ -23,10 +23,7 @@ export const SelectProfileType = ({ onChange, initialState }) => {
       >
         <Card
           variant="outlined"
-          width="140px"
-          height="155px"
           src="/assets/svg/card-idoso.svg"
-          textAlign="center"
         >
           Idoso ou responsável pelo idoso
         </Card>
@@ -38,10 +35,7 @@ export const SelectProfileType = ({ onChange, initialState }) => {
       >
         <Card
           variant="outlined"
-          width="140px"
-          height="155px"
           src="/assets/svg/card-voluntario.svg"
-          textAlign="center"
         >
           Voluntário
         </Card>
