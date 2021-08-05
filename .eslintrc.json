@@ -1,31 +1,37 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["plugin:react/recommended", "airbnb"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     },
-    "extends": [
-        "plugin:react/recommended",
-        "airbnb"
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react"],
+  "rules": {
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
     ],
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 12,
-        "sourceType": "module"
-    },
-    "plugins": ["react"],
-    "rules": {
-        "react/jsx-filename-extension": [
-            1,
-            {
-              "extensions": [".js", ".jsx"]
-            }
-          ],
-          "quotes": ["error", "double"],
-          "arrow-body-style": 0,
-          "import/prefer-default-export": "off",
-          "react/prop-types": 0,
-          "react/react-in-jsx-scope": "off"
-    }
+    "quotes": ["error", "double"],
+    "import/prefer-default-export": "off",
+    "react/prop-types": 0,
+    "react/react-in-jsx-scope": "off",
+    "arrow-body-style": 0,
+    "react/require-default-props": "off",
+    "react/jsx-props-no-spreading": "off",
+    "linebreak-style": 0,
+    "no-multiple-empty-lines": [
+      2,
+      {
+        "max": 2
+      }
+    ]
+  }
 }

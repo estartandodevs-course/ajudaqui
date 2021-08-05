@@ -1,7 +1,13 @@
 import React from "react";
+import { Layout } from "../../components";
 
-const Home = () => {
-  return <div>home works</div>;
+
+export const Home = () => {
+  return (
+    <>
+      <Layout hasTabBar>
+        {/* <SplashScreen /> */}
+      </Layout>
+    </>
+  );
 };
-
-export default Home;
