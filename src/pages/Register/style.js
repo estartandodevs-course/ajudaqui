@@ -7,7 +7,7 @@ export const ContainerRegister = styled.div`
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  margin: 62px 24px;
+  padding: 62px 24px;
   gap: 42px;
 `;
 
