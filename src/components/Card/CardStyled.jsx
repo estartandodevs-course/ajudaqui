@@ -13,6 +13,11 @@ const variants = {
     return props.theme.palette.colors.white;
   }};
     box-shadow: ${(props) => props.theme.shadow};
+    width: 140px;
+    height: 155px;
+    text-align: center;
+    justify-content: space-evenly;
+
   `,
   secondary: css`
     background: ${(props) => {
@@ -35,7 +40,7 @@ export const ContainerCard = styled.div`
 `;
 
 export const IconCard = styled.img`
-  max-width: 40px;
+  max-width: 60px;
   max-height: 77px;
 `;
 
