@@ -1,7 +1,8 @@
 import { Formik } from "formik";
+import { ContainerForm } from "./FormStyled";
 
 export const Form = ({
-  initialValues, onSubmit, validationSchema, ...restProps
+  initialValues, onSubmit, validationSchema, children, ...restProps
 }) => {
   return (
     <Formik
@@ -9,6 +10,8 @@ export const Form = ({
       onSubmit={onSubmit}
       validationSchema={validationSchema}
       {...restProps}
-    />
+    >
+      <ContainerForm>{children}</ContainerForm>
+    </Formik>
   );
 };
