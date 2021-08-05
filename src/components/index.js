@@ -5,4 +5,5 @@ export { SplashScreen } from "./SplashScreen";
 export { TabBar } from "./TabBar";
 export { Layout } from "./LayoutComponent";
 export { Form } from "./Form";
+export { Input } from "./Input";
 export { SelectProfileType } from "./SelectProfileType";
