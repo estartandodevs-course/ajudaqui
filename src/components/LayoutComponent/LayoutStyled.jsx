@@ -2,10 +2,6 @@ import styled from "styled-components";
 
 export const LayoutWrapper = styled.div`
   display: flex;
-<<<<<<< HEAD
-=======
-  width: 100%;
->>>>>>> 267f212 (chore: updated styles)
   min-height: 100vh;
 `;
 
