@@ -1,14 +1,11 @@
 import React from "react";
-import { Layout } from "../../components";
+import { Register } from "../Register";
 
 
 export const Home = () => {
   return (
     <>
-      <Layout hasTabBar>
-        {/* <SplashScreen /> */}
-        {/* <UserGrade grade={3} /> */}
-      </Layout>
+      <Register />
     </>
   );
 };
