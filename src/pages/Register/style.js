@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { Typography } from "../../components";
 
 export const ContainerRegister = styled.div`
@@ -12,7 +11,7 @@ export const ContainerRegister = styled.div`
 `;
 
 export const ContentTitle = styled.div`
-  width: 100%;  
+  width: 100%;
 `;
 
 export const ContentChoice = styled.div`
@@ -31,7 +30,7 @@ export const ChoiceProfile = styled(Typography).attrs({
   variant: "h2",
 })``;
 
-export const NextStep = styled(Link)`
+export const NextStep = styled.span`
   display: flex;
   gap: 8px;
   justify-content: flex-end;
@@ -43,5 +42,4 @@ export const NextStep = styled(Link)`
   font-size: ${(props) => props.theme.typography.body1.fontSizeText};
 `;
 
-export const IconNext = styled.img`
-`;
+export const IconNext = styled.img``;

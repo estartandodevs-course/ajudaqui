@@ -6,6 +6,7 @@ const theme = {
       primaryVariant: "#4e3681",
       secondary: "#8360CA",
       secondaryVariant: "#D8CDEE",
+      purple: "#782CE8",
       text: "#0C011B",
       dark: {
         gray: "#2C2834",
