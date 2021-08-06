@@ -8,7 +8,7 @@ export const ContainerRegistrations = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 62px 24px;
+  padding: 32px 24px;
   z-index: 1;
 `;
 
@@ -19,7 +19,6 @@ export const ContentTitle = styled.div`
   gap: 6px;
   margin-bottom: 12px;
 `;
-
 
 export const TitleRegistrations = styled(Typography).attrs({
   variant: "h2",
@@ -33,4 +32,13 @@ export const DescriptionRegistrations = styled(Typography).attrs({
 })`
   font-size: ${(props) => props.theme.typography.body1.fontSizeSubtitles};
   color: ${(props) => props.theme.palette.colors.primary};
+`;
+
+export const Back = styled.img`
+  display: flex;
+  margin-bottom: 12px;
+`;
+
+export const ContentBack = styled.div`
+  width: 100%;
 `;
