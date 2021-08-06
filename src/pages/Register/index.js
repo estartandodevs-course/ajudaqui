@@ -20,7 +20,7 @@ export const Register = () => {
           </S.ChoiceProfile>
         </S.ContentChoice>
         <SelectProfileType />
-        <S.NextStep to="/register">
+        <S.NextStep to="/register/with-phone">
           Próximo
           <S.IconNext src="/assets/svg/next.svg" alt="next" />
         </S.NextStep>
