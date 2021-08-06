@@ -8,7 +8,7 @@ export const Input = ({
   const [field, meta] = useField(props);
   const { setFieldValue } = useFormikContext();
   return (
-    <>
+    <S.InputWrapper>
       <S.Label htmlFor={props.id || props.name}>{label}</S.Label>
       <S.Input
         {...field}
@@ -18,9 +18,12 @@ export const Input = ({
         }}
       />
       {meta.touched && meta.error ? (
-        <div>{meta.error}</div>
+        <S.MessageError>
+          {meta.error}
+
+        </S.MessageError>
       ) : null}
-    </>
+    </S.InputWrapper>
 
   );
 };
