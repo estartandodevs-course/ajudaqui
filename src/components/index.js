@@ -7,3 +7,4 @@ export { Layout } from "./LayoutComponent";
 export { Form } from "./Form";
 export { Input } from "./Input";
 export { SelectProfileType } from "./SelectProfileType";
+export { UserGrade } from "./UserGrade";
