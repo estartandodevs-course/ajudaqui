@@ -7,6 +7,7 @@ export const Home = () => {
     <>
       <Layout hasTabBar>
         {/* <SplashScreen /> */}
+        {/* <UserGrade grade={3} /> */}
       </Layout>
     </>
   );
