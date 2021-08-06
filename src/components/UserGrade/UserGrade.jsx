@@ -1,6 +1,5 @@
 import * as S from "./UserGrade.styled";
-// import EstrelaAmarela from "";
-// import EstrelaCinza from "";
+
 
 export const UserGrade = ({ grade = 0 }) => {
   const starNumber = new Array(grade).fill(1);
@@ -15,19 +14,21 @@ export const UserGrade = ({ grade = 0 }) => {
   }
 
   return (
-    <div>
+    <S.ContainerStar>
       {starNumber.map((item) => (
         item ? (
           <S.StarIcon
             alt="estrela amarela"
+            src="/assets/svg/estrela-preenchida.svg"
           />
         ) : (
           <S.StarIcon
             alt="estrela cinza"
+            src="/assets/svg/estrela-vazia.svg"
           />
         )
       ))}
-    </div>
+    </S.ContainerStar>
 
   );
 };
