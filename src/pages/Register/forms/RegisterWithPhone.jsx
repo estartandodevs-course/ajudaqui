@@ -1,11 +1,15 @@
 import { Form, Input, Button } from "../../../components";
+import { useAuth } from "../../../hooks/useAuth";
 import { validationRegisterWithPhone } from "../validations";
 import * as S from "./RegisterStyled";
 
 export const RegisterWithPhone = () => {
+  const { user } = useAuth();
+
   return (
     <Form
       initialValues={{
+        typeProfile: user,
         name: "",
         phone1: "",
         phone2: "",
