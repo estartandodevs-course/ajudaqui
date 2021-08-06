@@ -4,13 +4,13 @@ const AuthContext = createContext();
 const { Provider } = AuthContext;
 
 const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState({});
+  const [profileType, setProfileType] = useState({});
 
   return (
     <Provider
       value={{
-        user,
-        setUser,
+        profileType,
+        setProfileType,
       }}
     >
       {children}

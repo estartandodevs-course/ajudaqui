@@ -4,10 +4,10 @@ import { Layout, SelectProfileType } from "../../components";
 import * as S from "./RegisterStyled";
 
 export const Register = () => {
-  const { setUser } = useAuth();
+  const { setProfileType } = useAuth();
 
   const handleSelectProfileType = (values) => {
-    setUser(values);
+    setProfileType(values);
   };
 
   return (

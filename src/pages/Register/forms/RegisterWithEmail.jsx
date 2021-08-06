@@ -4,11 +4,11 @@ import { validationRegisterWithEmail } from "../validations";
 import * as S from "./RegisterStyled";
 
 const RegisterWithEmail = () => {
-  const { user } = useAuth();
+  const { profileType } = useAuth();
   return (
     <Form
       initialValues={{
-        typeProfile: user,
+        typeProfile: profileType,
         name: "",
         email1: "",
         email2: "",

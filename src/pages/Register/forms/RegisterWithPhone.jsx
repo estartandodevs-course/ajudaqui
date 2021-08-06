@@ -4,12 +4,12 @@ import { validationRegisterWithPhone } from "../validations";
 import * as S from "./RegisterStyled";
 
 export const RegisterWithPhone = () => {
-  const { user } = useAuth();
+  const { profileType } = useAuth();
 
   return (
     <Form
       initialValues={{
-        typeProfile: user,
+        typeProfile: profileType,
         name: "",
         phone1: "",
         phone2: "",
