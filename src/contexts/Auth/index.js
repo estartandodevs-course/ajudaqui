@@ -1,6 +1,8 @@
 import { createContext, useState } from "react";
+import { authContextModel } from "./constants";
 
-const AuthContext = createContext();
+const AuthContext = createContext(authContextModel);
+
 const { Provider } = AuthContext;
 
 const AuthProvider = ({ children }) => {
