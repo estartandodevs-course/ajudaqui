@@ -6,9 +6,11 @@ const isSelected = css`
 `;
 
 export const ProfileTypeWrapper = styled.div`
-  width: 100%;
   display: flex;
-  justify-content: space-between;
+  gap: 32px;
+  @media (min-width: 720px) {
+    gap: 53px;
+  }
 `;
 
 export const ProfileLabel = styled.label`

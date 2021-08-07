@@ -46,7 +46,7 @@ export const ContentBack = styled.div`
 `;
 
 export const TabsRegister = styled(Tabs)`
-  .ant-tabs-tab{
+  .ant-tabs-tab {
     padding: 0;
     margin: 5px;
     color: ${(props) => props.theme.palette.colors.secondaryVariant}; 
@@ -56,7 +56,7 @@ export const TabsRegister = styled(Tabs)`
     border: none;
   }
 
-  .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
+  .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
     font-family: ${(props) => props.theme.typography.body1.fontFamily};
     color: ${(props) => props.theme.palette.colors.primary}
   } 

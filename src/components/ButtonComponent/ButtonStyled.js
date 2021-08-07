@@ -7,11 +7,15 @@ export const Button = styled.button`
   width: ${({ width }) => width || "134px"};
   height: ${({ height }) => height || "44px"};
   border: ${({ border }) => border || "none"};
-  color: ${({ color }) => color || "#FFFFFF"};
-  box-shadow: ${({ shadow }) => shadow || "0px 4px 4px rgba(0, 0, 0, 0.2)"};
-  background: ${({ background }) => background || "linear-gradient(126.22deg, #8360CA -2.64%, #A173FF 106.44%)"};
+  color: ${(props) => props.color || props.theme.palette.colors.white};
+  box-shadow: ${(props) => props.shadow || props.theme.shadow};
+  background: ${(props) => props.background
+  || props.theme.palette.colors.gradientButton};
   text-transform: uppercase;
+  font-family: ${(props) => props.theme.typography.body1.fontFamily};
   border-radius: 5px;
-  font-size: 14px;
+  height: 44px;
+  font-weight: 500;
+  font-size: ${(props) => props.theme.typography.body1.fontSizeSubtitles};
   cursor: pointer;
 `;
