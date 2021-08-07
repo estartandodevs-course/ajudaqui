@@ -6,5 +6,5 @@ export const Home = () => {
     <Layout>
       <SplashScreen />
     </Layout>
-  );
+  )
 };

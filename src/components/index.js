@@ -9,3 +9,4 @@ export { Input } from "./Input";
 export { SelectProfileType } from "./SelectProfileType";
 export { UserGrade } from "./UserGrade";
 export { TextArea } from "./TextArea";
+export { Carousel } from "./Carousel";
