@@ -19,6 +19,7 @@ const theme = {
       emergency: "#bc1610",
       gradientBackground:
         "linear-gradient(114.44deg, rgb(94, 56, 168),rgb(72, 28, 167))",
+      border: "#47454f",
     },
   },
 
