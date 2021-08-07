@@ -11,6 +11,10 @@ export const ImageTop = styled.img`
   width: 100%;
 `;
 
+export const LayoutMainContent = styled.main`
+  flex: 1;
+`;
+
 export const ImageBottom = styled.img`
   width: 100%;
 `;

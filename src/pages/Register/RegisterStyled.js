@@ -1,12 +1,12 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { Typography } from "../../components";
 
 export const ContainerRegister = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   width: 100%;
-  padding: 62px 24px;
+  padding: 62px 24px 0px;
   gap: 42px;
 `;
 
@@ -30,7 +30,7 @@ export const ChoiceProfile = styled(Typography).attrs({
   variant: "h2",
 })``;
 
-export const NextStep = styled.span`
+export const NextStep = styled(Link)`
   display: flex;
   gap: 8px;
   justify-content: flex-end;
