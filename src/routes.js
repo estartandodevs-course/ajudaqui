@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { Home, Onboarding, Register, Login } from "./pages";
+import {
+  Home, Onboarding, Register, Login,
+} from "./pages";
 import { RegistrationForm } from "./pages/Register/Registrations";
 
 export default function Routes() {
