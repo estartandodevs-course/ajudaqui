@@ -5,9 +5,8 @@ import { Typography } from "../../components";
 export const ContainerRegister = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   width: 100%;
-  padding: 62px 24px;
+  padding: 62px 24px 0px;
   gap: 42px;
 `;
 
