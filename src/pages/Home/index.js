@@ -1,10 +1,10 @@
 import React from "react";
-import { Layout } from "../../components";
+import { Layout, SplashScreen } from "../../components";
 
 export const Home = () => {
   return (
-    <>
-      <Layout hasTabBar />
-    </>
-  );
+    <Layout>
+      <SplashScreen />
+    </Layout>
+  )
 };
