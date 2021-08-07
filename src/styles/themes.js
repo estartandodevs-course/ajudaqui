@@ -6,6 +6,7 @@ const theme = {
       primaryVariant: "#4e3681",
       secondary: "#8360CA",
       secondaryVariant: "#D8CDEE",
+      purple: "#782CE8",
       text: "#0C011B",
       dark: {
         gray: "#2C2834",
@@ -18,9 +19,11 @@ const theme = {
       emergency: "#bc1610",
       gradientBackground:
         "linear-gradient(114.44deg, rgb(94, 56, 168),rgb(72, 28, 167))",
+      border: "#47454f",
+      gradientButton: "linear-gradient(126.22deg, rgb(131, 96, 202) , rgb(161, 115, 255))",
+      dotColor: "#DFDFDF",
     },
   },
-
   typography: {
     h1: {
       fontFamily: "Open Sans",

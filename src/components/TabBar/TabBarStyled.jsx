@@ -21,7 +21,6 @@ export const IconContent = styled.div`
   justify-content: center;
   width: 25%;
   margin: 8px 0;
-  padding: 0 10px;
   cursor: pointer;
 `;
 
@@ -36,12 +35,12 @@ export const Ball = styled.div`
         calc(
           calc(100% / 4) / 2
         ) * ${props.$dotPosition}
-      ) - 5px
+      ) - 6px
     );
   `};
   background: ${(props) => props.theme.palette.colors.gradientBackground};
   border-radius: 100%;
-  transition: .2s ease-in-out;
+  transition: .6s ease-in-out;
 `;
 
 export const ImageIcon = styled.img`
