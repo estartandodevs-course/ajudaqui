@@ -6,7 +6,7 @@ import * as S from "./OnboardingStyled";
 export const Onboarding = () => {
   const { push } = useHistory();
   return (
-    <Carousel showArrows={false} enableAutoPlay>
+    <Carousel showArrows={false}>
       {onboardingData.map((items) => {
         return (
           <S.OnboardingContainer key={items.id}>
