@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
 export const Button = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: ${({ width }) => width || "134px"};
+  height: ${({ height }) => height || "44px"};
   border: ${({ border }) => border || "none"};
   color: ${(props) => props.color || props.theme.palette.colors.white};
   box-shadow: ${(props) => props.shadow || props.theme.shadow};

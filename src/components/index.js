@@ -1,6 +1,6 @@
 export { Typography } from "./Typography";
 export { Card } from "./Card";
-export { Button } from "./ButtonComponent";
+export { Button } from "./ButtonComponent/Button";
 export { SplashScreen } from "./SplashScreen";
 export { TabBar } from "./TabBar";
 export { Layout } from "./LayoutComponent";
