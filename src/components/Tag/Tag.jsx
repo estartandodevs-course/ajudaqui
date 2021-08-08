@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { optionsTagData } from "../../_mock/optionsTagData";
 import * as S from "./TagStyled";
 
-export const Tag = ({ onChange, initialState }) => {
-  const [selectedTag, setSelectedTag] = useState(initialState);
+export const Tag = ({ onChange }) => {
+  const [selectedTag, setSelectedTag] = useState([]);
+
 
   useEffect(() => {
     if (selectedTag && onChange) {
@@ -13,17 +14,17 @@ export const Tag = ({ onChange, initialState }) => {
 
   return (
     <>
-      {optionsTagData.map((items) => {
+      {optionsTagData.map(({ id, option }) => {
         return (
           <S.TagContainer
-            key={items.id}
-            selectedTag={selectedTag === items.id}
+            key={id}
+            className={selectedTag[id - 1] === option && "active"}
             onClick={() => {
-              setSelectedTag(items.option);
+              setSelectedTag([...selectedTag, option]);
             }}
           >
             <S.TagContent>
-              {items.option}
+              {option}
             </S.TagContent>
           </S.TagContainer>
         );

@@ -12,9 +12,8 @@ export const TagContainer = styled.div`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  
-  :hover {
-    background: ${(props) => props.theme.palette.colors.primaryVariant};
+  &.active {
+    background: ${(props) => props.theme.palette.colors.secondaryVariant};
   }
 `;
 
