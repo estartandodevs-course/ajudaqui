@@ -1,8 +1,10 @@
 import React from "react";
-import { Tag } from "../../components";
+import { Layout, SplashScreen } from "../../components";
 
 export const Home = () => {
   return (
-    <Tag />
+    <Layout>
+      <SplashScreen />
+    </Layout>
   );
 };

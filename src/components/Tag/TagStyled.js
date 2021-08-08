@@ -8,13 +8,12 @@ export const TagContainer = styled.div`
   border: ${(props) => `1px solid ${props.theme.palette.colors.primaryVariant}`};
   display: flex;
   border-radius: 5px;
-  background: ${(props) => props.theme.palette.colors.light.grayish};
+  background: ${(props) => (props.isActive
+    ? props.theme.palette.colors.secondaryVariant
+    : props.theme.palette.colors.light.grayish)};
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  &.active {
-    background: ${(props) => props.theme.palette.colors.secondaryVariant};
-  }
 `;
 
 export const TagContent = styled(Typography).attrs({
