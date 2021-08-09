@@ -11,3 +11,4 @@ export { UserGrade } from "./UserGrade";
 export { TextArea } from "./TextArea";
 export { Carousel } from "./Carousel";
 export { InputSelect } from "./Select";
+export { Tag } from "./Tag";
