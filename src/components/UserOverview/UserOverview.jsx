@@ -2,10 +2,10 @@ import React from "react";
 import * as S from "./UserOverview.styled";
 import { UserGrade } from "../UserGrade";
 
-export const UserOverview = (props) => {
+export const UserOverview = ({ userData }) => {
   const {
     name, img, location, idade,
-  } = props;
+  } = userData;
   return (
     <S.ContainerProfile>
       <S.ImgProfile src={img} alt="" />
@@ -20,7 +20,7 @@ export const UserOverview = (props) => {
           {" "}
           anos -
           {" "}
-          {location}
+          {location.city}
         </S.Paragraph>
         <S.ContainerGrade>
           <S.Paragraph> Sua nota </S.Paragraph>
