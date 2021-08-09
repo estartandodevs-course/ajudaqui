@@ -1,5 +1,5 @@
 import React from "react";
-import * as S from "./UserOverview.styled";
+import * as S from "./UserOverviewStyled";
 import { UserGrade } from "../UserGrade";
 
 export const UserOverview = ({ userData }) => {
