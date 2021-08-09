@@ -34,7 +34,7 @@ export const TitleProfile = styled(Typography).attrs({
 })`
 margin-bottom: 4px;
   `;
-export const P = styled(Typography).attrs({
+export const Paragraph = styled(Typography).attrs({
   variant: "body1",
 })`
 margin-bottom: 4px;
