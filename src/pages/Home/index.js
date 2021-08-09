@@ -1,10 +1,10 @@
 import React from "react";
-import { Layout, SplashScreen } from "../../components";
+import { PersonalInfos } from "../UserInformation/forms/FormPersonalInfos";
 
 export const Home = () => {
   return (
-    <Layout>
-      <SplashScreen />
-    </Layout>
-  )
+    <>
+      <PersonalInfos />
+    </>
+  );
 };
