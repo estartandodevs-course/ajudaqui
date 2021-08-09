@@ -1,36 +1,32 @@
 import React from "react";
-// import * as S from "./UserOverview.styled";
-import { userData } from "../../_mock/userData";
+import * as S from "./UserOverview.styled";
 import { UserGrade } from "../UserGrade";
-import {
-  ContainerData, ContainerGrade, ContainerProfile, ImgProfile, P, TitleProfile,
-} from "./UserOverview.styled";
 
-export const UserOverview = () => {
+export const UserOverview = (props) => {
   const {
     name, img, location, idade,
-  } = userData;
+  } = props;
   return (
-    <ContainerProfile>
-      <ImgProfile src={img} alt="" />
-      <ContainerData>
-        <TitleProfile>
+    <S.ContainerProfile>
+      <S.ImgProfile src={img} alt="" />
+      <S.ContainerData>
+        <S.TitleProfile>
           Olá,
           {" "}
           {name}
-        </TitleProfile>
-        <P>
+        </S.TitleProfile>
+        <S.Paragraph>
           {idade}
           {" "}
           anos -
           {" "}
-          {location.city}
-        </P>
-        <ContainerGrade>
-          <P> Sua nota </P>
+          {location}
+        </S.Paragraph>
+        <S.ContainerGrade>
+          <S.Paragraph> Sua nota </S.Paragraph>
           <UserGrade grade={4} width="18.88px" height="16px" />
-        </ContainerGrade>
-      </ContainerData>
-    </ContainerProfile>
+        </S.ContainerGrade>
+      </S.ContainerData>
+    </S.ContainerProfile>
   );
 };
