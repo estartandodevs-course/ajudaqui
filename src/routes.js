@@ -15,7 +15,7 @@ export default function Routes() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/onboarding" component={Onboarding} />
         <Route exact path="/register/step-2" component={RegistrationForm} />
-        <Route exact path="/userinformation" component={UserInformation} />
+        <Route exact path="/user-information" component={UserInformation} />
       </Switch>
     </BrowserRouter>
   );

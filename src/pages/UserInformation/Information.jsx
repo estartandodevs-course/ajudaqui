@@ -16,7 +16,7 @@ export const UserInformation = () => {
             <S.Back src="/assets/svg/back.svg" alt="back" onClick={() => goBack()} />
           </S.ContentBack>
           <S.UserInformationTitle>
-            Informações de Saúde
+            Informações Pessoais
           </S.UserInformationTitle>
           <S.TabsRegister defaultActiveKey="1">
             <S.TabsChoiced tab="Pessoal" key="1">

@@ -1,4 +1,5 @@
 import { Formik } from "formik";
+import { InputSelect } from "../Select";
 import { ContainerForm } from "./FormStyled";
 
 export const Form = ({
@@ -15,3 +16,9 @@ export const Form = ({
     </Formik>
   );
 };
+
+Form.InputSelect = ({ children, ...props }) => (
+  <InputSelect as="select" {...props}>
+    {children}
+  </InputSelect>
+);
