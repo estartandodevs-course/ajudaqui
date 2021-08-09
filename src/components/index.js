@@ -1,6 +1,6 @@
 export { Typography } from "./Typography";
 export { Card } from "./Card";
-export { Button } from "./ButtonComponent";
+export { Button } from "./ButtonComponent/Button";
 export { SplashScreen } from "./SplashScreen";
 export { TabBar } from "./TabBar";
 export { Layout } from "./LayoutComponent";
@@ -9,3 +9,6 @@ export { Input } from "./Input";
 export { SelectProfileType } from "./SelectProfileType";
 export { UserGrade } from "./UserGrade";
 export { UserOverview } from "./UserOverview";
+export { TextArea } from "./TextArea";
+export { Carousel } from "./Carousel";
+export { Tag } from "./Tag";

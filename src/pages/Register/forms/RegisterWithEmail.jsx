@@ -1,5 +1,5 @@
 import { Form, Input, Button } from "../../../components";
-import { useAuth } from "../../../hooks/useAuth";
+import { useAuth } from "../../../contexts";
 import { validationRegisterWithEmail } from "../validations";
 import * as S from "./RegisterStyled";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { useAuth } from "../../hooks/useAuth";
+import { useAuth } from "../../contexts";
 import { Layout, SelectProfileType } from "../../components";
 import * as S from "./RegisterStyled";
 
@@ -27,7 +27,7 @@ export const Register = () => {
           </S.ChoiceProfile>
         </S.ContentChoice>
         <SelectProfileType onChange={handleSelectProfileType} />
-        <S.NextStep to="/register/step">
+        <S.NextStep to="/register/step-2">
           Próximo
           <S.IconNext src="/assets/svg/next.svg" alt="next" />
         </S.NextStep>
