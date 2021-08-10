@@ -1,4 +1,5 @@
 import { Form, TextArea, Button } from "../../../components";
+import { validationHealthInformation } from "../validations";
 import * as S from "./FormStyled";
 
 export const FormTextArea = () => {
@@ -8,8 +9,8 @@ export const FormTextArea = () => {
         medicine1: "",
         medicine2: "",
       }}
+      validationSchema={validationHealthInformation}
     >
-
       <S.TextAreaContainer>
         <S.Content>
           <S.TextAreaTitle>
@@ -26,7 +27,6 @@ export const FormTextArea = () => {
         <S.ButtonContainer>
           <Button width="100px">Editar</Button>
         </S.ButtonContainer>
-
       </S.TextAreaContainer>
     </Form>
   );
