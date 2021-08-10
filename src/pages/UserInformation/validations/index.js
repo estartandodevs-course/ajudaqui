@@ -9,3 +9,9 @@ export const validationPersonalInformation = yup.object().shape({
   phone: yup.string().min(13, "Telefone inválido")
     .max(15, "Telefone inválido"),
 });
+
+
+export const validationHealthInformation = yup.object().shape({
+  medicine1: yup.string(),
+  medicine2: yup.string(),
+});
