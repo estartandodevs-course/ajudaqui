@@ -5,22 +5,24 @@ import { masks } from "../../utils/masks";
 import * as S from "./InputStyles";
 
 export const Input = ({
-  label, mask, ...props
+  label, mask, name, id, ...props
 }) => {
-  const [field, meta] = useField(props);
+  const [field, meta] = useField(name);
   const { setFieldValue } = useFormikContext();
 
   const handleChange = (e) => {
     const { target } = e;
     const maskedValue = masks[mask || "standard"](target?.value || "");
-    setFieldValue(props.name, maskedValue);
+    setFieldValue(name, maskedValue);
   };
   return (
     <S.InputWrapper>
-      <S.Label htmlFor={props.id || props.name}>{label}</S.Label>
+      <S.Label htmlFor={id || name}>{label}</S.Label>
       <S.Input
         {...field}
         {...props}
+        name={name}
+        id={id}
         onChange={(e) => {
           handleChange(e);
         }}

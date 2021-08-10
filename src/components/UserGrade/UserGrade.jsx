@@ -1,7 +1,7 @@
 import * as S from "./UserGrade.styled";
 
 
-export const UserGrade = ({ grade = 0 }) => {
+export const UserGrade = ({ grade = 0, width, height }) => {
   const starNumber = new Array(grade).fill(1);
 
   if (grade < 5) {
@@ -20,11 +20,15 @@ export const UserGrade = ({ grade = 0 }) => {
           <S.StarIcon
             alt="estrela amarela"
             src="/assets/svg/estrela-preenchida.svg"
+            width={width}
+            height={height}
           />
         ) : (
           <S.StarIcon
             alt="estrela cinza"
             src="/assets/svg/estrela-vazia.svg"
+            width={width}
+            height={height}
           />
         )
       ))}
