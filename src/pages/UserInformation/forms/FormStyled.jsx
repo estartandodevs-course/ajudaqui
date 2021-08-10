@@ -40,6 +40,7 @@ export const TextAreaTitle = styled(Typography).attrs({
   variant: "body1",
 })`
   margin-bottom: 0;
+  font-weight: 700;
   color: ${(props) => props.theme.palette.colors.text};
 `;
 
