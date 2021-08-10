@@ -17,6 +17,9 @@ const variants = {
     height: 155px;
     text-align: center;
     justify-content: space-evenly;
+    @media(max-width: 300px){
+      width: 120px;
+    }
 
   `,
   secondary: css`
