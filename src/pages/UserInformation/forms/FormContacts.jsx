@@ -1,20 +1,15 @@
-import { Form, Input, Button } from "../../../components";
+import { useState } from "react";
+import { Form, Button } from "../../../components";
+import { Contacts } from "./Contacts";
 import * as S from "./FormStyled";
 
 export const FormContacts = () => {
+  const [newContact, setNewContact] = useState(false);
   return (
     <Form>
-      <S.ContactSection>
-        <Input type="text" name="name" label="Nome do contato" placeholder="Nome do responsável" />
-        <Input type="text" name="kinship" label="Parentesco" placeholder="Filho(a)" />
-        <Input type="tel" name="phone" label="Telefone" placeholder="(00)0123-4567" />
-      </S.ContactSection>
-      <S.ContactSection>
-        <Input type="text" name="name" label="Nome do contato" placeholder="Nome do responsável" />
-        <Input type="text" name="kinship" label="Parentesco" placeholder="Filho(a)" />
-        <Input type="tel" name="phone" label="Telefone" placeholder="(00)    0123-4567" />
-      </S.ContactSection>
-      <S.NewContact>
+      <Contacts />
+      {newContact && <Contacts />}
+      <S.NewContact onClick={() => setNewContact(true)}>
         NOVO CONTATO
       </S.NewContact>
       <S.ButtonContainer>

@@ -1,6 +1,5 @@
 import * as yup from "yup";
 
-
 export const validationPersonalInformation = yup.object().shape({
   name: yup.string(),
   birthday: yup.date(),
@@ -10,6 +9,12 @@ export const validationPersonalInformation = yup.object().shape({
     .max(15, "Telefone inválido"),
 });
 
+export const validationContacts = yup.object().shape({
+  name: yup.string(),
+  kinship: yup.string(),
+  phone: yup.string().min(13, "Telefone inválido")
+    .max(15, "Telefone inválido"),
+});
 
 export const validationHealthInformation = yup.object().shape({
   medicine1: yup.string(),
