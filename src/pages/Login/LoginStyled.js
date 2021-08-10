@@ -1,9 +1,52 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { Typography } from "../../components";
+import { Typography, Button } from "../../components";
+
+export const ContainerLogin = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+  height: 100vh;
+  @media(min-width: 576px) {
+    justify-items: center;
+  }
+  @media(min-width: 1200px) {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+`;
+
+export const LoginForm = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  padding: 32px 24px;
+  @media(min-width: 576px) {
+    align-items: center;
+    max-width: 400px;
+  }
+`;
+
+export const LoginAside = styled.aside`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-image: ${(props) => props.theme.palette.colors.gradientBackground};
+  @media(max-width: 1200px) {
+    display: none;
+  }
+`;
+
+export const Logo = styled.img`
+  margin-bottom: 42px;
+  @media(max-width: 576px) {
+    display: none
+  }
+`;
 
 export const ContentTitle = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -21,26 +64,6 @@ export const LoginDescription = styled(Typography).attrs({
 })`
   font-size: ${(props) => props.theme.typography.body1.fontSizeSubtitles};
   color: ${(props) => props.theme.palette.colors.primary};
-`;
-
-export const ContainerLogin = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 32px 24px;
-  z-index: 1;
-`;
-
-export const ContentBack = styled.div`
-  width: 100%;
-`;
-
-export const Back = styled.img`
-  display: flex;
-  margin-bottom: 12px;
-  cursor: pointer;
 `;
 
 export const ForgotPassword = styled(Link)`
@@ -76,10 +99,12 @@ export const DoRegister = styled(Link)`
 `;
 
 export const IconButton = styled.img`
- background: #FFF;
- border-radius: 3px;
- padding: 2px;
- margin-right: 10px;
- `;
+  background: #FFF;
+  border-radius: 3px;
+  padding: 2px;
+  margin-right: 10px;
+`;
 
-
+export const GoogleButton = styled(Button)`
+  align-self: center;
+`;
