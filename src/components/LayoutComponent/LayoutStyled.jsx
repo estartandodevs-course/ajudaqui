@@ -7,7 +7,8 @@ export const LayoutWrapper = styled.div`
 `;
 
 export const ImageTop = styled.img`
-  position: fixed;
+  position: sticky;
+  top: 0;
   width: 100%;
 `;
 
