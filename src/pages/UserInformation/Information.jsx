@@ -18,7 +18,6 @@ export const UserInformation = () => {
           <S.UserInformationTitle>
             Informações Pessoais
           </S.UserInformationTitle>
-
           <S.ContainerProfilePhoto>
             <ProfilePhoto icon="/assets/svg/icon camera.svg" alt="profile" />
             <S.ProfilePhotoText>MUDAR FOTO DE PERFIL</S.ProfilePhotoText>
