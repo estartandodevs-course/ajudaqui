@@ -8,6 +8,7 @@ export { Form } from "./Form";
 export { Input } from "./Input";
 export { SelectProfileType } from "./SelectProfileType";
 export { UserGrade } from "./UserGrade";
+export { UserOverview } from "./UserOverview";
 export { TextArea } from "./TextArea";
 export { Carousel } from "./Carousel";
 export { InputSelect } from "./Select";
