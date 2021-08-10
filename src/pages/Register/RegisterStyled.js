@@ -6,8 +6,12 @@ export const ContainerRegister = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 62px 24px 0px;
+  padding: 62px 24px;
   gap: 42px;
+
+  @media(max-width: 360px){
+    padding: 62px 12px;
+  }
 `;
 
 export const ContentTitle = styled.div`
