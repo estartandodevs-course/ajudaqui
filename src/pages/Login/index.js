@@ -27,7 +27,7 @@ export const Login = () => {
           <S.ButtonContainer>
             <Button type="submit">Entrar</Button>
           </S.ButtonContainer>
-          <S.DoRegister to="/register">
+          <S.DoRegister to="/register/step-2">
             Não tem cadastro?
           </S.DoRegister>
           <Button width="210px" height="31px" background="#7C7C7C">

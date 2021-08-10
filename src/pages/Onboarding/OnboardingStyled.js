@@ -1,8 +1,16 @@
 import styled from "styled-components";
 import { Typography } from "../../components";
 
-
 export const OnboardingContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const OnboardingMainContent = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
@@ -17,8 +25,8 @@ export const PositionClose = styled.div`
   display: flex;
   width: 100%;
   justify-content: flex-end;
+  padding: 42px 15px 0;
 `;
-
 
 export const ContentInfo = styled.div`
   width: 100%;

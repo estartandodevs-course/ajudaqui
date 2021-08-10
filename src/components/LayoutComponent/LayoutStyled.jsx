@@ -15,7 +15,3 @@ export const ImageTop = styled.img`
 export const LayoutMainContent = styled.main`
   flex: 1;
 `;
-
-export const ImageBottom = styled.img`
-  width: 100%;
-`;
