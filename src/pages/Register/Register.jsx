@@ -27,7 +27,7 @@ export const Register = () => {
           </S.ChoiceProfile>
         </S.ContentChoice>
         <SelectProfileType onChange={handleSelectProfileType} />
-        <S.NextStep to="/register/step-2">
+        <S.NextStep to="/onboarding">
           Próximo
           <S.IconNext src="/assets/svg/next.svg" alt="next" />
         </S.NextStep>

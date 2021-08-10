@@ -8,7 +8,7 @@ export const Layout = ({ hasTabBar = false, children }) => {
       <S.LayoutMainContent>
         { children }
       </S.LayoutMainContent>
-      {!hasTabBar ? <S.ImageBottom src="/assets/svg/detalhe baixo tela.svg" /> : <TabBar />}
+      {hasTabBar && <TabBar />}
     </S.LayoutWrapper>
   );
 };
