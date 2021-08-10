@@ -10,8 +10,8 @@ export const TextArea = ({ ...restProps }) => {
   };
 
   return (
-
     <S.TextArea
+      as="textarea"
       {...restProps}
       onChange={(e) => handleChange(e)}
     />
