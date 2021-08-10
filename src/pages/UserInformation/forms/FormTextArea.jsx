@@ -5,7 +5,8 @@ export const FormTextArea = () => {
   return (
     <Form
       initialValues={{
-        medicine: "",
+        medicine1: "",
+        medicine2: "",
       }}
     >
 
@@ -14,13 +15,13 @@ export const FormTextArea = () => {
           <S.TextAreaTitle>
             REMÉDIOS
           </S.TextAreaTitle>
-          <TextArea name="medicine" type="text" placeholder="Escreva e separe por vírgula remédios que são essenciais para sua saúde." />
+          <TextArea name="medicine1" placeholder="Escreva e separe por vírgula remédios que são essenciais para sua saúde." />
         </S.Content>
         <S.Content>
           <S.TextAreaTitle>
             CONDIÇÃO ESPECIAL
           </S.TextAreaTitle>
-          <TextArea name="medicine" type="text" placeholder="Caso possua alguma necessidade especial, descreva quais são os cuidados necessários que devem ser tomados." />
+          <TextArea name="medicine2" placeholder="Caso possua alguma necessidade especial, descreva quais são os cuidados necessários que devem ser tomados." />
         </S.Content>
         <S.ButtonContainer>
           <Button width="100px">Editar</Button>
