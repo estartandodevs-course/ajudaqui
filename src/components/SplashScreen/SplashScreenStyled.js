@@ -8,18 +8,19 @@ export const Container = styled.div`
   flex-direction: column;
   position: relative;
   width: 100%;
-  min-height: 100vh;
-  `;
+  min-height: 100%;
+  padding-top: 30px;
+`;
+
 export const Title = styled(Typography).attrs({
   variant: "h2",
   color: "#4E3681",
-})`
-  `;
+})``;
+
 export const Subtitle = styled(Typography).attrs({
   variant: "body1",
   color: "#4E3681",
-})`
-  `;
+})``;
 
 export const ImageCenter = styled.img`
   margin-top: 32px;
