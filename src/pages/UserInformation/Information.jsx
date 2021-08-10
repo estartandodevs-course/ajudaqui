@@ -1,5 +1,5 @@
 import { useHistory } from "react-router-dom";
-import { Layout } from "../../components";
+import { Layout, ProfilePhoto } from "../../components";
 import { FormContacts } from "./forms/FormContacts";
 import { FormTextArea } from "./forms/FormTextArea";
 import { PersonalInfos } from "./forms/FormPersonalInfos";
@@ -18,6 +18,11 @@ export const UserInformation = () => {
           <S.UserInformationTitle>
             Informações Pessoais
           </S.UserInformationTitle>
+
+          <S.ContainerProfilePhoto>
+            <ProfilePhoto icon="/assets/svg/icon camera.svg" alt="profile" />
+            <S.ProfilePhotoText>MUDAR FOTO DE PERFIL</S.ProfilePhotoText>
+          </S.ContainerProfilePhoto>
           <S.TabsRegister defaultActiveKey="1">
             <S.TabsChoiced tab="Pessoal" key="1">
               <PersonalInfos />

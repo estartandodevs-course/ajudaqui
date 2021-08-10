@@ -14,6 +14,25 @@ export const ContainerForm = styled.div`
   z-index: 1;
 `;
 
+export const ContainerProfilePhoto = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 15px;
+
+`;
+
+export const ProfilePhotoText = styled(Typography).attrs({
+  variant: "body1",
+})`
+  font-size: ${(props) => props.theme.typography.body1.fontSizeSubtitles};
+  margin: 0;
+  font-weight: 700;
+`;
+
 export const ContentBack = styled.div`
   width: 100%;
 `;
