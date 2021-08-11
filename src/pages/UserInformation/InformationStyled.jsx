@@ -33,16 +33,6 @@ export const ProfilePhotoText = styled(Typography).attrs({
   font-weight: 700;
 `;
 
-export const ContentBack = styled.div`
-  width: 100%;
-`;
-
-export const Back = styled.img`
-  display: flex;
-  margin-bottom: 12px;
-  cursor: pointer;
-`;
-
 export const UserInformationTitle = styled(Typography).attrs({
   variant: "h2",
 })`
