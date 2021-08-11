@@ -5,9 +5,8 @@ import * as S from "./SplashScreenStyled";
 
 export const SplashScreen = () => {
   const { push } = useHistory();
-
   return (
-    <Layout>
+    <Layout hasArrow={false}>
       <S.Container>
         <S.Title>
           Precisando de ajuda?
