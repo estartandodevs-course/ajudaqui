@@ -3,8 +3,9 @@ import { Typography } from "..";
 
 
 export const TagContainer = styled.div`
-  max-width: 180px;
-  min-width: 52.78px;
+  width: max-content;
+  padding: 0 20px;
+  height: 30px;
   border: ${(props) => `1px solid ${props.theme.palette.colors.primaryVariant}`};
   display: flex;
   border-radius: 5px;
