@@ -26,6 +26,9 @@ export const RegisterForm = styled.div`
   @media(max-width: 360px){
     padding: 62px 12px;
   }
+  @media(min-width: 576px) {
+    max-width: 400px;
+  }
   @media(min-width: 1200px){
   justify-content: center;
   align-items: center;
