@@ -1,8 +1,11 @@
-import { Layout, Button } from "../../components";
+import { Layout, Button, Carousel } from "../../components";
 import { FormLogin } from "./forms";
+import { onboardingDataDesktop } from "../../_mock";
+import { useAuth } from "../../contexts";
 import * as S from "./LoginStyled";
 
 export const Login = () => {
+  const { profileType } = useAuth();
   return (
     <Layout>
       <S.ContainerLogin>
@@ -31,7 +34,30 @@ export const Login = () => {
             Entrar com o gmail
           </S.GoogleButton>
         </S.LoginForm>
-        <S.LoginAside>::::: ENTRA UM CAROUSEL :::::</S.LoginAside>
+        <S.LoginAside>
+          <Carousel
+            enableAutoPlay
+            transitionMs={2000}
+            showArrows={false}
+            margin="0"
+            height="100vh"
+            display="none"
+          >
+            {onboardingDataDesktop[profileType]?.map(({ id, image, description }) => (
+
+              <S.ContainerOnboarding>
+                <S.OnboardingImages
+                  key={id}
+                  src={image}
+                  alt="onboarding"
+                />
+                <S.TitleOnboarding>
+                  {description}
+                </S.TitleOnboarding>
+              </S.ContainerOnboarding>
+            ))}
+          </Carousel>
+        </S.LoginAside>
       </S.ContainerLogin>
     </Layout>
   );

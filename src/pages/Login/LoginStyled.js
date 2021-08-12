@@ -108,3 +108,30 @@ export const IconButton = styled.img`
 export const GoogleButton = styled(Button)`
   align-self: center;
 `;
+
+
+export const OnboardingImages = styled.img`
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+`;
+
+
+export const ContainerOnboarding = styled.div`
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const TitleOnboarding = styled(Typography).attrs({
+  variant: "h2",
+})`
+  position: absolute;
+  max-width: 75%;
+  margin: 0 auto;
+  color: ${(props) => props.theme.palette.colors.white};
+  top: 60px;
+`;
