@@ -34,19 +34,21 @@ export const RegisterForm = styled.div`
 
 export const RegisterAside = styled.aside`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(
-  rgba(254, 253, 255, 0.4),
-  rgba(216, 205, 238, 0.4),
-  rgba(94, 56, 168, 0.4));
+  background-image: url("/assets/svg/fundo splash desktop.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 100%;
 
   @media(max-width: 1200px) {
     display: none;
   }
 `;
+
 
 export const ContentTitle = styled.div`
   width: 100%;
