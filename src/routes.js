@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import {
-  Onboarding, Register, Login, AskForHelp, Home,
+  Home, Onboarding, Register, Login, AskForHelp,
 } from "./pages";
 import { UserInformation } from "./pages/UserInformation";
 import { RegistrationForm } from "./pages/Register/Registrations";
