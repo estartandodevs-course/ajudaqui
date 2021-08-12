@@ -15,3 +15,4 @@ export { InputSelect } from "./Select";
 export { Tag } from "./Tag";
 export { ProfilePhoto } from "./ProfilePhoto";
 export { ArrowBack } from "./ArrowBack";
+export { BackNavigation } from "./BackNavigation";

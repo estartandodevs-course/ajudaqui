@@ -1,13 +1,15 @@
 import { useHistory } from "react-router-dom";
+import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
 import { Button } from "../ButtonComponent/ButtonStyled";
 import { Layout } from "../LayoutComponent";
 import * as S from "./SplashScreenStyled";
 
 export const SplashScreen = () => {
   const { push } = useHistory();
-
+  const [widthScreen] = useWidthScreen();
+  const showNavigation = widthScreen <= 1200;
   return (
-    <Layout>
+    <Layout hasArrow={false} showNavigation={showNavigation}>
       <S.Container>
         <S.Title>
           Precisando de ajuda?
