@@ -1,9 +1,10 @@
+import { Layout, Carousel } from "../../components";
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { Layout } from "../../components";
-import { useAuth } from "../../contexts";
 import { loginWithGoogle } from "../../services";
 import { FormLogin } from "./forms";
+import { onboardingDataDesktop } from "../../_mock";
+import { useAuth } from "../../contexts";
 import * as S from "./LoginStyled";
 
 export const Login = () => {
@@ -32,7 +33,6 @@ export const Login = () => {
       push("/");
     }
   }, [userLogged]);
-
   return (
     <Layout>
       <S.ContainerLogin>
@@ -61,7 +61,32 @@ export const Login = () => {
             Entrar com o gmail
           </S.GoogleButton>
         </S.LoginForm>
-        <S.LoginAside>::::: ENTRA UM CAROUSEL :::::</S.LoginAside>
+        <S.LoginAside>
+          <Carousel
+            autoPlaySpeed={4000}
+            transitionMs={2000}
+            showArrows={false}
+            enableAutoPlay
+            infinity
+            margin="0"
+            height="100vh"
+            display="none"
+          >
+            {onboardingDataDesktop[profileType]?.map(({ id, image, description }) => (
+
+              <S.ContainerOnboarding>
+                <S.OnboardingImages
+                  key={id}
+                  src={image}
+                  alt="onboarding"
+                />
+                <S.TitleOnboarding>
+                  {description}
+                </S.TitleOnboarding>
+              </S.ContainerOnboarding>
+            ))}
+          </Carousel>
+        </S.LoginAside>
       </S.ContainerLogin>
     </Layout>
   );
