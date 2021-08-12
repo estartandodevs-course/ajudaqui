@@ -38,7 +38,7 @@ export const Register = () => {
           </S.NextStep>
         </S.RegisterForm>
         <S.RegisterAside>
-          <SplashScreen hasButton={false} />
+          <SplashScreen />
         </S.RegisterAside>
       </S.ContainerRegister>
     </Layout>
