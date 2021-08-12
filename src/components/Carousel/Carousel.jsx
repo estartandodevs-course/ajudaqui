@@ -1,8 +1,10 @@
 import * as S from "./CarouselStyled";
 
-export const Carousel = ({ children, ...restProps }) => {
+export const Carousel = ({
+  height, display, margin, children, ...restProps
+}) => {
   return (
-    <S.ContainerCarousel {...restProps}>
+    <S.ContainerCarousel height={height} margin={margin} display={display} {...restProps}>
       {children}
     </S.ContainerCarousel>
   );
