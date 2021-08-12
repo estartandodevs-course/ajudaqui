@@ -36,9 +36,11 @@ export const Login = () => {
         </S.LoginForm>
         <S.LoginAside>
           <Carousel
-            enableAutoPlay
+            autoPlaySpeed={4000}
             transitionMs={2000}
             showArrows={false}
+            enableAutoPlay
+            infinity
             margin="0"
             height="100vh"
             display="none"
