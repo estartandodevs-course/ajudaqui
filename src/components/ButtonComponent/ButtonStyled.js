@@ -18,4 +18,7 @@ export const Button = styled.button`
   font-weight: 500;
   font-size: ${(props) => props.theme.typography.body1.fontSizeSubtitles};
   cursor: pointer;
+  &:disabled {
+    background-color: red;
+  }
 `;

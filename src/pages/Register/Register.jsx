@@ -1,6 +1,7 @@
 import React from "react";
 import { useAuth } from "../../contexts";
-import { Layout, SelectProfileType } from "../../components";
+import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
+import { Layout, SelectProfileType, SplashScreen } from "../../components";
 import * as S from "./RegisterStyled";
 
 export const Register = () => {
@@ -10,27 +11,36 @@ export const Register = () => {
     setProfileType(values);
   };
 
+  const [widthScreen] = useWidthScreen();
+
+  const showNavigation = widthScreen <= 1200;
+
   return (
-    <Layout>
+    <Layout hasArrow={false} showNavigation={showNavigation}>
       <S.ContainerRegister>
-        <S.ContentTitle>
-          <S.TitleRegister>
-            Vamos começar?
-          </S.TitleRegister>
-          <S.TitleRegister>
-            É rápido e fácil!
-          </S.TitleRegister>
-        </S.ContentTitle>
-        <S.ContentChoice>
-          <S.ChoiceProfile>
-            Escolha o seu perfil
-          </S.ChoiceProfile>
-        </S.ContentChoice>
-        <SelectProfileType onChange={handleSelectProfileType} />
-        <S.NextStep to="/register/step-2">
-          Próximo
-          <S.IconNext src="/assets/svg/next.svg" alt="next" />
-        </S.NextStep>
+        <S.RegisterForm>
+          <S.ContentTitle>
+            <S.TitleRegister>
+              Vamos começar?
+            </S.TitleRegister>
+            <S.TitleRegister>
+              É rápido e fácil!
+            </S.TitleRegister>
+          </S.ContentTitle>
+          <S.ContentChoice>
+            <S.ChoiceProfile>
+              Escolha o seu perfil
+            </S.ChoiceProfile>
+          </S.ContentChoice>
+          <SelectProfileType onChange={handleSelectProfileType} />
+          <S.NextStep to="/login">
+            Próximo
+            <S.IconNext src="/assets/svg/next.svg" alt="next" />
+          </S.NextStep>
+        </S.RegisterForm>
+        <S.RegisterAside>
+          <SplashScreen hasButton={false} />
+        </S.RegisterAside>
       </S.ContainerRegister>
     </Layout>
   );

@@ -1,14 +1,17 @@
+import { BackNavigation } from "../BackNavigation";
 import { TabBar } from "../TabBar";
 import * as S from "./LayoutStyled";
 
-export const Layout = ({ hasTabBar = false, children }) => {
+export const Layout = ({
+  hasTabBar = false, children, hasArrow = true, showNavigation = true,
+}) => {
   return (
     <S.LayoutWrapper>
-      <S.ImageTop src="/assets/svg/detalhe topo tela.svg" />
+      {showNavigation && <BackNavigation hasArrow={hasArrow} />}
       <S.LayoutMainContent>
         { children }
       </S.LayoutMainContent>
-      {!hasTabBar ? <S.ImageBottom src="/assets/svg/detalhe baixo tela.svg" /> : <TabBar />}
+      {hasTabBar && <TabBar />}
     </S.LayoutWrapper>
   );
 };

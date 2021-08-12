@@ -5,8 +5,10 @@ import { Typography } from "..";
 const variants = {
   default: css`
     background: ${(props) => {
-    return props.theme.palette.colors.white;
+    return props.theme.palette.colors.primaryVariant;
   }};
+  color:${(props) => props.theme.palette.colors.text};
+  padding-top: 30px;
   `,
   outlined: css`
     background: ${(props) => {
@@ -17,12 +19,20 @@ const variants = {
     height: 155px;
     text-align: center;
     justify-content: space-evenly;
-
+    @media(max-width: 300px){
+      width: 120px;
+    }
+  color:${(props) => props.theme.palette.colors.text};
   `,
   secondary: css`
     background: ${(props) => {
     return props.theme.palette.colors.secondary;
   }};
+  color:${(props) => props.theme.palette.colors.white};
+  padding-top: 20px;
+  width: 93px;
+  height: 80px;
+  text-align: center
   `,
 };
 
@@ -46,10 +56,9 @@ export const IconCard = styled.img`
 
 export const DescriptionCard = styled(Typography).attrs({
   variant: "body1",
-  color: theme.palette.colors.text,
   weight: "500",
 })`
-   text-align: ${(props) => props.textAlign} ;
+   color: ${(props) => props.color || props.theme.palette.colors.text};
 `;
 
 export const DaysCard = styled(Typography).attrs({

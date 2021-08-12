@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { AuthProvider } from "./contexts/Auth";
 import Routes from "./routes";
@@ -7,11 +8,13 @@ import { theme } from "./styles/themes";
 
 export default function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <AuthProvider>
-        <GlobalStyle />
-        <Routes />
-      </AuthProvider>
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <AuthProvider>
+          <GlobalStyle />
+          <Routes />
+        </AuthProvider>
+      </ThemeProvider>
+    </BrowserRouter>
   );
 }

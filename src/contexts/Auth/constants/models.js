@@ -1,4 +1,8 @@
 export const authContextModel = {
-  profileType: false,
+  profileType: "",
   setProfileType: () => {},
+  user: "",
+  setUser: () => {},
+  authIsLoading: false,
+  setAuthIsLoading: () => {},
 };

@@ -7,7 +7,7 @@ const isSelected = css`
 
 export const ProfileTypeWrapper = styled.div`
   display: flex;
-  gap: 32px;
+  gap: 22px;
   @media (min-width: 720px) {
     gap: 53px;
   }

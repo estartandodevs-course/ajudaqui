@@ -1,17 +1,12 @@
-import { useHistory } from "react-router-dom";
 import { Layout } from "../../../components";
 import { RegisterWithEmail, RegisterWithPhone } from "../forms";
 import "antd/dist/antd.css";
 import * as S from "./RegistrationFormStyled";
 
 export const RegistrationForm = ({ ...restProps }) => {
-  const { goBack } = useHistory();
   return (
     <Layout>
       <S.ContainerRegistrations {...restProps}>
-        <S.ContentBack>
-          <S.Back src="/assets/svg/back.svg" alt="back" onClick={() => goBack()} />
-        </S.ContentBack>
         <S.ContentTitle>
           <S.TitleRegistrations>
             Faremos seu cadastro

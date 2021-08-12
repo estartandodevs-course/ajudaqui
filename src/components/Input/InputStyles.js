@@ -11,7 +11,11 @@ export const Input = styled(Field)`
   box-shadow: 0 0 0 0;
   outline: 0;
   margin-bottom: 12px;
+  &:disabled{
+    background-color: red;
+  }
 `;
+
 export const Label = styled.label`
   margin-bottom: 8px;
   font-size: 16px;

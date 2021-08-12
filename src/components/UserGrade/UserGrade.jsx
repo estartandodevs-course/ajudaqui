@@ -1,3 +1,4 @@
+import { v4 as uuid } from "uuid";
 import * as S from "./UserGrade.styled";
 
 
@@ -18,6 +19,7 @@ export const UserGrade = ({ grade = 0, width, height }) => {
       {starNumber.map((item) => (
         item ? (
           <S.StarIcon
+            key={uuid()}
             alt="estrela amarela"
             src="/assets/svg/estrela-preenchida.svg"
             width={width}
@@ -25,6 +27,7 @@ export const UserGrade = ({ grade = 0, width, height }) => {
           />
         ) : (
           <S.StarIcon
+            key={uuid()}
             alt="estrela cinza"
             src="/assets/svg/estrela-vazia.svg"
             width={width}

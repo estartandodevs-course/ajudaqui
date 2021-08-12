@@ -11,6 +11,7 @@ export const Card = ({
   background,
   day,
   textAlign,
+  color,
   ...restProps
 }) => {
   return (
@@ -23,7 +24,10 @@ export const Card = ({
     >
       <S.IconCard {...restProps} />
       {day && <S.DaysCard>{day}</S.DaysCard>}
-      <S.DescriptionCard textAlign={textAlign}>
+      <S.DescriptionCard
+        color={color}
+        textAlign={textAlign}
+      >
         {children}
       </S.DescriptionCard>
     </S.ContainerCard>

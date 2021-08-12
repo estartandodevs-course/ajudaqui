@@ -10,12 +10,11 @@ export const ImageTop = styled.img`
   position: sticky;
   top: 0;
   width: 100%;
+  @media(min-width: 1200px) {
+    display: none;
+  }
 `;
 
 export const LayoutMainContent = styled.main`
   flex: 1;
-`;
-
-export const ImageBottom = styled.img`
-  width: 100%;
 `;

@@ -35,16 +35,6 @@ export const DescriptionRegistrations = styled(Typography).attrs({
   color: ${(props) => props.theme.palette.colors.primary};
 `;
 
-export const Back = styled.img`
-  display: flex;
-  margin-bottom: 12px;
-  cursor: pointer;
-`;
-
-export const ContentBack = styled.div`
-  width: 100%;
-`;
-
 export const TabsRegister = styled(Tabs)`
   .ant-tabs-tab {
     padding: 0;

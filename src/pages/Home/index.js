@@ -1,10 +1,23 @@
 import React from "react";
-import { Layout, SplashScreen } from "../../components";
+import { SplashScreen } from "../../components";
+import { useAuth } from "../../contexts";
+import { PROFILES_TYPES } from "../../utils/constants";
+import { HomeScreenOfTheElderly } from "./HomeScreenOfTheElderly";
 
 export const Home = () => {
+  const { profileType } = useAuth();
+
+  const homeScreenByProfile = {
+    [PROFILES_TYPES.ELDERLY]: () => <HomeScreenOfTheElderly />,
+    [PROFILES_TYPES.VOLUNTARY]: () => <SplashScreen />,
+  };
+
   return (
-    <Layout>
-      <SplashScreen />
-    </Layout>
+    <>
+      {profileType && (
+        homeScreenByProfile[profileType]()
+      )}
+      {!profileType && <SplashScreen />}
+    </>
   );
 };
