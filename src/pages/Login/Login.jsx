@@ -1,14 +1,18 @@
-import { Layout, Carousel } from "../../components";
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import { Layout, Carousel } from "../../components";
 import { loginWithGoogle } from "../../services";
 import { FormLogin } from "./forms";
 import { onboardingDataDesktop } from "../../_mock";
 import { useAuth } from "../../contexts";
+import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
 import * as S from "./LoginStyled";
 
 export const Login = () => {
   const { push } = useHistory();
+  const [widthScreen] = useWidthScreen();
+
+  const showNavigation = widthScreen >= 12000;
 
   const {
     user: userLogged,
@@ -34,7 +38,7 @@ export const Login = () => {
     }
   }, [userLogged]);
   return (
-    <Layout>
+    <Layout showNavigation={showNavigation}>
       <S.ContainerLogin>
         <S.LoginForm>
           <S.Logo src="/assets/svg/logo.svg" alt="logo ajudaqui" />
