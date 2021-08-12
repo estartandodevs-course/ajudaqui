@@ -11,7 +11,7 @@ export const SplashScreen = ({ hasButton = true }) => {
       </S.Title>
       <S.Subtitle>Encontre um voluntário(a)</S.Subtitle>
       <S.ImageCenter src="/assets/svg/Logo completa.svg" />
-      {hasButton && <Button style={{ zIndex: "1" }} onClick={() => push("register")}>Começar</Button>}
+      {hasButton && <Button style={{ zIndex: "1" }} onClick={() => push("select-profile")}>Começar</Button>}
     </S.Container>
   );
 };

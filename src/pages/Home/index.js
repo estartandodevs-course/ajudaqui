@@ -1,10 +1,10 @@
 import React from "react";
-import { BackNavigation } from "../../components";
+import { SplashScreen } from "../../components";
 
 export const Home = () => {
   return (
     <>
-      <BackNavigation />
+      <SplashScreen />
     </>
   );
 };

@@ -12,7 +12,7 @@ export const Login = () => {
   const { push } = useHistory();
   const [widthScreen] = useWidthScreen();
 
-  const showNavigation = widthScreen >= 12000;
+  const showNavigation = widthScreen <= 1200;
 
   const {
     user: userLogged,
@@ -51,7 +51,7 @@ export const Login = () => {
             </S.LoginDescription>
           </S.ContentTitle>
           <FormLogin />
-          <S.DoRegister to="/register/step-2">
+          <S.DoRegister to="/register">
             Não tem cadastro?
           </S.DoRegister>
           <S.GoogleButton
@@ -67,8 +67,8 @@ export const Login = () => {
         </S.LoginForm>
         <S.LoginAside>
           <Carousel
-            autoPlaySpeed={4000}
-            transitionMs={2000}
+            autoPlaySpeed={5000}
+            transitionMs={100}
             showArrows={false}
             enableAutoPlay
             infinity
@@ -77,10 +77,8 @@ export const Login = () => {
             display="none"
           >
             {onboardingDataDesktop[profileType]?.map(({ id, image, description }) => (
-
-              <S.ContainerOnboarding>
+              <S.ContainerOnboarding key={id}>
                 <S.OnboardingImages
-                  key={id}
                   src={image}
                   alt="onboarding"
                 />

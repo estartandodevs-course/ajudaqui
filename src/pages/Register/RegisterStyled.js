@@ -95,10 +95,6 @@ export const NextStep = styled(Link)`
   color: ${(props) => props.theme.palette.colors.text};
   font-family: ${(props) => props.theme.typography.body1.fontFamily};
   font-size: ${(props) => props.theme.typography.body1.fontSizeText};
-
-  @media(min-width:1200px) {
-    display: none;
-  }
 `;
 
 export const IconNext = styled.img``;

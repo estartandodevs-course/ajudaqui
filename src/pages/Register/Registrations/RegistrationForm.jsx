@@ -1,15 +1,12 @@
-import { useHistory } from "react-router-dom";
-import { ArrowBack, Layout } from "../../../components";
+import { Layout } from "../../../components";
 import { RegisterWithEmail, RegisterWithPhone } from "../forms";
 import "antd/dist/antd.css";
 import * as S from "./RegistrationFormStyled";
 
 export const RegistrationForm = ({ ...restProps }) => {
-  const { goBack } = useHistory();
   return (
     <Layout>
       <S.ContainerRegistrations {...restProps}>
-        <ArrowBack onClick={() => goBack()} />
         <S.ContentTitle>
           <S.TitleRegistrations>
             Faremos seu cadastro
