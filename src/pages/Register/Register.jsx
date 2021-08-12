@@ -12,6 +12,7 @@ export const Register = () => {
   };
 
   const [widthScreen] = useWidthScreen();
+
   const showNavigation = widthScreen <= 1200;
 
   return (
@@ -32,13 +33,13 @@ export const Register = () => {
             </S.ChoiceProfile>
           </S.ContentChoice>
           <SelectProfileType onChange={handleSelectProfileType} />
-          <S.NextStep to="/onboarding">
+          <S.NextStep to="/login">
             Próximo
             <S.IconNext src="/assets/svg/next.svg" alt="next" />
           </S.NextStep>
         </S.RegisterForm>
         <S.RegisterAside>
-          <SplashScreen />
+          <SplashScreen hasButton={false} />
         </S.RegisterAside>
       </S.ContainerRegister>
     </Layout>

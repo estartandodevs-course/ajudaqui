@@ -1,18 +1,15 @@
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
 import {
-  ArrowBack, Button, Form, Input, Layout, Tag,
+  Button, Form, Input, Layout, Tag,
 } from "../../components";
 import { optionsTagData } from "../../_mock";
 import * as S from "./AskForHelpStyled";
 
 export const AskForHelp = ({ ...restProps }) => {
-  const { goBack } = useHistory();
   const [isActive, setIsActive] = useState(null);
   return (
     <Layout hasTabBar>
       <S.ContainerAskForHelp {...restProps}>
-        <ArrowBack onClick={() => goBack()} />
         <Form initialValues={{
           help: "",
         }}

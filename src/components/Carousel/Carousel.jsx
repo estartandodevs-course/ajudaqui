@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import * as S from "./CarouselStyled";
 
 export const Carousel = ({
@@ -18,10 +18,14 @@ export const Carousel = ({
     clearTimeout(resetTimeout);
     if (index + 1 === children?.length) {
       resetTimeout = setTimeout(() => {
-        reference.current.goTo(0);
+        reference?.current?.goTo(0);
       }, autoPlaySpeed);
     }
   };
+
+  useEffect(() => {
+    return clearTimeout(resetTimeout);
+  }, []);
 
   return (
     <S.ContainerCarousel
