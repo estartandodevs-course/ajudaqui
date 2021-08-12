@@ -17,6 +17,7 @@
     "react-step-wizard": "^5.3.9",
     "sass": "1.36.0",
     "styled-components": "^5.3.0",
+    "uuid": "^8.3.2",
     "vanilla-masker": "^1.2.0",
     "yup": "^0.32.9"
   },
