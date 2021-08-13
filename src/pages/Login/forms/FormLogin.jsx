@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { Input, Form, Button } from "../../../components";
 import { validationLogin } from "../validation";
-import * as S from "../LoginStyled";
-import { loginWithEmailAndPassword } from "../../../services";
 import { useAuth } from "../../../contexts";
+import * as S from "../LoginStyled";
 
 export const FormLogin = () => {
   const [isEmail, setIsEmail] = useState(false);
@@ -12,33 +11,14 @@ export const FormLogin = () => {
     const email = e.target.value.includes("@");
     if (email) {
       setIsEmail(true);
-    } else (setIsEmail(false));
+    } else setIsEmail(false);
   };
 
   const {
     profileType,
-    setUser,
-    setAuthIsLoading,
     authIsLoading,
+    loginEmail,
   } = useAuth();
-
-  const handleSubmit = async ({ emailOrPhone, password }) => {
-    setAuthIsLoading(true);
-
-    if (emailOrPhone.includes("@")) {
-      const { user } = await loginWithEmailAndPassword(
-        {
-          email: emailOrPhone,
-          password,
-        },
-        profileType,
-      );
-
-      setUser(user);
-    }
-
-    setAuthIsLoading(false);
-  };
 
   return (
     <Form
@@ -47,7 +27,8 @@ export const FormLogin = () => {
         password: "",
       }}
       validationSchema={validationLogin}
-      onSubmit={handleSubmit}
+      onSubmit={({ emailOrPhone, password }) => (
+        loginEmail({ email: emailOrPhone, password }, profileType))}
     >
       <Input
         type="text"
@@ -56,20 +37,12 @@ export const FormLogin = () => {
         onChange={onChangeEmailPhone}
         disabled={authIsLoading}
       />
-      <Input
-        type="password"
-        name="password"
-        label="Senha"
-        disabled={authIsLoading}
-      />
+      <Input type="password" name="password" label="Senha" disabled={authIsLoading} />
       <Input type="hidden" name="isEmailValue" value={isEmail} />
-      <S.ForgotPassword to="/">
-        Esqueci a senha
-      </S.ForgotPassword>
+      <S.ForgotPassword to="/">Esqueci a senha</S.ForgotPassword>
       <S.ButtonContainer>
         <Button type="submit">Entrar</Button>
       </S.ButtonContainer>
     </Form>
   );
 };
-
