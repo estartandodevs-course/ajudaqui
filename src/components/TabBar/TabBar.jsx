@@ -59,12 +59,6 @@ export const TabBar = () => {
   return (
     <S.Wrapper>
       <S.TabBar>
-        {/* {TabBarLinks.map((tabBarLink) => (
-        <S.Ball
-          $isActive={tabBarLink.key === currentRoute}
-          key={tabBarLink.key}
-        />
-      ))} */}
         <S.Ball
           $dotPosition={currentRoute}
         />
