@@ -1,8 +1,7 @@
+import { initialStateAuthReducer } from "../reducer";
+
 export const authContextModel = {
-  profileType: "",
-  setProfileType: () => {},
-  user: "",
-  setUser: () => {},
-  authIsLoading: false,
-  setAuthIsLoading: () => {},
+  dispatch: () => {},
+  state: initialStateAuthReducer,
 };
+
