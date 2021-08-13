@@ -1,32 +1,24 @@
-import { createContext, useState } from "react";
+import { createContext, useReducer } from "react";
 import { authContextModel } from "./constants";
+import { AuthReducer, initialStateAuthReducer } from "./reducer";
 
 const AuthContext = createContext(authContextModel);
 
 const { Provider } = AuthContext;
 
 const AuthProvider = ({ children }) => {
-  const [profileType, setProfileType] = useState("voluntary");
-
-  const [user, setUser] = useState({});
-
-  const [authIsLoading, setAuthIsLoading] = useState(false);
+  const [state, dispatch] = useReducer(AuthReducer, initialStateAuthReducer);
 
   return (
     <Provider
       value={{
-        profileType,
-        setProfileType,
-        user,
-        setUser,
-        authIsLoading,
-        setAuthIsLoading,
+        state,
+        dispatch,
       }}
     >
       {children}
     </Provider>
   );
 };
-
 
 export { AuthProvider, AuthContext };
