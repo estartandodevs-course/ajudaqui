@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "..";
 import { loginWithGoogle } from "../../../services";
+import { modelByProfile } from "../constants";
 import { AuthActionsTypes } from "../types";
 
 export const useAuthGoogle = () => {
@@ -11,7 +12,10 @@ export const useAuthGoogle = () => {
       type: AuthActionsTypes.LOGIN_GOOGLE_START,
     });
     try {
-      const { user } = await loginWithGoogle(profileType);
+      const { user } = await loginWithGoogle(
+        profileType,
+        modelByProfile[profileType],
+      );
       dispatch({
         type: AuthActionsTypes.LOGIN_GOOGLE_SUCCESS,
         payload: {
@@ -27,6 +31,7 @@ export const useAuthGoogle = () => {
       });
     }
   };
+
   const logoutGoogle = () => {};
 
   return { loginGoogle, logoutGoogle };
