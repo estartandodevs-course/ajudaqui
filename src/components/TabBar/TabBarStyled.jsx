@@ -49,7 +49,6 @@ export const IconContent = styled.div`
   cursor: pointer;
 
   @media(min-width: 1200px) {
-    display:flex;
     align-items: flex-start;
     width: 80px;
     height: 65px;
