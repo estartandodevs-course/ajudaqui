@@ -32,7 +32,7 @@ const variants = {
   padding-top: 20px;
   width: 93px;
   height: 80px;
-  text-align: center
+  text-align: center;
   `,
 };
 
