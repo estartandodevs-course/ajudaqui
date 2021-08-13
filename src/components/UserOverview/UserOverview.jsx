@@ -4,27 +4,29 @@ import { UserGrade } from "../UserGrade";
 
 export const UserOverview = ({ userData }) => {
   const {
-    name, img, location, idade,
+    name, photoURL, location, birthday, grade,
   } = userData;
   return (
     <S.ContainerProfile>
-      <S.ImgProfile src={img} alt="" />
+      <S.ImgProfile src={photoURL} alt="" />
       <S.ContainerData>
         <S.TitleProfile>
           Olá,
           {" "}
           {name}
         </S.TitleProfile>
+        {birthday && (
         <S.Paragraph>
-          {idade}
+          {birthday}
           {" "}
           anos -
           {" "}
           {location.city}
         </S.Paragraph>
+        )}
         <S.ContainerGrade>
-          <S.Paragraph> Sua nota </S.Paragraph>
-          <UserGrade grade={4} width="18.88px" height="16px" />
+          <S.Paragraph>Sua nota</S.Paragraph>
+          <UserGrade grade={grade} width="18.88px" height="16px" />
         </S.ContainerGrade>
       </S.ContainerData>
     </S.ContainerProfile>
