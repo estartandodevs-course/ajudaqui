@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "..";
+import { useAuthEmail } from "./useAuthEmail";
 import { useAuthGoogle } from "./useAuthGoogle";
 
 export const useAuth = () => {
@@ -9,5 +10,6 @@ export const useAuth = () => {
     ...state,
     dispatch,
     ...useAuthGoogle(),
+    ...useAuthEmail(),
   };
 };
