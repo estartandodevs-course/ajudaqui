@@ -1,6 +1,6 @@
 import { createContext, useReducer } from "react";
-import { authContextModel } from "./constants";
-import { AuthReducer, initialStateAuthReducer } from "./reducer";
+import { authContextModel, initialStateAuthReducer } from "./constants";
+import { AuthReducer } from "./reducer";
 
 const AuthContext = createContext(authContextModel);
 
