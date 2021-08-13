@@ -4,7 +4,7 @@ import { getByKey, save } from "./firebase/handlers";
 
 const basePath = "#21/ajudaqui";
 
-export const loginWithGoogle = async (profileType) => {
+export const loginWithGoogle = async (profileType, profileData) => {
   const {
     user,
     idToken,
@@ -14,7 +14,7 @@ export const loginWithGoogle = async (profileType) => {
   if (isNewUser) {
     const newUser = await save(
       `${basePath}/${profileType}s`,
-      { ...user, profileType },
+      { ...profileData, ...user, profileType },
     );
 
     return {
@@ -35,7 +35,7 @@ export const loginWithGoogle = async (profileType) => {
   };
 };
 
-export const registerWithEmailAndPassword = async (credentials, profileType) => {
+export const registerWithEmailAndPassword = async (credentials, profileType, profileData) => {
   const {
     user,
     idToken,
@@ -45,7 +45,7 @@ export const registerWithEmailAndPassword = async (credentials, profileType) => 
   if (isNewUser) {
     const newUser = await save(
       `${basePath}/${profileType}s`,
-      { ...user, profileType },
+      { ...profileData, ...user, profileType },
     );
 
     return {
@@ -66,7 +66,7 @@ export const registerWithEmailAndPassword = async (credentials, profileType) => 
   };
 };
 
-export const loginWithEmailAndPassword = async (credentials, profileType) => {
+export const loginWithEmailAndPassword = async (credentials, profileType, profileData) => {
   const {
     user,
     idToken,
@@ -76,7 +76,7 @@ export const loginWithEmailAndPassword = async (credentials, profileType) => {
   if (isNewUser) {
     const newUser = await save(
       `${basePath}/${profileType}s`,
-      { ...user, profileType },
+      { ...profileData, ...user, profileType },
     );
 
     return {
