@@ -56,7 +56,7 @@ export const IconContent = styled.div`
     border: none;
     border-top-left-radius: 48%;
     border-bottom-left-radius: 48%;
-    background-color: ${(props) => (props.$containerPosition ? "white" : `${props} => ${props.theme.palette.colors.gradientBackground}`)};
+    background-color: ${(props) => (props.$containerPosition ? theme.palette.colors.white : `${props} => ${props.theme.palette.colors.gradientBackground}`)};
 
   }
 `;
