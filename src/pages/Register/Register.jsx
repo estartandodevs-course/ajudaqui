@@ -2,17 +2,20 @@ import React from "react";
 import { useAuth } from "../../contexts";
 import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
 import { Layout, SelectProfileType, SplashScreen } from "../../components";
+import { AuthActionsTypes } from "../../contexts/Auth/types";
 import * as S from "./RegisterStyled";
 
 export const Register = () => {
-  const { setProfileType } = useAuth();
+  const { dispatch } = useAuth();
 
-  const handleSelectProfileType = (values) => {
-    setProfileType(values);
+  const handleSelectProfileType = (profileType) => {
+    dispatch({
+      type: AuthActionsTypes.PROFILE_TYPE,
+      payload: { profileType },
+    });
   };
 
   const [widthScreen] = useWidthScreen();
-
   const showNavigation = widthScreen <= 1200;
 
   return (
@@ -20,17 +23,11 @@ export const Register = () => {
       <S.ContainerRegister>
         <S.RegisterForm>
           <S.ContentTitle>
-            <S.TitleRegister>
-              Vamos começar?
-            </S.TitleRegister>
-            <S.TitleRegister>
-              É rápido e fácil!
-            </S.TitleRegister>
+            <S.TitleRegister>Vamos começar?</S.TitleRegister>
+            <S.TitleRegister>É rápido e fácil!</S.TitleRegister>
           </S.ContentTitle>
           <S.ContentChoice>
-            <S.ChoiceProfile>
-              Escolha o seu perfil
-            </S.ChoiceProfile>
+            <S.ChoiceProfile>Escolha o seu perfil</S.ChoiceProfile>
           </S.ContentChoice>
           <SelectProfileType onChange={handleSelectProfileType} />
           <S.NextStep to="/login">

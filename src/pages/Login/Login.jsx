@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { Layout, Carousel } from "../../components";
-import { loginWithGoogle } from "../../services";
 import { FormLogin } from "./forms";
 import { onboardingDataDesktop } from "../../_mock";
 import { useAuth } from "../../contexts";
@@ -15,28 +14,18 @@ export const Login = () => {
   const showNavigation = widthScreen <= 1200;
 
   const {
-    user: userLogged,
+    user,
     profileType,
-    setAuthIsLoading,
-    setUser,
     authIsLoading,
+    loginGoogle,
   } = useAuth();
 
-  const handleSubmitGoogle = async () => {
-    setAuthIsLoading(true);
-
-    const { user } = await loginWithGoogle(profileType);
-
-    setUser(user);
-
-    setAuthIsLoading(false);
-  };
 
   useEffect(() => {
-    if (userLogged.id) {
+    if (user.id) {
       push("/");
     }
-  }, [userLogged]);
+  }, [user]);
   return (
     <Layout showNavigation={showNavigation}>
       <S.ContainerLogin>
@@ -58,7 +47,7 @@ export const Login = () => {
             width="210px"
             height="31px"
             background="#7C7C7C"
-            onClick={handleSubmitGoogle}
+            onClick={() => loginGoogle(profileType)}
             disabled={authIsLoading}
           >
             <S.IconButton src="/assets/svg/icon google.svg" alt="google" />

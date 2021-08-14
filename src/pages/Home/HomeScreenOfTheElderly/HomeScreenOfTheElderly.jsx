@@ -3,41 +3,34 @@ import * as S from "./HomeScreenOfTheElderlyStyled";
 import {
   UserOverview, Card, Button, Layout,
 } from "../../../components";
-import { userData } from "../../../_mock/userData";
-
+import { useAuth } from "../../../contexts/Auth/hooks";
 
 export const HomeScreenOfTheElderly = () => {
+  const { user } = useAuth();
   return (
     <Layout hasTabBar>
-
       <S.ContainerPage>
-
         <S.ContainerUserOverview>
-          <UserOverview userData={userData} />
+          <UserOverview userData={user} />
         </S.ContainerUserOverview>
 
-        <S.ContainerOne borderTop="1px solid #D8CDEE" borderBottom="1px solid #D8CDEE">
-
+        <S.ContainerOne
+          borderTop="1px solid #D8CDEE"
+          borderBottom="1px solid #D8CDEE"
+        >
           <S.Paragraph>Como você prefere pedir ajuda?</S.Paragraph>
           <S.ContainerCards>
-            <Card
-              src="/assets/svg/icon texto.svg"
-              color="white"
-            >
+            <Card src="/assets/svg/icon texto.svg" color="white">
               {" "}
               POR TEXTO
               {" "}
             </Card>
-            <Card
-              src="/assets/svg/icon mic.svg"
-              color="white"
-            >
+            <Card src="/assets/svg/icon mic.svg" color="white">
               {" "}
               POR ÁUDIO
               {" "}
             </Card>
           </S.ContainerCards>
-
         </S.ContainerOne>
 
         <S.ContainerOne borderBottom="1px solid #D8CDEE">
@@ -65,7 +58,6 @@ export const HomeScreenOfTheElderly = () => {
               {" "}
             </Card>
           </S.ContainerCards>
-
         </S.ContainerOne>
 
         <S.ContainerTwo>
@@ -73,16 +65,11 @@ export const HomeScreenOfTheElderly = () => {
             <S.Paragraph>Possui uma emergência de saúde?</S.Paragraph>
           </S.ContainerTexts>
           <S.Paragraph1>
-            Clique abaixo e seus familiares e voluntários
-            serão avisados que você precisa de socorro
-
+            Clique abaixo e seus familiares e voluntários serão avisados que
+            você precisa de socorro
           </S.Paragraph1>
           <S.PositionButton>
-            <Button
-              background="#BC1610"
-            >
-              EMERGÊNCIA
-            </Button>
+            <Button background="#BC1610">EMERGÊNCIA</Button>
           </S.PositionButton>
         </S.ContainerTwo>
       </S.ContainerPage>

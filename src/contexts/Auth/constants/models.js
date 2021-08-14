@@ -1,8 +1,46 @@
-export const authContextModel = {
+export const userDataModel = {
+  uuid: "",
+  name: "",
+  email: "",
+  grade: 0,
+  photoURL: "",
   profileType: "",
-  setProfileType: () => {},
-  user: "",
-  setUser: () => {},
+  birthday: "",
+  gender: "",
+  phoneNumber: null,
+  location: {
+    uf: "",
+    city: "",
+    adress: "",
+  },
+};
+
+export const modelByProfile = {
+  elderly: {
+    ...userDataModel,
+    helpPreferrence: "",
+    health: {
+      medicine: [],
+      specialConditions: "",
+    },
+    contacts: [],
+  },
+  voluntary: {
+    ...userDataModel,
+    interests: [],
+  },
+};
+
+export const initialStateAuthReducer = {
+  isAuthenticated: false,
+  loadingAuth: false,
+  profileType: "voluntary",
+  user: userDataModel,
   authIsLoading: false,
-  setAuthIsLoading: () => {},
+  error: null,
+};
+
+export const authContextModel = {
+  dispatch: () => {},
+  state: initialStateAuthReducer,
 };
