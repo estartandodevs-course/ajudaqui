@@ -38,6 +38,11 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Open Sans', 'Roboto', sans-serif;
   }
 
+  h1, h2, p { 
+    margin: 0;
+    line-height: 1;
+  }
+
   #root, html, body {
     min-height: 100%;
     width: 100%;
