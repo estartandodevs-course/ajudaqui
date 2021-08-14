@@ -7,13 +7,15 @@ export const ContainerAskForHelp = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 32px 24px;
+  padding: 14px 24px;
   z-index: 1;
 `;
 
 export const Text = styled(Typography).attrs({
   variant: "body1",
-})``;
+})`
+  margin-bottom: 16px;
+`;
 
 
 export const ContainerTag = styled.div`
@@ -22,7 +24,7 @@ export const ContainerTag = styled.div`
   justify-content: center;
   gap: 4px;
   flex-wrap: wrap;
-  margin-bottom: 10px;
+  margin-bottom: 24px;
 `;
 
 export const PositionButton = styled.div`
