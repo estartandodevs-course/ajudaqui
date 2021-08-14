@@ -20,12 +20,8 @@ export const RegisterForm = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 62px 24px;
+  padding: 14px 24px;
   gap: 42px;
-
-  @media(max-width: 360px){
-    padding: 62px 12px;
-  }
   @media(min-width: 576px) {
     max-width: 400px;
   }
@@ -73,6 +69,7 @@ export const ContentChoice = styled.div`
 export const TitleRegister = styled(Typography).attrs({
   variant: "h1",
 })`
+  padding: 5px 0;
   color: ${(props) => props.theme.palette.colors.primary};
 `;
 

@@ -10,7 +10,7 @@ export const ContainerRegistrations = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 32px 24px;
+  padding: 24px;
   z-index: 1;
 `;
 
@@ -18,8 +18,8 @@ export const ContentTitle = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  margin-bottom: 12px;
+  gap: 16px;
+  margin-bottom: 22px;
 `;
 
 export const TitleRegistrations = styled(Typography).attrs({
