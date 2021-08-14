@@ -4,29 +4,22 @@ import * as S from "./CardStyled";
 
 export const Card = ({
   children,
-  width,
-  height,
   variant = "default",
-  flexDirection,
-  background,
   day,
-  textAlign,
   color,
+  fontSize,
   ...restProps
 }) => {
   return (
     <S.ContainerCard
-      width={width}
-      height={height}
-      flexDirection={flexDirection}
       variant={variant}
       {...restProps}
     >
       <S.IconCard {...restProps} />
       {day && <S.DaysCard>{day}</S.DaysCard>}
       <S.DescriptionCard
+        fontSize={fontSize}
         color={color}
-        textAlign={textAlign}
       >
         {children}
       </S.DescriptionCard>
@@ -36,17 +29,10 @@ export const Card = ({
 
 Card.propTypes = {
   children: PropTypes.node.isRequired,
-  width: PropTypes.string,
-  height: PropTypes.string,
-  flexDirection: PropTypes.string,
   day: PropTypes.string,
-  border: PropTypes.string,
-  textAlign: PropTypes.string,
+  fontSize: PropTypes.string,
 };
 
 Card.defaultProps = {
-  width: "140px",
-  height: "80px",
-  flexDirection: "column",
   day: "",
 };
