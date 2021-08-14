@@ -8,22 +8,19 @@ export const UserOverview = ({ userData }) => {
   } = userData;
   return (
     <S.ContainerProfile>
-      <S.ImgProfile src={photoURL} alt="" />
+      <S.ImgProfile src={photoURL} alt={name} />
       <S.ContainerData>
         <S.TitleProfile>
-          Olá,
-          {" "}
-          {name}
+          {`Olá, ${name}`}
         </S.TitleProfile>
-        {birthday && (
         <S.Paragraph>
-          {birthday}
-          {" "}
-          anos -
-          {" "}
-          {location.city}
-        </S.Paragraph>
+          {birthday
+        && (
+        <>
+          {`${birthday} anos - ${location.city}`}
+        </>
         )}
+        </S.Paragraph>
         <S.ContainerGrade>
           <S.Paragraph>Sua nota</S.Paragraph>
           <UserGrade grade={grade} width="18.88px" height="16px" />

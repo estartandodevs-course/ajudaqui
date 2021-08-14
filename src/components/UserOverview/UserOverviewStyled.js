@@ -3,36 +3,44 @@ import { Typography } from "../Typography";
 
 export const ContainerProfile = styled.div`
   display: flex;
+  margin-top: 84px;
+  width: 100%;
+  justify-content: center;
+  gap: 11px;
 `;
 
 export const ContainerData = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 70px;
-  margin-left: 10px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4px;
+
 `;
 
 export const ContainerGrade = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const ImgProfile = styled.img`
-  width: 74.31px;
+  width: 75px;
   height: 75px;
   border: 2px solid #5e38a8;
-  border-radius: 100px;
+  border-radius: 9999px;
   object-fit: cover;
-  margin-top: 84px;
 `;
 
 export const TitleProfile = styled(Typography).attrs({
-  variant: "h1",
-  color: "#4E3681",
+  variant: "h2",
 })`
-  margin-bottom: 2px;
+  padding-bottom: 4px;
+  color: ${(props) => props.theme.palette.colors.primaryVariant};
 `;
 export const Paragraph = styled(Typography).attrs({
   variant: "body1",
 })`
-  margin-bottom: 2px;
+   font-size: ${(props) => props.theme.typography.body1.fontSizeSubtitles};
+   display: flex; 
 `;
