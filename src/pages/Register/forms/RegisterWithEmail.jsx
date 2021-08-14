@@ -4,7 +4,9 @@ import { validationRegisterWithEmail } from "../validations";
 import * as S from "./RegisterStyled";
 
 const RegisterWithEmail = () => {
-  const { profileType, authIsLoading, registerEmail } = useAuth();
+  const {
+    profileType, authIsLoading, registerEmail,
+  } = useAuth();
   return (
     <Form
       initialValues={{
@@ -16,7 +18,7 @@ const RegisterWithEmail = () => {
       }}
       validationSchema={validationRegisterWithEmail}
       onSubmit={async ({ name, email1, password1 }) => {
-        registerEmail({ name, email: email1, password: password1 }, profileType);
+        await registerEmail({ name, email: email1, password: password1 }, profileType);
       }}
     >
       <Input type="text" name="name" label="Nome completo" placeholder="Nome completo" disabled={authIsLoading} />
