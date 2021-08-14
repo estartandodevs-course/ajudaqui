@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./HomeScreenOfTheElderlyStyled";
 import {
-  UserOverview, Card, Button, Layout,
+  UserOverview, Card, Button, Layout, Modal,
 } from "../../../components";
 import { useAuth } from "../../../contexts/Auth/hooks";
 
@@ -9,6 +9,11 @@ export const HomeScreenOfTheElderly = () => {
   const { user } = useAuth();
   return (
     <Layout hasTabBar>
+      {!user.birthday && (
+      <Modal>
+        {/* conteudo do modal aqui */}
+      </Modal>
+      )}
       <S.ContainerPage>
         <S.ContainerUserOverview>
           <UserOverview userData={user} />
