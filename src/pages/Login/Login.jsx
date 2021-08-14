@@ -40,12 +40,14 @@ export const Login = () => {
             </S.LoginDescription>
           </S.ContentTitle>
           <FormLogin />
-          <S.DoRegister to="/register">
-            Não tem cadastro?
-          </S.DoRegister>
+          <S.ContainerRegister>
+
+            <S.DoRegister to="/register">
+              Não tem cadastro?
+            </S.DoRegister>
+          </S.ContainerRegister>
           <S.GoogleButton
             width="210px"
-            height="31px"
             background="#7C7C7C"
             onClick={() => loginGoogle(profileType)}
             disabled={authIsLoading}

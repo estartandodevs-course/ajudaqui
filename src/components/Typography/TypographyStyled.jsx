@@ -7,7 +7,7 @@ const h1 = styled.h1`
     return props.weight || `${props.theme.typography.h1?.fontWeight}`;
   }};
   font-family: ${(props) => props.theme.typography.h1?.fontFamily};
-`;
+  `;
 
 const h2 = styled.h2`
   font-size: ${(props) => props.theme.typography.h2?.fontSize};
@@ -16,7 +16,7 @@ const h2 = styled.h2`
     return props.weight || `${props.theme.typography.h2?.fontWeight}`;
   }};
   font-family: ${(props) => props.theme.typography.h2?.fontFamily};
-`;
+  `;
 
 const body1 = styled.p`
   font-size: ${(props) => props.theme.typography.body1?.fontSizeText};
