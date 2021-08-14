@@ -3,16 +3,15 @@ import { theme } from "../../styles/themes";
 import { Typography } from "..";
 
 export const Wrapper = styled.div`
-width: 100%;
-
-@media(min-width: 1200px) {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 95px;
-  height: 100vh;
-  background-image: ${(props) => `${props.theme.palette.colors.gradientBackground}`};
-  border: none;
+  width: 100%;
+  @media(min-width: 1200px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 95px;
+    height: 100vh;
+    background-image: ${(props) => props.theme.palette.colors.gradientBackground};
+    border: none;
   }
 `;
 
@@ -27,10 +26,10 @@ export const TabBar = styled.div`
   align-self: flex-end;
   height: 64px;
 
-   @media(min-width: 1200px) {
+  @media (min-width: 1200px) {
     width: 95px;
     height: 300px;
-    display:grid;
+    display: grid;
     grid-template-columns: repeat(1, 4fr);
     align-items: center;
     margin-left: 10px;
@@ -48,7 +47,7 @@ export const IconContent = styled.div`
   margin: 8px 0;
   cursor: pointer;
 
-  @media(min-width: 1200px) {
+  @media (min-width: 1200px) {
     align-items: flex-start;
     width: 80px;
     height: 65px;
@@ -56,8 +55,9 @@ export const IconContent = styled.div`
     border: none;
     border-top-left-radius: 48%;
     border-bottom-left-radius: 48%;
-    background-color: ${(props) => (props.$containerPosition ? theme.palette.colors.white : `${props} => ${props.theme.palette.colors.gradientBackground}`)};
-
+    background-color: ${(props) => (props.$containerPosition
+    ? theme.palette.colors.white
+    : `${props} => ${props.theme.palette.colors.gradientBackground}`)};
   }
 `;
 
@@ -66,7 +66,7 @@ export const Ball = styled.div`
   width: 12px;
   height: 12px;
   top: -7px;
-  left:${(props) => `
+  left: ${(props) => `
     calc(
       calc(
         calc(
@@ -77,9 +77,9 @@ export const Ball = styled.div`
   `};
   background: ${(props) => props.theme.palette.colors.gradientBackground};
   border-radius: 100%;
-  transition: .6s ease-in-out;
+  transition: 0.6s ease-in-out;
 
-  @media(min-width: 1200px) {
+  @media (min-width: 1200px) {
     display: none;
   }
 `;
@@ -89,9 +89,11 @@ export const ImageIcon = styled.img`
   max-width: 26px;
   max-height: 26px;
 
-  @media(min-width: 1200px) {
+  @media (min-width: 1200px) {
     margin-left: 15px;
-    filter: ${(props) => (props.$containerPosition ? `${props} => ${props.theme.palette.colors.gradientBackground} 1` : "brightness(100)")};
+    filter: ${(props) => (props.$containerPosition
+    ? `${props} => ${props.theme.palette.colors.gradientBackground} 1`
+    : "brightness(100)")};
   }
 `;
 
@@ -101,9 +103,7 @@ export const DescriptionIcon = styled(Typography).attrs({
 })`
   font-size: ${(props) => props.theme.typography.body1?.fontSizeSubtitles};
 
-  @media(min-width: 1200px) {
+  @media (min-width: 1200px) {
     display: none;
   }
-
 `;
-
