@@ -27,8 +27,9 @@ export const FormLogin = () => {
         password: "",
       }}
       validationSchema={validationLogin}
-      onSubmit={({ emailOrPhone, password }) => (
-        loginEmail({ email: emailOrPhone, password }, profileType))}
+      onSubmit={async ({ emailOrPhone, password }) => {
+        await loginEmail({ email: emailOrPhone, password }, profileType);
+      }}
     >
       <Input
         type="text"
