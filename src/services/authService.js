@@ -42,10 +42,14 @@ export const registerWithEmailAndPassword = async (credentials, profileType, pro
     isNewUser,
   } = await emailProviderRegister(credentials);
 
+  const { name } = credentials;
+
   if (isNewUser) {
     const newUser = await save(
       `${basePath}/${profileType}s`,
-      { ...profileData, ...user, profileType },
+      {
+        ...profileData, ...user, name, profileType,
+      },
     );
 
     return {
