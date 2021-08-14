@@ -35,16 +35,25 @@ margin-bottom: 30px;
 
 export const Paragraph = styled(Typography).attrs({
   variant: "body1",
+  weight: 700,
 })`
-text-align: center;
-font-weight: bold;
-  `;
+  margin-bottom: 25px;
+  text-align: center;
+`;
 
 export const Paragraph1 = styled(Typography).attrs({
   variant: "body1",
 })`
-text-align: center;
-  `;
+  text-align: center;
+  margin-bottom: 17px;
+`;
+
+export const TextInformation = styled(Typography).attrs({
+  variant: "body1",
+  weight: 700,
+})`
+  text-align: center;
+`;
 
 export const ContainerTwo = styled.div`
 width: 100%;
