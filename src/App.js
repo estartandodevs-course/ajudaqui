@@ -5,14 +5,17 @@ import { AuthProvider } from "./contexts/Auth";
 import { GlobalStyle } from "./styles/global";
 import { theme } from "./styles/themes";
 import Routes from "./routes";
+import { ModalProvider } from "./contexts/Modal";
 
 export default function App() {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <AuthProvider>
-          <GlobalStyle />
-          <Routes />
+          <ModalProvider>
+            <GlobalStyle />
+            <Routes />
+          </ModalProvider>
         </AuthProvider>
       </ThemeProvider>
     </BrowserRouter>
