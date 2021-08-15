@@ -4,7 +4,7 @@ import {
   registerWithEmailAndPassword,
   loginWithEmailAndPassword,
 } from "../../../services";
-import { modelByProfile } from "../constants";
+import { modelByProfile } from "../models";
 import { AuthActionsTypes } from "../types";
 
 export const useAuthEmail = () => {
