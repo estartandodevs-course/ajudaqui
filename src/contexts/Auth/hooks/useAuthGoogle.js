@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "..";
 import { loginWithGoogle } from "../../../services";
-import { modelByProfile } from "../constants";
+import { modelByProfile } from "../models";
 import { AuthActionsTypes } from "../types";
 
 export const useAuthGoogle = () => {
