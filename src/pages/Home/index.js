@@ -15,8 +15,6 @@ export const Home = () => {
     <>
       {profileType && homeScreenByProfile[profileType]()}
       {!profileType && <SplashScreen />}
-
-
     </>
   );
 };

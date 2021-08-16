@@ -4,3 +4,4 @@ export { optionsPreference } from "./preferenceData";
 export { optionsTagData } from "./optionsTagData";
 export { TabBarLinks } from "./tabBar";
 export { elderlyInfos } from "./HelpRequestCard";
+export { serviceEvaluationData } from "./serviceEvaluationData";
