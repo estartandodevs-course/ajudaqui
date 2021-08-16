@@ -17,7 +17,7 @@ export const Input = styled(Field)`
 `;
 
 export const Label = styled.label`
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   font-size: 16px;
   line-height: 19px;
   color: #0c011b;
