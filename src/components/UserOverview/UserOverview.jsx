@@ -8,7 +8,7 @@ export const UserOverview = ({ userData, typePerson }) => {
   } = userData;
   return (
     <>
-      {typePerson === "idoso" ? (
+      {typePerson === "Elderly" ? (
 
         <S.ContainerProfile>
           <S.ImgProfile src={photoURL} alt={name} />
@@ -30,7 +30,17 @@ export const UserOverview = ({ userData, typePerson }) => {
             </S.ContainerGrade>
           </S.ContainerData>
         </S.ContainerProfile>
-      ) : null}
+      ) : (
+        <S.ContainerOneVoluntary>
+          <S.ImgProfileVoluntary src={photoURL} alt={name} />
+          <S.ContainerGradeVoluntary>
+            <UserGrade grade={grade} width="25px" height="25px" />
+          </S.ContainerGradeVoluntary>
+          <S.NomeProfileVoluntary>
+            {`${name}`}
+          </S.NomeProfileVoluntary>
+        </S.ContainerOneVoluntary>
+      )}
     </>
   );
 };
