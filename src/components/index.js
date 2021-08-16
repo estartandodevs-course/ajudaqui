@@ -17,3 +17,5 @@ export { ProfilePhoto } from "./ProfilePhoto";
 export { BackNavigation } from "./BackNavigation";
 export { Modal } from "./Modal";
 export { HelpRequestCard } from "./HelpRequestCard";
+export { VoluntaryModalCard } from "./WelcomeModalCards";
+export { ElderlyModalCard } from "./WelcomeModalCards";
