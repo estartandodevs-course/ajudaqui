@@ -42,5 +42,27 @@ export const Paragraph = styled(Typography).attrs({
   variant: "body1",
 })`
    font-size: ${(props) => props.theme.typography.body1.fontSizeSubtitles};
-   display: flex; 
+   display: flex;
+`;
+
+
+export const ContainerOneVoluntary = styled.div`
+display: flex;
+align-items: center;
+flex-direction: column;
+`;
+export const ImgProfileVoluntary = styled.img`
+  width: 125px;
+  height: 125px;
+  border-radius: 99px;
+  object-fit: cover;
+  margin-bottom: 5px;
+`;
+export const ContainerGradeVoluntary = styled.div`
+  margin-bottom: 13px;
+  `;
+
+export const NomeProfileVoluntary = styled(Typography).attrs({
+  variant: "h2",
+})`
 `;
