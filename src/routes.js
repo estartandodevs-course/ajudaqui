@@ -5,6 +5,7 @@ import {
 } from "./pages";
 import { UserInformation } from "./pages/UserInformation";
 import { RegistrationForm } from "./pages/Register/Registrations";
+import { RegisterNewPassword } from "./pages/RegisterNewPassword";
 
 export default function Routes() {
   return (
@@ -16,6 +17,8 @@ export default function Routes() {
       <Route exact path="/register" component={RegistrationForm} />
       <Route exact path="/user-information" component={UserInformation} />
       <Route exact path="/ask-for-help" component={AskForHelp} />
+      <Route exact path="/register-new-password" component={RegisterNewPassword} />
+
     </Switch>
   );
 }
