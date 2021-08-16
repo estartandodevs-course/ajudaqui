@@ -12,7 +12,7 @@ export const UserOverview = ({ userData }) => {
 
   return (
     <>
-      {!profileType === "elderly" ? (
+      {profileType === "elderly" ? (
 
         <S.ContainerProfile>
           <S.ImgProfile src={photoURL} alt={name} />
