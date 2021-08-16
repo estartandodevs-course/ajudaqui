@@ -16,3 +16,4 @@ export { Tag } from "./Tag";
 export { ProfilePhoto } from "./ProfilePhoto";
 export { BackNavigation } from "./BackNavigation";
 export { Modal } from "./Modal";
+export { HelpRequestCard } from "./HelpRequestCard";
