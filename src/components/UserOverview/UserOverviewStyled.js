@@ -15,7 +15,6 @@ export const ContainerData = styled.div`
   justify-content: center;
   align-items: flex-start;
   gap: 4px;
-
 `;
 
 export const ContainerGrade = styled.div`
@@ -41,6 +40,27 @@ export const TitleProfile = styled(Typography).attrs({
 export const Paragraph = styled(Typography).attrs({
   variant: "body1",
 })`
-   font-size: ${(props) => props.theme.typography.body1.fontSizeSubtitles};
-   display: flex; 
+  font-size: ${(props) => props.theme.typography.body1.fontSizeSubtitles};
+  display: flex;
 `;
+
+export const ContainerOneVoluntary = styled.div`
+  display: flex;
+  align-items: center;
+  padding-top: 60px;
+  flex-direction: column;
+`;
+export const ImgProfileVoluntary = styled.img`
+  width: 125px;
+  height: 125px;
+  border-radius: 99px;
+  object-fit: cover;
+  margin-bottom: 5px;
+`;
+export const ContainerGradeVoluntary = styled.div`
+  margin-bottom: 13px;
+`;
+
+export const NomeProfileVoluntary = styled(Typography).attrs({
+  variant: "h2",
+})``;
