@@ -2,7 +2,7 @@ import React from "react";
 import { SplashScreen } from "../../components";
 import { useAuth } from "../../contexts";
 import { PROFILES_TYPES } from "../../utils/constants";
-import { HomeScreenOfTheElderly } from "./HomeScreenOfTheElderly";
+import { HomeScreenOfTheElderly } from "./HomeScreenOfTheElderly/HomeScreenOfTheElderly";
 
 export const Home = () => {
   const { profileType } = useAuth();
