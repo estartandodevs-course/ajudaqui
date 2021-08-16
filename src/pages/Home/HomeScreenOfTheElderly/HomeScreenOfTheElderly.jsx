@@ -11,7 +11,7 @@ export const HomeScreenOfTheElderly = () => {
     <Layout hasTabBar>
       <S.ContainerPage>
         <S.ContainerUserOverview>
-          <UserOverview userData={user} />
+          <UserOverview userData={user} typePerson="Elderly" />
         </S.ContainerUserOverview>
         <S.ContainerOne
           borderTop="1px solid #D8CDEE"
