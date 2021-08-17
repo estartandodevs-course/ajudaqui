@@ -33,7 +33,7 @@ export const ScreenEvaluation = () => {
                   key={item.id}
                   src={item.icon}
                   alt={item.description}
-                  click={() => setEvaluation(item.id)}
+                  click={() => setEvaluation(item.value)}
                 >
                   {item.description}
                 </ServiceEvaluation>
