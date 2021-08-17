@@ -72,6 +72,7 @@ export const ActionDescription = styled(Typography).attrs({
   justify-content: center;
   align-items: center;
   text-transform: uppercase;
+  gap: 10px;
   width: 100%;
   height: 100%;
   color: ${(props) => props.color || props.theme.palette.colors.white};
