@@ -1,44 +1,29 @@
-import React from "react";
-import { useAuth } from "../../contexts";
-import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
-import { Layout, SelectProfileType, SplashScreen } from "../../components";
-import { AuthActionsTypes } from "../../contexts/Auth/types";
+import { Layout } from "../../components";
+import { RegisterWithEmail, RegisterWithPhone } from "./forms";
+import "antd/dist/antd.css";
 import * as S from "./RegisterStyled";
 
-export const Register = () => {
-  const { dispatch } = useAuth();
-
-  const handleSelectProfileType = (profileType) => {
-    dispatch({
-      type: AuthActionsTypes.PROFILE_TYPE,
-      payload: { profileType },
-    });
-  };
-
-  const [widthScreen] = useWidthScreen();
-  const showNavigation = widthScreen <= 1200;
-
+export const Register = ({ ...restProps }) => {
   return (
-    <Layout hasArrow={false} showNavigation={showNavigation}>
-      <S.ContainerRegister>
-        <S.RegisterForm>
-          <S.ContentTitle>
-            <S.TitleRegister>Vamos começar?</S.TitleRegister>
-            <S.TitleRegister>É rápido e fácil!</S.TitleRegister>
-          </S.ContentTitle>
-          <S.ContentChoice>
-            <S.ChoiceProfile>Escolha o seu perfil</S.ChoiceProfile>
-          </S.ContentChoice>
-          <SelectProfileType onChange={handleSelectProfileType} />
-          <S.NextStep to="/login">
-            Próximo
-            <S.IconNext src="/assets/svg/next.svg" alt="next" />
-          </S.NextStep>
-        </S.RegisterForm>
-        <S.RegisterAside>
-          <SplashScreen hasButton={false} />
-        </S.RegisterAside>
-      </S.ContainerRegister>
+    <Layout>
+      <S.ContainerRegistrations {...restProps}>
+        <S.ContentTitle>
+          <S.TitleRegistrations>
+            Faremos seu cadastro
+          </S.TitleRegistrations>
+          <S.DescriptionRegistrations>
+            Escolha como deseja fazer seu cadastro
+          </S.DescriptionRegistrations>
+          <S.TabsRegister defaultActiveKey="1">
+            <S.TabsChoiced tab="Cadastrar celular" key="1">
+              <RegisterWithPhone />
+            </S.TabsChoiced>
+            <S.TabsChoiced tab="Cadastrar e-mail" key="2">
+              <RegisterWithEmail />
+            </S.TabsChoiced>
+          </S.TabsRegister>
+        </S.ContentTitle>
+      </S.ContainerRegistrations>
     </Layout>
   );
 };
