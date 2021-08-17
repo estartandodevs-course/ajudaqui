@@ -1,23 +1,17 @@
 import * as S from "./ServiceEvaluationStyled";
-import { serviceEvaluationData } from "../../_mock";
 
-
-export const ServiceEvaluation = () => {
+export const ServiceEvaluation = ({
+  id, click, children, ...restProps
+}) => {
   return (
-    <S.ContainerEvaluation>
-      {serviceEvaluationData.map((item) => {
-        return (
-          <S.ContentEvaluation key={item.id}>
-            <S.IconsEvaluation
-              src={item.icon}
-              alt={item.description}
-            />
-            <S.DescriptionEvaluation>
-              {item.description}
-            </S.DescriptionEvaluation>
-          </S.ContentEvaluation>
-        );
-      })}
-    </S.ContainerEvaluation>
+    <S.ContentEvaluation>
+      <S.IconsEvaluation
+        onClick={click}
+        {...restProps}
+      />
+      <S.DescriptionEvaluation>
+        {children}
+      </S.DescriptionEvaluation>
+    </S.ContentEvaluation>
   );
 };

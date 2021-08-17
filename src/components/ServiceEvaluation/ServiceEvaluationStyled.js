@@ -1,11 +1,6 @@
 import styled from "styled-components";
 import { Typography } from "../Typography";
 
-export const ContainerEvaluation = styled.div`
-  display: flex;
-  width: 100%;
-  gap: 20px;
-`;
 
 export const ContentEvaluation = styled.div`
   display: flex;
