@@ -6,4 +6,3 @@ export { Onboarding } from "./Onboarding";
 export { UserInformation } from "./UserInformation";
 export { AskForHelp } from "./AskForHelp";
 export { ScreenEvaluation } from "./ScreenEvaluation";
-export { VolunteerHome } from "./VolunteerHomeScreen";
