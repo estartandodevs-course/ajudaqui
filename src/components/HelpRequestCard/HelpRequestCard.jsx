@@ -3,7 +3,7 @@ import React from "react";
 import * as S from "./HelpRequestCardStyled";
 
 export const HelpRequestCard = ({
-  variant, color, colorTask, name, task, distance, orderTime, photo, action,
+  variant, color, colorTask, name, task, distance, orderTime, photo, action, src,
 }) => {
   return (
     <>
@@ -35,6 +35,8 @@ export const HelpRequestCard = ({
           <S.UserAction variant={variant}>
             <S.ActionDescription color={color}>
               {action}
+              {" "}
+              { src && <img src={src} alt="next" />}
             </S.ActionDescription>
           </S.UserAction>
         </S.Card>
