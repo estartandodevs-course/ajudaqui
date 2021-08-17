@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import {
-  Home, Onboarding, Register, Login, AskForHelp,
+  Home, Onboarding, Register, Login, AskForHelp, ScreenEvaluation,
 } from "./pages";
 import { UserInformation } from "./pages/UserInformation";
 import { RegistrationForm } from "./pages/Register/Registrations";
@@ -18,7 +18,7 @@ export default function Routes() {
       <Route exact path="/user-information" component={UserInformation} />
       <Route exact path="/ask-for-help" component={AskForHelp} />
       <Route exact path="/register-new-password" component={RegisterNewPassword} />
-
+      <Route exact path="/screen-evaluation" component={ScreenEvaluation} />
     </Switch>
   );
 }
