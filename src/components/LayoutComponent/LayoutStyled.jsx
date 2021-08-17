@@ -18,7 +18,4 @@ export const ImageTop = styled.img`
 export const LayoutMainContent = styled.main`
   flex: 1;
   overflow: scroll;
-  @media(min-width: 574px){
-    overflow: hidden;
-  }
 `;
