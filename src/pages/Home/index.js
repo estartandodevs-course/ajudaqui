@@ -8,8 +8,8 @@ import { HomeScreenOfTheVoluntary } from "./HomeScreenOfTheVoluntary/HomeScreenO
 export const Home = () => {
   const { profileType } = useAuth();
   const homeScreenByProfile = {
-    [PROFILES_TYPES.ELDERLY]: () => <HomeScreenOfTheElderly />,
-    [PROFILES_TYPES.VOLUNTARY]: () => <HomeScreenOfTheVoluntary />,
+    [PROFILES_TYPES.VOLUNTARY]: () => <HomeScreenOfTheElderly />,
+    [PROFILES_TYPES.ELDERLY]: () => <HomeScreenOfTheVoluntary />,
   };
 
   return (

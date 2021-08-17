@@ -2,13 +2,16 @@ import React from "react";
 import * as S from "./HomeScreenOfTheVoluntaryStyled";
 import { Layout, HelpRequestCard } from "../../../components";
 import { elderlyInfos } from "../../../_mock";
+import { useAuth } from "../../../contexts";
 
 export const HomeScreenOfTheVoluntary = () => {
+  const { user } = useAuth();
   return (
     <Layout hasTabBar>
       <S.ContainerTitles>
         <S.Title>
-          Olá, Pedro,
+          {`Olá, ${user.name}`}
+
         </S.Title>
         <S.Subtitle>
           vamos ajudar um idoso?
@@ -17,7 +20,7 @@ export const HomeScreenOfTheVoluntary = () => {
       <S.HelpAvailable>
         <S.LocationIcon src="/assets/svg/icon localização.svg" alt="Icone de Localização" />
         <S.LocationText>
-          8 idosos próximos a você precisam de ajuda
+          {`${elderlyInfos.length} idosos próximos a você precisam de ajuda`}
         </S.LocationText>
       </S.HelpAvailable>
       <S.ContainerHelpCard>

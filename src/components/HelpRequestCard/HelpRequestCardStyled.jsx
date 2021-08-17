@@ -5,7 +5,6 @@ import { Typography } from "..";
 export const CardWrapper = styled.div`
   width: 100%;
   display: flex;
-  justify-content: center;
   padding: 14px 24px;
 `;
 
@@ -29,7 +28,7 @@ const variants = {
 };
 
 export const Card = styled.div`
-  width: 312px;
+  width: 100%;
   height: 175px;
   border-radius: 5px 5px 9px 9px;
   ${(props) => props.variant && variants[props.variant]}
