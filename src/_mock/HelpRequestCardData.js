@@ -18,6 +18,7 @@ export const elderlyInfos = [
     orderTime: "05min",
     photo: "/assets/images/oldman-8.jpg",
     action: "Socorrer Emergência",
+    arrow: "/assets/svg/Vector.svg",
     variant: "emergency",
     colorTask: "#bc1610",
   },
@@ -30,6 +31,7 @@ export const elderlyInfos = [
     orderTime: "10min",
     photo: "/assets/images/oldman-4.jpg",
     action: "Oferecer ajuda",
+    arrow: "/assets/svg/Vector.svg",
     variant: "gradient",
   },
   {
@@ -40,6 +42,7 @@ export const elderlyInfos = [
     orderTime: "05min",
     photo: "/assets/images/oldman-6.jpg",
     action: "Oferecer ajuda",
+    arrow: "/assets/svg/Vector.svg",
     variant: "primaryVariant",
   },
   {
@@ -50,6 +53,7 @@ export const elderlyInfos = [
     orderTime: "03min",
     photo: "/assets/images/oldman-3.jpg",
     action: "Socorrer Emergência",
+    arrow: "/assets/svg/Vector.svg",
     variant: "emergency",
     colorTask: "#bc1610",
   },
