@@ -24,6 +24,7 @@ export const LoginForm = styled.div`
   padding: 24px 24px;
   @media (min-width: 576px) {
     align-items: center;
+    justify-content: center;
     max-width: 400px;
   }
 `;
@@ -50,6 +51,9 @@ export const ContentTitle = styled.div`
   flex-direction: column;
   gap: 16px;
   margin-bottom: 34px;
+  @media(max-width: 1200){
+    gap: 34px;
+  }
 `;
 
 export const LoginTitle = styled(Typography).attrs({

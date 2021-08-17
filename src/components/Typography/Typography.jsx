@@ -7,14 +7,13 @@ const Typography = (
     children,
     variant,
     color,
-    weight,
     ...restProps
   },
 ) => {
   const Element = Typographies[variant];
 
   return (
-    <Element color={color} weight={weight} {...restProps}>
+    <Element color={color} {...restProps}>
       {children}
     </Element>
   );
@@ -24,7 +23,6 @@ Typography.propTypes = {
   children: PropTypes.node.isRequired,
   variant: PropTypes.string,
   color: PropTypes.string,
-  weight: PropTypes.string,
 };
 
 Typography.defaultProps = {
