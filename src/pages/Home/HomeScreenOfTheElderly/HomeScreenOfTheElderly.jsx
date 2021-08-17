@@ -21,15 +21,15 @@ export const HomeScreenOfTheElderly = () => {
           <S.ContainerCards>
             <Card
               src="/assets/svg/icon texto.svg"
-              color={(props) => props.theme.palette.colors.white}
-              fontSize={(props) => props.theme.typography.body1.fontSizeSubtitles}
+              color="#fff"
+              fontSize="14px"
             >
               POR TEXTO
             </Card>
             <Card
               src="/assets/svg/icon mic.svg"
-              color={(props) => props.theme.palette.colors.white}
-              fontSize={(props) => props.theme.typography.body1.fontSizeSubtitles}
+              color="#fff"
+              fontSize="14px"
             >
               POR ÁUDIO
             </Card>
@@ -41,16 +41,16 @@ export const HomeScreenOfTheElderly = () => {
             <Card
               variant="secondary"
               src="/assets/svg/icon saude.svg"
-              color={(props) => props.theme.palette.colors.white}
-              fontSize={(props) => props.theme.typography.body1.fontSizeSubtitles}
+              color="#fff"
+              fontSize="14px"
             >
               DADOS DE SAÚDE
             </Card>
             <Card
               variant="secondary"
               src="/assets/svg/icon contato.svg"
-              color={(props) => props.theme.palette.colors.white}
-              fontSize={(props) => props.theme.typography.body1.fontSizeSubtitles}
+              color="#fff"
+              fontSize="14px"
             >
               AGENDA DE CONTATOS
             </Card>

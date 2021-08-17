@@ -54,7 +54,7 @@ export const DescriptionCard = styled(Typography).attrs({
   variant: "body1",
   weight: "500",
 })`
-  font-size: ${(props) => props.fontSize};
+  font-size: ${(props) => props.fontSize || props.theme.typography.body1.fontSizeText};
   color: ${(props) => props.color || props.theme.palette.colors.text};
 `;
 
