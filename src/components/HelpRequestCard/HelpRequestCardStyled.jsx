@@ -6,7 +6,7 @@ export const CardWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 20px 24px;
+  padding: 14px 24px;
 `;
 
 const variants = {
@@ -19,7 +19,7 @@ const variants = {
   `,
 
   gradient: css`
-    border: 1px solid blue;
+    border: 1px solid ${(props) => `${props.theme.palette.colors.primary} `};
   `,
 
   primaryVariant: css`
@@ -62,7 +62,6 @@ export const UserAction = styled.div`
   height: 24%;
   border-top: 1px solid;
   border-radius: 0 0 9px 9px;
-  border-image: ${(props) => `${props.theme.palette.colors.gradientBackground} 1`};
   ${(props) => props.variant && backgrounds[props.variant]}
 `;
 
@@ -114,9 +113,9 @@ export const UserName = styled(Typography).attrs({
 
 export const RequestedTask = styled(Typography).attrs({
   variant: "body1",
-  color: theme.palette.colors.light.gray,
 })`
   font-size: ${(props) => props.theme.typography.body1?.fontSizeText};
+  color: ${(props) => props.colorTask || props.theme.palette.colors.light.gray};
 `;
 
 export const Distance = styled(Typography).attrs({
