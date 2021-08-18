@@ -41,7 +41,7 @@ export const FormLogin = () => {
       <Input type="password" name="password" label="Senha" disabled={authIsLoading} />
       <Input type="hidden" name="isEmailValue" value={isEmail} />
       <S.ContainerForgot>
-        <S.ForgotPassword to="/">Esqueci a senha</S.ForgotPassword>
+        <S.ForgotPassword to="/register-new-password">Esqueci a senha</S.ForgotPassword>
       </S.ContainerForgot>
       <S.ButtonContainer>
         <Button type="submit" width="106px">Entrar</Button>

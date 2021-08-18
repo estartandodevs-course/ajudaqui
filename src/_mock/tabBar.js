@@ -1,7 +1,7 @@
 export const TabBarLinks = [
   {
     key: "home",
-    route: "/",
+    path: "/",
     title: "Home",
     icon: "/assets/svg/icon home.svg",
     dotPosition: 1,
@@ -9,7 +9,7 @@ export const TabBarLinks = [
   },
   {
     key: "help",
-    route: "/help",
+    path: "/ask-for-help",
     title: "Ajuda",
     icon: "/assets/svg/icon ajuda.svg",
     dotPosition: 3,
@@ -17,7 +17,7 @@ export const TabBarLinks = [
   },
   {
     key: "historic",
-    route: "/historic",
+    path: "/",
     title: "Histórico",
     icon: "/assets/svg/icon historico.svg",
     dotPosition: 5,
@@ -25,7 +25,7 @@ export const TabBarLinks = [
   },
   {
     key: "profile",
-    route: "/profile",
+    path: "/user-information",
     title: "Perfil",
     icon: "/assets/svg/icon perfil.svg",
     dotPosition: 7,

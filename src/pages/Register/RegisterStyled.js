@@ -1,97 +1,59 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Tabs } from "antd";
 import { Typography } from "../../components";
 
-export const ContainerRegister = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  width: 100%;
-  height: 100vh;
-  @media(min-width: 576px) {
-    justify-items: center;
-  }
-  @media(min-width: 1200px) {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-  }
-`;
+const { TabPane } = Tabs;
 
-export const RegisterForm = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding: 14px 24px;
-  gap: 42px;
-  @media(min-width: 576px) {
-    max-width: 400px;
-  }
-  @media(min-width: 1200px){
-  justify-content: center;
-  align-items: center;
-  }
-`;
-
-export const RegisterAside = styled.aside`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+export const ContainerRegistrations = styled.div`
   width: 100%;
   height: 100%;
-  background-image: url("/assets/svg/fundo splash desktop.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% 100%;
-
-  @media(max-width: 1200px) {
-    display: none;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  z-index: 1;
 `;
-
 
 export const ContentTitle = styled.div`
   width: 100%;
-
-  @media(min-width: 1200px) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-`;
-
-export const ContentChoice = styled.div`
   display: flex;
-  width: 100%;
-  margin-bottom: -12px;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 22px;
 `;
 
-export const TitleRegister = styled(Typography).attrs({
-  variant: "h1",
+export const TitleRegistrations = styled(Typography).attrs({
+  variant: "h2",
 })`
-  padding: 5px 0;
   color: ${(props) => props.theme.palette.colors.primary};
 `;
 
-export const ChoiceProfile = styled(Typography).attrs({
-  variant: "h2",
+export const DescriptionRegistrations = styled(Typography).attrs({
+  variant: "body1",
 })`
-@media(min-width: 1200px) {
-  width: 100%;
-  text-align: center;
-}
+  font-size: ${(props) => props.theme.typography.body1.fontSizeSubtitles};
+  color: ${(props) => props.theme.palette.colors.primary};
 `;
 
-export const NextStep = styled(Link)`
-  display: flex;
-  gap: 8px;
-  justify-content: flex-end;
-  width: 100%;
-  align-items: center;
-  text-decoration: none;
-  color: ${(props) => props.theme.palette.colors.text};
-  font-family: ${(props) => props.theme.typography.body1.fontFamily};
-  font-size: ${(props) => props.theme.typography.body1.fontSizeText};
+export const TabsRegister = styled(Tabs)`
+  .ant-tabs-tab {
+    padding: 0;
+    margin: 5px;
+    color: ${(props) => props.theme.palette.colors.secondaryVariant}; 
+  }
+  
+  .ant-tabs-nav::before {
+    border: none;
+  }
+
+  .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    font-family: ${(props) => props.theme.typography.body1.fontFamily};
+    color: ${(props) => props.theme.palette.colors.primary}
+  } 
+  
+  .ant-tabs-ink-bar {
+    border-bottom: 2px solid ${(props) => props.theme.palette.colors.purple};
+  }
 `;
 
-export const IconNext = styled.img``;
+export const TabsChoiced = styled(TabPane)``;
