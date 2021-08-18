@@ -14,7 +14,7 @@ export const Home = () => {
   const homeScreenByProfile = {
     [PROFILES_TYPES.ELDERLY]: () => <HomeScreenOfTheElderly />,
     [PROFILES_TYPES.VOLUNTARY]: () => (
-      <HomeScreenOfTheVoluntary horas={30} atividades={10} />
+      <HomeScreenOfTheVoluntary />
     ),
   };
 

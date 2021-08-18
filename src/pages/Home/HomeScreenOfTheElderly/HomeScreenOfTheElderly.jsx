@@ -24,18 +24,18 @@ export const HomeScreenOfTheElderly = () => {
           <S.Paragraph>Como você prefere pedir ajuda?</S.Paragraph>
           <S.ContainerCards>
             <Card
-              src="/assets/svg/icon texto.svg"
-              color="#fff"
-              fontSize="14px"
-            >
-              POR TEXTO
-            </Card>
-            <Card
               src="/assets/svg/icon mic.svg"
               color="#fff"
               fontSize="14px"
             >
               POR ÁUDIO
+            </Card>
+            <Card
+              src="/assets/svg/icon texto.svg"
+              color="#fff"
+              fontSize="14px"
+            >
+              POR TEXTO
             </Card>
           </S.ContainerCards>
         </S.ContainerOne>

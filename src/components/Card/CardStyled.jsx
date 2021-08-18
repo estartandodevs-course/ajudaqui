@@ -9,7 +9,7 @@ const variants = {
     flex-direction: column;
     text-align: center;
     background: ${(props) => {
-    return props.theme.palette.colors.primaryVariant;
+    return props.theme.palette.colors.gradientBackground;
   }};
     color: ${(props) => props.theme.palette.colors.text};
   `,

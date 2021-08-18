@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import {
   Home, Onboarding, Register, Login, AskForHelp, ScreenEvaluation, SelectProfile,
-  RegisterNewPassword, UserInformation,
+  RegisterNewPassword, UserInformation, ProfileVoluntary,
 } from "./pages";
 import { Modal } from "./components";
 import { useModal } from "./contexts";
@@ -26,6 +26,7 @@ export default function Routes() {
         <Route exact path="/ask-for-help" component={AskForHelp} />
         <Route exact path="/register-new-password" component={RegisterNewPassword} />
         <Route exact path="/screen-evaluation" component={ScreenEvaluation} />
+        <Route exact path="/profile" component={ProfileVoluntary} />
       </Switch>
     </>
   );
