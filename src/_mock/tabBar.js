@@ -17,7 +17,7 @@ export const TabBarLinks = [
   },
   {
     key: "historic",
-    path: "/",
+    path: "/historic",
     title: "Histórico",
     icon: "/assets/svg/icon historico.svg",
     dotPosition: 5,
