@@ -4,13 +4,19 @@ import {
 } from "../../../components";
 import { optionCardInterest } from "../../../_mock/optionCardInterest";
 import { optionPeopleHelped } from "../../../_mock/optionPeopleHelped";
+import { useAuth } from "../../../contexts";
+import { useWidthScreen } from "../../../utils/hooks/useWidthScreen";
 
 export const HomeScreenOfTheVoluntary = (props) => {
   const { atividades, horas } = props;
+  const { user } = useAuth();
+  const [widthScreen] = useWidthScreen();
+
+  const showNavigation = widthScreen < 1200;
   return (
-    <Layout hasTabBar>
+    <Layout hasTabBar showNavigation={showNavigation}>
       <S.ContainerPage>
-        <UserOverview />
+        <UserOverview userData={user} />
         <S.ContainerCard>
           <Card color="white" textAlign="center">
             <S.NumberCard>

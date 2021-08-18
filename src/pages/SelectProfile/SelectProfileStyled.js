@@ -38,16 +38,11 @@ export const SelectAside = styled.aside`
   align-items: center;
   width: 100%;
   height: 100%;
-  background-image: url("/assets/svg/fundo splash desktop.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% 100%;
 
-  @media(max-width: 1200px) {
+  @media(max-width: 1199px) {
     display: none;
   }
 `;
-
 
 export const ContentTitle = styled.div`
   width: 100%;

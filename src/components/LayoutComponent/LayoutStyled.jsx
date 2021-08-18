@@ -4,6 +4,7 @@ export const LayoutWrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
+  position: relative;
 `;
 
 export const ImageTop = styled.img`
@@ -18,4 +19,7 @@ export const ImageTop = styled.img`
 export const LayoutMainContent = styled.main`
   flex: 1;
   overflow: scroll;
+  @media(min-width: 1200px){
+    padding-left: ${({ $hasTabBar }) => $hasTabBar && "95px"};
+  }
 `;

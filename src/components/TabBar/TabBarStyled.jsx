@@ -12,6 +12,8 @@ export const Wrapper = styled.div`
     height: 100vh;
     background-image: ${(props) => props.theme.palette.colors.gradientBackground};
     border: none;
+    position: fixed;
+    left: 0;
   }
 `;
 

@@ -1,28 +1,22 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useHistory, useLocation } from "react-router-dom";
 import { TabBarLinks } from "../../_mock";
 import * as S from "./TabBarStyled";
 
 export const TabBar = () => {
   const [currentRoute, setCurrentRoute] = useState(1);
-  const [currentContainer, setActiveContainer] = useState(0);
+  const [currentContainer, setCurrentContainer] = useState(0);
+  const { pathname } = useLocation();
 
   const { push } = useHistory();
 
-  const handleSelectRoute = (tabBarLink) => {
-    setCurrentRoute(tabBarLink.dotPosition);
-    setActiveContainer(tabBarLink.containerPosition);
-    setTimeout(() => {
-      push(tabBarLink.path);
-    }, 1000);
-  };
-
-  const activeContainer = (index, route) => {
-    if (index === route) {
-      return true;
+  useEffect(() => {
+    const activeRoute = TabBarLinks.find((tabData) => tabData.path === pathname);
+    if (activeRoute) {
+      setCurrentRoute(activeRoute.dotPosition);
+      setCurrentContainer(activeRoute.containerPosition);
     }
-    return false;
-  };
+  }, [pathname]);
 
   return (
     <S.Wrapper>
@@ -31,18 +25,12 @@ export const TabBar = () => {
         {TabBarLinks.map((tabBarLink) => (
           <S.IconContent
             key={tabBarLink.key}
-            onClick={() => handleSelectRoute(tabBarLink)}
-            $containerPosition={activeContainer(
-              tabBarLink.containerPosition,
-              currentContainer,
-            )}
+            onClick={() => push(tabBarLink.path)}
+            $containerPosition={tabBarLink.containerPosition === currentContainer}
           >
             <S.ImageIcon
               src={tabBarLink.icon}
-              $containerPosition={activeContainer(
-                tabBarLink.containerPosition,
-                currentContainer,
-              )}
+              $containerPosition={tabBarLink.containerPosition === currentContainer}
             />
             <S.DescriptionIcon>{tabBarLink.title}</S.DescriptionIcon>
           </S.IconContent>

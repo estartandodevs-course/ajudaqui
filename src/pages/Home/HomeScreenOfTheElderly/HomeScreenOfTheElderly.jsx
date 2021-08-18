@@ -4,11 +4,15 @@ import {
   UserOverview, Card, Button, Layout,
 } from "../../../components";
 import { useAuth } from "../../../contexts/Auth/hooks";
+import { useWidthScreen } from "../../../utils/hooks/useWidthScreen";
 
 export const HomeScreenOfTheElderly = () => {
   const { user } = useAuth();
+  const [widthScreen] = useWidthScreen();
+
+  const showNavigation = widthScreen < 1200;
   return (
-    <Layout hasTabBar>
+    <Layout hasTabBar showNavigation={showNavigation}>
       <S.ContainerPage>
         <S.ContainerUserOverview>
           <UserOverview userData={user} />

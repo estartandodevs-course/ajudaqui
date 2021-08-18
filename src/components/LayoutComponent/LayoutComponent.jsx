@@ -8,7 +8,7 @@ export const Layout = ({
   return (
     <S.LayoutWrapper>
       {showNavigation && <BackNavigation hasArrow={hasArrow} />}
-      <S.LayoutMainContent>
+      <S.LayoutMainContent $hasTabBar={hasTabBar}>
         { children }
       </S.LayoutMainContent>
       {hasTabBar && <TabBar />}
