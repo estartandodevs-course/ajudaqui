@@ -7,6 +7,7 @@ const variants = {
     width: 140px;
     height: 80px;
     flex-direction: column;
+    text-align: center;
     background: ${(props) => {
     return props.theme.palette.colors.primaryVariant;
   }};
