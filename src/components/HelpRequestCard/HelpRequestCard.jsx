@@ -2,10 +2,9 @@
 import React from "react";
 import * as S from "./HelpRequestCardStyled";
 
-export const HelpRequestCard = ({ elderlyInfos, variant, color }) => {
-  const {
-    name, task, distance, orderTime, photo, action,
-  } = elderlyInfos;
+export const HelpRequestCard = ({
+  variant, color, colorTask, name, task, distance, orderTime, photo, action, src,
+}) => {
   return (
     <>
       <S.CardWrapper>
@@ -16,7 +15,7 @@ export const HelpRequestCard = ({ elderlyInfos, variant, color }) => {
                 <S.UserName>
                   {name}
                 </S.UserName>
-                <S.RequestedTask>
+                <S.RequestedTask colorTask={colorTask}>
                   {task}
                 </S.RequestedTask>
               </S.NameTask>
@@ -36,6 +35,8 @@ export const HelpRequestCard = ({ elderlyInfos, variant, color }) => {
           <S.UserAction variant={variant}>
             <S.ActionDescription color={color}>
               {action}
+              {" "}
+              { src && <img src={src} alt="next" />}
             </S.ActionDescription>
           </S.UserAction>
         </S.Card>
