@@ -2,8 +2,9 @@ import React from "react";
 import * as S from "./UserOverviewStyled";
 import { UserGrade } from "../UserGrade";
 import { useAuth } from "../../contexts";
+import { userData } from "../../_mock";
 
-export const UserOverview = ({ userData }) => {
+export const UserOverview = () => {
   const {
     name, photoURL, location, birthday, grade,
   } = userData;
