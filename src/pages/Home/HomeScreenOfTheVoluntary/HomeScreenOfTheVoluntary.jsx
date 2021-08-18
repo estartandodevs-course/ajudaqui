@@ -45,12 +45,10 @@ export const HomeScreenOfTheVoluntary = (props) => {
           <S.Text>Pessoas que você já ajudou</S.Text>
         </S.ContentTextPeople>
         <S.ContainerImageElderly>
-          {optionPeopleHelped?.map(({ photo }) => (
-            <S.ImageElderly src={photo} alt="imagem dos idosos" key={photo} />
-
+          {optionPeopleHelped?.map(({ photoURL, id }) => (
+            <S.ImageElderly key={id} src={photoURL} alt="imagem dos idosos" />
           ))}
         </S.ContainerImageElderly>
-
       </S.ContainerPage>
     </Layout>
   );
