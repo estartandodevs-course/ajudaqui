@@ -47,7 +47,7 @@ export const Paragraph = styled(Typography).attrs({
 export const ContainerOneVoluntary = styled.div`
   display: flex;
   align-items: center;
-  padding-top: 60px;
+  padding-top: 14px;
   flex-direction: column;
 `;
 export const ImgProfileVoluntary = styled.img`
