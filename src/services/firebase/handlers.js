@@ -1,11 +1,11 @@
 import { firebaseDatabase } from "./config";
 
-export const save = async (path, user) => {
+export const save = async (path, body) => {
   const query = await firebaseDatabase
     .collection(path)
-    .add(user);
+    .add(body);
 
-  const newUser = await query
+  const newData = await query
     .get()
     .then((snapshot) => ({
       ...(snapshot.data()),
@@ -13,7 +13,7 @@ export const save = async (path, user) => {
     }))
     .then((data) => data);
 
-  return newUser;
+  return newData;
 };
 
 export const getByKey = async (path, key = "", value = "") => {

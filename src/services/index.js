@@ -1,5 +1,2 @@
-export {
-  loginWithGoogle,
-  loginWithEmailAndPassword,
-  registerWithEmailAndPassword,
-} from "./authService";
+export * from "./authService";
+export * from "./helpRequestService";
