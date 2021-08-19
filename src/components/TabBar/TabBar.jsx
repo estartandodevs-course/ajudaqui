@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
+import { useAuth } from "../../contexts";
 import { TabBarLinks } from "../../_mock";
 import * as S from "./TabBarStyled";
 
@@ -8,10 +9,11 @@ export const TabBar = () => {
   const [currentContainer, setCurrentContainer] = useState(0);
   const { pathname } = useLocation();
 
+  const { profileType } = useAuth();
   const { push } = useHistory();
 
   useEffect(() => {
-    const activeRoute = TabBarLinks.find((tabData) => tabData.path === pathname);
+    const activeRoute = TabBarLinks[profileType].find((tabData) => tabData.path === pathname);
     if (activeRoute) {
       setCurrentRoute(activeRoute.dotPosition);
       setCurrentContainer(activeRoute.containerPosition);
@@ -22,7 +24,7 @@ export const TabBar = () => {
     <S.Wrapper>
       <S.TabBar>
         <S.Ball $dotPosition={currentRoute} />
-        {TabBarLinks.map((tabBarLink) => (
+        {TabBarLinks[profileType].map((tabBarLink) => (
           <S.IconContent
             key={tabBarLink.key}
             onClick={() => push(tabBarLink.path)}

@@ -7,3 +7,4 @@ export { UserInformation } from "./UserInformation";
 export { AskForHelp } from "./AskForHelp";
 export { ScreenEvaluation } from "./ScreenEvaluation";
 export { RegisterNewPassword } from "./RegisterNewPassword";
+export { ProfileVoluntary } from "./ProfileVoluntary";

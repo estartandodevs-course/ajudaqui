@@ -1,61 +1,45 @@
+import React from "react";
 import * as S from "./HomeScreenOfTheVoluntaryStyled";
-import {
-  Layout, UserOverview, Card, Tag, Button,
-} from "../../../components";
-import { optionCardInterest } from "../../../_mock/optionCardInterest";
-import { optionPeopleHelped } from "../../../_mock/optionPeopleHelped";
+import { Layout, HelpRequestCard } from "../../../components";
+import { elderlyInfos } from "../../../_mock";
 import { useAuth } from "../../../contexts";
-import { useWidthScreen } from "../../../utils/hooks/useWidthScreen";
 
-export const HomeScreenOfTheVoluntary = (props) => {
-  const { atividades, horas } = props;
+export const HomeScreenOfTheVoluntary = () => {
   const { user } = useAuth();
-  const [widthScreen] = useWidthScreen();
-
-  const showNavigation = widthScreen < 1200;
   return (
-    <Layout hasTabBar showNavigation={showNavigation}>
-      <S.ContainerPage>
-        <UserOverview userData={user} />
-        <S.ContainerCard>
-          <Card color="white" textAlign="center">
-            <S.NumberCard>
-              {atividades}
-            </S.NumberCard>
-            Atividades Realizadas
-          </Card>
-          <Card color="white">
-            <S.NumberCard>
-              {horas}
-            </S.NumberCard>
-            Horas de Voluntariado
-          </Card>
-        </S.ContainerCard>
-        <S.ContentTextInterests>
-          <S.Text>Interesses</S.Text>
-        </S.ContentTextInterests>
-        <S.ContainerTag>
-          {optionCardInterest?.map(({ id, option }) => (
-            <Tag
-              key={id}
-              isActive
-            >
-              {option}
-            </Tag>
-          ))}
-        </S.ContainerTag>
-        <S.ContainerButton>
-          <Button width="187px">Editar Preferências</Button>
-        </S.ContainerButton>
-        <S.ContentTextPeople>
-          <S.Text>Pessoas que você já ajudou</S.Text>
-        </S.ContentTextPeople>
-        <S.ContainerImageElderly>
-          {optionPeopleHelped?.map(({ photoURL, id }) => (
-            <S.ImageElderly key={id} src={photoURL} alt="imagem dos idosos" />
-          ))}
-        </S.ContainerImageElderly>
-      </S.ContainerPage>
+    <Layout hasTabBar>
+      <S.ContainerTitles>
+        <S.Title>{`Olá, ${user.name}`}</S.Title>
+        <S.Subtitle>vamos ajudar um idoso?</S.Subtitle>
+      </S.ContainerTitles>
+      <S.HelpAvailable>
+        <S.LocationIcon
+          src="/assets/svg/icon localização.svg"
+          alt="Icone de Localização"
+        />
+        <S.LocationText>
+          {`${elderlyInfos.length} idosos próximos a você precisam de ajuda`}
+        </S.LocationText>
+      </S.HelpAvailable>
+      <S.ContainerHelpCard>
+        {elderlyInfos.map((item) => {
+          return (
+            <HelpRequestCard
+              key={item.id}
+              name={item.name}
+              task={item.task}
+              distance={item.distance}
+              orderTime={item.orderTime}
+              photo={item.photo}
+              action={item.action}
+              variant={item.variant}
+              color={item.color}
+              colorTask={item.colorTask}
+              src={item.arrow}
+            />
+          );
+        })}
+      </S.ContainerHelpCard>
     </Layout>
   );
 };
