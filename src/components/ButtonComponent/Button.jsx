@@ -1,4 +1,8 @@
+import { Spin } from "antd";
+import { LoadingOutlined } from "@ant-design/icons";
 import * as S from "./ButtonStyled";
+
+const antIcon = <LoadingOutlined style={{ fontSize: 24, color: "#f9f7fd" }} spin />;
 
 export const Button = ({
   width,
@@ -8,6 +12,7 @@ export const Button = ({
   shadow,
   background,
   children,
+  isLoading,
   ...restProps
 }) => {
   return (
@@ -20,7 +25,9 @@ export const Button = ({
       background={background}
       {...restProps}
     >
-      {children}
+      {isLoading ? (
+        <Spin indicator={antIcon} />
+      ) : children}
     </S.Button>
   );
 };
