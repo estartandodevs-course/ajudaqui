@@ -5,6 +5,7 @@
   "dependencies": {
     "antd": "^4.16.10",
     "axios": "^0.21.1",
+    "date-fns": "^2.23.0",
     "firebase": "^8.9.1",
     "formik": "^2.2.9",
     "prop-types": "^15.7.2",
