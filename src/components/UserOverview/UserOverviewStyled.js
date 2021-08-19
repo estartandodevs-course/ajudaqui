@@ -27,7 +27,7 @@ export const ImgProfile = styled.img`
   width: 75px;
   height: 75px;
   border: 2px solid #5e38a8;
-  border-radius: 9999px;
+  border-radius: 50%;
   object-fit: cover;
 `;
 
