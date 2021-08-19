@@ -1,1 +1,2 @@
-export { PROFILES_TYPES } from "./profilesTypes";
+export * from "./profilesTypes";
+export * from "./orderStatus";
