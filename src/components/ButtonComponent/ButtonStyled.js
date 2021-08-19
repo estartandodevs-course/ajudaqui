@@ -19,6 +19,8 @@ export const Button = styled.button`
   font-size: ${(props) => props.theme.typography.body1.fontSizeSubtitles};
   cursor: pointer;
   &:disabled {
-    background-color: red;
+    background: ${(props) => props.theme.palette.colors.primaryVariant};
+    color: ${(props) => props.theme.palette.colors.light.grayish};
+    cursor: not-allowed;
   }
 `;

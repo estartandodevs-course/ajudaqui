@@ -2,6 +2,7 @@ import React from "react";
 import * as S from "./UserOverviewStyled";
 import { UserGrade } from "../UserGrade";
 import { useAuth } from "../../contexts";
+import { ProfilePhoto } from "..";
 
 export const UserOverview = ({ userData }) => {
   const {
@@ -15,7 +16,7 @@ export const UserOverview = ({ userData }) => {
       {profileType === "elderly" ? (
 
         <S.ContainerProfile>
-          <S.ImgProfile src={photoURL} alt={name} />
+          {photoURL ? <S.ImgProfile src={photoURL} alt={name} /> : <ProfilePhoto icon="/assets/svg/icon camera.svg" alt={name} />}
           <S.ContainerData>
             <S.TitleProfile>
               {`Olá, ${name}`}

@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { useHistory } from "react-router-dom";
 import { AuthContext } from "..";
 import {
   registerWithEmailAndPassword,
@@ -9,6 +10,7 @@ import { AuthActionsTypes } from "../types";
 
 export const useAuthEmail = () => {
   const { dispatch } = useContext(AuthContext);
+  const { push } = useHistory();
 
   const registerEmail = async (credentials, profileType) => {
     dispatch({
@@ -26,6 +28,7 @@ export const useAuthEmail = () => {
           user,
         },
       });
+      push("onboarding");
     } catch (error) {
       dispatch({
         type: AuthActionsTypes.LOGIN_EMAIL_ERROR,

@@ -12,7 +12,7 @@ export const Input = styled(Field)`
   outline: 0;
   margin-bottom: 12px;
   &:disabled{
-    background-color: red;
+    background-color: #f1f7fb;
   }
 `;
 
