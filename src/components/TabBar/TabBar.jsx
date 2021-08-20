@@ -1,64 +1,43 @@
-import React, { useState } from "react";
-// import { useHistory } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useHistory, useLocation } from "react-router-dom";
+import { useAuth } from "../../contexts";
+import { TabBarLinks } from "../../_mock";
 import * as S from "./TabBarStyled";
 
-const TabBarLinks = [
-  {
-    key: "home",
-    route: "/",
-    title: "Home",
-    icon: "/assets/svg/icon home.svg",
-    dotPosition: 1,
-  },
-  {
-    key: "help",
-    route: "/help",
-    title: "Ajuda",
-    icon: "/assets/svg/icon ajuda.svg",
-    dotPosition: 3,
-  },
-  {
-    key: "historic",
-    route: "/historic",
-    title: "Histórico",
-    icon: "/assets/svg/icon historico.svg",
-    dotPosition: 5,
-  },
-  {
-    key: "profile",
-    route: "/profile",
-    title: "Perfil",
-    icon: "/assets/svg/icon perfil.svg",
-    dotPosition: 7,
-  },
-];
 export const TabBar = () => {
   const [currentRoute, setCurrentRoute] = useState(1);
+  const [currentContainer, setCurrentContainer] = useState(0);
+  const { pathname } = useLocation();
 
-  // const history = useHistory();
+  const { profileType } = useAuth();
+  const { push } = useHistory();
 
-  const handleClick = (tabBarLink) => {
-    setCurrentRoute(tabBarLink.dotPosition);
-    // history.push(tabBarLink.route);
-  };
+  useEffect(() => {
+    const activeRoute = TabBarLinks[profileType].find((tabData) => tabData.path === pathname);
+    if (activeRoute) {
+      setCurrentRoute(activeRoute.dotPosition);
+      setCurrentContainer(activeRoute.containerPosition);
+    }
+  }, [pathname]);
 
   return (
-    <S.TabBar>
-      {/* {TabBarLinks.map((tabBarLink) => (
-        <S.Ball
-          $isActive={tabBarLink.key === currentRoute}
-          key={tabBarLink.key}
-        />
-      ))} */}
-      <S.Ball
-        $dotPosition={currentRoute}
-      />
-      {TabBarLinks.map((tabBarLink) => (
-        <S.IconContent key={tabBarLink.key} onClick={() => handleClick(tabBarLink)}>
-          <S.ImageIcon src={tabBarLink.icon} />
-          <S.DescriptionIcon>{tabBarLink.title}</S.DescriptionIcon>
-        </S.IconContent>
-      ))}
-    </S.TabBar>
+    <S.Wrapper>
+      <S.TabBar>
+        <S.Ball $dotPosition={currentRoute} />
+        {TabBarLinks[profileType].map((tabBarLink) => (
+          <S.IconContent
+            key={tabBarLink.key}
+            onClick={() => push(tabBarLink.path)}
+            $containerPosition={tabBarLink.containerPosition === currentContainer}
+          >
+            <S.ImageIcon
+              src={tabBarLink.icon}
+              $containerPosition={tabBarLink.containerPosition === currentContainer}
+            />
+            <S.DescriptionIcon>{tabBarLink.title}</S.DescriptionIcon>
+          </S.IconContent>
+        ))}
+      </S.TabBar>
+    </S.Wrapper>
   );
 };

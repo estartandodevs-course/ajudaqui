@@ -1,5 +1,4 @@
-import { useHistory } from "react-router-dom";
-import { ArrowBack, Layout, ProfilePhoto } from "../../components";
+import { Layout, ProfilePhoto } from "../../components";
 import { FormContacts } from "./forms/FormContacts";
 import { FormTextArea } from "./forms/FormTextArea";
 import { PersonalInfos } from "./forms/FormPersonalInfos";
@@ -7,11 +6,9 @@ import "antd/dist/antd.css";
 import * as S from "./InformationStyled";
 
 export const UserInformation = () => {
-  const { goBack } = useHistory();
   return (
     <Layout hasTabBar>
       <S.ContainerForm>
-        <ArrowBack onClick={() => goBack()} />
         <S.UserInformationTitle>
           Informações Pessoais
         </S.UserInformationTitle>

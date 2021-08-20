@@ -13,12 +13,16 @@ export const Button = styled.button`
   || props.theme.palette.colors.gradientButton};
   text-transform: uppercase;
   font-family: ${(props) => props.theme.typography.body1.fontFamily};
-  border-radius: 5px;
+  border-radius: ${({ borderRadius }) => borderRadius || "5px"};
+
   height: 44px;
   font-weight: 500;
   font-size: ${(props) => props.theme.typography.body1.fontSizeSubtitles};
   cursor: pointer;
+
   &:disabled {
-    background-color: red;
+    background: ${(props) => props.theme.palette.colors.primaryVariant};
+    color: ${(props) => props.theme.palette.colors.light.grayish};
+    cursor: not-allowed;
   }
 `;

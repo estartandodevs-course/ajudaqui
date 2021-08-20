@@ -6,11 +6,11 @@ export const ContainerLogin = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   width: 100%;
-  height: 100vh;
-  @media(min-width: 576px) {
+  height: 100%;
+  @media (min-width: 576px) {
     justify-items: center;
   }
-  @media(min-width: 1200px) {
+  @media (min-width: 1200px) {
     display: grid;
     grid-template-columns: 1fr 2fr;
   }
@@ -21,10 +21,10 @@ export const LoginForm = styled.div`
   width: 100%;
   height: 100%;
   flex-direction: column;
-  justify-content: center;
-  padding: 32px 24px;
-  @media(min-width: 576px) {
+  padding: 24px 24px;
+  @media (min-width: 576px) {
     align-items: center;
+    justify-content: center;
     max-width: 400px;
   }
 `;
@@ -34,23 +34,26 @@ export const LoginAside = styled.aside`
   width: 100%;
   height: 100%;
   background-image: ${(props) => props.theme.palette.colors.gradientBackground};
-  @media(max-width: 1200px) {
+  @media (max-width: 1199px) {
     display: none;
   }
 `;
 
 export const Logo = styled.img`
   margin-bottom: 42px;
-  @media(max-width: 576px) {
-    display: none
+  @media (max-width: 576px) {
+    display: none;
   }
 `;
 
 export const ContentTitle = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  margin-bottom: 20px;
+  gap: 16px;
+  margin-bottom: 34px;
+  @media(max-width: 1200){
+    gap: 34px;
+  }
 `;
 
 export const LoginTitle = styled(Typography).attrs({
@@ -66,16 +69,18 @@ export const LoginDescription = styled(Typography).attrs({
   color: ${(props) => props.theme.palette.colors.primary};
 `;
 
-export const ForgotPassword = styled(Link)`
+export const ContainerForgot = styled.div`
   display: flex;
   justify-content: flex-end;
-  margin-top: 4px;
   width: 100%;
   align-items: center;
+  margin-top: -15px;
+`;
+export const ForgotPassword = styled(Link)`
   text-decoration: none;
   color: ${(props) => props.theme.palette.colors.text};
   font-family: ${(props) => props.theme.typography.body1.fontFamily};
-  font-size: ${(props) => props.theme.typography.body1.fontSizeText};
+  font-size: ${(props) => props.theme.typography.body1.fontSizeSubtitles};
 `;
 
 export const ButtonContainer = styled.div`
@@ -83,23 +88,25 @@ export const ButtonContainer = styled.div`
   width: 100%;
   justify-content: center;
   margin-top: 30px;
- `;
+`;
 
-export const DoRegister = styled(Link)`
+export const ContainerRegister = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 15px;
   width: 100%;
   align-items: center;
-  margin-top: 32px;
-  margin-bottom: 38px;
+  margin: 24px 0 32px 0;
+`;
+
+export const DoRegister = styled(Link)`
   color: ${(props) => props.theme.palette.colors.text};
   font-family: ${(props) => props.theme.typography.body1.fontFamily};
-  font-size: ${(props) => props.theme.typography.body1.fontSizeText};
+  font-size: ${(props) => props.theme.typography.body1.fontSizeSubtitles};
+  text-decoration: underline;
 `;
 
 export const IconButton = styled.img`
-  background: #FFF;
+  background: #fff;
   border-radius: 3px;
   padding: 2px;
   margin-right: 10px;
@@ -107,15 +114,14 @@ export const IconButton = styled.img`
 
 export const GoogleButton = styled(Button)`
   align-self: center;
+  height: 31px;
 `;
-
 
 export const OnboardingImages = styled.img`
   width: 100%;
   height: 100vh;
   object-fit: cover;
 `;
-
 
 export const ContainerOnboarding = styled.div`
   width: 100%;

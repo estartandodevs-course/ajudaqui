@@ -1,0 +1,1 @@
+export { RegisterNewPassword } from "./RegisterNewPassword";

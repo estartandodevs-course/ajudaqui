@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const LayoutWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
+  position: relative;
 `;
 
 export const ImageTop = styled.img`
@@ -17,4 +18,8 @@ export const ImageTop = styled.img`
 
 export const LayoutMainContent = styled.main`
   flex: 1;
+  overflow-y: auto;
+  @media(min-width: 1200px){
+    padding-left: ${({ $hasTabBar }) => $hasTabBar && "95px"};
+  }
 `;

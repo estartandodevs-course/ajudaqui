@@ -2,40 +2,84 @@ import { useState } from "react";
 import {
   Button, Form, Input, Layout, Tag,
 } from "../../components";
-import { optionsTagData } from "../../_mock";
+import { useAuth, useStore } from "../../contexts";
 import * as S from "./AskForHelpStyled";
+import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
 
 export const AskForHelp = ({ ...restProps }) => {
+  const [widthScreen] = useWidthScreen();
+
+  const showNavigation = widthScreen < 1200;
   const [isActive, setIsActive] = useState(null);
+  const [selectedOptionHelp, setSelectedOptionHelp] = useState({});
+  const { handleCreateOrder, tags, handleCreateTag } = useStore();
+  const { user } = useAuth();
+
+  const handleSubmit = async ({ option }) => {
+    if (option) {
+      await handleCreateTag({
+        option,
+        estimatedTime: 30,
+      }, async (newTag) => {
+        await handleCreateOrder({
+          order: newTag,
+          elderly: {
+            id: user.id,
+            evaluation: "",
+            note: "",
+          },
+        });
+      });
+      return;
+    }
+
+    await handleCreateOrder({
+      order: selectedOptionHelp,
+      elderly: {
+        id: user.id,
+        evaluation: "",
+        note: "",
+      },
+    });
+  };
+
   return (
-    <Layout hasTabBar>
-      <S.ContainerAskForHelp {...restProps}>
-        <Form initialValues={{
-          help: "",
-        }}
-        >
-          <S.Text>
-            Selecione alguma das atividades abaixo ou escreva seu pedido.
-          </S.Text>
-          <S.ContainerTag>
-            {optionsTagData?.map(({ id, option }) => (
-              <Tag
-                key={id}
-                isActive={isActive === id}
-                onClick={() => {
-                  setIsActive(id);
-                }}
-              >
-                {option}
-              </Tag>
-            ))}
-          </S.ContainerTag>
-          <Input type="text" name="help" label="Precisando de ajuda com outra coisa?" placeholder="Clique aqui para escrever" />
-          <S.PositionButton>
-            <Button>Enviar Pedido</Button>
-          </S.PositionButton>
-        </Form>
-      </S.ContainerAskForHelp>
+    <Layout hasTabBar showNavigation={showNavigation}>
+      <S.ContainerDesktop>
+        <S.ContainerAskForHelp {...restProps}>
+          <Form
+            initialValues={{
+              option: "",
+            }}
+            onSubmit={(values) => handleSubmit(values)}
+          >
+            <S.Text>
+              Selecione alguma das atividades abaixo ou escreva seu pedido.
+            </S.Text>
+            <S.ContainerTag>
+              {tags?.map(({ id, option }) => (
+                <Tag
+                  key={id}
+                  isActive={isActive === id}
+                  onClick={() => {
+                    setIsActive(id);
+                    setSelectedOptionHelp({ id, option });
+                  }}
+                >
+                  {option}
+                </Tag>
+              ))}
+            </S.ContainerTag>
+            <Input type="text" name="option" label="Precisando de ajuda com outra coisa?" placeholder="Clique aqui para escrever" />
+            <S.PositionButton>
+              <Button type="submit">Enviar Pedido</Button>
+            </S.PositionButton>
+          </Form>
+        </S.ContainerAskForHelp>
+        <S.Aside>
+          <S.AsideImage src="/assets/svg/arte idoso desktop.svg" />
+        </S.Aside>
+      </S.ContainerDesktop>
     </Layout>
   );
 };
