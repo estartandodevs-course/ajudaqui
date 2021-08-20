@@ -2,31 +2,34 @@ import React from "react";
 import * as S from "./OrderCard.Styled";
 
 export const OrderCard = (props) => {
-  const { solicitação, status, pedido } = props;
+  const {
+    request, photoURL, status, order, name, action, warning,
+  } = props;
 
   return (
     <S.ContainerOrderCard>
       <S.ContainerIcon>
-        <S.Icon src="/assets/svg/icon ok.svg" alt="Icon ok" />
+        { photoURL ? <S.Icon src={photoURL} alt={name} />
+          : <S.ImageDefault src="/assets/svg/icon ok.svg" alt="Icon ok" /> }
       </S.ContainerIcon>
       <S.ContainerTitle>
-        <S.Title>Pedido enviado!</S.Title>
+        <S.Title>{action}</S.Title>
       </S.ContainerTitle>
       <S.ContainerSubtitle>
-        <S.Subtitle>Em breve você será atendido(a)</S.Subtitle>
+        <S.Subtitle>{warning}</S.Subtitle>
       </S.ContainerSubtitle>
       <S.ContainerTexts>
         <S.Texts>
           SOLICITAÇÃO:
-          {solicitação}
+          <S.Request>{request}</S.Request>
         </S.Texts>
         <S.Texts>
           STATUS:
-          {status}
+          <S.Status>{status}</S.Status>
         </S.Texts>
         <S.Texts>
           PEDIDO FEITO HÁ:
-          {pedido}
+          <S.Order>{order}</S.Order>
         </S.Texts>
       </S.ContainerTexts>
       <S.CardButtom width="100%" borderRadius="0">
