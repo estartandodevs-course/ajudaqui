@@ -8,7 +8,7 @@ import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
 export const Register = ({ ...restProps }) => {
   const [widthScreen] = useWidthScreen();
 
-  const showNavigation = widthScreen <= 1200;
+  const showNavigation = widthScreen < 1200;
   return (
     <Layout showNavigation={showNavigation}>
       <S.ContainerPageDesktop>

@@ -9,7 +9,7 @@ export const ContainerPageDesktop = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   @media (min-width: 576px) {
     justify-items: center;
   }
@@ -26,7 +26,7 @@ export const ContainerLogo = styled.div`
   gap: 6px;
   margin-bottom: 25px;
 
-  @media(max-width: 1200px) {
+  @media(max-width: 1199px) {
     display: none;
   }
 `;
@@ -44,7 +44,7 @@ export const AsideImage = styled.img`
 
 export const ImageText = styled.img`
   width: 155px;
-  height: 40px
+  height: 40px;
 `;
 
 export const SelectAside = styled.div`
@@ -56,7 +56,7 @@ export const SelectAside = styled.div`
   width: 100%;
   height: 100%;
 
-  @media(max-width: 1200px) {
+  @media(max-width: 1199px) {
     display: none;
   }
 `;
@@ -109,7 +109,7 @@ export const HasRegister = styled(Link)`
   font-size: ${(props) => props.theme.typography.body1.fontSizeText};
   text-decoration: underline;
 
-  @media(max-width: 1200px) {
+  @media(max-width: 1199px) {
     display: none;
   }
 `;

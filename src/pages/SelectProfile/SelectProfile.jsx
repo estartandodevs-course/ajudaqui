@@ -16,7 +16,7 @@ export const SelectProfile = () => {
   };
 
   const [widthScreen] = useWidthScreen();
-  const showNavigation = widthScreen <= 1200;
+  const showNavigation = widthScreen < 1200;
 
   return (
     <Layout hasArrow={false} showNavigation={showNavigation}>

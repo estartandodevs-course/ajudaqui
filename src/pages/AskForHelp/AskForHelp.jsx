@@ -9,7 +9,7 @@ import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
 export const AskForHelp = ({ ...restProps }) => {
   const [widthScreen] = useWidthScreen();
 
-  const showNavigation = widthScreen <= 1200;
+  const showNavigation = widthScreen < 1200;
   const [isActive, setIsActive] = useState(null);
   const [selectedOptionHelp, setSelectedOptionHelp] = useState({});
   const { handleCreateOrder, tags, handleCreateTag } = useStore();

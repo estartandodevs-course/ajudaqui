@@ -20,7 +20,7 @@ width: 100%;
 position: relative;
 background-color: ${(props) => props.theme.palette.colors.light.grayish};
 
-@media (max-width: 1200px) {
+@media (max-width: 1199px) {
     display: none;
   }
 `;
@@ -36,6 +36,7 @@ export const ContainerScreenEvaluation = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  max-width: 700px;
   height: 100%;
   padding: 14px 24px;
 
@@ -58,6 +59,9 @@ export const ContainerEvaluation = styled.div`
   display: flex;
   width: min-content;
   gap: 20px;
+  @media(max-width: 720px) {
+    gap: 10px;
+  }
 `;
 
 export const TitleHelp = styled(Typography).attrs({

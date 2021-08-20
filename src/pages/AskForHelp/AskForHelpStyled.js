@@ -20,7 +20,7 @@ export const Aside = styled.div`
   position: relative;
   background-color: ${(props) => props.theme.palette.colors.light.grayish};
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1199px) {
     display: none;
   }
 `;
@@ -32,6 +32,7 @@ right: 0;
 
 export const ContainerAskForHelp = styled.div`
   width: 100%;
+  max-width: 700px;
   display: flex;
   flex-direction: column;
   align-items: center;
