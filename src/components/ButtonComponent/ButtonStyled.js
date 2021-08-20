@@ -15,7 +15,6 @@ export const Button = styled.button`
   font-family: ${(props) => props.theme.typography.body1.fontFamily};
   border-radius: ${({ borderRadius }) => borderRadius || "5px"};
 
-  border-radius: 5px;
   height: 44px;
   font-weight: 500;
   font-size: ${(props) => props.theme.typography.body1.fontSizeSubtitles};
