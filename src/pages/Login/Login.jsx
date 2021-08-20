@@ -16,7 +16,7 @@ export const Login = () => {
   const {
     user,
     profileType,
-    authIsLoading,
+    loadingAuth,
     loginGoogle,
   } = useAuth();
 
@@ -50,7 +50,7 @@ export const Login = () => {
             width="210px"
             background="#7C7C7C"
             onClick={() => loginGoogle(profileType)}
-            disabled={authIsLoading}
+            disabled={loadingAuth}
           >
             <S.IconButton src="/assets/svg/icon google.svg" alt="google" />
             Entrar com o gmail

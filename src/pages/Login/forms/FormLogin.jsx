@@ -16,7 +16,7 @@ export const FormLogin = () => {
 
   const {
     profileType,
-    authIsLoading,
+    loadingAuth,
     loginEmail,
   } = useAuth();
 
@@ -36,15 +36,15 @@ export const FormLogin = () => {
         name="emailOrPhone"
         label="E-mail ou número do celular"
         onChange={onChangeEmailPhone}
-        disabled={authIsLoading}
+        disabled={loadingAuth}
       />
-      <Input type="password" name="password" label="Senha" disabled={authIsLoading} />
+      <Input type="password" name="password" label="Senha" disabled={loadingAuth} />
       <Input type="hidden" name="isEmailValue" value={isEmail} />
       <S.ContainerForgot>
         <S.ForgotPassword to="/register-new-password">Esqueci a senha</S.ForgotPassword>
       </S.ContainerForgot>
       <S.ButtonContainer>
-        <Button type="submit" width="106px">Entrar</Button>
+        <Button type="submit" width="106px" disabled={loadingAuth} isLoading={loadingAuth}>Entrar</Button>
       </S.ButtonContainer>
     </Form>
   );
