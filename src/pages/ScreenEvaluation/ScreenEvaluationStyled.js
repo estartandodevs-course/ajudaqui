@@ -1,6 +1,11 @@
 import styled from "styled-components";
 import { Typography } from "../../components";
 
+export const ContainerDesktop = styled.div``;
+export const Aside = styled.div``;
+export const AsideImage = styled.div``;
+
+
 export const ContainerScreenEvaluation = styled.div`
   display: flex;
   flex-direction: column;
@@ -10,7 +15,7 @@ export const ContainerScreenEvaluation = styled.div`
 `;
 
 export const ContentTitle = styled.div`
-  display: flex;  
+  display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
@@ -45,7 +50,7 @@ export const UserHelped = styled.img`
 `;
 
 export const ContentEvaluation = styled.div`
-  display: flex;  
+  display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
