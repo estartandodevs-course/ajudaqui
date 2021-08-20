@@ -62,7 +62,7 @@ export const ScreenEvaluation = () => {
           </Form>
         </S.ContainerScreenEvaluation>
         <S.Aside>
-          <S.AsideImage />
+          <S.AsideImage src="/assets/svg/arte idoso desktop.svg" />
         </S.Aside>
       </S.ContainerDesktop>
     </Layout>
