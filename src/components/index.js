@@ -21,3 +21,4 @@ export { VoluntaryModalCard } from "./WelcomeModalCards";
 export { ElderlyModalCard } from "./WelcomeModalCards";
 export { ServiceEvaluation } from "./ServiceEvaluation";
 export { OrderCard } from "./OrderCard";
+export { ThanksCompletedTask } from "./ThanksCompletedTask";
