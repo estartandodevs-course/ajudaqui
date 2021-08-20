@@ -1,11 +1,13 @@
 import React from "react";
-import * as S from "./HomeScreenOfTheVoluntaryStyled";
-import { Layout, HelpRequestCard } from "../../../components";
+import { useAuth, useStore } from "../../../contexts";
 import { elderlyInfos } from "../../../_mock";
-import { useAuth } from "../../../contexts";
+import { Layout, HelpRequestCard } from "../../../components";
+
+import * as S from "./HomeScreenOfTheVoluntaryStyled";
 
 export const HomeScreenOfTheVoluntary = () => {
   const { user } = useAuth();
+  const { helpRequests } = useStore();
   return (
     <Layout hasTabBar>
       <S.ContainerTitles>
@@ -22,20 +24,12 @@ export const HomeScreenOfTheVoluntary = () => {
         </S.LocationText>
       </S.HelpAvailable>
       <S.ContainerHelpCard>
-        {elderlyInfos.map((item) => {
+        {helpRequests.map((item) => {
           return (
             <HelpRequestCard
               key={item.id}
-              name={item.name}
-              task={item.task}
-              distance={item.distance}
-              orderTime={item.orderTime}
-              photo={item.photo}
-              action={item.action}
-              variant={item.variant}
-              color={item.color}
-              colorTask={item.colorTask}
-              src={item.arrow}
+              helpRequestData={item}
+
             />
           );
         })}
