@@ -16,6 +16,7 @@ export const save = async (path, body) => {
   return newData;
 };
 
+
 export const getByKey = async (path, key = "", value = "") => {
   const list = [];
   const query = await firebaseDatabase

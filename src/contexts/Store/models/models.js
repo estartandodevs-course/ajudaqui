@@ -22,6 +22,9 @@ export const initialStateStoreReducer = {
   helpRequests: [],
   error: null,
   loadingStore: false,
+  tags: [],
+  elderlys: [],
+  voluntarys: [],
 };
 
 export const storeContextModel = {
