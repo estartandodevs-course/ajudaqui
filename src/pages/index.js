@@ -8,3 +8,4 @@ export { AskForHelp } from "./AskForHelp";
 export { ScreenEvaluation } from "./ScreenEvaluation";
 export { RegisterNewPassword } from "./RegisterNewPassword";
 export { ProfileVoluntary } from "./ProfileVoluntary";
+export { OrderStatus } from "./OrderStatus";
