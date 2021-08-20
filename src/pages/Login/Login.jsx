@@ -11,7 +11,7 @@ export const Login = () => {
   const { push } = useHistory();
   const [widthScreen] = useWidthScreen();
 
-  const showNavigation = widthScreen <= 1200;
+  const showNavigation = widthScreen < 1200;
 
   const {
     user,

@@ -10,7 +10,7 @@ import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
 export const ScreenEvaluation = () => {
   const [widthScreen] = useWidthScreen();
 
-  const showNavigation = widthScreen <= 1200;
+  const showNavigation = widthScreen < 1200;
 
   const [evaluation, setEvaluation] = useState(0);
   return (

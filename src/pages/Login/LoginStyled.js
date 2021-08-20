@@ -6,7 +6,7 @@ export const ContainerLogin = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   @media (min-width: 576px) {
     justify-items: center;
   }
@@ -34,7 +34,7 @@ export const LoginAside = styled.aside`
   width: 100%;
   height: 100%;
   background-image: ${(props) => props.theme.palette.colors.gradientBackground};
-  @media (max-width: 1200px) {
+  @media (max-width: 1199px) {
     display: none;
   }
 `;
