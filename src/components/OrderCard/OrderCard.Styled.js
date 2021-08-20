@@ -19,7 +19,14 @@ display: flex;
 justify-content: center;
 `;
 
+
 export const Icon = styled.img`
+width: 64px;
+height: 64px;
+margin: 16px 0 16px 0;
+`;
+
+export const ImageDefault = styled.img`
 width: 64px;
 height: 64px;
 margin: 16px 0 16px 0;
@@ -33,13 +40,13 @@ export const Title = styled(Typography).attrs({
   variant: "h1",
 })`
 text-align: center;
-color: #0C011B;
+color: ${(props) => props.theme.palette.colors.text};
 font-size: 22px;
 `;
 export const ContainerSubtitle = styled.div`
 width: 310px;
 height: 40px;
-background-color: #D8CDEE;
+background-color: ${(props) => props.theme.palette.colors.secondaryVariant};
 margin: 8px 0 30px 0;
 
  `;
@@ -47,7 +54,7 @@ margin: 8px 0 30px 0;
 export const Subtitle = styled(Typography).attrs({
   variant: "h2",
 })`
-color: #2C2834;
+color: ${(props) => props.theme.palette.colors.dark.gray};
 font-size: 16px;
 text-align: center;
 padding: 11px 0 11px 0;
@@ -56,11 +63,31 @@ padding: 11px 0 11px 0;
 export const Texts = styled(Typography).attrs({
   variant: "body1",
 })`
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
   font-weight: bold;
   font-size: 14px;
   margin: 0 0 16px 24px;
 `;
 
+export const Request = styled(Typography).attrs({
+  variant: "body1",
+})`
+  color: ${(props) => props.theme.palette.colors.light.gray}
+`;
+
+export const Status = styled(Typography).attrs({
+  variant: "body1",
+})`
+  color: ${(props) => props.theme.palette.colors.light.gray}
+`;
+
+export const Order = styled(Typography).attrs({
+  variant: "body1",
+})`
+  color: ${(props) => props.theme.palette.colors.light.gray}
+`;
 
 export const ContainerTexts = styled.div`
 display: flex;
