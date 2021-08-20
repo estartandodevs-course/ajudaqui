@@ -7,7 +7,17 @@ const { Provider } = StoreContext;
 
 const StoreProvider = ({ children }) => {
   const [state, dispatch] = useReducer(StoreReducer, initialStateStoreReducer);
-  return <Provider value={{ state, dispatch }}>{children}</Provider>;
+
+  return (
+    <Provider
+      value={{
+        state,
+        dispatch,
+      }}
+    >
+      {children}
+    </Provider>
+  );
 };
 
 export { StoreProvider, StoreContext };
