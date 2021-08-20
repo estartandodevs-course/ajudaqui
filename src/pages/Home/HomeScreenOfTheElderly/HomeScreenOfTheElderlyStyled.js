@@ -36,7 +36,7 @@ export const HelpEmergency = styled.div`
   gap: 30px;
   background-color: ${(props) => props.theme.palette.colors.light.grayish};
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1199px) {
     display: none;
   }
 `;
