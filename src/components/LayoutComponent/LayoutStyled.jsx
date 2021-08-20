@@ -18,7 +18,7 @@ export const ImageTop = styled.img`
 
 export const LayoutMainContent = styled.main`
   flex: 1;
-  overflow: scroll;
+  overflow-y: scroll;
   @media(min-width: 1200px){
     padding-left: ${({ $hasTabBar }) => $hasTabBar && "95px"};
   }
