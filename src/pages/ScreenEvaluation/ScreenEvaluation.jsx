@@ -7,6 +7,7 @@ import { serviceEvaluationData } from "../../_mock";
 import * as S from "./ScreenEvaluationStyled";
 import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
 import { useAuth } from "../../contexts";
+import { PROFILES_TYPES } from "../../utils/constants";
 
 
 export const ScreenEvaluation = () => {
@@ -21,7 +22,7 @@ export const ScreenEvaluation = () => {
   return (
     <>
 
-      {profileType === "elderly" ? (
+      {profileType === PROFILES_TYPES.ELDERLY ? (
         <Layout hasTabBar showNavigation={showNavigation}>
           <S.ContainerDesktop>
             <S.ContainerScreenEvaluation>
