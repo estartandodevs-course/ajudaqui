@@ -11,7 +11,7 @@ export const OrderStatus = () => {
       <S.ContainerDesktop>
         <S.ContainerPage>
           <S.Title>
-            Porfavor, aguarde
+            Por favor, aguarde
           </S.Title>
           <OrderCard request=" Trocar gás" status=" Aguardando" order=" 02 minutos" action="Pedido Enviado!" warning="Em breve você será atendido(a)" />
           <S.Subtitle>
