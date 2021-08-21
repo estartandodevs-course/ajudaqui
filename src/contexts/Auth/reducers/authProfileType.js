@@ -1,11 +1,11 @@
 import { AuthActionsTypes } from "../types";
 
-export const AuthProfileType = (state, { payload }) => {
+export const AuthProfileType = () => {
   const REDUCERS = {
-    [AuthActionsTypes.PROFILE_TYPE]: {
+    [AuthActionsTypes.PROFILE_TYPE]: (state, { payload }) => ({
       ...state,
       ...payload,
-    },
+    }),
   };
   return REDUCERS;
 };
