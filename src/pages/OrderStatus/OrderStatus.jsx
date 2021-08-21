@@ -7,7 +7,7 @@ export const OrderStatus = () => {
 
   const showNavigation = widthScreen < 1200;
   return (
-    <Layout hasTabBar showNavigation={showNavigation}>
+    <Layout hasTabBar showNavigation={showNavigation} hasClose>
       <S.ContainerDesktop>
         <S.ContainerPage>
           <S.Title>
