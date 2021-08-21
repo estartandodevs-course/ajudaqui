@@ -7,8 +7,7 @@ import { optionPeopleHelped } from "../../_mock/optionPeopleHelped";
 import { useAuth } from "../../contexts";
 import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
 
-export const ProfileVoluntary = (props) => {
-  const { atividades, horas } = props;
+export const ProfileVoluntary = ({ activities = "10", hours = "30" }) => {
   const { user } = useAuth();
   const [widthScreen] = useWidthScreen();
 
@@ -18,15 +17,19 @@ export const ProfileVoluntary = (props) => {
       <S.ContainerPage>
         <UserOverview userData={user} />
         <S.ContainerCard>
-          <Card color="white" textAlign="center">
+          <Card
+            color="white"
+            textAlign="center"
+            as="span"
+          >
             <S.NumberCard>
-              {atividades}
+              {activities}
             </S.NumberCard>
             Atividades Realizadas
           </Card>
-          <Card color="white">
+          <Card color="white" as="span">
             <S.NumberCard>
-              {horas}
+              {hours}
             </S.NumberCard>
             Horas de Voluntariado
           </Card>

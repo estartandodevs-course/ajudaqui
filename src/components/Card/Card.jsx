@@ -8,6 +8,7 @@ export const Card = ({
   day,
   color,
   fontSize,
+  as,
   ...restProps
 }) => {
   return (
@@ -20,6 +21,7 @@ export const Card = ({
       <S.DescriptionCard
         fontSize={fontSize}
         color={color}
+        as={as}
       >
         {children}
       </S.DescriptionCard>
