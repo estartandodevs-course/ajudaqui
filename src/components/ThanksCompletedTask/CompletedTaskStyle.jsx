@@ -7,7 +7,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  margin-top: 60px;
+  margin-top: 90px;
   gap: 6px;
 `;
 
