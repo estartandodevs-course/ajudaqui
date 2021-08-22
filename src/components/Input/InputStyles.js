@@ -6,12 +6,14 @@ export const Input = styled(Field)`
   height: 46px;
   padding: 0 20px;
   background-color: #f9f7fb;
-  border: black solid 1px;
   border-radius: 5px;
   box-shadow: 0 0 0 0;
   outline: 0;
   margin-bottom: 12px;
-  &:disabled{
+  border: ${(props) => (props.$error
+    ? `1px solid ${props.theme.palette.colors.emergency}`
+    : `1px solid ${props.theme.palette.colors.border}`)};
+  &:disabled {
     background-color: #f1f7fb;
   }
 `;

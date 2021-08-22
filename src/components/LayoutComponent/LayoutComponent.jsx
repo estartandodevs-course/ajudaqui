@@ -3,11 +3,11 @@ import { TabBar } from "../TabBar";
 import * as S from "./LayoutStyled";
 
 export const Layout = ({
-  hasTabBar = false, children, hasArrow = true, showNavigation = true,
+  hasTabBar = false, children, hasArrow = true, showNavigation = true, hasClose = false,
 }) => {
   return (
     <S.LayoutWrapper>
-      {showNavigation && <BackNavigation hasArrow={hasArrow} />}
+      {showNavigation && <BackNavigation hasArrow={hasArrow} hasClose={hasClose} />}
       <S.LayoutMainContent $hasTabBar={hasTabBar}>
         { children }
       </S.LayoutMainContent>

@@ -1,39 +1,39 @@
 import { AuthActionsTypes } from "../types";
 
-export const AuthLoginEmailReducer = (state, { payload }) => {
+export const AuthLoginEmailReducer = () => {
   const REDUCERS = {
-    [AuthActionsTypes.LOGIN_EMAIL_START]: {
+    [AuthActionsTypes.LOGIN_EMAIL_START]: (state) => ({
       ...state,
       loadingAuth: true,
-    },
-    [AuthActionsTypes.LOGIN_EMAIL_SUCESS]: {
+    }),
+    [AuthActionsTypes.LOGIN_EMAIL_SUCESS]: (state, { payload }) => ({
       ...state,
       ...payload,
       isAuthenticated: true,
       loadingAuth: false,
-    },
-    [AuthActionsTypes.LOGIN_EMAIL_ERROR]: {
+    }),
+    [AuthActionsTypes.LOGIN_EMAIL_ERROR]: (state, { payload }) => ({
       ...state,
       ...payload,
       isAuthenticated: false,
       loadingAuth: false,
-    },
-    [AuthActionsTypes.LOGOUT_EMAIL_START]: {
+    }),
+    [AuthActionsTypes.LOGOUT_EMAIL_START]: (state) => ({
       ...state,
       loadingAuth: true,
-    },
-    [AuthActionsTypes.LOGOUT_EMAIL_SUCESS]: {
+    }),
+    [AuthActionsTypes.LOGOUT_EMAIL_SUCESS]: (state, { payload }) => ({
       ...state,
       ...payload,
       isAuthenticated: true,
       loadingAuth: false,
-    },
-    [AuthActionsTypes.LOGOUT_EMAIL_ERROR]: {
+    }),
+    [AuthActionsTypes.LOGOUT_EMAIL_ERROR]: (state, { payload }) => ({
       ...state,
       ...payload,
       isAuthenticated: false,
       loadingAuth: false,
-    },
+    }),
   };
   return REDUCERS;
 };

@@ -8,11 +8,11 @@ export const AuthReducer = (state, action) => {
     return state;
   }
   const REDUCERS = {
-    ...AuthProfileType(state, action),
-    ...AuthLoginEmailReducer(state, action),
-    ...AuthLoginPhoneReducer(state, action),
-    ...AuthLoginGoogleReducer(state, action),
+    ...AuthProfileType(),
+    ...AuthLoginEmailReducer(),
+    ...AuthLoginPhoneReducer(),
+    ...AuthLoginGoogleReducer(),
   };
 
-  return REDUCERS[action.type];
+  return REDUCERS[action.type](state, action);
 };

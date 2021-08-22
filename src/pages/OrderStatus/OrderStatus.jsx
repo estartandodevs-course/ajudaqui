@@ -7,11 +7,11 @@ export const OrderStatus = () => {
 
   const showNavigation = widthScreen < 1200;
   return (
-    <Layout hasTabBar showNavigation={showNavigation}>
+    <Layout hasTabBar showNavigation={showNavigation} hasClose>
       <S.ContainerDesktop>
         <S.ContainerPage>
           <S.Title>
-            Porfavor, aguarde
+            Por favor, aguarde
           </S.Title>
           <OrderCard request=" Trocar gás" status=" Aguardando" order=" 02 minutos" action="Pedido Enviado!" warning="Em breve você será atendido(a)" />
           <S.Subtitle>

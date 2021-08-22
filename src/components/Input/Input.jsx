@@ -21,6 +21,7 @@ export const Input = ({
       <S.Input
         {...field}
         {...props}
+        $error={meta.error && meta.touched}
         name={name}
         id={id}
         onChange={(e) => {
@@ -30,7 +31,6 @@ export const Input = ({
       {meta.touched && meta.error ? (
         <S.MessageError>
           {meta.error}
-
         </S.MessageError>
       ) : null}
     </S.InputWrapper>

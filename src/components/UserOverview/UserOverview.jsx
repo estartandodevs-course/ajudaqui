@@ -1,8 +1,9 @@
 import React from "react";
-import * as S from "./UserOverviewStyled";
-import { UserGrade } from "../UserGrade";
-import { useAuth } from "../../contexts";
 import { ProfilePhoto } from "..";
+import { useAuth } from "../../contexts";
+import { UserGrade } from "../UserGrade";
+import { PROFILES_TYPES } from "../../utils/constants";
+import * as S from "./UserOverviewStyled";
 
 export const UserOverview = ({ userData }) => {
   const {
@@ -13,21 +14,17 @@ export const UserOverview = ({ userData }) => {
 
   return (
     <>
-      {profileType === "elderly" ? (
-
+      {profileType === PROFILES_TYPES.ELDERLY ? (
         <S.ContainerProfile>
-          {photoURL ? <S.ImgProfile src={photoURL} alt={name} /> : <ProfilePhoto icon="/assets/svg/icon camera.svg" alt={name} />}
+          {photoURL ? (
+            <S.ImgProfile src={photoURL} alt={name} />
+          ) : (
+            <ProfilePhoto icon="/assets/svg/icon camera.svg" alt={name} />
+          )}
           <S.ContainerData>
-            <S.TitleProfile>
-              {`Olá, ${name}`}
-            </S.TitleProfile>
+            <S.TitleProfile>{`Olá, ${name}`}</S.TitleProfile>
             <S.Paragraph>
-              {birthday
-        && (
-        <>
-          {`${birthday} anos - ${location.city}`}
-        </>
-        )}
+              {birthday && <>{`${birthday} anos - ${location.city}`}</>}
             </S.Paragraph>
             <S.ContainerGrade>
               <S.Paragraph>Sua nota</S.Paragraph>
@@ -37,13 +34,15 @@ export const UserOverview = ({ userData }) => {
         </S.ContainerProfile>
       ) : (
         <S.ContainerOneVoluntary>
-          <S.ImgProfileVoluntary src={photoURL} alt={name} />
+          {photoURL ? (
+            <S.ImgProfileVoluntary src={photoURL} alt={name} />
+          ) : (
+            <ProfilePhoto icon="/assets/svg/icon camera.svg" alt={name} />
+          )}
           <S.ContainerGradeVoluntary>
             <UserGrade grade={grade} width="25px" height="25px" />
           </S.ContainerGradeVoluntary>
-          <S.NomeProfileVoluntary>
-            {`${name}`}
-          </S.NomeProfileVoluntary>
+          <S.NomeProfileVoluntary>{`${name}`}</S.NomeProfileVoluntary>
         </S.ContainerOneVoluntary>
       )}
     </>
