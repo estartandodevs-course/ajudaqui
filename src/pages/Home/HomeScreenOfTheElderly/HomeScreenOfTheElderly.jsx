@@ -1,16 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import * as S from "./HomeScreenOfTheElderlyStyled";
 import {
-  UserOverview, Card, Button, Layout,
+  UserOverview, Card, Button, Layout, ElderlyModalCard,
 } from "../../../components";
 import { useAuth } from "../../../contexts/Auth/hooks";
 import { useWidthScreen } from "../../../utils/hooks/useWidthScreen";
+import { useModal } from "../../../contexts";
 
 export const HomeScreenOfTheElderly = () => {
   const { user } = useAuth();
   const [widthScreen] = useWidthScreen();
 
   const showNavigation = widthScreen < 1200;
+
+  const { showModal, setIsOpen } = useModal();
+
+  useEffect(() => {
+    showModal(
+      <ElderlyModalCard onClick={() => setIsOpen(false)} />,
+      { agree: () => {}, disAgree: () => {} },
+    );
+  }, []);
+
   return (
     <Layout hasTabBar showNavigation={showNavigation}>
       <S.ContainerPageAside>

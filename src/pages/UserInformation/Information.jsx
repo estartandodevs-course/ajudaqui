@@ -1,11 +1,24 @@
+import { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { Layout, ProfilePhoto } from "../../components";
 import { FormContacts } from "./forms/FormContacts";
 import { FormTextArea } from "./forms/FormTextArea";
 import { PersonalInfos } from "./forms/FormPersonalInfos";
 import "antd/dist/antd.css";
 import * as S from "./InformationStyled";
+import { useAuth } from "../../contexts";
 
 export const UserInformation = () => {
+  const { user, isAuthenticated } = useAuth();
+
+  const { push } = useHistory();
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      push("select-profile");
+    }
+  }, []);
+
   return (
     <Layout hasTabBar>
       <S.ContainerForm>
@@ -13,7 +26,11 @@ export const UserInformation = () => {
           Informações Pessoais
         </S.UserInformationTitle>
         <S.ContainerProfilePhoto>
-          <ProfilePhoto icon="/assets/svg/icon camera.svg" alt="profile" />
+          {user.photoURL ? (
+            <S.ImgProfile src={user.photoURL} alt={user.name} />
+          ) : (
+            <ProfilePhoto icon="/assets/svg/icon camera.svg" alt={user.name} />
+          )}
           <S.ProfilePhotoText>MUDAR FOTO DE PERFIL</S.ProfilePhotoText>
         </S.ContainerProfilePhoto>
         <S.TabsRegister defaultActiveKey="1">

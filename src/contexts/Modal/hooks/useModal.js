@@ -12,5 +12,7 @@ export const useModal = () => {
     setModalHandlers(handlers);
   };
 
-  return { modalContent, isOpen, showModal };
+  return {
+    modalContent, isOpen, setIsOpen, showModal,
+  };
 };

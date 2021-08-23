@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { Typography } from "../../../components";
 
 export const TextAreaContainer = styled.div`
@@ -24,7 +23,7 @@ export const Content = styled.div`
   width: 100%;
 `;
 
-export const NewContact = styled(Link)`
+export const NewContact = styled.div`
   color: ${(props) => props.theme.palette.colors.primary};
   font-family: ${(props) => props.theme.typography.body1.fontFamily};
   font-size: ${(props) => props.theme.typography.body1.fontSizeText};
