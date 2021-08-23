@@ -1,18 +1,27 @@
 import React from "react";
 import { useAuth, useStore } from "../../../contexts";
-import { elderlyInfos } from "../../../_mock";
 import { Layout, HelpRequestCard } from "../../../components";
-
 import * as S from "./HomeScreenOfTheVoluntaryStyled";
 
 export const HomeScreenOfTheVoluntary = () => {
   const { user } = useAuth();
   const { helpRequests } = useStore();
+  const getOpenHelpRequests = helpRequests.filter((opened) => (
+    opened.voluntary.id === user.id
+    || !opened.voluntary.id
+  ));
+
   return (
-    <Layout hasTabBar>
+    <Layout
+      hasTabBar
+    >
       <S.ContainerTitles>
-        <S.Title>{`Olá, ${user.name}`}</S.Title>
-        <S.Subtitle>vamos ajudar um idoso?</S.Subtitle>
+        <S.Title>
+          {`Olá, ${user.name}`}
+        </S.Title>
+        <S.Subtitle>
+          vamos ajudar um idoso?
+        </S.Subtitle>
       </S.ContainerTitles>
       <S.HelpAvailable>
         <S.LocationIcon
@@ -20,16 +29,16 @@ export const HomeScreenOfTheVoluntary = () => {
           alt="Icone de Localização"
         />
         <S.LocationText>
-          {`${elderlyInfos.length} idosos próximos a você precisam de ajuda`}
+          {`${getOpenHelpRequests.length} idosos próximos a você precisam de ajuda`}
         </S.LocationText>
       </S.HelpAvailable>
       <S.ContainerHelpCard>
-        {helpRequests.map((item) => {
+        {getOpenHelpRequests.map((help) => {
           return (
             <HelpRequestCard
-              key={item.id}
-              helpRequestData={item}
-
+              key={help.id}
+              helpRequestData={help}
+              isVoluntary={help?.voluntary?.id === user?.id}
             />
           );
         })}
