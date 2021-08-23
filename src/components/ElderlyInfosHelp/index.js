@@ -1,0 +1,1 @@
+export { ElderlyInfosHelp } from "./ElderlyInfosHelp";
