@@ -3,14 +3,13 @@ import * as S from "./HomeScreenOfTheElderlyStyled";
 import {
   UserOverview, Card, Button, Layout, ElderlyModalCard,
 } from "../../../components";
-import { useAuth } from "../../../contexts/Auth/hooks";
 import { useWidthScreen } from "../../../utils/hooks/useWidthScreen";
-import { useModal } from "../../../contexts";
+import { useModal, useStore, useAuth } from "../../../contexts";
 
 export const HomeScreenOfTheElderly = () => {
   const { user } = useAuth();
   const [widthScreen] = useWidthScreen();
-
+  const { handleCreateOrder } = useStore();
   const showNavigation = widthScreen < 1200;
 
   const { showModal, setIsOpen } = useModal();
@@ -22,6 +21,20 @@ export const HomeScreenOfTheElderly = () => {
     );
   }, []);
 
+
+  const handleSubmit = async () => {
+    await handleCreateOrder({
+      order: {
+        option: "EMERGÊNCIA",
+        key: "emergency",
+      },
+      elderly: {
+        id: user.id,
+        evaluation: "",
+        note: "",
+      },
+    });
+  };
   return (
     <Layout hasTabBar showNavigation={showNavigation}>
       <S.ContainerPageAside>
@@ -83,6 +96,7 @@ export const HomeScreenOfTheElderly = () => {
             <S.PositionButton>
               <Button
                 background={(props) => props.theme.palette.colors.emergency}
+                onClick={handleSubmit}
               >
                 EMERGÊNCIA
               </Button>
