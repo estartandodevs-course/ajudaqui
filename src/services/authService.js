@@ -1,6 +1,6 @@
 import { emailProviderLogin, emailProviderRegister } from "./firebase/authEmail";
 import { googleProviderLogin } from "./firebase/authGoogle";
-import { getByKey, save } from "./firebase/handlers";
+import { getByKey, save, update } from "./firebase/handlers";
 
 const basePath = "#21/ajudaqui";
 
@@ -99,4 +99,14 @@ export const loginWithEmailAndPassword = async (credentials, profileType, profil
     user: userData,
     idToken,
   };
+};
+
+export const updateUserData = async (profileType, id, profileData) => {
+  const response = await update(
+    `${basePath}/${profileType}s`,
+    id,
+    profileData,
+  );
+
+  return response;
 };
