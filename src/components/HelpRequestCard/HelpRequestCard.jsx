@@ -10,9 +10,7 @@ export const HelpRequestCard = ({
   helpRequestData, isVoluntary,
 }) => {
   const { elderlys, handleUpdateSubscribe } = useStore();
-
   const { user } = useAuth();
-
   const { push } = useHistory();
 
   const {
@@ -42,7 +40,7 @@ export const HelpRequestCard = ({
    || "ajudando";
 
   const handleSubscribe = async () => {
-    await handleUpdateSubscribe(helpRequestData.id, user.id);
+    if (!isVoluntary) await handleUpdateSubscribe(helpRequestData.id, user.id);
     push(`order-status/${helpRequestData.id}`);
   };
 
