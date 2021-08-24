@@ -5,7 +5,7 @@ import { Button } from "../ButtonComponent";
 export const Card = styled.div`
   border: 1px solid #BC1610;
   width: 312px;
-  height: 383px;
+  height: max-content;
   border-radius: 5px 5px 9px 9px;
   display: flex;
   flex-direction: column;
@@ -16,6 +16,7 @@ export const ContainerProfile = styled.div`
   margin-bottom: 24px;
   display: flex;
   justify-content: center;
+  position: relative;
   `;
 export const ImageElderly = styled.img`
   border-radius: 100%;
@@ -27,11 +28,13 @@ export const ImageElderly = styled.img`
   position: absolute;
 
 `;
-export const NameElderly = styled.p`
+export const NameElderly = styled(Typography).attrs({
+  variant: "body1",
+})`
   text-align: center;
   margin-top: 43px;
-  font-weight: bold;
-  color: #0C011B;
+  font-weight: 700;
+  color: ${(props) => props.theme.palette.colors.text};
 `;
 
 export const ContainerProblem = styled.div`
@@ -43,7 +46,10 @@ export const ContainerMedicines = styled.div`
 `;
 
 export const ContainerEmergency = styled.div`
-  margin-bottom: 30px;
+display: flex;
+flex-direction: column;
+gap: 4px;
+  margin-bottom: 25px;
 `;
 export const IconEmergency = styled.img`
   margin-left: 10px;
@@ -77,11 +83,17 @@ export const TextTitleEmergency = styled(Typography).attrs({
 
 
 export const Texts = styled.p`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
   color: #0C011B;
   font-size: 16px;
   padding-left: 20px;
 
 `;
+
+export const Problem = styled.p``;
 
 export const ContainerTextFinal = styled.div`
   width: 278px;
@@ -96,12 +108,9 @@ export const TextFinal = styled.p`
   line-height: 16px;
  `;
 
-export const ContainerButton = styled.div`
-`;
+
 export const ContentButtom = styled(Button)`
-  /* display: flex;
-  align-self: flex-end; */
-  position: absolute;
+  width: 100%;
   height: 50px;
   border-radius: 0px 0px 9px 9px;
   background: ${(props) => props.theme.palette.colors.emergency}

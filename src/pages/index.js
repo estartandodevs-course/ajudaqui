@@ -10,3 +10,4 @@ export { RegisterNewPassword } from "./RegisterNewPassword";
 export { ProfileVoluntary } from "./ProfileVoluntary";
 export { OrderStatus } from "./OrderStatus";
 export { ThanksScreen } from "./ThanksScreen";
+export { EmergencyRequest } from "./EmergencyRequest";
