@@ -1,9 +1,8 @@
-
 import React from "react";
 import { differenceInMinutes, parseISO } from "date-fns";
+import { orderStatusName } from "../../utils/constants";
 import { useStore } from "../../contexts";
 import * as S from "./HelpRequestCardStyled";
-import { orderStatusName } from "../../utils/constants";
 
 export const HelpRequestCard = ({
   helpRequestData, isVoluntary,
@@ -49,7 +48,7 @@ export const HelpRequestCard = ({
                   {name}
                 </S.UserName>
                 <S.RequestedTask
-                  $colorTask={hasEmergency && "#BC1610"}
+                  $colorTask={hasEmergency ? "#BC1610" : undefined}
                 >
                   {order.option}
                 </S.RequestedTask>
@@ -73,7 +72,7 @@ export const HelpRequestCard = ({
             $variant={verifyOrderStatus}
           >
             <S.ActionDescription
-              color={isVoluntary && "#4e3681"}
+              color={isVoluntary ? "#4e3681" : undefined}
             >
               {actionsTypes}
               {!isVoluntary
