@@ -1,6 +1,6 @@
 import { fetch, save, update } from "./firebase/handlers";
 
-const basePath = "#21/ajudaqui";
+const basePath = process.env.REACT_APP_FB_BASE_PATH;
 
 export const fetchHelpRequests = async () => {
   const response = await fetch(`${basePath}/helpRequests`);
