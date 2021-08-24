@@ -1,20 +1,24 @@
 import React from "react";
 import * as S from "./ElderlyInfosHelpStyled";
 
-export const ElderlyInfosHelp = ({ props }) => {
+export const ElderlyInfosHelp = (props) => {
   const {
-    problem, medicines, sonNumber, otherResponsible, text,
+    name, problem, medicines, sonNumber, otherResponsible, text,
   } = props;
   return (
     <S.Card>
       <S.ContainerProfile>
         <S.ImageElderly src="/assets/images/oldman-8.jpg" alt="" />
-        <S.NameElderly>Francisco</S.NameElderly>
+        <S.NameElderly>
+          {name}
+        </S.NameElderly>
       </S.ContainerProfile>
       <S.ContainerProblem>
         <S.Texts>
           Possui
-          {problem}
+          <S.Problem>
+            {problem}
+          </S.Problem>
           <S.IconEmergency src="/assets/svg/icon-saude.svg.svg" alt="" />
         </S.Texts>
       </S.ContainerProblem>
@@ -28,7 +32,7 @@ export const ElderlyInfosHelp = ({ props }) => {
         </S.Texts>
       </S.ContainerMedicines>
       <S.ContainerEmergency>
-        <S.TextTitleEmergency>Em casosos de emergência ligar:</S.TextTitleEmergency>
+        <S.TextTitleEmergency>Em casos de emergência ligar:</S.TextTitleEmergency>
         <S.Texts>
           {sonNumber}
           <S.Icons src="/assets/svg/icon-telefone.svg " alt="" />
@@ -52,12 +56,12 @@ export const ElderlyInfosHelp = ({ props }) => {
           no ícone ao lado do telefone
         </S.TextFinal>
       </S.ContainerTextFinal>
-      <S.ContainerButton>
-        <S.ContentButtom width="312px" borderRadius="0">
-          IR AO LOCAL
-          <S.ContentArrow src="/assets/svg/right arrow.svg" alt="" />
-        </S.ContentButtom>
-      </S.ContainerButton>
+
+      <S.ContentButtom borderRadius="0">
+        IR AO LOCAL
+        <S.ContentArrow src="/assets/svg/right arrow.svg" alt="" />
+      </S.ContentButtom>
+
     </S.Card>
   );
 };
