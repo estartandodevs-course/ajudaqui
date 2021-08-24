@@ -3,14 +3,13 @@ import * as S from "./HomeScreenOfTheElderlyStyled";
 import {
   UserOverview, Card, Button, Layout, ElderlyModalCard,
 } from "../../../components";
-import { useAuth } from "../../../contexts/Auth/hooks";
 import { useWidthScreen } from "../../../utils/hooks/useWidthScreen";
-import { useModal } from "../../../contexts";
+import { useModal, useStore, useAuth } from "../../../contexts";
 
 export const HomeScreenOfTheElderly = () => {
   const { user } = useAuth();
   const [widthScreen] = useWidthScreen();
-
+  const { handleCreateOrder } = useStore();
   const showNavigation = widthScreen < 1200;
 
   const { showModal, setIsOpen } = useModal();
@@ -22,8 +21,25 @@ export const HomeScreenOfTheElderly = () => {
     );
   }, []);
 
+
+  const handleSubmit = async () => {
+    await handleCreateOrder({
+      order: {
+        option: "EMERGÊNCIA",
+        key: "emergency",
+      },
+      elderly: {
+        id: user.id,
+        evaluation: "",
+        note: "",
+      },
+    });
+  };
   return (
-    <Layout hasTabBar showNavigation={showNavigation}>
+    <Layout
+      hasTabBar
+      showNavigation={showNavigation}
+    >
       <S.ContainerPageAside>
         <S.ContainerPage>
           <S.ContainerUserOverview>
@@ -33,7 +49,9 @@ export const HomeScreenOfTheElderly = () => {
             borderTop="1px solid #D8CDEE"
             borderBottom="1px solid #D8CDEE"
           >
-            <S.Paragraph>Como você prefere pedir ajuda?</S.Paragraph>
+            <S.Paragraph>
+              Como você prefere pedir ajuda?
+            </S.Paragraph>
             <S.ContainerCards>
               <Card
                 src="/assets/svg/icon mic.svg"
@@ -51,8 +69,12 @@ export const HomeScreenOfTheElderly = () => {
               </Card>
             </S.ContainerCards>
           </S.ContainerOne>
-          <S.ContainerOne borderBottom="1px solid #D8CDEE">
-            <S.Paragraph1>Informações Pessoais</S.Paragraph1>
+          <S.ContainerOne
+            borderBottom="1px solid #D8CDEE"
+          >
+            <S.Paragraph1>
+              Informações Pessoais
+            </S.Paragraph1>
             <S.ContainerCards>
               <Card
                 variant="secondary"
@@ -74,7 +96,9 @@ export const HomeScreenOfTheElderly = () => {
           </S.ContainerOne>
           <S.ContainerTwo>
             <S.ContainerTexts>
-              <S.TextInformation>Possui uma emergência de saúde?</S.TextInformation>
+              <S.TextInformation>
+                Possui uma emergência de saúde?
+              </S.TextInformation>
             </S.ContainerTexts>
             <S.Paragraph2>
               Clique abaixo e seus familiares e voluntários serão avisados que
@@ -83,6 +107,7 @@ export const HomeScreenOfTheElderly = () => {
             <S.PositionButton>
               <Button
                 background={(props) => props.theme.palette.colors.emergency}
+                onClick={handleSubmit}
               >
                 EMERGÊNCIA
               </Button>
@@ -102,6 +127,7 @@ export const HomeScreenOfTheElderly = () => {
           </S.TextContainer>
           <Button
             background={(props) => props.theme.palette.colors.emergency}
+            onClick={handleSubmit}
           >
             EMERGÊNCIA
           </Button>

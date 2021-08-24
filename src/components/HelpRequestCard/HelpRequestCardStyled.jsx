@@ -17,7 +17,7 @@ const variants = {
     border: 1px solid ${(props) => `${props.theme.palette.colors.emergency} `};
   `,
 
-  gradient: css`
+  aguardando: css`
     border: 1px solid ${(props) => `${props.theme.palette.colors.primary} `};
   `,
 
@@ -31,7 +31,7 @@ export const Card = styled.div`
   width: 100%;
   height: 175px;
   border-radius: 5px 5px 9px 9px;
-  ${(props) => props.variant && variants[props.variant]}
+  ${(props) => props.$variant && variants[props.$variant]}
 `;
 
 const backgrounds = {
@@ -45,7 +45,7 @@ const backgrounds = {
     border-top-color: ${(props) => `${props.theme.palette.colors.emergency} `};
   `,
 
-  gradient: css`
+  aguardando: css`
     background-image: ${(props) => `${props.theme.palette.colors.gradientBackground} `};
     border-top-color: ${(props) => `${props.theme.palette.colors.gradientBackground} `};
   `,
@@ -61,7 +61,7 @@ export const UserAction = styled.div`
   height: 24%;
   border-top: 1px solid;
   border-radius: 0 0 9px 9px;
-  ${(props) => props.variant && backgrounds[props.variant]}
+  ${(props) => props.$variant && backgrounds[props.$variant]}
 `;
 
 export const ActionDescription = styled(Typography).attrs({
@@ -115,7 +115,7 @@ export const RequestedTask = styled(Typography).attrs({
   variant: "body1",
 })`
   font-size: ${(props) => props.theme.typography.body1?.fontSizeText};
-  color: ${(props) => props.colorTask || props.theme.palette.colors.light.gray};
+  color: ${(props) => props.$colorTask || props.theme.palette.colors.light.gray};
 `;
 
 export const Distance = styled(Typography).attrs({
