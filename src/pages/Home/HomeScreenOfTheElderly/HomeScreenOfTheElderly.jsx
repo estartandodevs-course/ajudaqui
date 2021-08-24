@@ -84,7 +84,7 @@ export const HomeScreenOfTheElderly = () => {
                 src="/assets/svg/icon saude.svg"
                 color="#fff"
                 fontSize="14px"
-                onClick={() => push("/user-information")}
+                onClick={() => push("/order-status")}
               >
                 DADOS DE SAÚDE
               </Card>

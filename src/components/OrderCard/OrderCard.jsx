@@ -1,10 +1,14 @@
+import { parseISO, differenceInMinutes } from "date-fns";
 import React from "react";
+import { orderStatusName } from "../../utils/constants";
 import * as S from "./OrderCard.Styled";
 
-export const OrderCard = (props) => {
+export const OrderCard = ({ helpRequest }) => {
   const {
-    request, photoURL, status, order, name, action, warning,
-  } = props;
+    order, photoURL, status, createdAt, name, action, warning,
+  } = helpRequest;
+
+  const runningTime = differenceInMinutes(new Date(), parseISO(createdAt));
 
   return (
     <S.ContainerOrderCard>
@@ -21,15 +25,15 @@ export const OrderCard = (props) => {
       <S.ContainerTexts>
         <S.Texts>
           SOLICITAÇÃO:
-          <S.Request>{request}</S.Request>
+          <S.Request>{order?.option}</S.Request>
         </S.Texts>
         <S.Texts>
           STATUS:
-          <S.Status>{status}</S.Status>
+          <S.Status>{orderStatusName[status]}</S.Status>
         </S.Texts>
         <S.Texts>
           PEDIDO FEITO HÁ:
-          <S.Order>{order}</S.Order>
+          <S.Order>{`${runningTime} minutos`}</S.Order>
         </S.Texts>
       </S.ContainerTexts>
       <S.CardButtom width="100%" borderRadius="0">
@@ -39,3 +43,4 @@ export const OrderCard = (props) => {
     </S.ContainerOrderCard>
   );
 };
+

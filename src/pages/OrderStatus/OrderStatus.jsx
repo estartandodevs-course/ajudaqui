@@ -1,10 +1,11 @@
 import { Layout, OrderCard } from "../../components";
 import * as S from "./OrderStatusStyled";
 import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
+import { useStore } from "../../contexts";
 
 export const OrderStatus = () => {
   const [widthScreen] = useWidthScreen();
-
+  const { helpRequests } = useStore();
   const showNavigation = widthScreen < 1200;
   return (
     <Layout hasTabBar showNavigation={showNavigation} hasClose>
@@ -13,7 +14,7 @@ export const OrderStatus = () => {
           <S.Title>
             Por favor, aguarde
           </S.Title>
-          <OrderCard request=" Trocar gás" status=" Aguardando" order=" 02 minutos" action="Pedido Enviado!" warning="Em breve você será atendido(a)" />
+          <OrderCard helpRequest={helpRequests[0]} />
           <S.Subtitle>
             Você pode fechar essa tela, avisaremos quando o voluntário chegar.
           </S.Subtitle>
