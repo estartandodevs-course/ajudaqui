@@ -10,6 +10,8 @@ export const OrderStatus = () => {
   const showNavigation = widthScreen < 1200;
   const { helpRequestId } = useParams();
   console.log(helpRequestId);
+
+
   return (
     <Layout hasTabBar showNavigation={showNavigation} hasClose>
       <S.ContainerDesktop>
@@ -17,7 +19,7 @@ export const OrderStatus = () => {
           <S.Title>
             Por favor, aguarde
           </S.Title>
-          <OrderCard helpRequest={helpRequests[0]} />
+          <OrderCard helpRequest={helpRequests} />
           <S.Subtitle>
             Você pode fechar essa tela, avisaremos quando o voluntário chegar.
           </S.Subtitle>

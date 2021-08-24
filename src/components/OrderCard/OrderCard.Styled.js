@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../../styles/themes";
 import { Typography } from "../Typography";
 import { Button } from "../ButtonComponent";
 
@@ -36,7 +37,7 @@ export const ContainerTitle = styled.div`
 
 export const Title = styled(Typography).attrs({
   variant: "h1",
-  color: (props) => props.theme.palette.colors.text,
+  color: theme.palette.colors.text,
 })`
   text-align: center;
   font-size: 22px;
@@ -50,7 +51,7 @@ export const ContainerSubtitle = styled.div`
 
 export const Subtitle = styled(Typography).attrs({
   variant: "h2",
-  color: (props) => props.theme.palette.colors.dark.gray,
+  color: theme.palette.colors.dark.gray,
 })`
   font-size: 16px;
   text-align: center;
@@ -71,19 +72,19 @@ export const Texts = styled(Typography).attrs({
 
 export const Request = styled(Typography).attrs({
   variant: "body1",
-  color: (props) => props.theme.palette.colors.light.gray,
+  color: theme.palette.colors.light.gray,
 })`
 `;
 
 export const Status = styled(Typography).attrs({
   variant: "body1",
-  color: (props) => props.theme.palette.colors.light.gray,
+  color: theme.palette.colors.light.gray,
 })`
 `;
 
 export const Order = styled(Typography).attrs({
   variant: "body1",
-  color: (props) => props.theme.palette.colors.light.gray,
+  color: theme.palette.colors.light.gray,
 })`
 `;
 

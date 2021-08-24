@@ -27,6 +27,7 @@ Typography.propTypes = {
 
 Typography.defaultProps = {
   variant: "h1",
+
 };
 
 export { Typography };
