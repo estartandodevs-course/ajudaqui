@@ -45,7 +45,7 @@ export const ContainerScreenEvaluation = styled.div`
     justify-content: center;
     align-items: center;
   }
-`;
+  `;
 
 export const ContentTitle = styled.div`
   display: flex;
@@ -53,7 +53,7 @@ export const ContentTitle = styled.div`
   align-items: center;
   gap: 16px;
 
-`;
+  `;
 
 export const ContainerEvaluation = styled.div`
   display: flex;
@@ -62,7 +62,7 @@ export const ContainerEvaluation = styled.div`
   @media(max-width: 720px) {
     gap: 10px;
   }
-`;
+  `;
 
 export const TitleHelp = styled(Typography).attrs({
   variant: "h2",
@@ -70,9 +70,9 @@ export const TitleHelp = styled(Typography).attrs({
   color: ${(props) => props.theme.palette.colors.primaryVariant};
 
   @media (min-width: 1200px) {
-  font-size: 24px;
+    font-size: 24px;
   }
-`;
+  `;
 
 export const DescriptionPersonHelp = styled(Typography).attrs({
   variant: "body1",
@@ -86,7 +86,7 @@ export const DescriptionPersonHelp = styled(Typography).attrs({
     font-size: 18px;
     max-width: 100%;
   }
-`;
+  `;
 
 export const UserHelped = styled.img`
   width: 85px;
@@ -95,10 +95,10 @@ export const UserHelped = styled.img`
   margin-bottom: 16px;
 
   @media (min-width: 1200px) {
-  width: 160px;
-  height: 160px;
+    width: 160px;
+    height: 160px;
   }
-`;
+  `;
 
 export const ContentEvaluation = styled.div`
   display: flex;
@@ -108,9 +108,9 @@ export const ContentEvaluation = styled.div`
   margin-bottom: 28px;
 
   @media (min-width: 1200px) {
-  gap: 20px;
+    gap: 20px;
   }
-`;
+  `;
 
 export const NamePersonHelp = styled(Typography).attrs({
   variant: "body1",
@@ -118,7 +118,7 @@ export const NamePersonHelp = styled(Typography).attrs({
 
 @media (min-width: 1200px) {
   font-size: 18px;
-  }
+}
 `;
 
 export const PositionButton = styled.div`
@@ -127,6 +127,21 @@ export const PositionButton = styled.div`
   width: 100%auto;
 
   @media (min-width: 1200px) {
-  margin-top: 20px;
+    margin-top: 20px;
   }
-`;
+  `;
+
+export const ContainerThanksCompletedTask = styled.div`
+   background-color: #F9F7FB;
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+
+   @media (max-width: 1200px) {
+     display: none;
+   }
+   `;
+
+
