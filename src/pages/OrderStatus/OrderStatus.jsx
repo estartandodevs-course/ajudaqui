@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import { Layout, OrderCard } from "../../components";
-import * as S from "./OrderStatusStyled";
 import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
 import { useStore } from "../../contexts";
+import * as S from "./OrderStatusStyled";
 
 export const OrderStatus = () => {
   const [widthScreen] = useWidthScreen();
