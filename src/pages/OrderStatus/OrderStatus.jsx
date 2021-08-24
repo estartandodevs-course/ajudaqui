@@ -9,9 +9,11 @@ export const OrderStatus = () => {
   const { helpRequests } = useStore();
   const showNavigation = widthScreen < 1200;
   const { helpRequestId } = useParams();
-  console.log(helpRequestId);
 
-
+  const filteredhelpRequest = helpRequests
+    .find(
+      (helpRequest) => helpRequest.id === helpRequestId,
+    );
   return (
     <Layout hasTabBar showNavigation={showNavigation} hasClose>
       <S.ContainerDesktop>
@@ -19,7 +21,7 @@ export const OrderStatus = () => {
           <S.Title>
             Por favor, aguarde
           </S.Title>
-          <OrderCard helpRequest={helpRequests} />
+          <OrderCard helpRequest={filteredhelpRequest} />
           <S.Subtitle>
             Você pode fechar essa tela, avisaremos quando o voluntário chegar.
           </S.Subtitle>
