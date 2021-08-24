@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import * as S from "./HomeScreenOfTheElderlyStyled";
 import {
   UserOverview, Card, Button, Layout, ElderlyModalCard,
@@ -9,8 +10,9 @@ import { useModal, useStore, useAuth } from "../../../contexts";
 export const HomeScreenOfTheElderly = () => {
   const { user } = useAuth();
   const [widthScreen] = useWidthScreen();
-  const { handleCreateOrder } = useStore();
+  const { handleCreateOrder, loadingStore } = useStore();
   const showNavigation = widthScreen < 1200;
+  const { push } = useHistory();
 
   const { showModal, setIsOpen } = useModal();
 
@@ -64,6 +66,7 @@ export const HomeScreenOfTheElderly = () => {
                 src="/assets/svg/icon texto.svg"
                 color="#fff"
                 fontSize="14px"
+                onClick={() => push("/ask-for-help")}
               >
                 POR TEXTO
               </Card>
@@ -81,6 +84,7 @@ export const HomeScreenOfTheElderly = () => {
                 src="/assets/svg/icon saude.svg"
                 color="#fff"
                 fontSize="14px"
+                onClick={() => push("/user-information")}
               >
                 DADOS DE SAÚDE
               </Card>
@@ -89,6 +93,7 @@ export const HomeScreenOfTheElderly = () => {
                 src="/assets/svg/icon contato.svg"
                 color="#fff"
                 fontSize="14px"
+                onClick={() => push("/user-information")}
               >
                 AGENDA DE CONTATOS
               </Card>
@@ -107,6 +112,7 @@ export const HomeScreenOfTheElderly = () => {
             <S.PositionButton>
               <Button
                 background={(props) => props.theme.palette.colors.emergency}
+                isLoading={loadingStore}
                 onClick={handleSubmit}
               >
                 EMERGÊNCIA
@@ -127,6 +133,7 @@ export const HomeScreenOfTheElderly = () => {
           </S.TextContainer>
           <Button
             background={(props) => props.theme.palette.colors.emergency}
+            isLoading={loadingStore}
             onClick={handleSubmit}
           >
             EMERGÊNCIA

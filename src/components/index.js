@@ -24,3 +24,5 @@ export { OrderCard } from "./OrderCard";
 export { ThanksCompletedTask } from "./ThanksCompletedTask";
 export { Notification } from "./Notification";
 export { ElderlyInfosHelp } from "./ElderlyInfosHelp";
+export { Close } from "./Close";
+export { SpinnerTime } from "./SpinnerTime";

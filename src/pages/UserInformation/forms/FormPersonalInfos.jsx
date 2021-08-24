@@ -33,31 +33,29 @@ export const PersonalInfos = () => {
   };
 
   return (
-    <>
-      <Form
-        initialValues={initialValues}
-        enableReinitialize
-        onSubmit={handleSubmit}
-      >
-        <Input type="text" name="name" label="Nome completo" placeholder="Nome completo" />
-        <Input type="date" name="birthday" label="Data de nascimento" placeholder="01/01/1990" width="168px" />
-        <Input type="text" name="gender" label="Gênero" placeholder="Feminino" />
-        <Input type="text" name="location.address" label="Endereço" placeholder="Rua 00 Casa 00" />
-        <Input type="text" name="location.city" label="Cidade" placeholder="São paulo" />
-        <Input type="text" name="location.uf" label="Estado" placeholder="SP" />
-        <Input type="tel" name="phoneNumber" label="Telefone" placeholder="(00) 0123-4567" />
-        <Form.InputSelect label="Preferência de ajuda" name="helpPreferrence" options={optionsPreference} />
-        <S.ButtonContainer>
-          <Button
-            width="100px"
-            type="submit"
-            isLoading={loadingAuth}
-            disabled={loadingAuth}
-          >
-            Editar
-          </Button>
-        </S.ButtonContainer>
-      </Form>
-    </>
+    <Form
+      initialValues={initialValues}
+      enableReinitialize
+      onSubmit={handleSubmit}
+    >
+      <Input type="text" name="name" label="Nome completo" placeholder="Nome completo" />
+      <Input type="date" name="birthday" label="Data de nascimento" placeholder="01/01/1990" width="168px" />
+      <Input type="text" name="gender" label="Gênero" placeholder="Feminino" />
+      <Input type="text" name="location.address" label="Endereço" placeholder="Rua 00 Casa 00" />
+      <Input type="text" name="location.city" label="Cidade" placeholder="São paulo" />
+      <Input type="text" name="location.uf" label="Estado" placeholder="SP" />
+      <Input type="tel" name="phoneNumber" label="Telefone" placeholder="(00) 0123-4567" />
+      <Form.InputSelect label="Preferência de ajuda" name="helpPreferrence" options={optionsPreference} />
+      <S.ButtonContainer>
+        <Button
+          width="100px"
+          type="submit"
+          isLoading={loadingAuth}
+          disabled={loadingAuth}
+        >
+          Editar
+        </Button>
+      </S.ButtonContainer>
+    </Form>
   );
 };

@@ -5,7 +5,7 @@ import {
   RegisterNewPassword, UserInformation, ProfileVoluntary,
   OrderStatus, ThanksScreen, EmergencyRequest,
 } from "./pages";
-import { Modal } from "./components";
+import { Modal, SpinnerTime } from "./components";
 import { useModal } from "./contexts";
 
 export default function Routes() {
@@ -31,6 +31,7 @@ export default function Routes() {
         <Route exact path="/order-status" component={OrderStatus} />
         <Route exact path="/thanks" component={ThanksScreen} />
         <Route exact path="/emergency" component={EmergencyRequest} />
+        <Route exact path="/spinner" component={SpinnerTime} />
       </Switch>
     </>
   );
