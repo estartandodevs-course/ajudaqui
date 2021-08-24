@@ -8,7 +8,7 @@ export const ThanksCompletedTask = (props) => {
   return (
     <S.Container>
       <S.ContainerImage>
-        <S.ImageLogo src="assets/images/logo.png" />
+        <S.ImageLogo src="/assets/images/logo.png" alt="logo" />
       </S.ContainerImage>
       <S.FirstSection>
         <S.Paragraph1>
