@@ -1,8 +1,8 @@
 import { Progress } from "antd";
 import { useEffect, useState } from "react";
 
-export const SpinnerTime = () => {
-  const [start, setStart] = useState(false);
+
+export const SpinnerTime = ({ start = false, setStart = () => {} }) => {
   const [state, setState] = useState({
     min: 20,
     secs: 0,
@@ -67,7 +67,6 @@ export const SpinnerTime = () => {
       strokeWidth={10}
       strokeLinecap="square"
       width={152.2}
-      onClick={() => setStart(!start)}
       percent={100 - percentage}
       format={() => `${state.min}:${state.secs}`}
     />
