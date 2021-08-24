@@ -3,9 +3,9 @@ import { Switch, Route } from "react-router-dom";
 import {
   Home, Onboarding, Register, Login, AskForHelp, ScreenEvaluation, SelectProfile,
   RegisterNewPassword, UserInformation, ProfileVoluntary,
-  OrderStatus, ThanksScreen, EmergencyRequest,
+  OrderStatus, ThanksScreen, EmergencyRequest, ActivityProgress,
 } from "./pages";
-import { Modal, SpinnerTime } from "./components";
+import { Modal } from "./components";
 import { useModal } from "./contexts";
 
 export default function Routes() {
@@ -31,7 +31,7 @@ export default function Routes() {
         <Route exact path="/order-status" component={OrderStatus} />
         <Route exact path="/thanks" component={ThanksScreen} />
         <Route exact path="/emergency" component={EmergencyRequest} />
-        <Route exact path="/spinner" component={SpinnerTime} />
+        <Route exact path="/activity-progress" component={ActivityProgress} />
       </Switch>
     </>
   );
