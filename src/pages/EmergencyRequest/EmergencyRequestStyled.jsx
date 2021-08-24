@@ -43,11 +43,16 @@ overflow-y: auto;
 `;
 
 export const ContainerText = styled.div`
+width: 312px;
+/* padding: 0 24px; */
 display: flex;
 flex-direction: column;
 gap: 6px;
 
 @media (min-width: 1200px) {
+  justify-content: center;
+  align-items: center;
+  padding: 0;
     text-align: center;
     gap: 14px;
   }
