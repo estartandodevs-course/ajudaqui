@@ -40,11 +40,14 @@ export const ContainerForm = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 32px 24px;
+
+  @media (min-width: 1199px) {
+    width: 450px;
+  }
 `;
 
 export const ContainerProfilePhoto = styled.div`
   width: 100%;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -96,6 +99,8 @@ export const TabsRegister = styled(Tabs)`
     border-bottom: 2px solid ${(props) => props.theme.palette.colors.purple};
   }
   width: 100%;
+  height: 100%;
+  overflow-y: auto;
 `;
 
 export const TabsChoiced = styled(TabPane)`
