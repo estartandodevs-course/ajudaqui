@@ -3,6 +3,7 @@ import { differenceInMinutes, parseISO } from "date-fns";
 import { orderStatusName } from "../../utils/constants";
 import { useStore } from "../../contexts";
 import * as S from "./HelpRequestCardStyled";
+import { ProfilePhoto } from "../ProfilePhoto";
 
 export const HelpRequestCard = ({
   helpRequestData, isVoluntary,
@@ -63,9 +64,12 @@ export const HelpRequestCard = ({
               </S.DistanceTimeContainer>
             </S.Request>
             <S.UserImage>
-              <S.Image
-                src={photoURL}
-              />
+              { photoURL ? (
+                <S.Image
+                  src={photoURL}
+                />
+              )
+                : <ProfilePhoto icon="/assets/svg/icon camera.svg" alt="camera" />}
             </S.UserImage>
           </S.UserInfos>
           <S.UserAction

@@ -6,10 +6,20 @@ import * as S from "./HomeScreenOfTheVoluntaryStyled";
 export const HomeScreenOfTheVoluntary = () => {
   const { user } = useAuth();
   const { helpRequests } = useStore();
-  const getOpenHelpRequests = helpRequests.filter((opened) => (
-    opened.voluntary.id === user.id
+  const getOpenHelpRequests = helpRequests
+    .filter((opened) => (
+      opened.voluntary.id === user.id
     || !opened.voluntary.id
-  ));
+    ))
+    .sort((a, b) => {
+      if (a.createdAt < b.createdAt) {
+        return -1;
+      }
+      if (a.createdAt > b.createdAt) {
+        return 1;
+      }
+      return 0;
+    });
 
   return (
     <Layout
