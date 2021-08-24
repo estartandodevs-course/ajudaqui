@@ -23,3 +23,4 @@ export { ServiceEvaluation } from "./ServiceEvaluation";
 export { OrderCard } from "./OrderCard";
 export { ThanksCompletedTask } from "./ThanksCompletedTask";
 export { Notification } from "./Notification";
+export { ElderlyInfosHelp } from "./ElderlyInfosHelp";
