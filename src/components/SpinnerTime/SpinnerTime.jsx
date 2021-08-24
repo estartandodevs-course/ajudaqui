@@ -1,66 +1,63 @@
 import { Progress } from "antd";
 import { useEffect, useState } from "react";
 
-
 export const SpinnerTime = () => {
+  const [start, setStart] = useState(false);
   const [state, setState] = useState({
-    hours: 0,
-    min: 0,
+    min: 20,
     secs: 0,
     fin: false,
-    percent: 100,
-    initialTime: 7200,
   });
 
-  useEffect(() => {
+  const handleTimer = () => (
     setInterval(() => {
-      const {
-        hours, min, secs,
-      } = state;
-
-      if (secs > 0) {
-        setState((previewState) => ({
-          ...previewState,
-          secs: previewState.secs - 1,
-        }));
-      } else {
-        setState((previewState) => ({
-          ...previewState,
-          secs: 59,
-        }));
-        if (min > 0) {
-          setState((previewState) => ({
-            ...previewState,
-            min: previewState.min - 1,
-          }));
-        } else {
-          setState((previewState) => ({
-            ...previewState,
-            min: 59,
-            hours: previewState.hours - 1,
-          }));
-          if (hours < 0) {
-            setState((previewState) => ({
-              ...previewState,
-              fin: true,
-              hours: 0,
-              min: 0,
-              secs: 0,
-            }));
-          }
+      setState((previewState) => {
+        if (previewState.secs === 0 && previewState.min === 0) {
+          setStart(false);
+          return previewState;
         }
-      }
+        if (previewState.secs > 0) {
+          return ({
+            ...previewState,
+            secs: previewState.secs - 1,
+          });
+        }
+        if (previewState.secs === 0) {
+          if (previewState.min > 0) {
+            return ({
+              ...previewState,
+              min: previewState.min - 1,
+              secs: 59,
+            });
+          }
+          if (previewState.min === 0) {
+            return ({
+              ...previewState,
+              min: 59,
+            });
+          }
+          return ({
+            ...previewState,
+          });
+        }
+        return previewState;
+      });
+    }, 1000)
+  );
 
-      setState((prevState) => ({
-        percent: Math.round(prevState.percent - 0.83),
-      }));
-    }, 100);
-  }, []);
-  // console.log(Math.round(100 - 0.83));
+  useEffect(() => {
+    let timer;
+    if (start) {
+      timer = handleTimer();
+    }
+    return () => clearTimeout(timer);
+  }, [start]);
 
-  // const currentTime = (state.hours * 60 * 60) + (state.min * 60) + state.secs;
-  // const percentage = (currentTime / state.initialTime) * 100;
-  console.log(state);
+  const totalCurrentSeconds = (state.min * 60) + state.secs;
+
+  const total = totalCurrentSeconds * 100;
+
+  const percentage = total / 60 / 20;
 
   return (
     <Progress
@@ -70,6 +67,9 @@ export const SpinnerTime = () => {
       strokeWidth={10}
       strokeLinecap="square"
       width={152.2}
+      onClick={() => setStart(!start)}
+      percent={100 - percentage}
+      format={() => `${state.min}:${state.secs}`}
     />
   );
 };
