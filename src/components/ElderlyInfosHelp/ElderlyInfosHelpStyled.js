@@ -110,9 +110,6 @@ export const TextFinal = styled.p`
 
 
 export const ContentButtom = styled(Button)`
-  /* display: flex;
-  align-self: flex-end; */
-  /* position: absolute; */
   width: 100%;
   height: 50px;
   border-radius: 0px 0px 9px 9px;

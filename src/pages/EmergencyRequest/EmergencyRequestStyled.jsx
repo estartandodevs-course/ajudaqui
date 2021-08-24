@@ -44,7 +44,6 @@ overflow-y: auto;
 
 export const ContainerText = styled.div`
 width: 312px;
-/* padding: 0 24px; */
 display: flex;
 flex-direction: column;
 gap: 6px;
