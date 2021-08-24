@@ -2,7 +2,7 @@ import { emailProviderLogin, emailProviderRegister } from "./firebase/authEmail"
 import { googleProviderLogin } from "./firebase/authGoogle";
 import { getByKey, save, update } from "./firebase/handlers";
 
-const basePath = "#21/ajudaqui";
+const basePath = process.env.REACT_APP_FB_BASE_PATH;
 
 export const loginWithGoogle = async (profileType, profileData) => {
   const {
