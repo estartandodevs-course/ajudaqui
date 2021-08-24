@@ -1,14 +1,28 @@
 import { parseISO, differenceInMinutes } from "date-fns";
 import React from "react";
-import { orderStatusName } from "../../utils/constants";
+import { useHistory, useParams } from "react-router-dom";
+import { useAuth } from "../../contexts";
+import { orderStatusName, PROFILES_TYPES } from "../../utils/constants";
 import * as S from "./OrderCard.Styled";
 
 export const OrderCard = ({ helpRequest }) => {
   const {
-    order, photoURL, status, createdAt, name, action, warning,
+    order, photoURL, status, createdAt, name, action, warning, startTime,
   } = helpRequest;
 
+  const { profileType } = useAuth();
+  const { push } = useHistory();
   const runningTime = differenceInMinutes(new Date(), parseISO(createdAt));
+  const { helpRequestId } = useParams();
+
+  const handleFinishedTask = () => {
+    const verify = startTime ? "Iniciar" : "Finalizar";
+    const hasFinished = verify === "Iniciar";
+    if (hasFinished) push(`/screen-evaluation/${helpRequestId}`);
+    push("/activity-progress");
+
+    return verify;
+  };
 
   return (
     <S.ContainerOrderCard>
@@ -36,10 +50,22 @@ export const OrderCard = ({ helpRequest }) => {
           <S.Order>{`${runningTime} minutos`}</S.Order>
         </S.Texts>
       </S.ContainerTexts>
-      <S.CardButtom width="100%" borderRadius="0">
-        CANCELAR PEDIDO
-        <S.Arrow src="/assets/svg/right arrow.svg" alt="Arrow" />
-      </S.CardButtom>
+      {profileType === PROFILES_TYPES.ELDERLY ? (
+        <S.CardButtom width="100%" borderRadius="0">
+          CANCELAR PEDIDO
+          <S.Arrow src="/assets/svg/right arrow.svg" alt="Arrow" />
+        </S.CardButtom>
+      )
+        : (
+          <S.CardButtom
+            width="100%"
+            borderRadius="0"
+            onClick={handleFinishedTask}
+          >
+            {startTime ? "Iniciar" : "Finalizar"}
+            <S.Arrow src="/assets/svg/right arrow.svg" alt="Arrow" />
+          </S.CardButtom>
+        )}
     </S.ContainerOrderCard>
   );
 };
