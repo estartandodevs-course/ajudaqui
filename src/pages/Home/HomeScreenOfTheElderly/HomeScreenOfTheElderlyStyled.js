@@ -5,13 +5,13 @@ export const ContainerPageAside = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   width: 100%;
-  height: 100vh;
   @media (min-width: 576px) {
     justify-items: center;
   }
   @media (min-width: 1200px) {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    height: 100vh;
   }
 `;
 
@@ -36,7 +36,7 @@ export const HelpEmergency = styled.div`
   gap: 30px;
   background-color: ${(props) => props.theme.palette.colors.light.grayish};
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1199px) {
     display: none;
   }
 `;

@@ -1,42 +1,82 @@
-
 import React from "react";
+import { differenceInMinutes, parseISO } from "date-fns";
+import { orderStatusName } from "../../utils/constants";
+import { useStore } from "../../contexts";
 import * as S from "./HelpRequestCardStyled";
 
 export const HelpRequestCard = ({
-  variant, color, colorTask, name, task, distance, orderTime, photo, action, src,
+  helpRequestData, isVoluntary,
 }) => {
+  const { elderlys } = useStore();
+
+  const {
+    elderly: { id: elderlyId }, order, createdAt, status,
+  } = helpRequestData;
+
+  const elderlyProfile = elderlys
+    .find((elderly) => elderly.id === elderlyId);
+
+  const {
+    name,
+    photoURL,
+  } = elderlyProfile;
+
+  const runningTime = differenceInMinutes(new Date(), parseISO(createdAt));
+
+  const verifyWaitingStatus = orderStatusName[status] === "aguardando" && !isVoluntary;
+
+  const hasEmergency = order?.key === "emergency";
+
+  const verifyOrderStatus = (hasEmergency && "emergency")
+   || (verifyWaitingStatus && "aguardando")
+   || "default";
+
+  const actionsTypes = (hasEmergency && "emergência")
+   || (verifyWaitingStatus && "aguardando")
+   || "ajudando";
+
   return (
     <>
       <S.CardWrapper>
-        <S.Card variant={variant}>
+        <S.Card
+          $variant={verifyOrderStatus}
+        >
           <S.UserInfos>
             <S.Request>
               <S.NameTask>
                 <S.UserName>
                   {name}
                 </S.UserName>
-                <S.RequestedTask colorTask={colorTask}>
-                  {task}
+                <S.RequestedTask
+                  $colorTask={hasEmergency ? "#BC1610" : undefined}
+                >
+                  {order.option}
                 </S.RequestedTask>
               </S.NameTask>
               <S.DistanceTimeContainer>
                 <S.Distance>
-                  {`Há ${distance}`}
+                  Há 0km de distancia
                 </S.Distance>
                 <S.TaskTime>
-                  {`Pedido feito há ${orderTime}`}
+                  {`Pedido feito há ${runningTime}MIN`}
                 </S.TaskTime>
               </S.DistanceTimeContainer>
             </S.Request>
             <S.UserImage>
-              <S.Image src={photo} />
+              <S.Image
+                src={photoURL}
+              />
             </S.UserImage>
           </S.UserInfos>
-          <S.UserAction variant={variant}>
-            <S.ActionDescription color={color}>
-              {action}
-              {" "}
-              { src && <img src={src} alt="next" />}
+          <S.UserAction
+            $variant={verifyOrderStatus}
+          >
+            <S.ActionDescription
+              color={isVoluntary ? "#4e3681" : undefined}
+            >
+              {actionsTypes}
+              {!isVoluntary
+                 && <img src="assets/svg/Vector.svg" alt="next" loading="lazy" />}
             </S.ActionDescription>
           </S.UserAction>
         </S.Card>

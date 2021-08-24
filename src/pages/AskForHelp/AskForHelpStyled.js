@@ -37,7 +37,6 @@ export const ContainerAskForHelp = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 14px 24px;
-  z-index: 1;
 
   @media (min-width: 1200px) {
   width: 500px;

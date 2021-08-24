@@ -7,26 +7,37 @@ import { optionPeopleHelped } from "../../_mock/optionPeopleHelped";
 import { useAuth } from "../../contexts";
 import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
 
-export const ProfileVoluntary = (props) => {
-  const { atividades, horas } = props;
+export const ProfileVoluntary = ({ activities = "10", hours = "30" }) => {
   const { user } = useAuth();
   const [widthScreen] = useWidthScreen();
 
   const showNavigation = widthScreen < 1200;
   return (
-    <Layout hasTabBar showNavigation={showNavigation}>
+    <Layout
+      hasTabBar
+      showNavigation={showNavigation}
+    >
       <S.ContainerPage>
-        <UserOverview userData={user} />
+        <UserOverview
+          userData={user}
+        />
         <S.ContainerCard>
-          <Card color="white" textAlign="center">
+          <Card
+            color="white"
+            textAlign="center"
+            as="span"
+          >
             <S.NumberCard>
-              {atividades}
+              {activities}
             </S.NumberCard>
             Atividades Realizadas
           </Card>
-          <Card color="white">
+          <Card
+            color="white"
+            as="span"
+          >
             <S.NumberCard>
-              {horas}
+              {hours}
             </S.NumberCard>
             Horas de Voluntariado
           </Card>
@@ -45,14 +56,24 @@ export const ProfileVoluntary = (props) => {
           ))}
         </S.ContainerTag>
         <S.ContainerButton>
-          <Button width="187px">Editar Preferências</Button>
+          <Button
+            width="187px"
+          >
+            Editar Preferências
+          </Button>
         </S.ContainerButton>
         <S.ContentTextPeople>
-          <S.Text>Pessoas que você já ajudou</S.Text>
+          <S.Text>
+            Pessoas que você já ajudou
+          </S.Text>
         </S.ContentTextPeople>
         <S.ContainerImageElderly>
           {optionPeopleHelped?.map(({ photoURL, id }) => (
-            <S.ImageElderly key={id} src={photoURL} alt="imagem dos idosos" />
+            <S.ImageElderly
+              key={id}
+              src={photoURL}
+              alt="imagem dos idosos"
+            />
           ))}
         </S.ContainerImageElderly>
       </S.ContainerPage>

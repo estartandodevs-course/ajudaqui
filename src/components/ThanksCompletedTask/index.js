@@ -1,0 +1,1 @@
+export { ThanksCompletedTask } from "./CompletedTask";

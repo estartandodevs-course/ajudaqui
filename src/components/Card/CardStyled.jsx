@@ -54,7 +54,6 @@ export const IconCard = styled.img``;
 export const DescriptionCard = styled(Typography).attrs({
   variant: "body1",
   weight: "500",
-  as: "span",
 })`
   font-size: ${(props) => props.fontSize || props.theme.typography.body1.fontSizeText};
   color: ${(props) => props.color || props.theme.palette.colors.text};

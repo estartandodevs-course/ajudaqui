@@ -4,14 +4,15 @@ import { Carousel, Button } from "../../components";
 import { useAuth } from "../../contexts";
 import { onboardingData } from "../../_mock";
 import * as S from "./OnboardingStyled";
+import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
 
 export const Onboarding = () => {
   const { push } = useHistory();
-
   const { profileType } = useAuth();
+  const [widthScreen] = useWidthScreen();
 
   useEffect(() => {
-    if (!profileType) {
+    if (!profileType || widthScreen > 1200) {
       push("/");
     }
   }, []);

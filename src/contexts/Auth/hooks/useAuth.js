@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "..";
 import { useAuthEmail } from "./useAuthEmail";
 import { useAuthGoogle } from "./useAuthGoogle";
+import { useUpdateProfile } from "./useUpdateProfile";
 
 export const useAuth = () => {
   const { state, dispatch } = useContext(AuthContext);
@@ -11,5 +12,6 @@ export const useAuth = () => {
     dispatch,
     ...useAuthGoogle(),
     ...useAuthEmail(),
+    ...useUpdateProfile(),
   };
 };
