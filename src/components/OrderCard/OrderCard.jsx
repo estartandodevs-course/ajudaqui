@@ -1,10 +1,28 @@
+import { parseISO, differenceInMinutes } from "date-fns";
 import React from "react";
+import { useHistory, useParams } from "react-router-dom";
+import { useAuth } from "../../contexts";
+import { orderStatusName, PROFILES_TYPES } from "../../utils/constants";
 import * as S from "./OrderCard.Styled";
 
-export const OrderCard = (props) => {
+export const OrderCard = ({ helpRequest }) => {
   const {
-    request, photoURL, status, order, name, action, warning,
-  } = props;
+    order, photoURL, status, createdAt, name, action, warning, startTime,
+  } = helpRequest;
+
+  const { profileType } = useAuth();
+  const { push } = useHistory();
+  const runningTime = differenceInMinutes(new Date(), parseISO(createdAt));
+  const { helpRequestId } = useParams();
+
+  const handleFinishedTask = () => {
+    const verify = startTime ? "Iniciar" : "Finalizar";
+    const hasFinished = verify === "Iniciar";
+    if (hasFinished) push(`/screen-evaluation/${helpRequestId}`);
+    push("/activity-progress");
+
+    return verify;
+  };
 
   return (
     <S.ContainerOrderCard>
@@ -21,21 +39,34 @@ export const OrderCard = (props) => {
       <S.ContainerTexts>
         <S.Texts>
           SOLICITAÇÃO:
-          <S.Request>{request}</S.Request>
+          <S.Request>{order?.option}</S.Request>
         </S.Texts>
         <S.Texts>
           STATUS:
-          <S.Status>{status}</S.Status>
+          <S.Status>{orderStatusName[status]}</S.Status>
         </S.Texts>
         <S.Texts>
           PEDIDO FEITO HÁ:
-          <S.Order>{order}</S.Order>
+          <S.Order>{`${runningTime} minutos`}</S.Order>
         </S.Texts>
       </S.ContainerTexts>
-      <S.CardButtom width="100%" borderRadius="0">
-        CANCELAR PEDIDO
-        <S.Arrow src="/assets/svg/right arrow.svg" alt="Arrow" />
-      </S.CardButtom>
+      {profileType === PROFILES_TYPES.ELDERLY ? (
+        <S.CardButtom width="100%" borderRadius="0">
+          CANCELAR PEDIDO
+          <S.Arrow src="/assets/svg/right arrow.svg" alt="Arrow" />
+        </S.CardButtom>
+      )
+        : (
+          <S.CardButtom
+            width="100%"
+            borderRadius="0"
+            onClick={handleFinishedTask}
+          >
+            {startTime ? "Iniciar" : "Finalizar"}
+            <S.Arrow src="/assets/svg/right arrow.svg" alt="Arrow" />
+          </S.CardButtom>
+        )}
     </S.ContainerOrderCard>
   );
 };
+

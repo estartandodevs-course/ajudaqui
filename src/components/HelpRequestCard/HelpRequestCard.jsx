@@ -1,13 +1,17 @@
 import React from "react";
 import { differenceInMinutes, parseISO } from "date-fns";
+import { useHistory } from "react-router-dom";
 import { orderStatusName } from "../../utils/constants";
-import { useStore } from "../../contexts";
+import { useAuth, useStore } from "../../contexts";
 import * as S from "./HelpRequestCardStyled";
+import { ProfilePhoto } from "../ProfilePhoto";
 
 export const HelpRequestCard = ({
   helpRequestData, isVoluntary,
 }) => {
-  const { elderlys } = useStore();
+  const { elderlys, handleUpdateSubscribe } = useStore();
+  const { user } = useAuth();
+  const { push } = useHistory();
 
   const {
     elderly: { id: elderlyId }, order, createdAt, status,
@@ -34,6 +38,11 @@ export const HelpRequestCard = ({
   const actionsTypes = (hasEmergency && "emergência")
    || (verifyWaitingStatus && "aguardando")
    || "ajudando";
+
+  const handleSubscribe = async () => {
+    if (!isVoluntary) await handleUpdateSubscribe(helpRequestData.id, user.id);
+    push(`order-status/${helpRequestData.id}`);
+  };
 
   return (
     <>
@@ -63,9 +72,12 @@ export const HelpRequestCard = ({
               </S.DistanceTimeContainer>
             </S.Request>
             <S.UserImage>
-              <S.Image
-                src={photoURL}
-              />
+              { photoURL ? (
+                <S.Image
+                  src={photoURL}
+                />
+              )
+                : <ProfilePhoto icon="/assets/svg/icon camera.svg" alt="camera" />}
             </S.UserImage>
           </S.UserInfos>
           <S.UserAction
@@ -73,6 +85,7 @@ export const HelpRequestCard = ({
           >
             <S.ActionDescription
               color={isVoluntary ? "#4e3681" : undefined}
+              onClick={handleSubscribe}
             >
               {actionsTypes}
               {!isVoluntary
