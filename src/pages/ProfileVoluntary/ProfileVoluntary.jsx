@@ -47,71 +47,78 @@ export const ProfileVoluntary = () => {
       hasTabBar
       showNavigation={showNavigation}
     >
-      <S.ContainerPage>
-        <UserOverview
-          userData={{
-            ...user,
-            grade: grade ? parseInt((grade / activities.length).toFixed(0), 10) : 0,
-          }}
-        />
-        <S.ContainerCard>
-          <Card
-            color="white"
-            textAlign="center"
-            as="span"
-          >
-            <S.NumberCard>
-              {activities.length}
-            </S.NumberCard>
-            Atividades Realizadas
-          </Card>
-          <Card
-            color="white"
-            as="span"
-          >
-            <S.NumberCard>
-              {hours?.toFixed(0) > 0 ? hours?.toFixed(0) : hours}
-            </S.NumberCard>
-            Horas de Voluntariado
-          </Card>
-        </S.ContainerCard>
-        <S.ContentTextInterests>
-          <S.Text>Interesses</S.Text>
-        </S.ContentTextInterests>
-        <S.ContainerTag>
-          {optionCardInterest?.map(({ id, option }) => (
-            <Tag
-              key={id}
-              isActive
+      <S.PagesContainer>
+        <S.ContainerPage>
+          <UserOverview
+            userData={{
+              ...user,
+              grade: grade ? parseInt((grade / activities.length).toFixed(0), 10) : 0,
+            }}
+          />
+          <S.ContainerCard>
+            <Card
+              color="white"
+              textAlign="center"
+              as="span"
             >
-              {option}
-            </Tag>
-          ))}
-        </S.ContainerTag>
-        <S.ContainerButton>
-          <Button
-            width="187px"
-          >
-            Editar Preferências
-          </Button>
-        </S.ContainerButton>
-        {helpedPeoples.length > 0 && (
+              <S.NumberCard>
+                {activities.length}
+              </S.NumberCard>
+              Atividades Realizadas
+            </Card>
+            <Card
+              color="white"
+              as="span"
+            >
+              <S.NumberCard>
+                {hours?.toFixed(0) > 0 ? hours?.toFixed(0) : hours}
+              </S.NumberCard>
+              Horas de Voluntariado
+            </Card>
+          </S.ContainerCard>
+          <S.ContentTextInterests>
+            <S.TextInterests>Interesses</S.TextInterests>
+          </S.ContentTextInterests>
+          <S.ContainerTag>
+            {optionCardInterest?.map(({ id, option }) => (
+              <Tag
+                key={id}
+                isActive
+              >
+                {option}
+              </Tag>
+            ))}
+          </S.ContainerTag>
+          <S.ContainerButton>
+            <Button
+              width="187px"
+            >
+              Editar Preferências
+            </Button>
+          </S.ContainerButton>
+          {helpedPeoples.length > 0 && (
           <S.ContentTextPeople>
-            <S.Text>
+            <S.TextPeople>
               Pessoas que você já ajudou
-            </S.Text>
+            </S.TextPeople>
           </S.ContentTextPeople>
-        )}
-        <S.ContainerImageElderly>
-          {helpedPeoples?.map(({ photoURL, id }) => (
-            <S.ImageElderly
-              key={id}
-              src={photoURL}
-              alt="imagem dos idosos"
-            />
-          ))}
-        </S.ContainerImageElderly>
-      </S.ContainerPage>
+          )}
+          <S.ContainerImageElderly>
+            {helpedPeoples?.map(({ photoURL, id }) => (
+              <S.ImageElderly
+                key={id}
+                src={photoURL}
+                alt="imagem dos idosos"
+              />
+            ))}
+          </S.ContainerImageElderly>
+        </S.ContainerPage>
+        <S.ContainerPageTwo>
+          {/* <p>Editar interesses</p>
+          <p>Selecione algumas atividades que você pode fazer para ajudar um idoso.</p> */}
+        </S.ContainerPageTwo>
+
+      </S.PagesContainer>
     </Layout>
   );
 };

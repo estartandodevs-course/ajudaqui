@@ -1,9 +1,20 @@
 import styled from "styled-components";
 import { Typography } from "../../components/Typography";
 
+export const PagesContainer = styled.div`
+ @media (min-width:1200px){
+display: flex;
+height: 100%;
+ }
+`;
+
 export const ContainerPage = styled.div`
   width: 100%;
   padding: 0 20px;
+  @media (min-width:1200px){
+    width: 50%;
+    margin-left: 42.49px;
+  }
 `;
 
 export const ContainerHelpCard = styled.div`
@@ -45,7 +56,18 @@ export const ContainerImageElderly = styled.div`
   padding-bottom: 24px;
 `;
 
-export const Text = styled(Typography).attrs({
+export const TextInterests = styled(Typography).attrs({
+  variant: "body1",
+})`
+  font-weight: bold;
+  @media (min-width:1200px){
+   color: #4E3681;
+   font-weight:normal;
+   text-align: center;
+   font-size: 22px;
+  }
+`;
+export const TextPeople = styled(Typography).attrs({
   variant: "body1",
 })`
   font-weight: bold;
@@ -62,3 +84,7 @@ export const ImageElderly = styled.img`
   object-fit: cover;
 `;
 
+export const ContainerPageTwo = styled.div`
+  width: 50%;
+  background-color: #F9F7FB;
+`;
