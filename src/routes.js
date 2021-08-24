@@ -28,7 +28,7 @@ export default function Routes() {
         <Route exact path="/register-new-password" component={RegisterNewPassword} />
         <Route exact path="/screen-evaluation" component={ScreenEvaluation} />
         <Route exact path="/profile" component={ProfileVoluntary} />
-        <Route exact path="/order-status" component={OrderStatus} />
+        <Route exact path="/order-status/:helpRequestId" component={OrderStatus} />
         <Route exact path="/thanks" component={ThanksScreen} />
         <Route exact path="/emergency" component={EmergencyRequest} />
         <Route exact path="/spinner" component={SpinnerTime} />

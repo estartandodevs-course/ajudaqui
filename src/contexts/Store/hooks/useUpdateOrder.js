@@ -4,9 +4,8 @@ import { singHelpRequest } from "../../../services/helpRequestService";
 import { orderStatusId } from "../../../utils/constants";
 import { OrderActionsTypes } from "../types";
 
-
 export const useUpdateOrder = () => {
-  const { dispatch } = useContext(StoreContext);
+  const { dispatch, state } = useContext(StoreContext);
 
   const handleUpdateSubscribe = async (helpRequestId, voluntaryId) => {
     dispatch({
@@ -14,7 +13,7 @@ export const useUpdateOrder = () => {
     });
 
     try {
-      const helpRequests = await singHelpRequest(
+      const updatedHelpRequest = await singHelpRequest(
         helpRequestId,
         {
           status: orderStatusId.WAITING_VOLUNTARY,
@@ -26,7 +25,11 @@ export const useUpdateOrder = () => {
       dispatch({
         type: OrderActionsTypes.SUBSCRIBE_ORDER_SUCESS,
         payload: {
-          helpRequests,
+          helpRequests: state.helpRequests.map((currentHelpRequest) => (
+            currentHelpRequest.id === updatedHelpRequest.id ? (
+              updatedHelpRequest
+            ) : currentHelpRequest
+          )),
         },
       });
     } catch (error) {

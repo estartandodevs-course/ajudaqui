@@ -1,3 +1,4 @@
+import { useParams } from "react-router-dom";
 import { Layout, OrderCard } from "../../components";
 import * as S from "./OrderStatusStyled";
 import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
@@ -7,6 +8,8 @@ export const OrderStatus = () => {
   const [widthScreen] = useWidthScreen();
   const { helpRequests } = useStore();
   const showNavigation = widthScreen < 1200;
+  const { helpRequestId } = useParams();
+  console.log(helpRequestId);
   return (
     <Layout hasTabBar showNavigation={showNavigation} hasClose>
       <S.ContainerDesktop>
