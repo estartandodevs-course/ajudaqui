@@ -5,7 +5,7 @@ import { OrderActionsTypes } from "../types";
 import { orderModels } from "../models";
 
 export const useCreateOrder = () => {
-  const { dispatch } = useContext(StoreContext);
+  const { dispatch, notify } = useContext(StoreContext);
 
   const handleCreateOrder = async (order) => {
     dispatch({
@@ -24,6 +24,7 @@ export const useCreateOrder = () => {
           helpRequests,
         },
       });
+      notify("Pedido de ajuda enviado");
     } catch (error) {
       dispatch({
         type: OrderActionsTypes.CREATE_ORDER_ERROR,

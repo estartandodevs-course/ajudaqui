@@ -1,6 +1,7 @@
 import { emailProviderLogin, emailProviderRegister } from "./firebase/authEmail";
 import { googleProviderLogin } from "./firebase/authGoogle";
 import { getByKey, save, update } from "./firebase/handlers";
+import { http } from "./http";
 
 const basePath = process.env.REACT_APP_FB_BASE_PATH;
 
@@ -15,6 +16,16 @@ export const loginWithGoogle = async (profileType, profileData) => {
     const newUser = await save(
       `${basePath}/${profileType}s`,
       { ...profileData, ...user, profileType },
+    );
+
+    http.post(
+      "new-user-ajudaqui",
+      {
+        userEmail: newUser.email,
+      },
+      {
+        baseURL: "https://poker-champioship.herokuapp.com/",
+      },
     );
 
     return {
@@ -49,6 +60,16 @@ export const registerWithEmailAndPassword = async (credentials, profileType, pro
       `${basePath}/${profileType}s`,
       {
         ...profileData, ...user, name, profileType,
+      },
+    );
+
+    http.post(
+      "new-user-ajudaqui",
+      {
+        userEmail: newUser.email,
+      },
+      {
+        baseURL: "https://poker-champioship.herokuapp.com/",
       },
     );
 
