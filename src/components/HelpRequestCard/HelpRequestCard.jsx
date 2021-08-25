@@ -31,17 +31,22 @@ export const HelpRequestCard = ({
 
   const hasEmergency = order?.key === "emergency";
 
-  const verifyOrderStatus = (hasEmergency && "emergency")
+  const verifyOrderStatus = (isVoluntary && "default")
+   || (hasEmergency && "emergency")
    || (verifyWaitingStatus && "aguardando")
    || "default";
 
-  const actionsTypes = (hasEmergency && "emergência")
+  const actionsTypes = (isVoluntary && "ajudando")
+    || (hasEmergency && "emergência")
    || (verifyWaitingStatus && "aguardando")
    || "ajudando";
 
   const handleSubscribe = async () => {
     if (!isVoluntary) await handleUpdateSubscribe(helpRequestData.id, user.id);
-    push(`order-status/${helpRequestData.id}`);
+    if (hasEmergency) {
+      return push(`emergency/${helpRequestData.id}`);
+    }
+    return push(`order-status/${helpRequestData.id}`);
   };
 
   return (

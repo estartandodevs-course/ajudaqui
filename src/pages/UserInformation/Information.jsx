@@ -9,7 +9,7 @@ import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
 import * as S from "./InformationStyled";
 import { useAuth } from "../../contexts";
 
-export const UserInformation = () => {
+export const UserInformation = ({ location }) => {
   const [widthScreen] = useWidthScreen();
 
   const showNavigation = widthScreen < 1200;
@@ -39,7 +39,7 @@ export const UserInformation = () => {
             )}
             <S.ProfilePhotoText>MUDAR FOTO DE PERFIL</S.ProfilePhotoText>
           </S.ContainerProfilePhoto>
-          <S.TabsRegister defaultActiveKey="1">
+          <S.TabsRegister defaultActiveKey={location.state.defaultActiveKey || "1"}>
             <S.TabsChoiced tab="Pessoal" key="1">
               <PersonalInfos />
             </S.TabsChoiced>

@@ -21,6 +21,14 @@ export const HomeScreenOfTheVoluntary = () => {
       return 0;
     });
 
+  const elderlysNeedHelp = [];
+
+  getOpenHelpRequests.forEach((item) => {
+    if (!elderlysNeedHelp.includes(item.elderly.id)) {
+      elderlysNeedHelp.push(item.elderly.id);
+    }
+  });
+
   return (
     <Layout hasTabBar showNavigation={showNavigation}>
       <S.PagesContainer>
@@ -35,7 +43,7 @@ export const HomeScreenOfTheVoluntary = () => {
               alt="Icone de Localização"
             />
             <S.LocationText>
-              {`${getOpenHelpRequests.length} idosos próximos a você precisam de ajuda`}
+              {`${elderlysNeedHelp.length} idosos próximos a você precisam de ajuda`}
             </S.LocationText>
           </S.HelpAvailable>
           <S.ContainerHelpCard>
