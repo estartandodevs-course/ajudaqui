@@ -108,6 +108,10 @@ padding: 0 15px;
 border: 1px solid #7d6d96;
 border-radius: 5px;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+@media (min-width: 1199px) {
+  padding: 0;
+  }
 `;
 
 export const CertificateContent = styled.div`
