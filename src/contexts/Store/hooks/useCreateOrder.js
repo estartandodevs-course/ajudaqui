@@ -5,9 +5,9 @@ import { OrderActionsTypes } from "../types";
 import { orderModels } from "../models";
 
 export const useCreateOrder = () => {
-  const { dispatch } = useContext(StoreContext);
+  const { state, dispatch, notify } = useContext(StoreContext);
 
-  const handleCreateOrder = async (order) => {
+  const handleCreateOrder = async (order, callback) => {
     dispatch({
       type: OrderActionsTypes.CREATE_ORDER_START,
     });
@@ -17,13 +17,15 @@ export const useCreateOrder = () => {
       ...order,
     };
     try {
-      const helpRequests = await createHelpRequest(newOrder);
+      const helpRequest = await createHelpRequest(newOrder);
       dispatch({
         type: OrderActionsTypes.CREATE_ORDER_SUCESS,
         payload: {
-          helpRequests,
+          helpRequests: [...state.helpRequests, helpRequest],
         },
       });
+      notify("Pedido de ajuda enviado");
+      if (callback) callback(helpRequest.id);
     } catch (error) {
       dispatch({
         type: OrderActionsTypes.CREATE_ORDER_ERROR,

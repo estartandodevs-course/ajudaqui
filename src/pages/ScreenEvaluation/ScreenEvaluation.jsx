@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {
   Button,
-  Form, Input, Layout, ServiceEvaluation, UserGrade,
+  Form, Input, Layout, ServiceEvaluation, UserGrade, ThanksCompletedTask,
 } from "../../components";
 import { serviceEvaluationData } from "../../_mock";
 import * as S from "./ScreenEvaluationStyled";
@@ -123,9 +123,11 @@ export const ScreenEvaluation = () => {
                 </S.PositionButton>
               </Form>
             </S.ContainerScreenEvaluation>
-            <S.Aside>
-              <S.AsideImage src="/assets/svg/arte idoso desktop.svg" />
-            </S.Aside>
+
+            <S.ContainerThanksCompletedTask>
+              <ThanksCompletedTask />
+            </S.ContainerThanksCompletedTask>
+
           </S.ContainerDesktop>
         </Layout>
 

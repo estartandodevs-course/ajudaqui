@@ -1,53 +1,77 @@
 import React from "react";
+import { EMERGENCY_MESSAGE } from "../../utils/constants";
 import * as S from "./ElderlyInfosHelpStyled";
 
-export const ElderlyInfosHelp = (props) => {
+export const ElderlyInfosHelp = ({ elderlyInfos }) => {
   const {
-    name, problem, medicines, sonNumber, otherResponsible, text,
-  } = props;
+    name, health, contacts, photoURL,
+  } = elderlyInfos;
+
+
   return (
     <S.Card>
       <S.ContainerProfile>
-        <S.ImageElderly src="/assets/images/oldman-8.jpg" alt="" />
+        {photoURL
+          ? (
+            <S.ImageElderly
+              src={photoURL}
+              alt={name}
+            />
+          )
+          : (
+            <S.ImageElderly
+              src="/assets/images/placeholder.png"
+              alt="placeholder"
+            />
+          )}
         <S.NameElderly>
           {name}
         </S.NameElderly>
       </S.ContainerProfile>
       <S.ContainerProblem>
         <S.Texts>
-          Possui
+          {health.specialConditions && "Possui"}
           <S.Problem>
-            {problem}
+            {health.specialConditions}
           </S.Problem>
-          <S.IconEmergency src="/assets/svg/icon-saude.svg.svg" alt="" />
+          <S.IconEmergency
+            src="/assets/svg/icon-saude.svg.svg"
+            alt="icone de saude"
+          />
         </S.Texts>
       </S.ContainerProblem>
       <S.ContainerMedicines>
-        <S.TextsTitles>Medicamentos:</S.TextsTitles>
-        <S.Texts>
-          {medicines}
-        </S.Texts>
-        <S.Texts>
-          {medicines}
-        </S.Texts>
+        <S.TextsTitles>
+          Medicamentos:
+        </S.TextsTitles>
+        {health.medicine.length > 0
+        && health?.medicine?.split("; ").map((medicine) => (
+          <S.Texts key={medicine}>
+            {medicine}
+          </S.Texts>
+        ))}
       </S.ContainerMedicines>
       <S.ContainerEmergency>
-        <S.TextTitleEmergency>Em casos de emergência ligar:</S.TextTitleEmergency>
-        <S.Texts>
-          {sonNumber}
-          <S.Icons src="/assets/svg/icon-telefone.svg " alt="" />
-          <a href={`https://web.whatsapp.com/send?text=${text}&phone=+55${sonNumber}`}>
-            <S.Icons src="/assets/svg/icon-whatsapp.svg  " alt="" />
-          </a>
-
-        </S.Texts>
-        <S.Texts>
-          {otherResponsible}
-          <S.Icons src="/assets/svg/icon-telefone.svg " alt="" />
-          <a href={`https://web.whatsapp.com/send?text=${text}&phone=+55${otherResponsible}`}>
-            <S.Icons src="/assets/svg/icon-whatsapp.svg  " alt="" />
-          </a>
-        </S.Texts>
+        <S.TextTitleEmergency>
+          Em casos de emergência ligar:
+        </S.TextTitleEmergency>
+        {contacts.map((contact) => (
+          <S.Texts key={contact.phone}>
+            {`${contact.phone} (${contact.kinship})`}
+            <S.Icons
+              src="/assets/svg/icon-telefone.svg "
+              alt="icone de telefone"
+            />
+            <a
+              href={`https://web.whatsapp.com/send?text=${EMERGENCY_MESSAGE}&phone=+55${contact.phone}`}
+            >
+              <S.Icons
+                src="/assets/svg/icon-whatsapp.svg  "
+                alt="icone de whatsapp"
+              />
+            </a>
+          </S.Texts>
+        ))}
       </S.ContainerEmergency>
       <S.ContainerTextFinal>
         <S.TextFinal>
@@ -57,9 +81,14 @@ export const ElderlyInfosHelp = (props) => {
         </S.TextFinal>
       </S.ContainerTextFinal>
 
-      <S.ContentButtom borderRadius="0">
+      <S.ContentButtom
+        borderRadius="0"
+      >
         IR AO LOCAL
-        <S.ContentArrow src="/assets/svg/right arrow.svg" alt="" />
+        <S.ContentArrow
+          src="/assets/svg/right arrow.svg"
+          alt="arrow"
+        />
       </S.ContentButtom>
 
     </S.Card>

@@ -3,9 +3,10 @@ import { Switch, Route } from "react-router-dom";
 import {
   Home, Onboarding, Register, Login, AskForHelp, ScreenEvaluation, SelectProfile,
   RegisterNewPassword, UserInformation, ProfileVoluntary,
-  OrderStatus, ThanksScreen, EmergencyRequest,
+  OrderStatus, ThanksScreen, EmergencyRequest, ActivityProgress,
+  HistoricPage,
 } from "./pages";
-import { Modal, SpinnerTime } from "./components";
+import { Modal } from "./components";
 import { useModal } from "./contexts";
 
 export default function Routes() {
@@ -26,12 +27,13 @@ export default function Routes() {
         <Route exact path="/user-information" component={UserInformation} />
         <Route exact path="/ask-for-help" component={AskForHelp} />
         <Route exact path="/register-new-password" component={RegisterNewPassword} />
-        <Route exact path="/screen-evaluation" component={ScreenEvaluation} />
+        <Route exact path="/screen-evaluation/:helpRequestId" component={ScreenEvaluation} />
         <Route exact path="/profile" component={ProfileVoluntary} />
-        <Route exact path="/order-status" component={OrderStatus} />
+        <Route exact path="/order-status/:helpRequestId" component={OrderStatus} />
         <Route exact path="/thanks" component={ThanksScreen} />
-        <Route exact path="/emergency" component={EmergencyRequest} />
-        <Route exact path="/spinner" component={SpinnerTime} />
+        <Route exact path="/emergency/:helpRequestId" component={EmergencyRequest} />
+        <Route exact path="/activity-progress" component={ActivityProgress} />
+        <Route exact path="/historic" component={HistoricPage} />
       </Switch>
     </>
   );
