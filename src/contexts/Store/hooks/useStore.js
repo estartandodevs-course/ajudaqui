@@ -9,6 +9,7 @@ import { fetchVoluntarys } from "../../../services/voluntaryService";
 import { fetchTags } from "../../../services/tagsService";
 import { fetchHelpRequests } from "../../../services/helpRequestService";
 import { useTag } from "./useTag";
+import { useCancelOrder } from "./useCancelOrder";
 
 export const useStore = () => {
   const { state, dispatch, notify } = useContext(StoreContext);
@@ -49,6 +50,7 @@ export const useStore = () => {
     ...useCreateOrder(),
     ...useUpdateOrder(),
     ...useTag(),
+    ...useCancelOrder(),
     handleMount,
     notify,
   };
