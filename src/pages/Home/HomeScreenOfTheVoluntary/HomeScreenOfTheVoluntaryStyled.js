@@ -15,6 +15,9 @@ export const ContainerPage = styled.div`
   @media (min-width: 576px) {
     justify-items: center;
   }
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const ContainerHelpCard = styled.div`
@@ -86,6 +89,7 @@ export const ContainerPageTwo = styled.div`
   background-color: #f9f7fb;
   display: flex;
   align-items: flex-end;
+  overflow: hidden;
   @media (max-width: 1199px) {
     display: none;
   }
