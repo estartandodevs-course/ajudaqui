@@ -32,7 +32,7 @@ export const AskForHelp = ({ ...restProps }) => {
             evaluation: "",
             note: "",
           },
-        }, (helpRequestId) => {
+        }, async (helpRequestId) => {
           return push(`order-status/${helpRequestId}`);
         });
       });
@@ -81,6 +81,7 @@ export const AskForHelp = ({ ...restProps }) => {
               name="option"
               label="Precisando de ajuda com outra coisa?"
               placeholder="Clique aqui para escrever"
+              disabled
             />
             <S.PositionButton>
               <Button

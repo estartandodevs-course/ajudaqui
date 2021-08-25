@@ -4,7 +4,7 @@ import { StoreContext } from "../index";
 import { TagActionsTypes } from "../types";
 
 export const useTag = () => {
-  const { dispatch } = useContext(StoreContext);
+  const { dispatch, state } = useContext(StoreContext);
 
   const handleCreateTag = async (body, callback) => {
     dispatch({
@@ -15,7 +15,12 @@ export const useTag = () => {
       const payload = await createTag(body);
       dispatch({
         type: TagActionsTypes.CREATE_TAG_SUCESS,
-        payload,
+        payload: {
+          tags: [
+            ...state.tags,
+            { ...payload },
+          ],
+        },
       });
       await callback(payload);
     } catch (error) {
