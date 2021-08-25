@@ -8,9 +8,7 @@ import { PROFILES_TYPES } from "../../utils/constants";
 import { useAuth } from "../../contexts";
 
 export const IssueCertificate = (props) => {
-  const {
-    hours,
-  } = props;
+  const { hours = 30 } = props;
 
   const { push } = useHistory();
   const { profileType, user } = useAuth();
@@ -30,14 +28,11 @@ export const IssueCertificate = (props) => {
     <Layout hasTabBar showNavigation={showNavigation}>
       <S.ContainerDesktop>
         <S.ContainerPage>
-          <S.VoluntaryName>
-            {user.name}
-          </S.VoluntaryName>
+          <S.VoluntaryName>{user.name}</S.VoluntaryName>
           <S.Paragraph>
             {!start
-              ? `Você possui um total de ${hours} de voluntariado, deseja emitir seu certificado?`
+              ? `Você possui um total de ${hours}hrs de voluntariado, deseja emitir seu certificado?`
               : "Infelizmente você não possui horas de voluntariado suficiente. Vamos ajudar alguém?"}
-
           </S.Paragraph>
           <S.ContainerImage>
             <S.ImageLogo src="/assets/images/logo.png" alt="Logo" />
@@ -47,9 +42,9 @@ export const IssueCertificate = (props) => {
             onClick={() => {
               setStart(!start);
             }}
-            background={start && "#F9F7FB"}
-            color={start && "#47454F"}
-            textShadow={start && "0px 4px 4px rgba(78, 54, 129, 0.3)"}
+            background={start ? "#F9F7FB" : undefined}
+            color={start ? "#47454F" : undefined}
+            textShadow={start ? "0px 4px 4px rgba(78, 54, 129, 0.3)" : undefined}
           >
             Emitir certificado
           </Button>
@@ -57,9 +52,7 @@ export const IssueCertificate = (props) => {
             Lembrando que é necessário ter no mínimo 10hrs de voluntariado.
           </S.Paragraph2>
           <S.Ellipsis src="assets/svg/Ellipsis.svg" />
-          <S.CertificateText>
-            Certificados
-          </S.CertificateText>
+          <S.CertificateText>Certificados</S.CertificateText>
 
           {certificateDatas.map((item) => (
             <S.CertificateContainer key={item.id}>
@@ -70,10 +63,12 @@ export const IssueCertificate = (props) => {
               <S.ImageDownload src={item.img} />
             </S.CertificateContainer>
           ))}
-
         </S.ContainerPage>
         <S.Aside>
-          <S.ImageAside src="/assets/svg/arte voluntario.svg" alt="Voluntário" />
+          <S.ImageAside
+            src="/assets/svg/arte voluntario.svg"
+            alt="Voluntário"
+          />
         </S.Aside>
       </S.ContainerDesktop>
     </Layout>
