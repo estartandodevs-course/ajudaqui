@@ -11,6 +11,9 @@ export const ContainerPage = styled.div`
     width: 100%;
     height: 100vh;
     overflow-y: scroll;
+    ::-webkit-scrollbar {
+      display: none;
+    }
 }
 `;
 
@@ -73,6 +76,7 @@ export const ContainerPageTwo = styled.div`
   background-color: #F9F7FB;
   display: flex;
   align-items: flex-end;
+  overflow: hidden;
   @media (max-width: 1199px) {
     display: none;
   }
