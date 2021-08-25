@@ -13,6 +13,7 @@ export const Button = ({
   background,
   children,
   isLoading,
+  textShadow,
   ...restProps
 }) => {
   return (
@@ -22,6 +23,7 @@ export const Button = ({
       border={border}
       color={color}
       shadow={shadow}
+      textShadow={textShadow}
       background={background}
       {...restProps}
     >
