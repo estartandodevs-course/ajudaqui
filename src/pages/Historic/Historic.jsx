@@ -50,7 +50,15 @@ export const HistoricPage = () => {
             Histórico
           </Typography>
           {
-            myRequests.length > 0 ? myRequests.map((request) => (
+            myRequests.length > 0 ? myRequests.sort((a, b) => {
+              if (a.createdAt > b.createdAt) {
+                return -1;
+              }
+              if (a.createdAt < b.createdAt) {
+                return 1;
+              }
+              return 0;
+            }).map((request) => (
               <S.CardHistoricData
                 $isEmergency={isEmergency(request)}
                 key={request.id}
