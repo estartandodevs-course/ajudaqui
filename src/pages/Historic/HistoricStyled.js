@@ -32,7 +32,7 @@ export const CardHistoricData = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  background: ${(props) => props.theme.palette.colors.secondary};
+  background: ${(props) => (!props.$isEmergency ? props.theme.palette.colors.secondary : props.theme.palette.colors.emergency)};
   cursor: pointer;
   padding: 13px;
   border-radius: 5px;

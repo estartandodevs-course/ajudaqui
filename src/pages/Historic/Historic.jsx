@@ -31,6 +31,8 @@ export const HistoricPage = () => {
 
   const textToCard = profileType === PROFILES_TYPES.ELDERLY ? " Pediu para:" : " Ajudou com:";
 
+  const isEmergency = (data) => data.order.key === "emergency";
+
   return (
     <Layout
       hasTabBar
@@ -50,7 +52,7 @@ export const HistoricPage = () => {
           {
             myRequests.length > 0 ? myRequests.map((request) => (
               <S.CardHistoricData
-                variant="default"
+                $isEmergency={isEmergency(request)}
                 key={request.id}
                 onClick={() => push(`order-status/${request.id}`)}
               >
