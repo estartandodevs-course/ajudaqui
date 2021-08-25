@@ -31,11 +31,13 @@ export const HelpRequestCard = ({
 
   const hasEmergency = order?.key === "emergency";
 
-  const verifyOrderStatus = (hasEmergency && "emergency")
+  const verifyOrderStatus = (isVoluntary && "default")
+   || (hasEmergency && "emergency")
    || (verifyWaitingStatus && "aguardando")
    || "default";
 
-  const actionsTypes = (hasEmergency && "emergência")
+  const actionsTypes = (isVoluntary && "ajudando")
+    || (hasEmergency && "emergência")
    || (verifyWaitingStatus && "aguardando")
    || "ajudando";
 
