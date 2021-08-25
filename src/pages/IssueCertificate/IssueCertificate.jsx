@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Layout, Button } from "../../components";
 import * as S from "./IssueCertificateStyled";
 import { certificateDatas } from "../../_mock";
@@ -13,6 +13,8 @@ export const IssueCertificate = (props) => {
 
   const showNavigation = widthScreen < 1200;
 
+  const [start, setStart] = useState(false);
+
   return (
     <Layout hasTabBar showNavigation={showNavigation}>
       <S.ContainerDesktop>
@@ -22,15 +24,23 @@ export const IssueCertificate = (props) => {
             {userName}
           </S.VoluntaryName>
           <S.Paragraph>
-            Você possui um total de
-            30hrs
-            {hours}
-            de voluntariado, deseja emitir seu certificado?
+            {!start
+              ? `Você possui um total de ${hours} de voluntariado, deseja emitir seu certificado?`
+              : "Infelizmente você não possui horas de voluntariado suficiente. Vamos ajudar alguém?"}
+
           </S.Paragraph>
           <S.ContainerImage>
             <S.ImageLogo src="/assets/images/logo.png" alt="Logo" />
           </S.ContainerImage>
-          <Button width="190px">
+          <Button
+            width="190px"
+            onClick={() => {
+              setStart(!start);
+            }}
+            background={start && "#F9F7FB"}
+            color={start && "#47454F"}
+            textShadow={start && "0px 4px 4px rgba(78, 54, 129, 0.3)"}
+          >
             Emitir certificado
           </Button>
           <S.Paragraph2>
