@@ -8,9 +8,9 @@ export const Button = styled.button`
   height: ${({ height }) => height || "44px"};
   border: ${({ border }) => border || "none"};
   color: ${(props) => props.color || props.theme.palette.colors.white};
+  text-shadow: ${(props) => props.textShadow};
   box-shadow: ${(props) => props.shadow || props.theme.shadow};
-  background: ${(props) => props.background
-  || props.theme.palette.colors.gradientButton};
+  background: ${(props) => props.background || props.theme.palette.colors.gradientButton};
   text-transform: uppercase;
   font-family: ${(props) => props.theme.typography.body1.fontFamily};
   border-radius: ${({ borderRadius }) => borderRadius || "5px"};
