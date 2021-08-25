@@ -1,5 +1,6 @@
 import React from "react";
-import differenceInYears from "date-fns/differenceInYears";
+import { differenceInYears } from "date-fns";
+import { utcToZonedTime } from "date-fns-tz";
 import { ProfilePhoto } from "..";
 import { useAuth } from "../../contexts";
 import { UserGrade } from "../UserGrade";
@@ -13,10 +14,13 @@ export const UserOverview = ({ userData }) => {
 
   const { profileType } = useAuth();
 
-  const getYearBirthday = new Date(birthday);
+  const timeZone = "America/Sao_Paulo";
+
+  const getYearBirthday = new Date(utcToZonedTime(birthday, timeZone));
   const getCurrentYear = new Date();
 
   const getAge = differenceInYears(getCurrentYear, getYearBirthday);
+
 
   return (
     <>
