@@ -39,7 +39,7 @@ export const UserInformation = ({ location }) => {
             )}
             <S.ProfilePhotoText>MUDAR FOTO DE PERFIL</S.ProfilePhotoText>
           </S.ContainerProfilePhoto>
-          <S.TabsRegister defaultActiveKey={location.state.defaultActiveKey || "1"}>
+          <S.TabsRegister defaultActiveKey={location?.state?.defaultActiveKey || "1"}>
             <S.TabsChoiced tab="Pessoal" key="1">
               <PersonalInfos />
             </S.TabsChoiced>
