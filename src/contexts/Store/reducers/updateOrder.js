@@ -42,6 +42,26 @@ export const UpdateOrderReducer = () => {
         loadingStore: false,
       }
     ),
+    [OrderActionsTypes.SET_EVALUATION_ORDER_START]: (state) => (
+      {
+        ...state,
+        loadingStore: true,
+      }
+    ),
+    [OrderActionsTypes.SET_EVALUATION_ORDER_SUCESS]: (state, { payload }) => (
+      {
+        ...state,
+        ...payload,
+        loadingStore: false,
+      }
+    ),
+    [OrderActionsTypes.SET_EVALUATION_ORDER_ERROR]: (state, { payload }) => (
+      {
+        ...state,
+        ...payload,
+        loadingStore: false,
+      }
+    ),
   };
 
   return REDUCERS;

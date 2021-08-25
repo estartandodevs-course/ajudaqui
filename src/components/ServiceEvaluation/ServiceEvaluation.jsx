@@ -1,7 +1,7 @@
 import * as S from "./ServiceEvaluationStyled";
 
 export const ServiceEvaluation = ({
-  id, click, children, ...restProps
+  id, click, children, $active, ...restProps
 }) => {
   return (
     <S.ContentEvaluation>
@@ -9,7 +9,7 @@ export const ServiceEvaluation = ({
         onClick={click}
         {...restProps}
       />
-      <S.DescriptionEvaluation>
+      <S.DescriptionEvaluation $active={$active}>
         {children}
       </S.DescriptionEvaluation>
     </S.ContentEvaluation>

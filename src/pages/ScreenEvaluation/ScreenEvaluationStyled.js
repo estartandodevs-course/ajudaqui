@@ -16,21 +16,20 @@ export const ContainerDesktop = styled.div`
 `;
 
 export const Aside = styled.div`
-width: 100%;
-position: relative;
-background-color: ${(props) => props.theme.palette.colors.light.grayish};
+  width: 100%;
+  position: relative;
+  background-color: ${(props) => props.theme.palette.colors.light.grayish};
 
-@media (max-width: 1199px) {
+  @media (max-width: 1199px) {
     display: none;
   }
 `;
 
 export const AsideImage = styled.img`
-position: absolute;
-bottom: 0;
-right: 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 `;
-
 
 export const ContainerScreenEvaluation = styled.div`
   display: flex;
@@ -45,24 +44,23 @@ export const ContainerScreenEvaluation = styled.div`
     justify-content: center;
     align-items: center;
   }
-  `;
+`;
 
 export const ContentTitle = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
-
-  `;
+`;
 
 export const ContainerEvaluation = styled.div`
   display: flex;
   width: min-content;
   gap: 20px;
-  @media(max-width: 720px) {
+  @media (max-width: 720px) {
     gap: 10px;
   }
-  `;
+`;
 
 export const TitleHelp = styled(Typography).attrs({
   variant: "h2",
@@ -72,7 +70,7 @@ export const TitleHelp = styled(Typography).attrs({
   @media (min-width: 1200px) {
     font-size: 24px;
   }
-  `;
+`;
 
 export const DescriptionPersonHelp = styled(Typography).attrs({
   variant: "body1",
@@ -86,19 +84,7 @@ export const DescriptionPersonHelp = styled(Typography).attrs({
     font-size: 18px;
     max-width: 100%;
   }
-  `;
-
-export const UserHelped = styled.img`
-  width: 85px;
-  height: 85px;
-  border-radius: 9999px;
-  margin-bottom: 16px;
-
-  @media (min-width: 1200px) {
-    width: 160px;
-    height: 160px;
-  }
-  `;
+`;
 
 export const ContentEvaluation = styled.div`
   display: flex;
@@ -110,15 +96,15 @@ export const ContentEvaluation = styled.div`
   @media (min-width: 1200px) {
     gap: 20px;
   }
-  `;
+`;
 
 export const NamePersonHelp = styled(Typography).attrs({
   variant: "body1",
 })`
-
-@media (min-width: 1200px) {
-  font-size: 18px;
-}
+  margin-top: 16px;
+  @media (min-width: 1200px) {
+    font-size: 18px;
+  }
 `;
 
 export const PositionButton = styled.div`
@@ -129,19 +115,29 @@ export const PositionButton = styled.div`
   @media (min-width: 1200px) {
     margin-top: 20px;
   }
-  `;
+`;
 
 export const ContainerThanksCompletedTask = styled.div`
-   background-color: #F9F7FB;
-   width: 100%;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
+  background-color: #f9f7fb;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-   @media (max-width: 1999px) {
-     display: none;
-   }
-   `;
+  @media (max-width: 1999px) {
+    display: none;
+  }
+`;
 
+export const ImgProfile = styled.img`
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  object-fit: cover;
 
+  @media (min-width: 1200px) {
+    width: 160px;
+    height: 160px;
+  }
+`;

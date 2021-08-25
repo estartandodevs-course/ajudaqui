@@ -10,6 +10,7 @@ import { fetchTags } from "../../../services/tagsService";
 import { fetchHelpRequests } from "../../../services/helpRequestService";
 import { useTag } from "./useTag";
 import { useCancelOrder } from "./useCancelOrder";
+import { useSetEvaluationOrder } from "./useSetEvaluationOrder";
 
 export const useStore = () => {
   const { state, dispatch, notify } = useContext(StoreContext);
@@ -51,6 +52,7 @@ export const useStore = () => {
     ...useUpdateOrder(),
     ...useTag(),
     ...useCancelOrder(),
+    ...useSetEvaluationOrder(),
     handleMount,
     notify,
   };

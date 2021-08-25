@@ -19,6 +19,6 @@ export const IconsEvaluation = styled.img`
 export const DescriptionEvaluation = styled(Typography).attrs({
   variant: "h2",
 })`
-  color: ${(props) => props.theme.palette.colors.secondary};
+  color: ${(props) => (props.$active ? props.theme.palette.colors.promary : props.theme.palette.colors.secondary)};
   font-size: ${(props) => props.theme.typography.body1.fontSizeSubtitles};
 `;
