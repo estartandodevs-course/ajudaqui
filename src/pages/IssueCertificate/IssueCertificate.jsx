@@ -1,13 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { Layout, Button } from "../../components";
 import * as S from "./IssueCertificateStyled";
 import { certificateDatas } from "../../_mock";
 import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
+import { PROFILES_TYPES } from "../../utils/constants";
+import { useAuth } from "../../contexts";
 
 export const IssueCertificate = (props) => {
   const {
-    userName, hours,
+    hours,
   } = props;
+
+  const { push } = useHistory();
+  const { profileType, user } = useAuth();
 
   const [widthScreen] = useWidthScreen();
 
@@ -15,13 +21,17 @@ export const IssueCertificate = (props) => {
 
   const [start, setStart] = useState(false);
 
+  useEffect(() => {
+    if (profileType === PROFILES_TYPES.ELDERLY) {
+      push("/");
+    }
+  }, []);
   return (
     <Layout hasTabBar showNavigation={showNavigation}>
       <S.ContainerDesktop>
         <S.ContainerPage>
           <S.VoluntaryName>
-            Pedro Lucas
-            {userName}
+            {user.name}
           </S.VoluntaryName>
           <S.Paragraph>
             {!start

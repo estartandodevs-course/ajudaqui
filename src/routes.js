@@ -3,8 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import {
   Home, Onboarding, Register, Login, AskForHelp, ScreenEvaluation, SelectProfile,
   RegisterNewPassword, UserInformation, ProfileVoluntary,
-  OrderStatus, ThanksScreen, EmergencyRequest, IssueCertificate,
-  OrderStatus, ThanksScreen, EmergencyRequest, ActivityProgress,
+  OrderStatus, ThanksScreen, EmergencyRequest, IssueCertificate, ActivityProgress,
   HistoricPage,
 } from "./pages";
 import { Modal } from "./components";
