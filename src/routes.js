@@ -31,7 +31,7 @@ export default function Routes() {
         <Route exact path="/profile" component={ProfileVoluntary} />
         <Route exact path="/order-status/:helpRequestId" component={OrderStatus} />
         <Route exact path="/thanks" component={ThanksScreen} />
-        <Route exact path="/emergency" component={EmergencyRequest} />
+        <Route exact path="/emergency/:helpRequestId" component={EmergencyRequest} />
         <Route exact path="/activity-progress" component={ActivityProgress} />
         <Route exact path="/historic" component={HistoricPage} />
       </Switch>
