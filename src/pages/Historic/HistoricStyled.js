@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Calendar from "react-calendar";
 
 export const HistoricPageContainer = styled.div`
   display: grid;
@@ -18,6 +19,8 @@ export const HistoricWrapper = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
+  max-height: 100vh;
+
   flex-direction: column;
   padding: 24px 24px;
   gap: 16px;
@@ -26,6 +29,19 @@ export const HistoricWrapper = styled.div`
     justify-content: center;
     max-width: 400px;
   }
+`;
+
+export const CalendarBox = styled(Calendar)`
+  width: auto;
+`;
+
+export const RequestsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  gap: 16px;
+  overflow-y: scroll;
 `;
 
 export const CardHistoricData = styled.div`
