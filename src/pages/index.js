@@ -12,3 +12,4 @@ export { OrderStatus } from "./OrderStatus";
 export { ThanksScreen } from "./ThanksScreen";
 export { EmergencyRequest } from "./EmergencyRequest";
 export { ActivityProgress } from "./ActivityProgress";
+export { HistoricPage } from "./Historic";

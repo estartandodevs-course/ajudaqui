@@ -4,6 +4,7 @@ import {
   Home, Onboarding, Register, Login, AskForHelp, ScreenEvaluation, SelectProfile,
   RegisterNewPassword, UserInformation, ProfileVoluntary,
   OrderStatus, ThanksScreen, EmergencyRequest, ActivityProgress,
+  HistoricPage,
 } from "./pages";
 import { Modal } from "./components";
 import { useModal } from "./contexts";
@@ -32,6 +33,7 @@ export default function Routes() {
         <Route exact path="/thanks" component={ThanksScreen} />
         <Route exact path="/emergency" component={EmergencyRequest} />
         <Route exact path="/activity-progress" component={ActivityProgress} />
+        <Route exact path="/historic" component={HistoricPage} />
       </Switch>
     </>
   );
