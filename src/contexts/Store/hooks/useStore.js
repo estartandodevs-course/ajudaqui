@@ -11,7 +11,7 @@ import { fetchHelpRequests } from "../../../services/helpRequestService";
 import { useTag } from "./useTag";
 
 export const useStore = () => {
-  const { state, dispatch } = useContext(StoreContext);
+  const { state, dispatch, notify } = useContext(StoreContext);
   const handleMount = async () => {
     dispatch({
       type: MountStoreActionsTypes.MOUNT_STORE_START,
@@ -50,5 +50,6 @@ export const useStore = () => {
     ...useUpdateOrder(),
     ...useTag(),
     handleMount,
+    notify,
   };
 };

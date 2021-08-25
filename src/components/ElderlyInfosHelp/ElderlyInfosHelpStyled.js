@@ -26,8 +26,9 @@ export const ImageElderly = styled.img`
   border: 1px solid #BC1610;
   margin-top: -38px;
   position: absolute;
-
 `;
+
+
 export const NameElderly = styled(Typography).attrs({
   variant: "body1",
 })`

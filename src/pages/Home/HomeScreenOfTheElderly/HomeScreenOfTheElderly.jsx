@@ -59,6 +59,7 @@ export const HomeScreenOfTheElderly = () => {
                 src="/assets/svg/icon mic.svg"
                 color="#fff"
                 fontSize="14px"
+                disabled
               >
                 POR ÁUDIO
               </Card>
@@ -84,7 +85,9 @@ export const HomeScreenOfTheElderly = () => {
                 src="/assets/svg/icon saude.svg"
                 color="#fff"
                 fontSize="14px"
-                onClick={() => push("/user-information")}
+                onClick={() => push("/user-information", {
+                  defaultActiveKey: "2",
+                })}
               >
                 DADOS DE SAÚDE
               </Card>
@@ -93,7 +96,9 @@ export const HomeScreenOfTheElderly = () => {
                 src="/assets/svg/icon contato.svg"
                 color="#fff"
                 fontSize="14px"
-                onClick={() => push("/user-information")}
+                onClick={() => push("/user-information", {
+                  defaultActiveKey: "3",
+                })}
               >
                 AGENDA DE CONTATOS
               </Card>

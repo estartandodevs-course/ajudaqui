@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 import {
   Button, Form, Input, Layout, Tag,
 } from "../../components";
@@ -9,10 +10,13 @@ import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
 export const AskForHelp = ({ ...restProps }) => {
   const [widthScreen] = useWidthScreen();
 
+  const { push } = useHistory();
   const showNavigation = widthScreen < 1200;
   const [isActive, setIsActive] = useState(null);
   const [selectedOptionHelp, setSelectedOptionHelp] = useState({});
-  const { handleCreateOrder, tags, handleCreateTag } = useStore();
+  const {
+    handleCreateOrder, tags, handleCreateTag, loadingStore,
+  } = useStore();
   const { user } = useAuth();
 
   const handleSubmit = async ({ option }) => {
@@ -28,11 +32,11 @@ export const AskForHelp = ({ ...restProps }) => {
             evaluation: "",
             note: "",
           },
+        }, (helpRequestId) => {
+          return push(`order-status/${helpRequestId}`);
         });
       });
-      return;
     }
-
     await handleCreateOrder({
       order: selectedOptionHelp,
       elderly: {
@@ -40,6 +44,8 @@ export const AskForHelp = ({ ...restProps }) => {
         evaluation: "",
         note: "",
       },
+    }, (helpRequestId) => {
+      return push(`order-status/${helpRequestId}`);
     });
   };
 
@@ -70,9 +76,19 @@ export const AskForHelp = ({ ...restProps }) => {
                 </Tag>
               ))}
             </S.ContainerTag>
-            <Input type="text" name="option" label="Precisando de ajuda com outra coisa?" placeholder="Clique aqui para escrever" />
+            <Input
+              type="text"
+              name="option"
+              label="Precisando de ajuda com outra coisa?"
+              placeholder="Clique aqui para escrever"
+            />
             <S.PositionButton>
-              <Button type="submit">Enviar Pedido</Button>
+              <Button
+                type="submit"
+                isLoading={loadingStore}
+              >
+                Enviar Pedido
+              </Button>
             </S.PositionButton>
           </Form>
         </S.ContainerAskForHelp>

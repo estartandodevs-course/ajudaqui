@@ -1,5 +1,6 @@
 import React from "react";
-import differenceInYears from "date-fns/differenceInYears";
+import { differenceInYears } from "date-fns";
+import { utcToZonedTime } from "date-fns-tz";
 import { ProfilePhoto } from "..";
 import { useAuth } from "../../contexts";
 import { UserGrade } from "../UserGrade";
@@ -13,10 +14,19 @@ export const UserOverview = ({ userData }) => {
 
   const { profileType } = useAuth();
 
-  const getYearBirthday = new Date(birthday);
-  const getCurrentYear = new Date();
+  const timeZone = "America/Sao_Paulo";
 
-  const getAge = differenceInYears(getCurrentYear, getYearBirthday);
+
+  const getUserAge = (_birthday) => {
+    if (_birthday) {
+      const getYearBirthday = new Date(utcToZonedTime(_birthday, timeZone));
+      const getCurrentYear = new Date();
+      const getAge = differenceInYears(getCurrentYear, getYearBirthday);
+      return getAge;
+    }
+    return null;
+  };
+
 
   return (
     <>
@@ -37,7 +47,7 @@ export const UserOverview = ({ userData }) => {
             <S.TitleProfile>{ `Olá, ${name}`}</S.TitleProfile>
             <S.Paragraph>
               {birthday
-               && <>{`${getAge} anos - ${location.city}`}</>}
+               && <>{`${getUserAge(birthday)} anos - ${location.city}`}</>}
             </S.Paragraph>
             <S.ContainerGrade>
               <S.Paragraph>Sua nota</S.Paragraph>
