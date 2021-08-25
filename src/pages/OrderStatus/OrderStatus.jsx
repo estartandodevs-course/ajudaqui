@@ -10,8 +10,8 @@ export const OrderStatus = () => {
   const showNavigation = widthScreen < 1200;
   const { helpRequestId } = useParams();
 
-  const filteredhelpRequest = helpRequests
-    .find(
+  const getHelpRequests = helpRequests
+    ?.find(
       (helpRequest) => helpRequest.id === helpRequestId,
     );
   return (
@@ -21,7 +21,7 @@ export const OrderStatus = () => {
           <S.Title>
             Por favor, aguarde
           </S.Title>
-          <OrderCard helpRequest={filteredhelpRequest} />
+          <OrderCard helpRequest={getHelpRequests} />
           <S.Subtitle>
             Você pode fechar essa tela, avisaremos quando o voluntário chegar.
           </S.Subtitle>
