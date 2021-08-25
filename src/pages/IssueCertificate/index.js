@@ -1,0 +1,1 @@
+export { IssueCertificate } from "./IssueCertificate";
