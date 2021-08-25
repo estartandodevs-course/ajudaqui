@@ -37,7 +37,7 @@ export const OrderCard = ({ helpRequest }) => {
           return push(`/screen-evaluation/${helpRequestId}`);
         }
 
-        return push("/activity-progress");
+        return push(`/activity-progress/${helpRequestId}`);
       }
       default:
         break;

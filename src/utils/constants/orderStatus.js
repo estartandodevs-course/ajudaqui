@@ -22,7 +22,7 @@ export const mappedCardTitleAndSubtitleByStatus = (orderStatus, voluntaryProfile
     },
     [orderStatusId.WAITING_VOLUNTARY]: {
       title: "Pedido recebido!",
-      subTitle: `${voluntaryProfileData?.name}/ está acaminho.`,
+      subTitle: `${voluntaryProfileData?.name}/ está a caminho.`,
     },
     [orderStatusId.IN_PROGRESS]: {
       title: "Pedido recebido!",

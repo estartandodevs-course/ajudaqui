@@ -160,7 +160,7 @@ export const ScreenEvaluation = () => {
               </S.ContentTitle>
               <S.ContentEvaluation>
                 <S.NamePersonHelp>
-                  Maria Rita
+                  {elderlysProfileData?.name}
                 </S.NamePersonHelp>
                 <UserGrade grade={evaluation} />
                 <S.ContainerEvaluation>

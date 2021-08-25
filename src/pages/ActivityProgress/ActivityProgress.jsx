@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { Layout, SpinnerTime, Button } from "../../components";
+import { useStore } from "../../contexts";
 import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
 import * as S from "./ActivityProgressStyled";
 
@@ -10,17 +11,20 @@ export const ActivityProgress = () => {
   const [widthScreen] = useWidthScreen();
   const showNavigation = widthScreen < 1200;
 
+  const { helpRequestId } = useParams();
+  const { handleStartAttendance, handleEndAttendance } = useStore();
 
-  const handleCompleteTask = () => {
+  const handleCompleteTask = async () => {
     const verify = !start ? "Iniciar" : "Concluir";
     const isCompleted = verify === "Concluir";
 
     if (isCompleted) {
-      push("/thanks");
+      await handleEndAttendance(helpRequestId);
+      return push(`/screen-evaluation/${helpRequestId}`);
     }
+    await handleStartAttendance(helpRequestId);
     return verify;
   };
-
 
   return (
     <Layout
