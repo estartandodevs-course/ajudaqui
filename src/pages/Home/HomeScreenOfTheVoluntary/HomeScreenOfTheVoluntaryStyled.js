@@ -1,15 +1,14 @@
 import styled from "styled-components";
 import { Typography } from "../../../components";
 
-
 export const PagesContainer = styled.div`
 width: 100%;
 display: flex;
 `;
+
 export const ContainerPage = styled.div`
   @media (min-width: 1200px){
-    width: 50%;
-    margin-left: 70px;
+    width: 100%;
     height: 100vh;
     overflow-y: scroll;
 }
@@ -70,17 +69,17 @@ export const LocationText = styled(Typography).attrs({
 `;
 
 export const ContainerPageTwo = styled.div`
-  width: 50%;
+  width: 100%;
   background-color: #F9F7FB;
   display: flex;
   align-items: flex-end;
-@media (max-width: 1199px) {
-  display: none;
-}
+  @media (max-width: 1199px) {
+    display: none;
+  }
 `;
 
 export const Image = styled.img`
-@media (max-width: 1199px) {
-  display: none;
-}
+  position: absolute;
+  bottom: 0;
+  right: 0;
 `;

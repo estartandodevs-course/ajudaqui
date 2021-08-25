@@ -10,10 +10,7 @@ export const HomeScreenOfTheVoluntary = () => {
   const { user } = useAuth();
   const { helpRequests } = useStore();
   const getOpenHelpRequests = helpRequests
-    .filter((opened) => (
-      opened.voluntary.id === user.id
-    || !opened.voluntary.id
-    ))
+    .filter((opened) => opened.voluntary.id === user.id || !opened.voluntary.id)
     .sort((a, b) => {
       if (a.createdAt > b.createdAt) {
         return -1;
@@ -25,20 +22,12 @@ export const HomeScreenOfTheVoluntary = () => {
     });
 
   return (
-    <Layout
-      hasTabBar
-      showNavigation={showNavigation}
-    >
+    <Layout hasTabBar showNavigation={showNavigation}>
       <S.PagesContainer>
-
         <S.ContainerPage>
           <S.ContainerTitles>
-            <S.Title>
-              {`Olá ${user.name},`}
-            </S.Title>
-            <S.Subtitle>
-              vamos ajudar um idoso?
-            </S.Subtitle>
+            <S.Title>{`Olá ${user.name},`}</S.Title>
+            <S.Subtitle>vamos ajudar um idoso?</S.Subtitle>
           </S.ContainerTitles>
           <S.HelpAvailable>
             <S.LocationIcon
@@ -67,7 +56,6 @@ export const HomeScreenOfTheVoluntary = () => {
             <S.Image src="/assets/svg/arte voluntario.svg" alt="" />
           </div>
         </S.ContainerPageTwo>
-
       </S.PagesContainer>
     </Layout>
   );
