@@ -2,20 +2,33 @@ import styled from "styled-components";
 import { Typography } from "../../../components";
 
 export const PagesContainer = styled.div`
-width: 100%;
-display: flex;
+  width: 100%;
+  display: flex;
 `;
 
 export const ContainerPage = styled.div`
-  @media (min-width: 1200px){
-    width: 100%;
+  width: 100%;
+  @media (min-width: 1200px) {
     height: 100vh;
     overflow-y: scroll;
-}
+  }
+  @media (min-width: 576px) {
+    justify-items: center;
+  }
 `;
 
 export const ContainerHelpCard = styled.div`
   width: 100%;
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+  }
+
+  @media (min-width: 1200px) {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 export const ContainerTitles = styled.div`
@@ -34,7 +47,7 @@ export const Title = styled(Typography).attrs({
   variant: "h2",
 })`
   color: ${(props) => props.theme.palette.colors.text};
-   @media (min-width: 1200px) {
+  @media (min-width: 1200px) {
     color: ${(props) => props.theme.palette.colors.primaryVariant};
   }
 `;
@@ -70,7 +83,7 @@ export const LocationText = styled(Typography).attrs({
 
 export const ContainerPageTwo = styled.div`
   width: 100%;
-  background-color: #F9F7FB;
+  background-color: #f9f7fb;
   display: flex;
   align-items: flex-end;
   @media (max-width: 1199px) {
