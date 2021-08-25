@@ -37,9 +37,8 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-margin-top: 20px;
 gap: 20px;
-margin: 0 24px;
+margin: 20px 24px;
 `;
 
 export const ContainerImage = styled.div`
