@@ -7,6 +7,7 @@ export const ElderlyInfosHelp = ({ elderlyInfos }) => {
     name, health, contacts, photoURL,
   } = elderlyInfos;
 
+
   return (
     <S.Card>
       <S.ContainerProfile>
@@ -29,7 +30,7 @@ export const ElderlyInfosHelp = ({ elderlyInfos }) => {
       </S.ContainerProfile>
       <S.ContainerProblem>
         <S.Texts>
-          Possui
+          {health.specialConditions && "Possui"}
           <S.Problem>
             {health.specialConditions}
           </S.Problem>
@@ -43,7 +44,8 @@ export const ElderlyInfosHelp = ({ elderlyInfos }) => {
         <S.TextsTitles>
           Medicamentos:
         </S.TextsTitles>
-        {health?.medicine?.split("; ").map((medicine) => (
+        {health.medicine.length > 0
+        && health?.medicine?.split("; ").map((medicine) => (
           <S.Texts key={medicine}>
             {medicine}
           </S.Texts>
