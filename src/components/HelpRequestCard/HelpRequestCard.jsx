@@ -41,7 +41,10 @@ export const HelpRequestCard = ({
 
   const handleSubscribe = async () => {
     if (!isVoluntary) await handleUpdateSubscribe(helpRequestData.id, user.id);
-    push(`order-status/${helpRequestData.id}`);
+    if (hasEmergency) {
+      return push(`emergency/${helpRequestData.id}`);
+    }
+    return push(`order-status/${helpRequestData.id}`);
   };
 
   return (
