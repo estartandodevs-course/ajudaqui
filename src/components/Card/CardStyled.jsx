@@ -47,6 +47,11 @@ export const ContainerCard = styled.div`
   align-items: center;
   border-radius: 5px;
   ${(props) => props.variant && variants[props.variant]};
+  ${(props) => props.disabled
+    && css`
+      cursor: not-allowed;
+      background: ${props.theme.palette.colors.secondaryVariant};
+    `}
 `;
 
 export const IconCard = styled.img``;
