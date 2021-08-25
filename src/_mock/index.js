@@ -5,3 +5,4 @@ export { optionsTagData } from "./optionsTagData";
 export { TabBarLinks } from "./tabBar";
 export { elderlyInfos } from "./HelpRequestCardData";
 export { serviceEvaluationData } from "./serviceEvaluationData";
+export { certificateDatas } from "./IssueCertificateData";

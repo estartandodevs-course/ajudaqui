@@ -1,59 +1,128 @@
 import { parseISO, differenceInMinutes } from "date-fns";
 import React from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { useAuth } from "../../contexts";
-import { orderStatusName, PROFILES_TYPES } from "../../utils/constants";
+import { useAuth, useStore } from "../../contexts";
+import {
+  mappedCardTitleAndSubtitleByStatus,
+  orderStatusId,
+  orderStatusName,
+  PROFILES_TYPES,
+} from "../../utils/constants";
 import * as S from "./OrderCard.Styled";
 
 export const OrderCard = ({ helpRequest }) => {
   const {
-    order, photoURL, status, createdAt, name, action, warning, startTime,
+    order,
+    photoURL,
+    status,
+    createdAt,
+    name,
+    startTime,
   } = helpRequest;
 
   const { profileType } = useAuth();
+  const { handleCancelOrder, loadingStore, voluntarys } = useStore();
   const { push } = useHistory();
-  const runningTime = differenceInMinutes(new Date(), parseISO(createdAt));
   const { helpRequestId } = useParams();
+  const runningTime = differenceInMinutes(new Date(), parseISO(createdAt));
+  const isCanceled = helpRequest?.status === orderStatusId.CANCELED;
+  const verify = startTime ? "Iniciar" : "Finalizar";
+  const hasFinished = verify === "Iniciar";
+
+  const voluntaryProfileData = voluntarys?.find((voluntary) => (
+    voluntary.id === helpRequest?.voluntary?.id
+  ));
 
   const handleFinishedTask = () => {
-    const verify = startTime ? "Iniciar" : "Finalizar";
-    const hasFinished = verify === "Iniciar";
-    if (hasFinished) push(`/screen-evaluation/${helpRequestId}`);
-    push("/activity-progress");
+    switch (profileType) {
+      case PROFILES_TYPES.ELDERLY: {
+        if (hasFinished) {
+          return push(`/screen-evaluation/${helpRequestId}`);
+        }
+        break;
+      }
+      case PROFILES_TYPES.VOLUNTARY: {
+        if (hasFinished) {
+          return push(`/screen-evaluation/${helpRequestId}`);
+        }
 
-    return verify;
+        return push("/activity-progress");
+      }
+      default:
+        break;
+    }
+
+    return 1;
   };
+
+  const handleCancelRequest = async () => {
+    await handleCancelOrder(helpRequestId);
+  };
+
+  const {
+    title,
+    subTitle,
+  } = mappedCardTitleAndSubtitleByStatus(helpRequest?.status, voluntaryProfileData);
 
   return (
     <S.ContainerOrderCard>
       <S.ContainerIcon>
-        { photoURL ? <S.Icon src={photoURL} alt={name} />
-          : <S.ImageDefault src="/assets/svg/icon ok.svg" alt="Icon ok" /> }
+        { (photoURL && !isCanceled) ? (
+          <S.Icon src={photoURL} alt={name} />
+        ) : (
+          <S.ImageDefault
+            src={`/assets/svg/${!isCanceled ? "icon-ok.svg" : "icon-cancelado.svg"}`}
+            alt="Icon ok"
+          />
+        )}
       </S.ContainerIcon>
       <S.ContainerTitle>
-        <S.Title>{action}</S.Title>
+        <S.Title>{title}</S.Title>
       </S.ContainerTitle>
       <S.ContainerSubtitle>
-        <S.Subtitle>{warning}</S.Subtitle>
+        <S.Subtitle as="div">
+          {
+          subTitle.includes("/") ? (
+            <>
+              <strong>{subTitle.split("/")[0]}</strong>
+              {subTitle.split("/")[1]}
+            </>
+          ) : (
+            subTitle
+          )
+        }
+        </S.Subtitle>
       </S.ContainerSubtitle>
       <S.ContainerTexts>
         <S.Texts>
           SOLICITAÇÃO:
-          <S.Request>{order?.option}</S.Request>
+          <S.Description>{order?.option}</S.Description>
         </S.Texts>
         <S.Texts>
           STATUS:
-          <S.Status>{orderStatusName[status]}</S.Status>
+          <S.Description>{orderStatusName[status]}</S.Description>
         </S.Texts>
         <S.Texts>
           PEDIDO FEITO HÁ:
-          <S.Order>{`${runningTime} minutos`}</S.Order>
+          <S.Description>{`${runningTime} minutos`}</S.Description>
         </S.Texts>
       </S.ContainerTexts>
-      {profileType === PROFILES_TYPES.ELDERLY ? (
-        <S.CardButtom width="100%" borderRadius="0">
-          CANCELAR PEDIDO
-          <S.Arrow src="/assets/svg/right arrow.svg" alt="Arrow" />
+      {(profileType === PROFILES_TYPES.ELDERLY && status === orderStatusId.CANCELED) ? (
+        <S.CardButtom
+          width="100%"
+          borderRadius="0"
+          onClick={handleCancelRequest}
+          isLoading={loadingStore}
+          disabled={isCanceled}
+        >
+          {!isCanceled ? (
+            <>
+              CANCELAR PEDIDO
+              <S.Arrow src="/assets/svg/right arrow.svg" alt="Arrow" />
+            </>
+          ) : (
+            "Pedido Cancelado"
+          )}
         </S.CardButtom>
       )
         : (
@@ -62,7 +131,7 @@ export const OrderCard = ({ helpRequest }) => {
             borderRadius="0"
             onClick={handleFinishedTask}
           >
-            {startTime ? "Iniciar" : "Finalizar"}
+            {!startTime ? "Iniciar" : "Finalizar"}
             <S.Arrow src="/assets/svg/right arrow.svg" alt="Arrow" />
           </S.CardButtom>
         )}

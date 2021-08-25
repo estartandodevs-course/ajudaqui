@@ -11,5 +11,6 @@ export { ProfileVoluntary } from "./ProfileVoluntary";
 export { OrderStatus } from "./OrderStatus";
 export { ThanksScreen } from "./ThanksScreen";
 export { EmergencyRequest } from "./EmergencyRequest";
+export { IssueCertificate } from "./IssueCertificate";
 export { ActivityProgress } from "./ActivityProgress";
 export { HistoricPage } from "./Historic";

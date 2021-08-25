@@ -60,6 +60,7 @@ export const Subtitle = styled(Typography).attrs({
 
 export const Texts = styled(Typography).attrs({
   variant: "body1",
+  as: "div",
 })`
   display: flex;
   flex-direction: row;
@@ -70,22 +71,11 @@ export const Texts = styled(Typography).attrs({
   margin: 0 0 16px 24px;
 `;
 
-export const Request = styled(Typography).attrs({
+export const Description = styled(Typography).attrs({
   variant: "body1",
   color: theme.palette.colors.light.gray,
 })`
-`;
-
-export const Status = styled(Typography).attrs({
-  variant: "body1",
-  color: theme.palette.colors.light.gray,
-})`
-`;
-
-export const Order = styled(Typography).attrs({
-  variant: "body1",
-  color: theme.palette.colors.light.gray,
-})`
+  align-self: center;
 `;
 
 export const ContainerTexts = styled.div`

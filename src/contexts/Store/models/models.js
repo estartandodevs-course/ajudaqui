@@ -29,5 +29,6 @@ export const initialStateStoreReducer = {
 
 export const storeContextModel = {
   dispatch: () => {},
+  notify: () => {},
   state: initialStateStoreReducer,
 };

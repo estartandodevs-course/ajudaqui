@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import {
   Home, Onboarding, Register, Login, AskForHelp, ScreenEvaluation, SelectProfile,
   RegisterNewPassword, UserInformation, ProfileVoluntary,
-  OrderStatus, ThanksScreen, EmergencyRequest, ActivityProgress,
+  OrderStatus, ThanksScreen, EmergencyRequest, IssueCertificate, ActivityProgress,
   HistoricPage,
 } from "./pages";
 import { Modal } from "./components";
@@ -31,6 +31,8 @@ export default function Routes() {
         <Route exact path="/profile" component={ProfileVoluntary} />
         <Route exact path="/order-status/:helpRequestId" component={OrderStatus} />
         <Route exact path="/thanks" component={ThanksScreen} />
+        <Route exact path="/emergency" component={EmergencyRequest} />
+        <Route exact path="/issue-certificate" component={IssueCertificate} />
         <Route exact path="/emergency/:helpRequestId" component={EmergencyRequest} />
         <Route exact path="/activity-progress" component={ActivityProgress} />
         <Route exact path="/historic" component={HistoricPage} />
