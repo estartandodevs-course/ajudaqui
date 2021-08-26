@@ -6,6 +6,7 @@ import {
 } from "../../../components";
 import { useWidthScreen } from "../../../utils/hooks/useWidthScreen";
 import { useModal, useStore, useAuth } from "../../../contexts";
+import { userSchema } from "./validationModalCompleteProfile";
 
 export const HomeScreenOfTheElderly = () => {
   const { user } = useAuth();
@@ -17,12 +18,13 @@ export const HomeScreenOfTheElderly = () => {
   const { showModal, setIsOpen } = useModal();
 
   useEffect(() => {
-    showModal(
-      <ElderlyModalCard onClick={() => setIsOpen(false)} />,
-      { agree: () => {}, disAgree: () => {} },
-    );
+    if (!userSchema.isValidSync(user) || !user.contacts.length < 0) {
+      showModal(
+        <ElderlyModalCard onClick={() => setIsOpen(false)} />,
+        { agree: () => {}, disAgree: () => {} },
+      );
+    }
   }, []);
-
 
   const handleSubmit = async () => {
     await handleCreateOrder({
