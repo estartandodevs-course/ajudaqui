@@ -210,8 +210,10 @@ export const ProfileVoluntary = () => {
                 atividade com “,”)
               </S.Texts>
               <Input type="text" name="option" placeholder="" />
-              <Switch onChange={() => {}} checked />
-              <S.TextSwitch>Ativar notificações</S.TextSwitch>
+              <S.ContainerSwitch>
+                <Switch onChange={() => {}} checked />
+                <S.TextSwitch>Ativar notificações</S.TextSwitch>
+              </S.ContainerSwitch>
               <S.PositionButton>
                 <Button type="submit" isLoading={loadingStore}>
                   Salvar
