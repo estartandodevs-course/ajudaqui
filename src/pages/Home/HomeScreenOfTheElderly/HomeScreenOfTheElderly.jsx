@@ -11,7 +11,7 @@ import { userSchema } from "./validationModalCompleteProfile";
 export const HomeScreenOfTheElderly = () => {
   const { user } = useAuth();
   const [widthScreen] = useWidthScreen();
-  const { handleCreateOrder, loadingStore } = useStore();
+  const { handleCreateOrder, loadingStore, helpRequests } = useStore();
   const showNavigation = widthScreen < 1200;
   const { push } = useHistory();
 
@@ -39,6 +39,15 @@ export const HomeScreenOfTheElderly = () => {
       },
     });
   };
+
+  const activities = helpRequests?.filter((helpRequest) => (
+    helpRequest?.elderly?.id === user?.id
+  ));
+
+  const grade = activities.filter((activity) => (
+    activity?.elderly?.evaluation
+  )).reduce((total, activity) => (activity?.elderly.evaluation + total), 0);
+
   return (
     <Layout
       hasTabBar
@@ -47,7 +56,12 @@ export const HomeScreenOfTheElderly = () => {
       <S.ContainerPageAside>
         <S.ContainerPage>
           <S.ContainerUserOverview>
-            <UserOverview userData={user} />
+            <UserOverview
+              userData={{
+                ...user,
+                grade: grade ? parseInt((grade / activities.length).toFixed(0), 10) : 0,
+              }}
+            />
           </S.ContainerUserOverview>
           <S.ContainerOne
             borderTop="1px solid #D8CDEE"

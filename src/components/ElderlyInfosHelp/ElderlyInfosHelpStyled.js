@@ -83,7 +83,7 @@ export const TextTitleEmergency = styled(Typography).attrs({
   `;
 
 
-export const Texts = styled.p`
+export const Texts = styled.span`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -114,7 +114,7 @@ export const ContentButtom = styled(Button)`
   width: 100%;
   height: 50px;
   border-radius: 0px 0px 9px 9px;
-  background: ${(props) => props.theme.palette.colors.emergency}
+  background: ${(props) => props.theme.palette.colors.emergency};
 `;
 
 export const ContentArrow = styled.img`
