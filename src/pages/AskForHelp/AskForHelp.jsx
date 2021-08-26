@@ -29,7 +29,7 @@ export const AskForHelp = ({ ...restProps }) => {
           order: newTag,
           elderly: {
             id: user.id,
-            evaluation: "",
+            evaluation: null,
             note: "",
           },
         }, async (helpRequestId) => {
@@ -41,7 +41,7 @@ export const AskForHelp = ({ ...restProps }) => {
       order: selectedOptionHelp,
       elderly: {
         id: user.id,
-        evaluation: "",
+        evaluation: null,
         note: "",
       },
     }, (helpRequestId) => {

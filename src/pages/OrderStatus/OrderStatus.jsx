@@ -16,6 +16,8 @@ export const OrderStatus = () => {
     (helpRequest) => helpRequest.id === helpRequestId,
   );
 
+  const hasConcluded = getHelpRequests?.status === orderStatusId.CONCLUDED;
+  const isCanceled = getHelpRequests?.status !== orderStatusId.CANCELED;
 
   return (
     <Layout hasTabBar showNavigation={showNavigation} hasClose>
@@ -23,12 +25,15 @@ export const OrderStatus = () => {
         <S.ContainerPage>
           <S.Title>
             {profileType === PROFILES_TYPES.ELDERLY
-              && getHelpRequests?.status !== orderStatusId.CANCELED
+              && isCanceled
+              && !hasConcluded
               && "Por favor, aguarde."}
           </S.Title>
           <OrderCard helpRequest={getHelpRequests} />
           <S.Subtitle>
             {profileType === PROFILES_TYPES.ELDERLY
+              && isCanceled
+              && !hasConcluded
               && "Você pode fechar essa tela, avisaremos quando o voluntário chegar."}
           </S.Subtitle>
         </S.ContainerPage>

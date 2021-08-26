@@ -5,6 +5,7 @@ export const AuthLoginEmailReducer = () => {
     [AuthActionsTypes.LOGIN_EMAIL_START]: (state) => ({
       ...state,
       loadingAuth: true,
+      isAuthenticated: false,
     }),
     [AuthActionsTypes.LOGIN_EMAIL_SUCESS]: (state, { payload }) => ({
       ...state,
@@ -21,11 +22,12 @@ export const AuthLoginEmailReducer = () => {
     [AuthActionsTypes.LOGOUT_EMAIL_START]: (state) => ({
       ...state,
       loadingAuth: true,
+      isAuthenticated: false,
     }),
     [AuthActionsTypes.LOGOUT_EMAIL_SUCESS]: (state, { payload }) => ({
       ...state,
       ...payload,
-      isAuthenticated: true,
+      isAuthenticated: false,
       loadingAuth: false,
     }),
     [AuthActionsTypes.LOGOUT_EMAIL_ERROR]: (state, { payload }) => ({

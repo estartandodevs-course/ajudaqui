@@ -14,6 +14,7 @@ export const HomeScreenOfTheVoluntary = () => {
     .filter((opened) => (
       (opened.voluntary.id === user.id || !opened.voluntary.id)
        && opened.status !== orderStatusId.CONCLUDED
+       && opened.status !== orderStatusId.CANCELED
     ))
     .sort((a, b) => {
       if (a.createdAt > b.createdAt) {

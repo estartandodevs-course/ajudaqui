@@ -41,7 +41,8 @@ export const ContainerButton = styled.div`
 export const ContainerImageElderly = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  gap: 8px;
+  padding-bottom: 24px;
 `;
 
 export const Text = styled(Typography).attrs({
@@ -53,10 +54,11 @@ export const Text = styled(Typography).attrs({
 export const ContentTextPeople = styled.div`
   margin-bottom: 6px;
 `;
+
 export const ImageElderly = styled.img`
   width: 35px;
   height: 35px;
   border-radius: 100px;
   object-fit: cover;
-  margin-bottom: 24px;
 `;
+
