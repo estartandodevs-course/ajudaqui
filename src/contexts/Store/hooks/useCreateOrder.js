@@ -15,6 +15,7 @@ export const useCreateOrder = () => {
     const newOrder = {
       ...orderModels,
       ...order,
+      createdAt: new Date().toISOString(),
     };
     try {
       const helpRequest = await createHelpRequest(newOrder);

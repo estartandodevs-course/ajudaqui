@@ -1,7 +1,6 @@
 import { orderStatusId } from "../../../utils/constants";
 
 export const orderModels = {
-  createdAt: new Date().toISOString(),
   order: null,
   status: orderStatusId.WAITING,
   startTime: null,

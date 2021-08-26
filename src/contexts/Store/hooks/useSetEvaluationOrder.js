@@ -28,8 +28,8 @@ export const useSetEvaluationOrder = () => {
         type: OrderActionsTypes.SET_EVALUATION_ORDER_SUCESS,
         payload: {
           helpRequests: state.helpRequests.map((currentHelpRequest) => (
-            currentHelpRequest.id === updatedHelpRequest?.id ? (
-              updatedHelpRequest
+            currentHelpRequest.id === helpRequestId ? (
+              { ...currentHelpRequest, ...updatedHelpRequest }
             ) : currentHelpRequest
           )),
         },
@@ -37,6 +37,8 @@ export const useSetEvaluationOrder = () => {
       notify("Avaliaçao registrada com sucesso.");
       push("/");
     } catch (error) {
+      notify("Ocorreu um erro no registro da avaliação.", "error");
+
       dispatch({
         type: OrderActionsTypes.SET_EVALUATION_ORDER_ERROR,
         payload: {
@@ -66,7 +68,7 @@ export const useSetEvaluationOrder = () => {
         payload: {
           helpRequests: state.helpRequests.map((currentHelpRequest) => (
             currentHelpRequest.id === updatedHelpRequest?.id ? (
-              updatedHelpRequest
+              { ...currentHelpRequest, ...updatedHelpRequest }
             ) : currentHelpRequest
           )),
         },
@@ -74,6 +76,7 @@ export const useSetEvaluationOrder = () => {
       notify("Avaliaçao registrada com sucesso.");
       push("/thanks", { helpRequestId });
     } catch (error) {
+      notify("Não foi possível realizar sua solicitação.", "error");
       dispatch({
         type: OrderActionsTypes.SET_EVALUATION_ORDER_ERROR,
         payload: {
