@@ -11,22 +11,13 @@ import {
 import * as S from "./OrderCard.Styled";
 
 export const OrderCard = ({ helpRequest }) => {
-  const {
-    order,
-    photoURL,
-    status,
-    createdAt,
-    name,
-    startTime,
-  } = helpRequest;
-
   const { profileType } = useAuth();
   const { handleCancelOrder, loadingStore, voluntarys } = useStore();
   const { push } = useHistory();
   const { helpRequestId } = useParams();
-  const runningTime = differenceInMinutes(new Date(), parseISO(createdAt));
+  const runningTime = differenceInMinutes(new Date(), parseISO(helpRequest?.createdAt));
   const isCanceled = helpRequest?.status === orderStatusId.CANCELED;
-  const verify = startTime ? "Iniciar" : "Finalizar";
+  const verify = helpRequest?.startTime ? "Iniciar" : "Finalizar";
   const hasFinished = verify === "Iniciar";
 
   const voluntaryProfileData = voluntarys?.find((voluntary) => (
@@ -46,7 +37,7 @@ export const OrderCard = ({ helpRequest }) => {
           return push(`/screen-evaluation/${helpRequestId}`);
         }
 
-        return push("/activity-progress");
+        return push(`/activity-progress/${helpRequestId}`);
       }
       default:
         break;
@@ -59,16 +50,13 @@ export const OrderCard = ({ helpRequest }) => {
     await handleCancelOrder(helpRequestId);
   };
 
-  const {
-    title,
-    subTitle,
-  } = mappedCardTitleAndSubtitleByStatus(helpRequest?.status, voluntaryProfileData);
+  const cardData = mappedCardTitleAndSubtitleByStatus(helpRequest?.status, voluntaryProfileData);
 
   return (
     <S.ContainerOrderCard>
       <S.ContainerIcon>
-        { (photoURL && !isCanceled) ? (
-          <S.Icon src={photoURL} alt={name} />
+        { (helpRequest?.photoURL && !isCanceled) ? (
+          <S.Icon src={helpRequest?.photoURL} alt={helpRequest?.name} />
         ) : (
           <S.ImageDefault
             src={`/assets/svg/${!isCanceled ? "icon-ok.svg" : "icon-cancelado.svg"}`}
@@ -77,18 +65,18 @@ export const OrderCard = ({ helpRequest }) => {
         )}
       </S.ContainerIcon>
       <S.ContainerTitle>
-        <S.Title>{title}</S.Title>
+        <S.Title>{cardData?.title}</S.Title>
       </S.ContainerTitle>
       <S.ContainerSubtitle>
         <S.Subtitle as="div">
           {
-          subTitle.includes("/") ? (
+          cardData?.subTitle.includes("/") ? (
             <>
-              <strong>{subTitle.split("/")[0]}</strong>
-              {subTitle.split("/")[1]}
+              <strong>{cardData?.subTitle.split("/")[0]}</strong>
+              {cardData?.subTitle.split("/")[1]}
             </>
           ) : (
-            subTitle
+            cardData?.subTitle
           )
         }
         </S.Subtitle>
@@ -96,18 +84,24 @@ export const OrderCard = ({ helpRequest }) => {
       <S.ContainerTexts>
         <S.Texts>
           SOLICITAÇÃO:
-          <S.Description>{order?.option}</S.Description>
+          <S.Description>{helpRequest?.order?.option ?? ""}</S.Description>
         </S.Texts>
         <S.Texts>
           STATUS:
-          <S.Description>{orderStatusName[status]}</S.Description>
+          <S.Description>
+            {
+              helpRequest?.status && orderStatusName[helpRequest?.status]
+            }
+          </S.Description>
         </S.Texts>
         <S.Texts>
           PEDIDO FEITO HÁ:
           <S.Description>{`${runningTime} minutos`}</S.Description>
         </S.Texts>
       </S.ContainerTexts>
-      {(profileType === PROFILES_TYPES.ELDERLY && status === orderStatusId.CANCELED) ? (
+      {(
+        profileType === PROFILES_TYPES.ELDERLY && helpRequest?.status === orderStatusId.CANCELED
+      ) ? (
         <S.CardButtom
           width="100%"
           borderRadius="0"
@@ -124,14 +118,14 @@ export const OrderCard = ({ helpRequest }) => {
             "Pedido Cancelado"
           )}
         </S.CardButtom>
-      )
+        )
         : (
           <S.CardButtom
             width="100%"
             borderRadius="0"
             onClick={handleFinishedTask}
           >
-            {!startTime ? "Iniciar" : "Finalizar"}
+            {!helpRequest?.startTime ? "Iniciar" : "Finalizar"}
             <S.Arrow src="/assets/svg/right arrow.svg" alt="Arrow" />
           </S.CardButtom>
         )}

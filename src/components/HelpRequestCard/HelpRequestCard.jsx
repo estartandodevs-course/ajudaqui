@@ -25,7 +25,8 @@ export const HelpRequestCard = ({
     photoURL,
   } = elderlyProfile;
 
-  const runningTime = differenceInMinutes(new Date(), parseISO(createdAt));
+
+  const runningTime = differenceInMinutes(new Date(), new Date(parseISO(createdAt)));
 
   const verifyWaitingStatus = orderStatusName[status] === "aguardando" && !isVoluntary;
 

@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { SplashScreen, Layout } from "../../components";
-import { useAuth, useStore } from "../../contexts";
+import { useAuth } from "../../contexts";
 import { PROFILES_TYPES } from "../../utils/constants";
 import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
 import { HomeScreenOfTheElderly } from "./HomeScreenOfTheElderly/HomeScreenOfTheElderly";
@@ -9,8 +9,6 @@ import { HomeScreenOfTheVoluntary } from "./HomeScreenOfTheVoluntary";
 export const Home = () => {
   const { profileType, isAuthenticated } = useAuth();
   const [widthScreen] = useWidthScreen();
-
-  const { handleMount } = useStore();
   const showNavigation = widthScreen < 1200;
   const homeScreenByProfile = {
     [PROFILES_TYPES.ELDERLY]: () => <HomeScreenOfTheElderly />,
@@ -18,12 +16,6 @@ export const Home = () => {
       <HomeScreenOfTheVoluntary />
     ),
   };
-
-  useEffect(() => {
-    (async () => {
-      handleMount();
-    })();
-  }, []);
 
   return (
     <>

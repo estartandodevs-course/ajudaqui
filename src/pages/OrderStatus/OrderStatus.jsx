@@ -16,13 +16,14 @@ export const OrderStatus = () => {
     (helpRequest) => helpRequest.id === helpRequestId,
   );
 
+
   return (
     <Layout hasTabBar showNavigation={showNavigation} hasClose>
       <S.ContainerDesktop>
         <S.ContainerPage>
           <S.Title>
             {profileType === PROFILES_TYPES.ELDERLY
-              && getHelpRequests.status !== orderStatusId.CANCELED
+              && getHelpRequests?.status !== orderStatusId.CANCELED
               && "Por favor, aguarde."}
           </S.Title>
           <OrderCard helpRequest={getHelpRequests} />

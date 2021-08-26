@@ -48,7 +48,7 @@ export const ScreenEvaluation = () => {
       await handleEvaluationElderly(
         helpRequestId,
         {
-          id: elderlysProfileData.id,
+          id: elderlysProfileData?.id,
           ...values,
         },
       );
@@ -58,7 +58,7 @@ export const ScreenEvaluation = () => {
     await handleEvaluationVoluntary(
       helpRequestId,
       {
-        id: voluntaryProfileData.id,
+        id: voluntaryProfileData?.id,
         ...values,
       },
     );
@@ -160,7 +160,7 @@ export const ScreenEvaluation = () => {
               </S.ContentTitle>
               <S.ContentEvaluation>
                 <S.NamePersonHelp>
-                  Maria Rita
+                  {elderlysProfileData?.name}
                 </S.NamePersonHelp>
                 <UserGrade grade={evaluation} />
                 <S.ContainerEvaluation>

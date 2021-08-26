@@ -5,7 +5,7 @@ import { orderStatusId } from "../../../utils/constants";
 import { OrderActionsTypes } from "../types";
 
 export const useCancelOrder = () => {
-  const { dispatch, state } = useContext(StoreContext);
+  const { dispatch, state, notify } = useContext(StoreContext);
 
   const handleCancelOrder = async (helpRequestId) => {
     dispatch({
@@ -23,13 +23,15 @@ export const useCancelOrder = () => {
         type: OrderActionsTypes.CANCEL_ORDER_SUCESS,
         payload: {
           helpRequests: state.helpRequests.map((currentHelpRequest) => (
-            currentHelpRequest.id === updatedHelpRequest?.id ? (
-              updatedHelpRequest
+            currentHelpRequest.id === helpRequestId ? (
+              { ...currentHelpRequest, ...updatedHelpRequest }
             ) : currentHelpRequest
           )),
         },
       });
+      notify("Cancelado com sucesso");
     } catch (error) {
+      notify("Houve um erro ao cancelar a tarefa.");
       dispatch({
         type: OrderActionsTypes.CANCEL_ORDER_ERROR,
         payload: {

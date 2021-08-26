@@ -3,6 +3,7 @@ import { useAuth, useStore } from "../../../contexts";
 import { Layout, HelpRequestCard } from "../../../components";
 import * as S from "./HomeScreenOfTheVoluntaryStyled";
 import { useWidthScreen } from "../../../utils/hooks/useWidthScreen";
+import { orderStatusId } from "../../../utils/constants";
 
 export const HomeScreenOfTheVoluntary = () => {
   const [widthScreen] = useWidthScreen();
@@ -10,7 +11,10 @@ export const HomeScreenOfTheVoluntary = () => {
   const { user } = useAuth();
   const { helpRequests } = useStore();
   const getOpenHelpRequests = helpRequests
-    .filter((opened) => opened.voluntary.id === user.id || !opened.voluntary.id)
+    .filter((opened) => (
+      (opened.voluntary.id === user.id || !opened.voluntary.id)
+       && opened.status !== orderStatusId.CONCLUDED
+    ))
     .sort((a, b) => {
       if (a.createdAt > b.createdAt) {
         return -1;
@@ -23,11 +27,12 @@ export const HomeScreenOfTheVoluntary = () => {
 
   const elderlysNeedHelp = [];
 
-  getOpenHelpRequests.forEach((item) => {
-    if (!elderlysNeedHelp.includes(item.elderly.id)) {
-      elderlysNeedHelp.push(item.elderly.id);
+  getOpenHelpRequests?.forEach((item) => {
+    if (!elderlysNeedHelp.includes(item?.elderly?.id)) {
+      elderlysNeedHelp.push(item?.elderly?.id);
     }
   });
+
 
   return (
     <Layout hasTabBar showNavigation={showNavigation}>
