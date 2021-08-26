@@ -8,13 +8,13 @@ import * as S from "./CompletedTaskStyle";
 export const ThanksCompletedTask = () => {
   const { state } = useLocation();
   const { helpRequests } = useStore();
-  const helpRequestData = helpRequests.find((helpRequest) => (
+  const helpRequestData = helpRequests?.find((helpRequest) => (
     helpRequest?.id === state?.helpRequestId));
 
-
   const differenceInTime = differenceInSeconds(
-    new Date(helpRequestData.endTime), new Date(helpRequestData.startTime),
+    new Date(helpRequestData?.endTime), new Date(helpRequestData?.startTime),
   );
+
 
   return (
     <S.Container>
@@ -28,7 +28,7 @@ export const ThanksCompletedTask = () => {
       </S.FirstSection>
       <S.SecondSection>
         <S.Paragraph2>
-          {`Você conquistou ${differenceInTime / 60} min de voluntariado`}
+          {`Você conquistou ${(differenceInTime / 60)?.toFixed(0)} min de voluntariado`}
         </S.Paragraph2>
       </S.SecondSection>
     </S.Container>

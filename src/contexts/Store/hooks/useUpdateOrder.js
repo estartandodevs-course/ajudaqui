@@ -26,9 +26,9 @@ export const useUpdateOrder = () => {
         type: OrderActionsTypes.SUBSCRIBE_ORDER_SUCESS,
         payload: {
           helpRequests: state.helpRequests.map((currentHelpRequest) => (
-            currentHelpRequest.id === updatedHelpRequest?.id ? (
-              updatedHelpRequest
-            ) : currentHelpRequest
+            currentHelpRequest.id === helpRequestId
+              ? { ...currentHelpRequest, ...updatedHelpRequest }
+              : currentHelpRequest
           )),
         },
       });

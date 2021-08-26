@@ -48,7 +48,7 @@ export const ScreenEvaluation = () => {
       await handleEvaluationElderly(
         helpRequestId,
         {
-          id: elderlysProfileData.id,
+          id: elderlysProfileData?.id,
           ...values,
         },
       );
@@ -58,7 +58,7 @@ export const ScreenEvaluation = () => {
     await handleEvaluationVoluntary(
       helpRequestId,
       {
-        id: voluntaryProfileData.id,
+        id: voluntaryProfileData?.id,
         ...values,
       },
     );
