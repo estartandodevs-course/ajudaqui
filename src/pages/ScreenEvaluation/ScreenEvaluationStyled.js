@@ -125,7 +125,7 @@ export const ContainerThanksCompletedTask = styled.div`
   align-items: center;
   justify-content: center;
 
-  @media (max-width: 1999px) {
+  @media (max-width: 1199px) {
     display: none;
   }
 `;

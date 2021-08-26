@@ -9,7 +9,7 @@ export const useSetEvaluationOrder = () => {
   const { dispatch, state, notify } = useContext(StoreContext);
   const { push } = useHistory();
 
-  const handleEvaluationElderly = async (helpRequestId, evaluation) => {
+  const handleEvaluationElderly = async (helpRequestId, evaluation, callback) => {
     dispatch({
       type: OrderActionsTypes.SET_EVALUATION_ORDER_START,
     });
@@ -35,7 +35,7 @@ export const useSetEvaluationOrder = () => {
         },
       });
       notify("Avaliaçao registrada com sucesso.");
-      push("/thanks", { helpRequestId });
+      callback();
     } catch (error) {
       notify("Ocorreu um erro no registro da avaliação.", "error");
 
