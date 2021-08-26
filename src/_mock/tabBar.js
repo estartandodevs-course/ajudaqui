@@ -49,6 +49,7 @@ export const TabBarLinks = {
       icon: "/assets/svg/icon busca.svg",
       dotPosition: 3,
       containerPosition: 1,
+      noActive: true,
     },
     {
       key: "historic",

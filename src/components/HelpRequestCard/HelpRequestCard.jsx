@@ -18,13 +18,7 @@ export const HelpRequestCard = ({
   } = helpRequestData;
 
   const elderlyProfile = elderlys
-    .find((elderly) => elderly.id === elderlyId);
-
-  const {
-    name,
-    photoURL,
-  } = elderlyProfile;
-
+    ?.find((elderly) => elderly.id === elderlyId);
 
   const runningTime = differenceInMinutes(new Date(), new Date(parseISO(createdAt)));
 
@@ -60,7 +54,7 @@ export const HelpRequestCard = ({
             <S.Request>
               <S.NameTask>
                 <S.UserName>
-                  {name}
+                  {elderlyProfile?.name}
                 </S.UserName>
                 <S.RequestedTask
                   $colorTask={hasEmergency ? "#BC1610" : undefined}
@@ -78,9 +72,9 @@ export const HelpRequestCard = ({
               </S.DistanceTimeContainer>
             </S.Request>
             <S.UserImage>
-              { photoURL ? (
+              { elderlyProfile?.photoURL ? (
                 <S.Image
-                  src={photoURL}
+                  src={elderlyProfile?.photoURL}
                 />
               )
                 : <ProfilePhoto icon="/assets/svg/icon camera.svg" alt="camera" />}
