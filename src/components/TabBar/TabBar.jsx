@@ -27,7 +27,7 @@ export const TabBar = () => {
         {TabBarLinks[profileType].map((tabBarLink) => (
           <S.IconContent
             key={tabBarLink.key}
-            onClick={() => push(tabBarLink.path)}
+            onClick={() => !tabBarLink?.noActive && push(tabBarLink.path)}
             $containerPosition={tabBarLink.containerPosition === currentContainer}
           >
             <S.ImageIcon
