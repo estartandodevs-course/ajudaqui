@@ -1,31 +1,27 @@
 import { useContext } from "react";
-import { useHistory } from "react-router-dom";
 import { StoreContext } from "..";
-import { singHelpRequest } from "../../../services/helpRequestService";
 import { orderStatusId } from "../../../utils/constants";
+import { singHelpRequest } from "../../../services/helpRequestService";
 import { OrderActionsTypes } from "../types";
 
-export const useSetEvaluationOrder = () => {
-  const { dispatch, state, notify } = useContext(StoreContext);
-  const { push } = useHistory();
+export const useAttendance = () => {
+  const { state, dispatch } = useContext(StoreContext);
 
-  const handleEvaluationElderly = async (helpRequestId, evaluation) => {
+  const handleStartAttendance = async (helpRequestId) => {
     dispatch({
-      type: OrderActionsTypes.SET_EVALUATION_ORDER_START,
+      type: OrderActionsTypes.START_ATTENDANCE_START,
     });
 
     try {
       const updatedHelpRequest = await singHelpRequest(
         helpRequestId,
         {
-          status: orderStatusId.CONCLUDED,
-          elderly: {
-            ...evaluation,
-          },
+          status: orderStatusId.IN_PROGRESS,
+          startTime: new Date().toISOString(),
         },
       );
       dispatch({
-        type: OrderActionsTypes.SET_EVALUATION_ORDER_SUCESS,
+        type: OrderActionsTypes.START_ATTENDANCE_SUCESS,
         payload: {
           helpRequests: state.helpRequests.map((currentHelpRequest) => (
             currentHelpRequest.id === updatedHelpRequest?.id ? (
@@ -34,11 +30,9 @@ export const useSetEvaluationOrder = () => {
           )),
         },
       });
-      notify("Avaliaçao registrada com sucesso.");
-      push("/");
     } catch (error) {
       dispatch({
-        type: OrderActionsTypes.SET_EVALUATION_ORDER_ERROR,
+        type: OrderActionsTypes.START_ATTENDANCE_ERROR,
         payload: {
           error,
         },
@@ -46,9 +40,10 @@ export const useSetEvaluationOrder = () => {
     }
   };
 
-  const handleEvaluationVoluntary = async (helpRequestId, evaluation) => {
+
+  const handleEndAttendance = async (helpRequestId) => {
     dispatch({
-      type: OrderActionsTypes.SET_EVALUATION_ORDER_START,
+      type: OrderActionsTypes.END_ATTENDANCE_START,
     });
 
     try {
@@ -56,13 +51,11 @@ export const useSetEvaluationOrder = () => {
         helpRequestId,
         {
           status: orderStatusId.CONCLUDED,
-          voluntary: {
-            ...evaluation,
-          },
+          endTime: new Date().toISOString(),
         },
       );
       dispatch({
-        type: OrderActionsTypes.SET_EVALUATION_ORDER_SUCESS,
+        type: OrderActionsTypes.END_ATTENDANCE_SUCESS,
         payload: {
           helpRequests: state.helpRequests.map((currentHelpRequest) => (
             currentHelpRequest.id === updatedHelpRequest?.id ? (
@@ -71,11 +64,9 @@ export const useSetEvaluationOrder = () => {
           )),
         },
       });
-      notify("Avaliaçao registrada com sucesso.");
-      push("/thanks", { helpRequestId });
     } catch (error) {
       dispatch({
-        type: OrderActionsTypes.SET_EVALUATION_ORDER_ERROR,
+        type: OrderActionsTypes.END_ATTENDANCE_ERROR,
         payload: {
           error,
         },
@@ -83,5 +74,5 @@ export const useSetEvaluationOrder = () => {
     }
   };
 
-  return { handleEvaluationElderly, handleEvaluationVoluntary };
+  return { handleStartAttendance, handleEndAttendance };
 };

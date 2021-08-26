@@ -6,6 +6,7 @@ import { useUpdateOrder } from "./useUpdateOrder";
 import { useTag } from "./useTag";
 import { useCancelOrder } from "./useCancelOrder";
 import { useSetEvaluationOrder } from "./useSetEvaluationOrder";
+import { useAttendance } from "./useAttendance";
 
 export const useStore = () => {
   const { state, notify } = useContext(StoreContext);
@@ -18,6 +19,7 @@ export const useStore = () => {
     ...useTag(),
     ...useCancelOrder(),
     ...useSetEvaluationOrder(),
+    ...useAttendance(),
     notify,
   };
 };

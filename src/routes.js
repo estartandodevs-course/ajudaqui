@@ -34,7 +34,7 @@ export default function Routes() {
         <Route exact path="/emergency" component={EmergencyRequest} />
         <Route exact path="/issue-certificate" component={IssueCertificate} />
         <Route exact path="/emergency/:helpRequestId" component={EmergencyRequest} />
-        <Route exact path="/activity-progress" component={ActivityProgress} />
+        <Route exact path="/activity-progress/:helpRequestId" component={ActivityProgress} />
         <Route exact path="/historic" component={HistoricPage} />
       </Switch>
     </>
