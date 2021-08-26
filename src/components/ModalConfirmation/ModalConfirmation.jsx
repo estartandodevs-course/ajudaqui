@@ -1,7 +1,12 @@
 import * as S from "./ModalConfirmationStyled";
 import { Button } from "../ButtonComponent";
 
-export const ModalConfirmation = ({ backgroundCard, child, textColor }) => {
+export const ModalConfirmation = ({
+  backgroundCard,
+  child,
+  textColor,
+  ...restProps
+}) => {
   return (
     <S.ContainerCard>
       <S.Card backgroundCard={backgroundCard}>
@@ -9,7 +14,7 @@ export const ModalConfirmation = ({ backgroundCard, child, textColor }) => {
           {child}
         </S.Text>
         <S.PositionButton>
-          <Button />
+          <Button {...restProps} />
         </S.PositionButton>
       </S.Card>
     </S.ContainerCard>
