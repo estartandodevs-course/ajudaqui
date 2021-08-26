@@ -49,7 +49,7 @@ export const Paragraph = styled(Typography).attrs({
 @media (min-width: 1200px) {
  margin-top: 12px;
   }
-  @media (max-width: 1999px) {
+  @media (max-width: 1199px) {
 display: none;
   }
   font-size: ${(props) => props.theme.typography.body1.fontSizeSubtitles};
