@@ -7,12 +7,12 @@ export const orderModels = {
   endTime: null,
   elderly: {
     id: null,
-    evaluation: 0,
+    evaluation: null,
     note: "",
   },
   voluntary: {
     id: null,
-    evaluation: 0,
+    evaluation: null,
     note: "",
   },
 };

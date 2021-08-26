@@ -1,12 +1,14 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { EMERGENCY_MESSAGE } from "../../utils/constants";
 import * as S from "./ElderlyInfosHelpStyled";
 
-export const ElderlyInfosHelp = ({ elderlyInfos }) => {
+export const ElderlyInfosHelp = ({ elderlyInfos, helpRequestId }) => {
   const {
     name, health, contacts, photoURL,
   } = elderlyInfos;
 
+  const { push } = useHistory();
 
   return (
     <S.Card>
@@ -83,6 +85,9 @@ export const ElderlyInfosHelp = ({ elderlyInfos }) => {
 
       <S.ContentButtom
         borderRadius="0"
+        onClick={() => {
+          push(`/order-status/${helpRequestId}`);
+        }}
       >
         IR AO LOCAL
         <S.ContentArrow

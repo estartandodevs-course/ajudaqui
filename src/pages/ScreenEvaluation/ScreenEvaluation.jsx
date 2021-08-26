@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import {
   Button,
   Form, Input, Layout, ServiceEvaluation, UserGrade, ThanksCompletedTask, ProfilePhoto,
@@ -31,6 +31,8 @@ export const ScreenEvaluation = () => {
 
   const { helpRequestId } = useParams();
 
+  const { push } = useHistory();
+
   const helpRequestData = helpRequests?.find((requestData) => (
     requestData?.id === helpRequestId
   ));
@@ -45,21 +47,27 @@ export const ScreenEvaluation = () => {
 
   const handleSubmit = async (values) => {
     if (profileType === PROFILES_TYPES.ELDERLY) {
-      await handleEvaluationElderly(
+      await handleEvaluationVoluntary(
         helpRequestId,
         {
-          id: elderlysProfileData?.id,
+          id: voluntaryProfileData?.id,
           ...values,
         },
       );
       return;
     }
 
-    await handleEvaluationVoluntary(
+    await handleEvaluationElderly(
       helpRequestId,
       {
-        id: voluntaryProfileData?.id,
+        id: elderlysProfileData?.id,
         ...values,
+      },
+      () => {
+        if (showNavigation) {
+          return push("/thanks", { helpRequestId });
+        }
+        return push("/");
       },
     );
   };
@@ -113,7 +121,7 @@ export const ScreenEvaluation = () => {
               <Form
                 initialValues={{
                   note: "",
-                  grade: evaluation,
+                  evaluation,
                 }}
                 onSubmit={handleSubmit}
                 enableReinitialize
@@ -181,7 +189,7 @@ export const ScreenEvaluation = () => {
               <Form
                 initialValues={{
                   note: "",
-                  grade: evaluation,
+                  evaluation,
                 }}
                 onSubmit={handleSubmit}
                 enableReinitialize
@@ -200,7 +208,7 @@ export const ScreenEvaluation = () => {
             </S.ContainerScreenEvaluation>
 
             <S.ContainerThanksCompletedTask>
-              <ThanksCompletedTask />
+              <ThanksCompletedTask helpRequestId={helpRequestId} />
             </S.ContainerThanksCompletedTask>
 
           </S.ContainerDesktop>

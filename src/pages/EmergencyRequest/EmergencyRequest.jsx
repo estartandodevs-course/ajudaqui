@@ -31,7 +31,10 @@ export const EmergencyRequest = () => {
               Atente às informações importantes:
             </S.Subtitle>
           </S.ContainerText>
-          <ElderlyInfosHelp elderlyInfos={filteredElderly} />
+          <ElderlyInfosHelp
+            elderlyInfos={filteredElderly}
+            helpRequestId={helpRequestId}
+          />
         </S.ContainerPage>
         <S.Aside>
           <S.ImageAside src="/assets/svg/arte voluntario.svg" alt="Voluntário" />

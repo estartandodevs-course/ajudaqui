@@ -14,7 +14,34 @@ export const orderStatusName = {
   5: "cancelado",
 };
 
-export const mappedCardTitleAndSubtitleByStatus = (orderStatus, voluntaryProfileData = {}) => {
+export const mappedVoluntaryCardInfoByStatus = (orderStatus, elderlyProfileData = {}) => {
+  const TEXTS = {
+    [orderStatusId.WAITING]: {
+      title: "Pedido enviado!",
+      subTitle: "Em breve você será atendido(a).",
+    },
+    [orderStatusId.WAITING_VOLUNTARY]: {
+      title: "Pedido recebido!",
+      subTitle: `${elderlyProfileData?.name}/ está te aguardando.`,
+    },
+    [orderStatusId.IN_PROGRESS]: {
+      title: "Pedido recebido!",
+      subTitle: `${elderlyProfileData?.name}/ chegou ao local.`,
+    },
+    [orderStatusId.CONCLUDED]: {
+      title: "Pedido Concluído!",
+      subTitle: "😀",
+    },
+    [orderStatusId.CANCELED]: {
+      title: "Pedido cancelado!",
+      subTitle: `${elderlyProfileData?.name}/ cancelou o pedido.`,
+    },
+  };
+
+  return TEXTS[orderStatus];
+};
+
+export const mappedElderlyCardInfoByStatus = (orderStatus, voluntaryProfileData = {}) => {
   const TEXTS = {
     [orderStatusId.WAITING]: {
       title: "Pedido enviado!",
@@ -30,7 +57,7 @@ export const mappedCardTitleAndSubtitleByStatus = (orderStatus, voluntaryProfile
     },
     [orderStatusId.CONCLUDED]: {
       title: "Pedido Concluído!",
-      subTitle: "",
+      subTitle: "😀",
     },
     [orderStatusId.CANCELED]: {
       title: "Pedido cancelado!",

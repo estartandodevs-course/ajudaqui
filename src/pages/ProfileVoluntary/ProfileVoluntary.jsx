@@ -1,17 +1,47 @@
+import { differenceInSeconds } from "date-fns";
 import * as S from "./ProfileVoluntaryStyled";
 import {
   Layout, UserOverview, Card, Tag, Button,
 } from "../../components";
 import { optionCardInterest } from "../../_mock/optionCardInterest";
-import { optionPeopleHelped } from "../../_mock/optionPeopleHelped";
-import { useAuth } from "../../contexts";
+// import { optionPeopleHelped } from "../../_mock/optionPeopleHelped";
+import { useAuth, useStore } from "../../contexts";
 import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
+import { orderStatusId } from "../../utils/constants";
 
-export const ProfileVoluntary = ({ activities = "10", hours = "30" }) => {
+export const ProfileVoluntary = () => {
   const { user } = useAuth();
   const [widthScreen] = useWidthScreen();
+  const { helpRequests, elderlys } = useStore();
+
+  const activities = helpRequests?.filter((helpRequest) => (
+    helpRequest?.voluntary?.id === user.id
+  ));
+
+  const activitiesElderlyIds = activities.map((activity) => activity?.elderly?.id);
+
+  const activitiesSeconds = activities?.filter((helpRequest) => (
+    helpRequest?.status === orderStatusId.CONCLUDED
+  )).reduce((prev, current) => {
+    const totalTimeTask = differenceInSeconds(
+      new Date(current?.endTime), new Date(current?.startTime),
+    );
+    return prev + totalTimeTask;
+  },
+  0);
+
+  const hours = parseInt(((activitiesSeconds / 60) / 60)?.toFixed(2), 10);
+
+  const helpedPeoples = elderlys.filter((elderly) => (
+    (activitiesElderlyIds?.includes(elderly?.id) && !!elderly?.photoURL)
+  ));
+
+  const grade = activities.filter((activity) => (
+    activity?.voluntary?.evaluation
+  )).reduce((total, activity) => (activity?.voluntary.evaluation + total), 0);
 
   const showNavigation = widthScreen < 1200;
+
   return (
     <Layout
       hasTabBar
@@ -19,7 +49,10 @@ export const ProfileVoluntary = ({ activities = "10", hours = "30" }) => {
     >
       <S.ContainerPage>
         <UserOverview
-          userData={user}
+          userData={{
+            ...user,
+            grade: grade ? parseInt((grade / activities.length).toFixed(0), 10) : 0,
+          }}
         />
         <S.ContainerCard>
           <Card
@@ -28,7 +61,7 @@ export const ProfileVoluntary = ({ activities = "10", hours = "30" }) => {
             as="span"
           >
             <S.NumberCard>
-              {activities}
+              {activities.length}
             </S.NumberCard>
             Atividades Realizadas
           </Card>
@@ -37,7 +70,7 @@ export const ProfileVoluntary = ({ activities = "10", hours = "30" }) => {
             as="span"
           >
             <S.NumberCard>
-              {hours}
+              {hours?.toFixed(0) > 0 ? hours?.toFixed(0) : hours}
             </S.NumberCard>
             Horas de Voluntariado
           </Card>
@@ -62,13 +95,15 @@ export const ProfileVoluntary = ({ activities = "10", hours = "30" }) => {
             Editar Preferências
           </Button>
         </S.ContainerButton>
-        <S.ContentTextPeople>
-          <S.Text>
-            Pessoas que você já ajudou
-          </S.Text>
-        </S.ContentTextPeople>
+        {helpedPeoples.length > 0 && (
+          <S.ContentTextPeople>
+            <S.Text>
+              Pessoas que você já ajudou
+            </S.Text>
+          </S.ContentTextPeople>
+        )}
         <S.ContainerImageElderly>
-          {optionPeopleHelped?.map(({ photoURL, id }) => (
+          {helpedPeoples?.map(({ photoURL, id }) => (
             <S.ImageElderly
               key={id}
               src={photoURL}

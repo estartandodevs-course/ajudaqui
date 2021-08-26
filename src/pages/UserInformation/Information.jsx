@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { Layout, ProfilePhoto } from "../../components";
+import { Layout, ProfilePhoto, Typography } from "../../components";
 import { FormContacts } from "./forms/FormContacts";
 import { FormTextArea } from "./forms/FormTextArea";
 import { PersonalInfos } from "./forms/FormPersonalInfos";
@@ -14,7 +14,7 @@ export const UserInformation = ({ location }) => {
 
   const showNavigation = widthScreen < 1200;
 
-  const { user, isAuthenticated } = useAuth();
+  const { user, isAuthenticated, logout } = useAuth();
 
   const { push } = useHistory();
 
@@ -50,6 +50,13 @@ export const UserInformation = ({ location }) => {
               <FormContacts />
             </S.TabsChoiced>
           </S.TabsRegister>
+          <Typography
+            style={{ alignSelf: "start" }}
+            variant="body1"
+            onClick={logout}
+          >
+            Sair
+          </Typography>
         </S.ContainerForm>
         <S.Aside>
           <S.AsideImage src="/assets/svg/arte idoso desktop.svg" />

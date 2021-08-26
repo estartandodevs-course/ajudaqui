@@ -1,56 +1,39 @@
 import { parseISO, differenceInMinutes } from "date-fns";
 import React from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { useAuth, useStore } from "../../contexts";
+import { useStore } from "../../contexts";
 import {
-  mappedCardTitleAndSubtitleByStatus,
+  mappedElderlyCardInfoByStatus,
   orderStatusId,
   orderStatusName,
-  PROFILES_TYPES,
 } from "../../utils/constants";
 import * as S from "./OrderCard.Styled";
 
-export const OrderCard = ({ helpRequest }) => {
-  const { profileType } = useAuth();
+export const OrderCardElderly = ({ helpRequest }) => {
   const { handleCancelOrder, loadingStore, voluntarys } = useStore();
   const { push } = useHistory();
   const { helpRequestId } = useParams();
   const runningTime = differenceInMinutes(new Date(), parseISO(helpRequest?.createdAt));
   const isCanceled = helpRequest?.status === orderStatusId.CANCELED;
-  const verify = helpRequest?.startTime ? "Iniciar" : "Finalizar";
-  const hasFinished = verify === "Iniciar";
+  const hasFinished = !!(helpRequest?.startTime && helpRequest?.endTime);
+  const hasEvaluated = !!helpRequest?.voluntary?.evaluation;
+  const hasConcluded = helpRequest?.status === orderStatusId.CONCLUDED;
 
   const voluntaryProfileData = voluntarys?.find((voluntary) => (
     voluntary.id === helpRequest?.voluntary?.id
   ));
 
   const handleFinishedTask = () => {
-    switch (profileType) {
-      case PROFILES_TYPES.ELDERLY: {
-        if (hasFinished) {
-          return push(`/screen-evaluation/${helpRequestId}`);
-        }
-        break;
-      }
-      case PROFILES_TYPES.VOLUNTARY: {
-        if (hasFinished) {
-          return push(`/screen-evaluation/${helpRequestId}`);
-        }
-
-        return push(`/activity-progress/${helpRequestId}`);
-      }
-      default:
-        break;
+    if (hasFinished) {
+      push(`/screen-evaluation/${helpRequestId}`);
     }
-
-    return 1;
   };
 
   const handleCancelRequest = async () => {
     await handleCancelOrder(helpRequestId);
   };
 
-  const cardData = mappedCardTitleAndSubtitleByStatus(helpRequest?.status, voluntaryProfileData);
+  const cardData = mappedElderlyCardInfoByStatus(helpRequest?.status, voluntaryProfileData);
 
   return (
     <S.ContainerOrderCard>
@@ -99,9 +82,8 @@ export const OrderCard = ({ helpRequest }) => {
           <S.Description>{`${runningTime} minutos`}</S.Description>
         </S.Texts>
       </S.ContainerTexts>
-      {(
-        profileType === PROFILES_TYPES.ELDERLY && helpRequest?.status === orderStatusId.CANCELED
-      ) ? (
+      {(helpRequest?.status === orderStatusId.WAITING
+        || helpRequest?.status === orderStatusId.WAITING_VOLUNTARY) && (
         <S.CardButtom
           width="100%"
           borderRadius="0"
@@ -109,26 +91,31 @@ export const OrderCard = ({ helpRequest }) => {
           isLoading={loadingStore}
           disabled={isCanceled}
         >
-          {!isCanceled ? (
-            <>
-              CANCELAR PEDIDO
-              <S.Arrow src="/assets/svg/right arrow.svg" alt="Arrow" />
-            </>
-          ) : (
-            "Pedido Cancelado"
-          )}
+          CANCELAR PEDIDO
+          <S.Arrow src="/assets/svg/right arrow.svg" alt="Arrow" />
         </S.CardButtom>
-        )
-        : (
-          <S.CardButtom
-            width="100%"
-            borderRadius="0"
-            onClick={handleFinishedTask}
-          >
-            {!helpRequest?.startTime ? "Iniciar" : "Finalizar"}
-            <S.Arrow src="/assets/svg/right arrow.svg" alt="Arrow" />
-          </S.CardButtom>
-        )}
+      )}
+      {/* {isCanceled && (
+        <S.CardButtom
+          width="100%"
+          borderRadius="0"
+          onClick={handleCancelRequest}
+          isLoading={loadingStore}
+          disabled={isCanceled}
+        >
+          Pedido Cancelado
+        </S.CardButtom>
+      )} */}
+      {hasFinished && !hasEvaluated && hasConcluded && (
+        <S.CardButtom
+          width="100%"
+          borderRadius="0"
+          onClick={handleFinishedTask}
+        >
+          Finalizar
+          <S.Arrow src="/assets/svg/right arrow.svg" alt="Arrow" />
+        </S.CardButtom>
+      )}
     </S.ContainerOrderCard>
   );
 };
