@@ -81,8 +81,8 @@ export const UserOverview = ({ userData }) => {
               <S.Paragraph>Sua nota</S.Paragraph>
               <UserGrade
                 grade={grade}
-                width="25px"
-                height="25px"
+                width="20px"
+                height="20px"
               />
             </S.ContainerGradeVoluntary>
           </S.ContentGradeNme>
