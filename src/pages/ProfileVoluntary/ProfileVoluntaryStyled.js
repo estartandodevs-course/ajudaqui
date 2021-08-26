@@ -22,7 +22,6 @@ export const ContainerPageOne = styled.div`
   }
 `;
 
-
 export const ContainerHelpCard = styled.div`
   width: 100%;
 `;
@@ -51,6 +50,7 @@ export const ContainerSwitch = styled.div`
 export const ContentTextInterests = styled.div`
   margin-bottom: 12px;
 `;
+
 export const ContainerTag = styled.div`
   width: 100%;
   display: flex;
@@ -76,9 +76,8 @@ export const ContainerImageElderly = styled.div`
   display: flex;
   gap: 8px;
   padding-bottom: 24px;
-  justify-content: space-around;
   @media (min-width: 1200px){
-  margin-top: 15px;
+    margin-top: 15px;
   }
 `;
 
@@ -93,6 +92,7 @@ export const TextInterests = styled(Typography).attrs({
     font-size: 22px;
   }
 `;
+
 export const TextPeople = styled(Typography).attrs({
   variant: "body1",
 })`
@@ -116,16 +116,15 @@ export const ImageElderly = styled.img`
 `;
 
 export const ContainerPageTwo = styled.div`
-  width: 50%;
+  width: 100%;
   background-color: #F9F7FB;
-width: 50%;
-background-color: #F9F7FB;
-display: flex;
-text-align: center;
-/* height: 100%; */
-@media (max-width: 1199px) {
-  display: none;
-}
+  display: flex;
+  text-align: center;
+  position: relative;
+  /* height: 100%; */
+  @media (max-width: 1199px) {
+    display: none;
+  }
 `;
 
 export const ContainerAskForHelp = styled.div`
@@ -198,4 +197,11 @@ export const PositionButton = styled.div`
 
 export const TextSwitch = styled.p`
 
+`;
+
+export const ImageAside = styled.img`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: inherit;
 `;

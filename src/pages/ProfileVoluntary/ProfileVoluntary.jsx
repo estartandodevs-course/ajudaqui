@@ -14,11 +14,11 @@ import {
 } from "../../components";
 import { useAuth, useStore } from "../../contexts";
 import { optionCardInterest } from "../../_mock/optionCardInterest";
-// import { optionPeopleHelped } from "../../_mock/optionPeopleHelped";
 import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
 import { orderStatusId } from "../../utils/constants";
 
 export const ProfileVoluntary = () => {
+  const [editMode, setEditMode] = useState(false);
   const { user } = useAuth();
   const [widthScreen] = useWidthScreen();
   const { helpRequests, elderlys } = useStore();
@@ -160,7 +160,13 @@ export const ProfileVoluntary = () => {
             ))}
           </S.ContainerTag>
           <S.ContainerButton>
-            <Button width="187px">Editar Preferências</Button>
+            <Button
+              width="187px"
+              onClick={() => setEditMode(true)}
+              disabled={editMode}
+            >
+              Editar Preferências
+            </Button>
           </S.ContainerButton>
           {helpedPeoples.length > 0 && (
           <S.ContentTextPeople>
@@ -179,58 +185,69 @@ export const ProfileVoluntary = () => {
         </S.ContainerPageOne>
 
         <S.ContainerPageTwo>
-          <S.ContainerAskForHelp>
-            <Form
-              initialValues={{
-                option: "",
-              }}
-              onSubmit={(values) => handleSubmit(values)}
-            >
-              <S.TextTitle>Editar interesses</S.TextTitle>
-              <S.Texts>
-                Selecione algumas atividades que você pode fazer para ajudar um
-                idoso.
-              </S.Texts>
-              <S.ContentTag>
-                {tags?.map(({ id, option }) => (
-                  <Tag
-                    key={id}
-                    isActive={isActive === id}
-                    onClick={() => {
-                      setIsActive(id);
-                      setSelectedOptionHelp({ id, option });
-                    }}
+          {editMode ? (
+            <S.ContainerAskForHelp>
+              <Form
+                initialValues={{
+                  option: "",
+                }}
+                onSubmit={(values) => handleSubmit(values)}
+              >
+                <S.TextTitle>
+                  Editar interesses
+                </S.TextTitle>
+                <S.Texts>
+                  Selecione algumas atividades que você pode fazer para ajudar um
+                  idoso.
+                </S.Texts>
+                <S.ContentTag>
+                  {tags?.map(({ id, option }) => (
+                    <Tag
+                      key={id}
+                      isActive={isActive === id}
+                      onClick={() => {
+                        setIsActive(id);
+                        setSelectedOptionHelp({ id, option });
+                      }}
+                    >
+                      {option}
+                    </Tag>
+                  ))}
+                </S.ContentTag>
+                <S.Texts>
+                  Pode fazer outra coisa que não esta listada?(divida cada
+                  atividade com “,”)
+                </S.Texts>
+                <Input type="text" name="option" placeholder="" />
+                <S.ContainerSwitch>
+                  <Switch onChange={() => {}} checked />
+                  <S.TextSwitch>Ativar notificações</S.TextSwitch>
+                </S.ContainerSwitch>
+                <S.PositionButton>
+                  <Button
+                    type="submit"
+                    isLoading={loadingStore}
+                    disabled
                   >
-                    {option}
-                  </Tag>
-                ))}
-              </S.ContentTag>
-              <S.Texts>
-                Pode fazer outra coisa que não esta listada?(divida cada
-                atividade com “,”)
-              </S.Texts>
-              <Input type="text" name="option" placeholder="" />
-              <S.ContainerSwitch>
-                <Switch onChange={() => {}} checked />
-                <S.TextSwitch>Ativar notificações</S.TextSwitch>
-              </S.ContainerSwitch>
-              <S.PositionButton>
-                <Button type="submit" isLoading={loadingStore}>
-                  Salvar
-                </Button>
+                    Salvar
+                  </Button>
 
-                <Button
-                  type="submit"
-                  isLoading={loadingStore}
-                  border="1px solid #BC1610"
-                  color="#BC1610"
-                  background="none"
-                >
-                  Cancelar
-                </Button>
-              </S.PositionButton>
-            </Form>
-          </S.ContainerAskForHelp>
+                  <Button
+                    type="submit"
+                    isLoading={loadingStore}
+                    border="1px solid #BC1610"
+                    color="#BC1610"
+                    background="none"
+                    onClick={() => setEditMode(false)}
+                  >
+                    Cancelar
+                  </Button>
+                </S.PositionButton>
+              </Form>
+            </S.ContainerAskForHelp>
+          ) : (
+            <S.ImageAside src="/assets/svg/arte voluntario.svg" alt="Voluntário" />
+          )}
         </S.ContainerPageTwo>
       </S.PagesContainer>
     </Layout>
