@@ -26,3 +26,4 @@ export { Notification } from "./Notification";
 export { ElderlyInfosHelp } from "./ElderlyInfosHelp";
 export { Close } from "./Close";
 export { SpinnerTime } from "./SpinnerTime";
+export { ModalConfirmation } from "./ModalConfirmation";
