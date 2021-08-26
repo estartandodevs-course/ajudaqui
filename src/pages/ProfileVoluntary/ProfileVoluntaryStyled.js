@@ -13,8 +13,11 @@ export const ContainerPageOne = styled.div`
   padding: 0 20px;
   @media (min-width: 1200px) {
     width: 50%;
-    margin-left: 42.49px;
+    margin-left: 54.49px;
   }
+`;
+
+export const ContainerUserO = styled.div`
 `;
 
 export const ContainerHelpCard = styled.div`
@@ -25,6 +28,10 @@ export const ContainerCard = styled.div`
   margin: 32px 0 24px 0;
   display: flex;
   justify-content: space-around;
+  @media (max-width: 1999px) {
+  justify-content: center ;
+  gap: 40px;
+    }
 `;
 
 export const NumberCard = styled.p`
@@ -35,7 +42,6 @@ export const NumberCard = styled.p`
 export const ContainerSwitch = styled.div`
   display: flex;
   gap: 10px;
-  justify-content: center;
   align-items: center;
 `;
 
@@ -49,18 +55,28 @@ export const ContainerTag = styled.div`
   gap: 4px;
   flex-wrap: wrap;
   margin-bottom: 43px;
+   @media (min: 1200px) {
+  gap: 6px;
+
+  }
 `;
 
 export const ContainerButton = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 32px;
+  margin-bottom: 68px;
+
 `;
 export const ContainerImageElderly = styled.div`
   width: 100%;
   display: flex;
   gap: 8px;
   padding-bottom: 24px;
+  justify-content: space-around;
+  @media (min-width: 1200px){
+  margin-top: 15px;
+  }
 `;
 
 export const TextInterests = styled(Typography).attrs({
@@ -89,6 +105,11 @@ export const ImageElderly = styled.img`
   height: 35px;
   border-radius: 100px;
   object-fit: cover;
+  margin-bottom: 24px;
+   @media (min-width: 1200px) {
+    width: 54px;
+    height: 54px;
+  }
 `;
 
 export const ContainerPageTwo = styled.div`
@@ -172,6 +193,7 @@ export const PositionButton = styled.div`
 
   @media (min-width: 1200px) {
     margin-top: 20px;
+    margin-bottom: 20px;
   }
 `;
 
