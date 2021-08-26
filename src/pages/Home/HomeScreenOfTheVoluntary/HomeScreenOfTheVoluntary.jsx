@@ -27,11 +27,12 @@ export const HomeScreenOfTheVoluntary = () => {
 
   const elderlysNeedHelp = [];
 
-  getOpenHelpRequests.forEach((item) => {
-    if (!elderlysNeedHelp.includes(item.elderly.id)) {
-      elderlysNeedHelp.push(item.elderly.id);
+  getOpenHelpRequests?.forEach((item) => {
+    if (!elderlysNeedHelp.includes(item?.elderly?.id)) {
+      elderlysNeedHelp.push(item?.elderly?.id);
     }
   });
+
 
   return (
     <Layout hasTabBar showNavigation={showNavigation}>
