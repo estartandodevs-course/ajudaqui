@@ -2,23 +2,26 @@ import styled from "styled-components";
 import { Typography } from "../../components/Typography";
 
 export const PagesContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+  @media (min-width: 576px) {
+    justify-items: center;
+  }
   @media (min-width: 1200px) {
-    display: flex;
-    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
   }
 `;
 
 export const ContainerPageOne = styled.div`
-  width: 100%;
-  padding: 0 20px;
+  padding: 20px;
   @media (min-width: 1200px) {
-    width: 50%;
-    margin-left: 54.49px;
+    padding: 40px;
   }
 `;
 
-export const ContainerUserO = styled.div`
-`;
 
 export const ContainerHelpCard = styled.div`
   width: 100%;
@@ -107,8 +110,8 @@ export const ImageElderly = styled.img`
   object-fit: cover;
   margin-bottom: 24px;
    @media (min-width: 1200px) {
-    width: 54px;
-    height: 54px;
+    width: 50px;
+    height: 50px;
   }
 `;
 
@@ -121,10 +124,6 @@ display: flex;
 text-align: center;
 /* height: 100%; */
 @media (max-width: 1199px) {
-  width: 50%;
-  background-color: #f9f7fb;
-  display: flex;
-  text-align: center;
   display: none;
 }
 `;
