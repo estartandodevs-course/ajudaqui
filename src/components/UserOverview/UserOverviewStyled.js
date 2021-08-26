@@ -90,7 +90,10 @@ export const ContainerGradeVoluntary = styled.div`
 export const NomeProfileVoluntary = styled(Typography).attrs({
   variant: "h2",
 })`
-
+@media (min-width: 1200px) {
+    margin-top: 36px;
+    margin-right: 56px;
+}
 `;
 
 
