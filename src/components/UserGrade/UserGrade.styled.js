@@ -11,6 +11,6 @@ export const ContainerStar = styled.div`
  justify-content: center;
  height: 25px;
  margin-left: 6px;
- margin-top: 3px;
+ margin-top: 5px;
  `;
 
