@@ -45,20 +45,20 @@ export const ScreenEvaluation = () => {
 
   const handleSubmit = async (values) => {
     if (profileType === PROFILES_TYPES.ELDERLY) {
-      await handleEvaluationElderly(
+      await handleEvaluationVoluntary(
         helpRequestId,
         {
-          id: elderlysProfileData?.id,
+          id: voluntaryProfileData?.id,
           ...values,
         },
       );
       return;
     }
 
-    await handleEvaluationVoluntary(
+    await handleEvaluationElderly(
       helpRequestId,
       {
-        id: voluntaryProfileData?.id,
+        id: elderlysProfileData?.id,
         ...values,
       },
     );
@@ -113,7 +113,7 @@ export const ScreenEvaluation = () => {
               <Form
                 initialValues={{
                   note: "",
-                  grade: evaluation,
+                  evaluation,
                 }}
                 onSubmit={handleSubmit}
                 enableReinitialize
@@ -181,7 +181,7 @@ export const ScreenEvaluation = () => {
               <Form
                 initialValues={{
                   note: "",
-                  grade: evaluation,
+                  evaluation,
                 }}
                 onSubmit={handleSubmit}
                 enableReinitialize

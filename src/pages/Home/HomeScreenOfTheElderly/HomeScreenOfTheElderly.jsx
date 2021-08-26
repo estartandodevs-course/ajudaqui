@@ -34,7 +34,7 @@ export const HomeScreenOfTheElderly = () => {
       },
       elderly: {
         id: user.id,
-        evaluation: "",
+        evaluation: null,
         note: "",
       },
     });

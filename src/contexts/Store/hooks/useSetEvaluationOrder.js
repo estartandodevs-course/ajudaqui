@@ -35,7 +35,7 @@ export const useSetEvaluationOrder = () => {
         },
       });
       notify("Avaliaçao registrada com sucesso.");
-      push("/");
+      push("/thanks", { helpRequestId });
     } catch (error) {
       notify("Ocorreu um erro no registro da avaliação.", "error");
 
@@ -74,7 +74,7 @@ export const useSetEvaluationOrder = () => {
         },
       });
       notify("Avaliaçao registrada com sucesso.");
-      push("/thanks", { helpRequestId });
+      push("/");
     } catch (error) {
       notify("Não foi possível realizar sua solicitação.", "error");
       dispatch({
