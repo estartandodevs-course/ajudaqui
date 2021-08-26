@@ -72,16 +72,20 @@ export const UserOverview = ({ userData }) => {
               alt={name}
             />
           )}
-          <S.ContainerGradeVoluntary>
-            <UserGrade
-              grade={grade}
-              width="25px"
-              height="25px"
-            />
-          </S.ContainerGradeVoluntary>
-          <S.NomeProfileVoluntary>
-            {name}
-          </S.NomeProfileVoluntary>
+          <S.ContentGradeNme>
+
+            <S.NomeProfileVoluntary>
+              { `Olá, ${name}`}
+            </S.NomeProfileVoluntary>
+            <S.ContainerGradeVoluntary>
+              <S.Paragraph>Sua nota</S.Paragraph>
+              <UserGrade
+                grade={grade}
+                width="20px"
+                height="20px"
+              />
+            </S.ContainerGradeVoluntary>
+          </S.ContentGradeNme>
         </S.ContainerOneVoluntary>
       )}
     </>
