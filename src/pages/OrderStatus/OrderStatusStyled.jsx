@@ -55,4 +55,5 @@ export const ImageAside = styled.img`
   position: absolute;
   bottom: 0;
   right: 0;
+  width: inherit
 `;

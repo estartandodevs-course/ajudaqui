@@ -8,12 +8,7 @@ export const TagsReducer = () => {
     }),
     [TagActionsTypes.CREATE_TAG_SUCESS]: (state, { payload }) => ({
       ...state,
-      tags: [
-        ...state.tags,
-        {
-          ...payload,
-        },
-      ],
+      ...payload,
       loadingTags: false,
     }),
     [TagActionsTypes.CREATE_TAG_ERROR]: (state, { payload }) => ({

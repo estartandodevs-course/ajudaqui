@@ -11,6 +11,7 @@ import {
   Button,
   Form,
   Input,
+  Typography,
 } from "../../components";
 import { useAuth, useStore } from "../../contexts";
 import { optionCardInterest } from "../../_mock/optionCardInterest";
@@ -19,7 +20,7 @@ import { orderStatusId } from "../../utils/constants";
 
 export const ProfileVoluntary = () => {
   const [editMode, setEditMode] = useState(false);
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
   const [widthScreen] = useWidthScreen();
   const { helpRequests, elderlys } = useStore();
 
@@ -46,7 +47,7 @@ export const ProfileVoluntary = () => {
   ));
 
   const grade = activities.filter((activity) => (
-    activity?.voluntary?.evaluation
+    activity?.voluntary?.evaluation && activity?.status === 4
   )).reduce((total, activity) => (activity?.voluntary.evaluation + total), 0);
 
   const showNavigation = widthScreen < 1200;
@@ -182,6 +183,13 @@ export const ProfileVoluntary = () => {
               />
             ))}
           </S.ContainerImageElderly>
+          <Typography
+            style={{ alignSelf: "start" }}
+            variant="body1"
+            onClick={logout}
+          >
+            Sair
+          </Typography>
         </S.ContainerPageOne>
 
         <S.ContainerPageTwo>

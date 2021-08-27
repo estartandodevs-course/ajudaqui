@@ -1,0 +1,1 @@
+export { ElderlyModalCard } from "./ElderlyModalCard";

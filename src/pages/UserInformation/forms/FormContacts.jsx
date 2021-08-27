@@ -27,6 +27,8 @@ export const FormContacts = () => {
     );
   };
 
+  const verify = !(user.contacts) ? "Editar" : "Salvar";
+
   return (
     <Formik
       onSubmit={handleSubmit}
@@ -87,7 +89,7 @@ export const FormContacts = () => {
                     disabled={loadingAuth}
                     type="submit"
                   >
-                    Editar
+                    {verify}
                   </Button>
                 </S.ButtonContainer>
               </>

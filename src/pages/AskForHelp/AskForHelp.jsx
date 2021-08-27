@@ -36,6 +36,7 @@ export const AskForHelp = ({ ...restProps }) => {
           return push(`order-status/${helpRequestId}`);
         });
       });
+      return;
     }
     await handleCreateOrder({
       order: selectedOptionHelp,
@@ -70,6 +71,10 @@ export const AskForHelp = ({ ...restProps }) => {
                   onClick={() => {
                     setIsActive(id);
                     setSelectedOptionHelp({ id, option });
+                    if (isActive === id) {
+                      setIsActive(null);
+                      setSelectedOptionHelp({});
+                    }
                   }}
                 >
                   {option}
@@ -81,12 +86,12 @@ export const AskForHelp = ({ ...restProps }) => {
               name="option"
               label="Precisando de ajuda com outra coisa?"
               placeholder="Clique aqui para escrever"
-              disabled
             />
             <S.PositionButton>
               <Button
                 type="submit"
                 isLoading={loadingStore}
+                // disabled={!isActive}s
               >
                 Enviar Pedido
               </Button>
