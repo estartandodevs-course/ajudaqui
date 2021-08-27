@@ -15,7 +15,6 @@ export const ContainerData = styled.div`
   justify-content: center;
   align-items: flex-start;
   gap: 4px;
- 
 `;
 
 export const ContainerGrade = styled.div`
@@ -30,9 +29,9 @@ export const ImgProfile = styled.img`
   border: 2px solid #5e38a8;
   border-radius: 50%;
   object-fit: cover;
- @media (min-width: 1200px) {
-  width: 130px;
-  height: 130px;
+  @media (min-width: 1200px) {
+    width: 130px;
+    height: 130px;
   }
 `;
 
@@ -42,27 +41,23 @@ export const TitleProfile = styled(Typography).attrs({
   padding-bottom: 4px;
   color: ${(props) => props.theme.palette.colors.primaryVariant};
 `;
+
 export const Paragraph = styled(Typography).attrs({
   variant: "body1",
 })`
-@media (min-width: 1200px) {
- margin-top: 12px;
-  }
-   font-size: ${(props) => props.theme.typography.body1.fontSizeSubtitles};
+  font-size: ${(props) => props.theme.typography.body1.fontSizeSubtitles};
   display: flex;
 `;
 
 export const ContainerOneVoluntary = styled.div`
   display: flex;
   align-items: center;
-  padding-top: 14px;
+  gap: 6px;
   flex-direction: column;
-  @media (min-width:1200px){
-   flex-direction: row;
-   gap: 6px;
-   display: flex;
-  justify-content: center;
-}
+  @media (min-width: 1200px) {
+    flex-direction: row;
+    justify-content: center;
+  }
 `;
 export const ImgProfileVoluntary = styled.img`
   width: 125px;
@@ -71,32 +66,28 @@ export const ImgProfileVoluntary = styled.img`
   object-fit: cover;
   margin-bottom: 5px;
   @media (min-width: 1200px) {
-  width: 130px;
-  height: 130px;
+    width: 130px;
+    height: 130px;
   }
 `;
-export const ContainerGradeVoluntary = styled.div`
-  margin-bottom: 13px;
-  @media (min-width: 1200px) {
-    display: flex;
-  flex-direction: row;
-  }
+
+export const ContentGradeName = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 13px;
 `;
 
 export const NomeProfileVoluntary = styled(Typography).attrs({
   variant: "h2",
 })`
-@media (min-width: 1200px) {
-    margin-top: 36px;
-    margin-right: 56px;
-}
 `;
 
-
-export const ContentGradeNme = styled.div`
-@media (min-width:1200px){
-display: flex;
-flex-direction: column;
-align-items: center;
+export const ContainerGradeVoluntary = styled.div`
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  @media (min-width: 1200px) {
+    justify-content: flex-start;
   }
 `;

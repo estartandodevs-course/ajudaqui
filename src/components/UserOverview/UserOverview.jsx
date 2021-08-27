@@ -27,7 +27,6 @@ export const UserOverview = ({ userData }) => {
     return null;
   };
 
-
   return (
     <>
       {profileType === PROFILES_TYPES.ELDERLY ? (
@@ -72,8 +71,7 @@ export const UserOverview = ({ userData }) => {
               alt={name}
             />
           )}
-          <S.ContentGradeNme>
-
+          <S.ContentGradeName>
             <S.NomeProfileVoluntary>
               { `Olá, ${name}`}
             </S.NomeProfileVoluntary>
@@ -85,7 +83,7 @@ export const UserOverview = ({ userData }) => {
                 height="20px"
               />
             </S.ContainerGradeVoluntary>
-          </S.ContentGradeNme>
+          </S.ContentGradeName>
         </S.ContainerOneVoluntary>
       )}
     </>
