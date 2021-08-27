@@ -46,7 +46,7 @@ export const ProfileVoluntary = () => {
   ));
 
   const grade = activities.filter((activity) => (
-    activity?.voluntary?.evaluation
+    activity?.voluntary?.evaluation && activity?.status === 4
   )).reduce((total, activity) => (activity?.voluntary.evaluation + total), 0);
 
   const showNavigation = widthScreen < 1200;
@@ -78,6 +78,7 @@ export const ProfileVoluntary = () => {
       elderlysNeedHelp.push(item.elderly.id);
     }
   });
+
 
   const handleSubmit = async ({ option }) => {
     if (option) {

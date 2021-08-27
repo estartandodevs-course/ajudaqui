@@ -32,6 +32,13 @@ export const PersonalInfos = () => {
     );
   };
 
+  const verify = () => {
+    const keys = Object.keys(initialValues);
+    const values = Object.values(keys);
+
+    return !(values.includes("")) ? "Editar" : "Salvar";
+  };
+
   return (
     <Form
       initialValues={initialValues}
@@ -44,7 +51,7 @@ export const PersonalInfos = () => {
       <Input type="text" name="location.address" label="Endereço" placeholder="Rua 00 Casa 00" />
       <Input type="text" name="location.city" label="Cidade" placeholder="São paulo" />
       <Input type="text" name="location.uf" label="Estado" placeholder="SP" />
-      <Input type="tel" name="phoneNumber" label="Telefone" placeholder="(00) 0123-4567" />
+      <Input type="tel" mask="phone" name="phoneNumber" label="Telefone" placeholder="(00) 0123-4567" />
       <Form.InputSelect label="Preferência de ajuda" name="helpPreferrence" options={optionsPreference} />
       <S.ButtonContainer>
         <Button
@@ -53,7 +60,7 @@ export const PersonalInfos = () => {
           isLoading={loadingAuth}
           disabled={loadingAuth}
         >
-          Editar
+          {verify()}
         </Button>
       </S.ButtonContainer>
     </Form>

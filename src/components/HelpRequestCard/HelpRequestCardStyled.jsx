@@ -6,7 +6,13 @@ export const CardWrapper = styled.div`
   width: 100%;
   display: flex;
   padding: 14px 24px;
-`;
+  
+  @media(min-width: 1200px){
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  `;
 
 const variants = {
   default: css`
@@ -19,11 +25,11 @@ const variants = {
 
   aguardando: css`
     border: 1px solid ${(props) => `${props.theme.palette.colors.primary} `};
-  `,
+    `,
 
   primaryVariant: css`
     border: 1px solid
-      ${(props) => `${props.theme.palette.colors.primaryVariant} `};
+    ${(props) => `${props.theme.palette.colors.primaryVariant} `};
   `,
 };
 
@@ -60,6 +66,7 @@ export const UserAction = styled.div`
   width: 100%;
   height: 24%;
   border-top: 1px solid;
+  cursor: pointer;
   border-radius: 0 0 9px 9px;
   ${(props) => props.$variant && backgrounds[props.$variant]}
 `;

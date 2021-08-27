@@ -43,6 +43,7 @@ export const ContainerTitles = styled.div`
     flex-direction: row;
     margin-top: 50px;
     margin-bottom: 31px;
+    justify-content: center;
   }
 `;
 
@@ -70,6 +71,9 @@ export const HelpAvailable = styled.div`
   align-items: center;
   gap: 4px;
   margin: 0 24px 2px 24px;
+  @media(min-width: 1200px){
+    justify-content: center;
+  }
 `;
 
 export const LocationIcon = styled.img`
@@ -82,6 +86,7 @@ export const LocationText = styled(Typography).attrs({
 })`
   color: ${(props) => props.theme.palette.colors.dark.gray};
   font-size: 12px;
+
 `;
 
 export const ContainerPageTwo = styled.div`
