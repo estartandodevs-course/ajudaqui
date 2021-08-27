@@ -10,10 +10,7 @@ export const ContainerPhoto = styled.div`
   background: ${(props) => props.theme.palette.colors.secondaryVariant};
   border: 3px solid ${(props) => props.theme.palette.colors.primary};
   cursor: pointer;
-  @media (min-width: 1200px) {
-  width: 130px;
-  height: 130px;
-  }
+  
 `;
 
 export const Photo = styled.img`

@@ -24,6 +24,10 @@ export const FormTextArea = () => {
     );
   };
 
+  const getValues = Object.values(initialValues.health);
+
+  const verify = !(getValues.includes("")) ? "Editar" : "Salvar";
+
   return (
     <Form
       initialValues={initialValues}
@@ -58,7 +62,7 @@ export const FormTextArea = () => {
             disabled={loadingAuth}
             type="submit"
           >
-            Editar
+            {verify}
           </Button>
         </S.ButtonContainer>
       </S.TextAreaContainer>

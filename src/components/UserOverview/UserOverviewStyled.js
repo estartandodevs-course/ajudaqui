@@ -15,8 +15,7 @@ export const ContainerData = styled.div`
   justify-content: center;
   align-items: flex-start;
   gap: 4px;
-  @media (min: 1200px) {
-  }
+ 
 `;
 
 export const ContainerGrade = styled.div`
@@ -49,10 +48,7 @@ export const Paragraph = styled(Typography).attrs({
 @media (min-width: 1200px) {
  margin-top: 12px;
   }
-  @media (max-width: 1199px) {
-display: none;
-  }
-  font-size: ${(props) => props.theme.typography.body1.fontSizeSubtitles};
+   font-size: ${(props) => props.theme.typography.body1.fontSizeSubtitles};
   display: flex;
 `;
 

@@ -17,15 +17,15 @@ export const orderStatusName = {
 export const mappedVoluntaryCardInfoByStatus = (orderStatus, elderlyProfileData = {}) => {
   const TEXTS = {
     [orderStatusId.WAITING]: {
-      title: "Pedido enviado!",
-      subTitle: "Em breve você será atendido(a).",
+      title: "Pedido liberado!",
+      subTitle: "Encaminhe-se ao encontro do idoso.",
     },
     [orderStatusId.WAITING_VOLUNTARY]: {
-      title: "Pedido recebido!",
+      title: "Pedido Resgatado!",
       subTitle: `${elderlyProfileData?.name}/ está te aguardando.`,
     },
     [orderStatusId.IN_PROGRESS]: {
-      title: "Pedido recebido!",
+      title: "Pedido Resgatado!",
       subTitle: `${elderlyProfileData?.name}/ chegou ao local.`,
     },
     [orderStatusId.CONCLUDED]: {
