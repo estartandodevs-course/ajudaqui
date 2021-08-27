@@ -11,7 +11,7 @@ export const HistoricPageContainer = styled.div`
   }
   @media (min-width: 1200px) {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 1fr;
   }
 `;
 
@@ -68,6 +68,7 @@ export const HistoricAside = styled.aside`
   width: 100%;
   height: 100%;
   background-color: ${(props) => props.theme.palette.colors.light.grayish};
+  position: relative;
   @media (max-width: 1199px) {
     display: none;
   }
@@ -77,4 +78,5 @@ export const ImageAside = styled.img`
   position: absolute;
   bottom: 0;
   right: 0;
+  width: inherit;
 `;
