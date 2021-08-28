@@ -1,7 +1,37 @@
-import styled from "styled-components";
+import styled, { keyframes, css } from "styled-components";
+import { Reload } from "@styled-icons/ionicons-outline/";
 import { theme } from "../../styles/themes";
 import { Typography } from "../Typography";
 import { Button } from "../ButtonComponent";
+
+
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+const reload = css`
+  animation: ${rotate} 2s linear infinite;
+`;
+
+
+export const ReloadCard = styled(Reload)`
+  cursor: pointer;
+  max-width: 30px;
+ ${(props) => props.$isActive && reload};
+  width: 100%;
+  margin: 5px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: ${(props) => props.theme.palette.colors.primaryVariant};
+`;
+
 
 export const ContainerOrderCard = styled.div`
   width: 312px;
@@ -12,6 +42,7 @@ export const ContainerOrderCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
 `;
 
 export const ContainerIcon = styled.div`

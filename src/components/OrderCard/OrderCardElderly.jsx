@@ -1,7 +1,8 @@
 import { parseISO, differenceInMinutes } from "date-fns";
-import React from "react";
+import React, { useContext } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { useStore } from "../../contexts";
+import { StoreContext } from "../../contexts/Store";
 import {
   mappedElderlyCardInfoByStatus,
   orderStatusId,
@@ -12,12 +13,14 @@ import * as S from "./OrderCard.Styled";
 export const OrderCardElderly = ({ helpRequest }) => {
   const { handleCancelOrder, loadingStore, voluntarys } = useStore();
   const { push } = useHistory();
+  const { handleMount } = useContext(StoreContext);
   const { helpRequestId } = useParams();
   const runningTime = differenceInMinutes(new Date(), parseISO(helpRequest?.createdAt));
   const isCanceled = helpRequest?.status === orderStatusId.CANCELED;
   const hasFinished = !!(helpRequest?.startTime && helpRequest?.endTime);
   const hasEvaluated = !!helpRequest?.voluntary?.evaluation;
   const hasConcluded = helpRequest?.status === orderStatusId.CONCLUDED;
+
 
   const voluntaryProfileData = voluntarys?.find((voluntary) => (
     voluntary.id === helpRequest?.voluntary?.id
@@ -37,6 +40,12 @@ export const OrderCardElderly = ({ helpRequest }) => {
 
   return (
     <S.ContainerOrderCard>
+      <S.ReloadCard
+        $isActive={loadingStore}
+        onClick={async () => {
+          handleMount();
+        }}
+      />
       <S.ContainerIcon>
         { (helpRequest?.photoURL && !isCanceled) ? (
           <S.Icon src={helpRequest?.photoURL} alt={helpRequest?.name} />

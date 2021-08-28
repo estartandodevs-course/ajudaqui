@@ -73,6 +73,7 @@ const StoreProvider = ({ children }) => {
         state,
         dispatch,
         notify,
+        handleMount,
       }}
     >
       <Toaster />
