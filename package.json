@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.6.3",
+    "@styled-icons/ionicons-outline": "^10.34.0",
     "antd": "^4.16.10",
     "axios": "^0.21.1",
     "date-fns": "^2.23.0",
@@ -23,6 +24,7 @@
     "react-switch": "^6.0.0",
     "sass": "1.36.0",
     "styled-components": "^5.3.0",
+    "styled-icons": "^10.37.0",
     "uuid": "^8.3.2",
     "vanilla-masker": "^1.2.0",
     "yup": "^0.32.9"
