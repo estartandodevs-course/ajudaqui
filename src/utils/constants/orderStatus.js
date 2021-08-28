@@ -8,7 +8,7 @@ export const orderStatusId = {
 
 export const orderStatusName = {
   1: "aguardando",
-  2: "aguadando voluntario(a)",
+  2: "aguardando voluntario(a)",
   3: "sendo atendido",
   4: "concluida",
   5: "cancelado",
@@ -21,11 +21,11 @@ export const mappedVoluntaryCardInfoByStatus = (orderStatus, elderlyProfileData 
       subTitle: "Encaminhe-se ao encontro do idoso.",
     },
     [orderStatusId.WAITING_VOLUNTARY]: {
-      title: "Pedido Resgatado!",
+      title: "Pedido resgatado!",
       subTitle: `${elderlyProfileData?.name}/ está te aguardando.`,
     },
     [orderStatusId.IN_PROGRESS]: {
-      title: "Pedido Resgatado!",
+      title: "Pedido resgatado!",
       subTitle: `${elderlyProfileData?.name}/ chegou ao local.`,
     },
     [orderStatusId.CONCLUDED]: {

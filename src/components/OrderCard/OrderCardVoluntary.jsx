@@ -1,7 +1,8 @@
 import { parseISO, differenceInMinutes } from "date-fns";
-import React from "react";
+import React, { useContext } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { useAuth, useStore } from "../../contexts";
+import { StoreContext } from "../../contexts/Store";
 import {
   mappedVoluntaryCardInfoByStatus,
   orderStatusId,
@@ -16,6 +17,7 @@ export const OrderCardVoluntary = ({ helpRequest }) => {
     handleCancelOrder, loadingStore, elderlys,
   } = useStore();
   const { push } = useHistory();
+  const { handleMount } = useContext(StoreContext);
   const { helpRequestId } = useParams();
   const runningTime = differenceInMinutes(new Date(), parseISO(helpRequest?.createdAt));
   const isCanceled = helpRequest?.status === orderStatusId.CANCELED;
@@ -57,6 +59,12 @@ export const OrderCardVoluntary = ({ helpRequest }) => {
 
   return (
     <S.ContainerOrderCard>
+      <S.ReloadCard
+        $isActive={loadingStore}
+        onClick={async () => {
+          handleMount();
+        }}
+      />
       <S.ContainerIcon>
         { (helpRequest?.photoURL && !isCanceled) ? (
           <S.Icon src={helpRequest?.photoURL} alt={helpRequest?.name} />
