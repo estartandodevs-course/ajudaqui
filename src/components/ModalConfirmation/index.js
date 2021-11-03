@@ -1,0 +1,1 @@
+export { ModalConfirmation } from "./ModalConfirmation";
