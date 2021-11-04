@@ -24,7 +24,6 @@ export const Login = () => {
     if (user.id) {
       navigation('/');
     }
-    return () => {};
   }, [user]);
   return (
     <Layout showNavigation={showNavigation}>

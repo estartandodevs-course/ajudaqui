@@ -1,11 +1,14 @@
 {
   "env": {
     "browser": true,
-    "es2021": true
+    "es2021": true,
+    "jest": true
   },
   "extends": [
     "plugin:react/recommended",
+    "plugin:jest-dom/recommended",
     "airbnb"
+
   ],
   "parserOptions": {
     "ecmaFeatures": {
@@ -15,7 +18,8 @@
     "sourceType": "module"
   },
   "plugins": [
-    "react"
+    "react",
+    "jest"
   ],
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
@@ -23,6 +27,10 @@
     "import/prefer-default-export": "off",
     "react/jsx-props-no-spreading": "off",
     "react/prop-types": "off",
-    "react/require-default-props": "off"
+    "react/require-default-props": "off",
+    "jest-dom/prefer-checked": "error",
+    "jest-dom/prefer-enabled-disabled": "error",
+    "jest-dom/prefer-required": "error",
+    "jest-dom/prefer-to-have-attribute": "error"
   }
 }
