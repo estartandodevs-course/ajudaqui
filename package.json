@@ -37,7 +37,9 @@
     "postpublish": "pinst --enable",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "coverage": "react-scripts test --coverage"
+
   },
   "eslintConfig": {
     "extends": "react-app",
