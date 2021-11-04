@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Carousel, Button } from '../../components';
 import { useAuth } from '../../contexts';
-import { onboardingData } from '../../_mock';
+import { onboardingData } from '../../mocks';
 import * as S from './OnboardingStyled';
 import { useWidthScreen } from '../../utils/hooks/useWidthScreen';
 

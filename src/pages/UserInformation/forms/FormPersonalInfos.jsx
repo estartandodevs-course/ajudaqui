@@ -2,7 +2,7 @@ import {
   Form, Input, Button,
 } from '../../../components';
 import { useAuth } from '../../../contexts';
-import { optionsPreference } from '../../../_mock';
+import { optionsPreference } from '../../../mocks';
 import * as S from './FormStyled';
 
 export const PersonalInfos = () => {

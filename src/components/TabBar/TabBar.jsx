@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts';
-import { TabBarLinks } from '../../_mock';
+import { TabBarLinks } from '../../mocks';
 import * as S from './TabBarStyled';
 
 export const TabBar = () => {

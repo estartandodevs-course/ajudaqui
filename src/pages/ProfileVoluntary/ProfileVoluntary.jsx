@@ -14,7 +14,7 @@ import {
   Typography,
 } from '../../components';
 import { useAuth, useStore } from '../../contexts';
-import { optionCardInterest } from '../../_mock/optionCardInterest';
+import { optionCardInterest } from '../../mocks/optionCardInterest';
 import { useWidthScreen } from '../../utils/hooks/useWidthScreen';
 import { orderStatusId } from '../../utils/constants';
 

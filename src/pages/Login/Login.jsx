@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Layout, Carousel } from '../../components';
 import { FormLogin } from './forms';
-import { onboardingDataDesktop } from '../../_mock';
+import { onboardingDataDesktop } from '../../mocks';
 import { useAuth } from '../../contexts';
 import { useWidthScreen } from '../../utils/hooks/useWidthScreen';
 import * as S from './LoginStyled';

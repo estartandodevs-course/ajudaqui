@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Layout, Button } from '../../components';
 import * as S from './IssueCertificateStyled';
-import { certificateDatas } from '../../_mock';
+import { certificateDatas } from '../../mocks';
 import { useWidthScreen } from '../../utils/hooks/useWidthScreen';
 import { PROFILES_TYPES } from '../../utils/constants';
 import { useAuth } from '../../contexts';

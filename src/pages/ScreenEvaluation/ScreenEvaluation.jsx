@@ -4,7 +4,7 @@ import {
   Button,
   Form, Input, Layout, ServiceEvaluation, UserGrade, ThanksCompletedTask, ProfilePhoto,
 } from '../../components';
-import { serviceEvaluationData } from '../../_mock';
+import { serviceEvaluationData } from '../../mocks';
 import * as S from './ScreenEvaluationStyled';
 import { useWidthScreen } from '../../utils/hooks/useWidthScreen';
 import { useAuth, useStore } from '../../contexts';
