@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Typography } from "../../components";
+import styled from 'styled-components';
+import { Typography } from '../../components';
 
 export const ContainerDesktop = styled.div`
   display: grid;
@@ -46,7 +46,7 @@ export const ContainerAskForHelp = styled.div`
 `;
 
 export const Text = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
   margin-bottom: 16px;
 
@@ -57,7 +57,6 @@ export const Text = styled(Typography).attrs({
   font-weight: 400;
   }
 `;
-
 
 export const ContainerTag = styled.div`
   width: 100%;

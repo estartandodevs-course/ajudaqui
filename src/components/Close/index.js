@@ -1,1 +1,1 @@
-export { Close } from "./Close";
+export { Close } from './Close';

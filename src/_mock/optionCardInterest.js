@@ -1,27 +1,27 @@
 export const optionCardInterest = [
   {
     id: 189,
-    option: "Leitura",
+    option: 'Leitura',
     estimatedTime: 30,
   },
   {
     id: 289,
-    option: "Jogar cartas",
+    option: 'Jogar cartas',
     estimatedTime: 30,
   },
   {
     id: 389,
-    option: "Orar",
+    option: 'Orar',
     estimatedTime: 30,
   },
   {
     id: 489,
-    option: "Livros de pintar",
+    option: 'Livros de pintar',
     estimatedTime: 30,
   },
   {
     id: 589,
-    option: "Artesanato",
+    option: 'Artesanato',
     estimatedTime: 30,
   },
 ];

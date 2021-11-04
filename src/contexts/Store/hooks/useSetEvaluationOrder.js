@@ -1,13 +1,13 @@
-import { useContext } from "react";
-import { useHistory } from "react-router-dom";
-import { StoreContext } from "..";
-import { singHelpRequest } from "../../../services/helpRequestService";
-import { orderStatusId } from "../../../utils/constants";
-import { OrderActionsTypes } from "../types";
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { StoreContext } from '..';
+import { singHelpRequest } from '../../../services/helpRequestService';
+import { orderStatusId } from '../../../utils/constants';
+import { OrderActionsTypes } from '../types';
 
 export const useSetEvaluationOrder = () => {
   const { dispatch, state, notify } = useContext(StoreContext);
-  const { push } = useHistory();
+  const navigation = useNavigate();
 
   const handleEvaluationElderly = async (helpRequestId, evaluation, callback) => {
     dispatch({
@@ -34,10 +34,10 @@ export const useSetEvaluationOrder = () => {
           )),
         },
       });
-      notify("Avaliaçao registrada com sucesso.");
+      notify('Avaliaçao registrada com sucesso.');
       callback();
     } catch (error) {
-      notify("Ocorreu um erro no registro da avaliação.", "error");
+      notify('Ocorreu um erro no registro da avaliação.', 'error');
 
       dispatch({
         type: OrderActionsTypes.SET_EVALUATION_ORDER_ERROR,
@@ -73,10 +73,10 @@ export const useSetEvaluationOrder = () => {
           )),
         },
       });
-      notify("Avaliaçao registrada com sucesso.");
-      push("/");
+      notify('Avaliaçao registrada com sucesso.');
+      navigation('/');
     } catch (error) {
-      notify("Não foi possível realizar sua solicitação.", "error");
+      notify('Não foi possível realizar sua solicitação.', 'error');
       dispatch({
         type: OrderActionsTypes.SET_EVALUATION_ORDER_ERROR,
         payload: {

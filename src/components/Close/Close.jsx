@@ -1,12 +1,12 @@
-import { useHistory } from "react-router-dom";
-import PropTypes from "prop-types";
-import * as S from "./CloseStyled";
+import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import * as S from './CloseStyled';
 
 export const Close = ({ hasClose }) => {
-  const { push } = useHistory();
+  const navigation = useNavigate();
   return (
     <>
-      { hasClose && <S.Close src="/assets/svg/close.svg" onClick={() => push("/")} /> }
+      { hasClose && <S.Close src="/assets/svg/close.svg" onClick={() => navigation('/')} /> }
     </>
   );
 };

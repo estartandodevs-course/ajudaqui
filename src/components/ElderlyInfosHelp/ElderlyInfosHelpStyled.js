@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { Typography } from "../Typography";
-import { Button } from "../ButtonComponent";
+import styled from 'styled-components';
+import { Typography } from '../Typography';
+import { Button } from '../ButtonComponent';
 
 export const Card = styled.div`
   border: 1px solid #BC1610;
@@ -28,9 +28,8 @@ export const ImageElderly = styled.img`
   position: absolute;
 `;
 
-
 export const NameElderly = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
   text-align: center;
   margin-top: 43px;
@@ -65,7 +64,7 @@ export const Icons = styled.img`
   margin-top: -4px;
 `;
 export const TextsTitles = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
   color: ${(props) => props.theme.palette.colors.emergency};
   font-weight: bold;
@@ -73,7 +72,7 @@ export const TextsTitles = styled(Typography).attrs({
   padding-left: 20px;
   `;
 export const TextTitleEmergency = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
   color: ${(props) => props.theme.palette.colors.emergency};
   font-weight: bold;
@@ -81,7 +80,6 @@ export const TextTitleEmergency = styled(Typography).attrs({
   margin-bottom: 12px;
   padding-left: 20px;
   `;
-
 
 export const Texts = styled.span`
   display: flex;
@@ -108,7 +106,6 @@ export const TextFinal = styled.p`
   color: #47454F;
   line-height: 16px;
  `;
-
 
 export const ContentButtom = styled(Button)`
   width: 100%;

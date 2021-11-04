@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StarIcon = styled.img`
-  width: ${(props) => (props.width ? props.width : "28.6px")};
-  height: ${(props) => (props.height ? props.height : "25px")};
+  width: ${(props) => (props.width ? props.width : '28.6px')};
+  height: ${(props) => (props.height ? props.height : '25px')};
   margin-left: 4px;
 `;
 

@@ -1,17 +1,17 @@
-import React from "react";
-import { differenceInMinutes, parseISO } from "date-fns";
-import { useHistory } from "react-router-dom";
-import { orderStatusName } from "../../utils/constants";
-import { useAuth, useStore } from "../../contexts";
-import * as S from "./HelpRequestCardStyled";
-import { ProfilePhoto } from "../ProfilePhoto";
+import React from 'react';
+import { differenceInMinutes, parseISO } from 'date-fns';
+import { useNavigate } from 'react-router-dom';
+import { orderStatusName } from '../../utils/constants';
+import { useAuth, useStore } from '../../contexts';
+import * as S from './HelpRequestCardStyled';
+import { ProfilePhoto } from '../ProfilePhoto';
 
 export const HelpRequestCard = ({
   helpRequestData, isVoluntary,
 }) => {
   const { elderlys, handleUpdateSubscribe } = useStore();
   const { user } = useAuth();
-  const { push } = useHistory();
+  const navigation = useNavigate();
 
   const {
     elderly: { id: elderlyId }, order, createdAt, status,
@@ -22,26 +22,26 @@ export const HelpRequestCard = ({
 
   const runningTime = differenceInMinutes(new Date(), new Date(parseISO(createdAt)));
 
-  const verifyWaitingStatus = orderStatusName[status] === "aguardando" && !isVoluntary;
+  const verifyWaitingStatus = orderStatusName[status] === 'aguardando' && !isVoluntary;
 
-  const hasEmergency = order?.key === "emergency";
+  const hasEmergency = order?.key === 'emergency';
 
-  const verifyOrderStatus = (isVoluntary && "default")
-   || (hasEmergency && "emergency")
-   || (verifyWaitingStatus && "aguardando")
-   || "default";
+  const verifyOrderStatus = (isVoluntary && 'default')
+   || (hasEmergency && 'emergency')
+   || (verifyWaitingStatus && 'aguardando')
+   || 'default';
 
-  const actionsTypes = (isVoluntary && "ajudando")
-    || (hasEmergency && "emergência")
-   || (verifyWaitingStatus && "aguardando")
-   || "ajudando";
+  const actionsTypes = (isVoluntary && 'ajudando')
+    || (hasEmergency && 'emergência')
+   || (verifyWaitingStatus && 'aguardando')
+   || 'ajudando';
 
   const handleSubscribe = async () => {
     if (!isVoluntary) await handleUpdateSubscribe(helpRequestData.id, user.id);
     if (hasEmergency) {
-      return push(`emergency/${helpRequestData.id}`);
+      return navigation(`emergency/${helpRequestData.id}`);
     }
-    return push(`order-status/${helpRequestData.id}`);
+    return navigation(`order-status/${helpRequestData.id}`);
   };
 
   return (
@@ -57,7 +57,7 @@ export const HelpRequestCard = ({
                   {elderlyProfile?.name}
                 </S.UserName>
                 <S.RequestedTask
-                  $colorTask={hasEmergency ? "#BC1610" : undefined}
+                  $colorTask={hasEmergency ? '#BC1610' : undefined}
                 >
                   {order.option}
                 </S.RequestedTask>
@@ -84,7 +84,7 @@ export const HelpRequestCard = ({
             $variant={verifyOrderStatus}
           >
             <S.ActionDescription
-              color={isVoluntary ? "#4e3681" : undefined}
+              color={isVoluntary ? '#4e3681' : undefined}
               onClick={handleSubscribe}
             >
               {actionsTypes}

@@ -1,1 +1,1 @@
-export { ElderlyModalCard } from "./ElderlyModalCard";
+export { ElderlyModalCard } from './ElderlyModalCard';

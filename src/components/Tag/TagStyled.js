@@ -1,6 +1,5 @@
-import styled from "styled-components";
-import { Typography } from "..";
-
+import styled from 'styled-components';
+import { Typography } from '..';
 
 export const TagContainer = styled.div`
   width: max-content;
@@ -18,7 +17,7 @@ export const TagContainer = styled.div`
 `;
 
 export const TagContent = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
   margin: 0;
   color: ${(props) => props.theme.palette.colors.primaryVariant};

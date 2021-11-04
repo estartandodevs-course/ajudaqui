@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import Calendar from "react-calendar";
+import styled from 'styled-components';
+import Calendar from 'react-calendar';
 
 export const HistoricPageContainer = styled.div`
   display: grid;

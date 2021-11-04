@@ -1,15 +1,14 @@
-import { useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import {
   Button,
   Form, Input, Layout, ServiceEvaluation, UserGrade, ThanksCompletedTask, ProfilePhoto,
-} from "../../components";
-import { serviceEvaluationData } from "../../_mock";
-import * as S from "./ScreenEvaluationStyled";
-import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
-import { useAuth, useStore } from "../../contexts";
-import { PROFILES_TYPES } from "../../utils/constants";
-
+} from '../../components';
+import { serviceEvaluationData } from '../../_mock';
+import * as S from './ScreenEvaluationStyled';
+import { useWidthScreen } from '../../utils/hooks/useWidthScreen';
+import { useAuth, useStore } from '../../contexts';
+import { PROFILES_TYPES } from '../../utils/constants';
 
 export const ScreenEvaluation = () => {
   const [evaluation, setEvaluation] = useState(0);
@@ -31,7 +30,7 @@ export const ScreenEvaluation = () => {
 
   const { helpRequestId } = useParams();
 
-  const { push } = useHistory();
+  const navigation = useNavigate();
 
   const helpRequestData = helpRequests?.find((requestData) => (
     requestData?.id === helpRequestId
@@ -65,9 +64,9 @@ export const ScreenEvaluation = () => {
       },
       () => {
         if (showNavigation) {
-          return push("/thanks", { helpRequestId });
+          return navigation('/thanks', { helpRequestId });
         }
-        return push("/");
+        return navigation('/');
       },
     );
   };
@@ -103,24 +102,22 @@ export const ScreenEvaluation = () => {
                 </S.NamePersonHelp>
                 <UserGrade grade={evaluation} />
                 <S.ContainerEvaluation>
-                  {serviceEvaluationData.map((item) => {
-                    return (
-                      <ServiceEvaluation
-                        key={item.id}
-                        src={item.icon}
-                        alt={item.description}
-                        $active={item.value === evaluation}
-                        click={() => setEvaluation(item.value)}
-                      >
-                        {item.description}
-                      </ServiceEvaluation>
-                    );
-                  }) }
+                  {serviceEvaluationData.map((item) => (
+                    <ServiceEvaluation
+                      key={item.id}
+                      src={item.icon}
+                      alt={item.description}
+                      $active={item.value === evaluation}
+                      click={() => setEvaluation(item.value)}
+                    >
+                      {item.description}
+                    </ServiceEvaluation>
+                  )) }
                 </S.ContainerEvaluation>
               </S.ContentEvaluation>
               <Form
                 initialValues={{
-                  note: "",
+                  note: '',
                   evaluation,
                 }}
                 onSubmit={handleSubmit}
@@ -172,23 +169,21 @@ export const ScreenEvaluation = () => {
                 </S.NamePersonHelp>
                 <UserGrade grade={evaluation} />
                 <S.ContainerEvaluation>
-                  {serviceEvaluationData.map((item) => {
-                    return (
-                      <ServiceEvaluation
-                        key={item.id}
-                        src={item.icon}
-                        alt={item.description}
-                        click={() => setEvaluation(item.value)}
-                      >
-                        {item.description}
-                      </ServiceEvaluation>
-                    );
-                  }) }
+                  {serviceEvaluationData.map((item) => (
+                    <ServiceEvaluation
+                      key={item.id}
+                      src={item.icon}
+                      alt={item.description}
+                      click={() => setEvaluation(item.value)}
+                    >
+                      {item.description}
+                    </ServiceEvaluation>
+                  )) }
                 </S.ContainerEvaluation>
               </S.ContentEvaluation>
               <Form
                 initialValues={{
-                  note: "",
+                  note: '',
                   evaluation,
                 }}
                 onSubmit={handleSubmit}

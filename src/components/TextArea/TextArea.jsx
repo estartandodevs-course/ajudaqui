@@ -1,5 +1,5 @@
-import { useFormikContext, useField } from "formik";
-import * as S from "./TextAreaStyled";
+import { useFormikContext, useField } from 'formik';
+import * as S from './TextAreaStyled';
 
 export const TextArea = ({ name, ...restProps }) => {
   const { setFieldValue } = useFormikContext();
@@ -7,7 +7,7 @@ export const TextArea = ({ name, ...restProps }) => {
 
   const handleChange = (e) => {
     const { target } = e;
-    setFieldValue(name, target?.value || "");
+    setFieldValue(name, target?.value || '');
   };
 
   return (

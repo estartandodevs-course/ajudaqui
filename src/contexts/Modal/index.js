@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState } from 'react';
 
 const ModalContext = createContext();
 const { Provider } = ModalContext;
@@ -24,4 +24,3 @@ const ModalProvider = ({ children }) => {
 };
 
 export { ModalContext, ModalProvider };
-

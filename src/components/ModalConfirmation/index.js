@@ -1,1 +1,1 @@
-export { ModalConfirmation } from "./ModalConfirmation";
+export { ModalConfirmation } from './ModalConfirmation';

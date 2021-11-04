@@ -1,1 +1,1 @@
-export { ServiceEvaluation } from "./ServiceEvaluation";
+export { ServiceEvaluation } from './ServiceEvaluation';

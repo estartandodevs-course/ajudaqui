@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Typography } from "../Typography";
+import styled from 'styled-components';
+import { Typography } from '../Typography';
 
 export const ContainerNotification = styled.div`
   max-width: 312px;
@@ -14,17 +14,16 @@ export const ContainerNotification = styled.div`
 `;
 
 export const DescriptionNotification = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
 `;
 
 export const UserName = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
   weight: 700,
 })`
   display: inline;
 `;
-
 
 export const ContentDescription = styled.div`
   display: flex;
@@ -49,4 +48,3 @@ export const Close = styled.img`
   width: 12px;
   height: 12px;
 `;
-

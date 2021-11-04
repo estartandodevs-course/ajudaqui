@@ -1,7 +1,7 @@
-import { useContext } from "react";
-import { createTag } from "../../../services/tagsService";
-import { StoreContext } from "../index";
-import { TagActionsTypes } from "../types";
+import { useContext } from 'react';
+import { createTag } from '../../../services/tagsService';
+import { StoreContext } from '../index';
+import { TagActionsTypes } from '../types';
 
 export const useTag = () => {
   const { dispatch, state } = useContext(StoreContext);

@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Typography } from "../../components";
+import styled from 'styled-components';
+import { Typography } from '../../components';
 
 export const ContainerPage = styled.div`
   width: 100%;
@@ -10,14 +10,14 @@ export const ContainerPage = styled.div`
 `;
 
 export const Title = styled(Typography).attrs({
-  variant: "h2",
+  variant: 'h2',
 })`
 color: ${(props) => props.theme.palette.colors.primaryVariant};
 margin: 32px 0;
 `;
 
 export const Subtitle = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
 width: 312px;
 margin-top: 20px;

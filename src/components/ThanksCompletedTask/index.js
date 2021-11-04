@@ -1,1 +1,1 @@
-export { ThanksCompletedTask } from "./CompletedTask";
+export { ThanksCompletedTask } from './CompletedTask';

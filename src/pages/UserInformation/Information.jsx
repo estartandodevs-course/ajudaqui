@@ -1,13 +1,13 @@
-import { useEffect } from "react";
-import { useHistory } from "react-router-dom";
-import { Layout, ProfilePhoto, Typography } from "../../components";
-import { FormContacts } from "./forms/FormContacts";
-import { FormTextArea } from "./forms/FormTextArea";
-import { PersonalInfos } from "./forms/FormPersonalInfos";
-import "antd/dist/antd.css";
-import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
-import * as S from "./InformationStyled";
-import { useAuth } from "../../contexts";
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Layout, ProfilePhoto, Typography } from '../../components';
+import { FormContacts } from './forms/FormContacts';
+import { FormTextArea } from './forms/FormTextArea';
+import { PersonalInfos } from './forms/FormPersonalInfos';
+import 'antd/dist/antd.css';
+import { useWidthScreen } from '../../utils/hooks/useWidthScreen';
+import * as S from './InformationStyled';
+import { useAuth } from '../../contexts';
 
 export const UserInformation = ({ location }) => {
   const [widthScreen] = useWidthScreen();
@@ -16,11 +16,11 @@ export const UserInformation = ({ location }) => {
 
   const { user, isAuthenticated, logout } = useAuth();
 
-  const { push } = useHistory();
+  const navigation = useNavigate();
 
   useEffect(() => {
     if (!isAuthenticated) {
-      push("select-profile");
+      navigation('select-profile');
     }
   }, []);
 
@@ -39,7 +39,7 @@ export const UserInformation = ({ location }) => {
             )}
             <S.ProfilePhotoText>MUDAR FOTO DE PERFIL</S.ProfilePhotoText>
           </S.ContainerProfilePhoto>
-          <S.TabsRegister defaultActiveKey={location?.state?.defaultActiveKey || "1"}>
+          <S.TabsRegister defaultActiveKey={location?.state?.defaultActiveKey || '1'}>
             <S.TabsChoiced tab="Pessoal" key="1">
               <PersonalInfos />
             </S.TabsChoiced>
@@ -51,7 +51,7 @@ export const UserInformation = ({ location }) => {
             </S.TabsChoiced>
           </S.TabsRegister>
           <Typography
-            style={{ alignSelf: "start" }}
+            style={{ alignSelf: 'start' }}
             variant="body1"
             onClick={logout}
           >

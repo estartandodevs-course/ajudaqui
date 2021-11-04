@@ -1,4 +1,4 @@
-import { OrderActionsTypes } from "../types/OrderActionsTypes";
+import { OrderActionsTypes } from '../types/OrderActionsTypes';
 
 export const UpdateOrderReducer = () => {
   const REDUCERS = {

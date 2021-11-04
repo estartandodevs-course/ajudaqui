@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Typography } from "../Typography";
+import styled from 'styled-components';
+import { Typography } from '../Typography';
 
 export const ContainerProfile = styled.div`
   display: flex;
@@ -36,14 +36,14 @@ export const ImgProfile = styled.img`
 `;
 
 export const TitleProfile = styled(Typography).attrs({
-  variant: "h2",
+  variant: 'h2',
 })`
   padding-bottom: 4px;
   color: ${(props) => props.theme.palette.colors.primaryVariant};
 `;
 
 export const Paragraph = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
   font-size: ${(props) => props.theme.typography.body1.fontSizeSubtitles};
   display: flex;
@@ -79,7 +79,7 @@ export const ContentGradeName = styled.div`
 `;
 
 export const NomeProfileVoluntary = styled(Typography).attrs({
-  variant: "h2",
+  variant: 'h2',
 })`
 `;
 

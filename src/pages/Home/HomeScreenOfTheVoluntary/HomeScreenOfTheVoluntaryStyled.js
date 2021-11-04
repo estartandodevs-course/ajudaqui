@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Typography } from "../../../components";
+import styled from 'styled-components';
+import { Typography } from '../../../components';
 
 export const PagesContainer = styled.div`
   width: 100%;
@@ -48,7 +48,7 @@ export const ContainerTitles = styled.div`
 `;
 
 export const Title = styled(Typography).attrs({
-  variant: "h2",
+  variant: 'h2',
 })`
   color: ${(props) => props.theme.palette.colors.text};
   @media (min-width: 1200px) {
@@ -57,7 +57,7 @@ export const Title = styled(Typography).attrs({
 `;
 
 export const Subtitle = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
   color: ${(props) => props.theme.palette.colors.text};
   @media (min-width: 1200px) {
@@ -82,7 +82,7 @@ export const LocationIcon = styled.img`
 `;
 
 export const LocationText = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
   color: ${(props) => props.theme.palette.colors.dark.gray};
   font-size: 12px;

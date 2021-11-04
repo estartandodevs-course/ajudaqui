@@ -1,12 +1,12 @@
-import { useContext } from "react";
-import { StoreContext } from "../index";
-import { useOrderList } from "./useOrderList";
-import { useCreateOrder } from "./useCreateOrder";
-import { useUpdateOrder } from "./useUpdateOrder";
-import { useTag } from "./useTag";
-import { useCancelOrder } from "./useCancelOrder";
-import { useSetEvaluationOrder } from "./useSetEvaluationOrder";
-import { useAttendance } from "./useAttendance";
+import { useContext } from 'react';
+import { StoreContext } from '../index';
+import { useOrderList } from './useOrderList';
+import { useCreateOrder } from './useCreateOrder';
+import { useUpdateOrder } from './useUpdateOrder';
+import { useTag } from './useTag';
+import { useCancelOrder } from './useCancelOrder';
+import { useSetEvaluationOrder } from './useSetEvaluationOrder';
+import { useAttendance } from './useAttendance';
 
 export const useStore = () => {
   const { state, notify } = useContext(StoreContext);

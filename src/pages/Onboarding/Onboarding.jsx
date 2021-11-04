@@ -1,26 +1,26 @@
-import { useEffect } from "react";
-import { useHistory } from "react-router-dom";
-import { Carousel, Button } from "../../components";
-import { useAuth } from "../../contexts";
-import { onboardingData } from "../../_mock";
-import * as S from "./OnboardingStyled";
-import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Carousel, Button } from '../../components';
+import { useAuth } from '../../contexts';
+import { onboardingData } from '../../_mock';
+import * as S from './OnboardingStyled';
+import { useWidthScreen } from '../../utils/hooks/useWidthScreen';
 
 export const Onboarding = () => {
-  const { push } = useHistory();
+  const navigation = useNavigate();
   const { profileType } = useAuth();
   const [widthScreen] = useWidthScreen();
 
   useEffect(() => {
     if (!profileType || widthScreen > 1200) {
-      push("/");
+      navigation('/');
     }
   }, []);
 
   return (
     <S.OnboardingContainer>
       <S.PositionClose>
-        <S.Close src="/assets/svg/close.svg" alt="close" onClick={() => push("/login")} />
+        <S.Close src="/assets/svg/close.svg" alt="close" onClick={() => navigation('/login')} />
       </S.PositionClose>
       <Carousel
         showArrows={false}
@@ -28,27 +28,25 @@ export const Onboarding = () => {
         autoPlaySpeed={4000}
         pagination={onboardingData[profileType]?.length > 1}
       >
-        {onboardingData[profileType]?.map((item, index) => {
-          return (
-            <S.OnboardingMainContent key={item.id}>
-              <S.OnboardingImage src={item.image} alt="onboarding" />
-              <S.ContentInfo>
-                <S.OnboardingTitle>
-                  {item.title}
-                </S.OnboardingTitle>
-                <S.OnboardingDescription>
-                  {item.description}
-                </S.OnboardingDescription>
-              </S.ContentInfo>
-              {onboardingData[profileType].length - 1 === index
+        {onboardingData[profileType]?.map((item, index) => (
+          <S.OnboardingMainContent key={item.id}>
+            <S.OnboardingImage src={item.image} alt="onboarding" />
+            <S.ContentInfo>
+              <S.OnboardingTitle>
+                {item.title}
+              </S.OnboardingTitle>
+              <S.OnboardingDescription>
+                {item.description}
+              </S.OnboardingDescription>
+            </S.ContentInfo>
+            {onboardingData[profileType].length - 1 === index
               && (
                 <S.PositionButton>
-                  <Button onClick={() => push("/login")}>COMEÇAR</Button>
+                  <Button onClick={() => navigation('/login')}>COMEÇAR</Button>
                 </S.PositionButton>
               )}
-            </S.OnboardingMainContent>
-          );
-        })}
+          </S.OnboardingMainContent>
+        ))}
       </Carousel>
     </S.OnboardingContainer>
   );

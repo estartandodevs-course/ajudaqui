@@ -1,4 +1,4 @@
-import { AuthActionsTypes } from "../types";
+import { AuthActionsTypes } from '../types';
 
 export const AuthLoginPhoneReducer = () => {
   const REDUCERS = {

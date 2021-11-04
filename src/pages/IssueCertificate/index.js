@@ -1,1 +1,1 @@
-export { IssueCertificate } from "./IssueCertificate";
+export { IssueCertificate } from './IssueCertificate';

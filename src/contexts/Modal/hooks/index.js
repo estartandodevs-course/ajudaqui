@@ -1,1 +1,1 @@
-export { useModal } from "./useModal";
+export { useModal } from './useModal';

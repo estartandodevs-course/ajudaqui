@@ -1,9 +1,9 @@
-import React from "react";
-import { useAuth } from "../../contexts";
-import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
-import { Layout, SelectProfileType, SplashScreen } from "../../components";
-import { AuthActionsTypes } from "../../contexts/Auth/types";
-import * as S from "./SelectProfileStyled";
+import React from 'react';
+import { useAuth } from '../../contexts';
+import { useWidthScreen } from '../../utils/hooks/useWidthScreen';
+import { Layout, SelectProfileType, SplashScreen } from '../../components';
+import { AuthActionsTypes } from '../../contexts/Auth/types';
+import * as S from './SelectProfileStyled';
 
 export const SelectProfile = () => {
   const { dispatch } = useAuth();

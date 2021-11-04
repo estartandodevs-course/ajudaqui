@@ -1,9 +1,9 @@
-import React from "react";
-import { differenceInSeconds } from "date-fns";
-import { useLocation } from "react-router-dom";
-import { useStore } from "../../contexts";
+import React from 'react';
+import { differenceInSeconds } from 'date-fns';
+import { useLocation } from 'react-router-dom';
+import { useStore } from '../../contexts';
 
-import * as S from "./CompletedTaskStyle";
+import * as S from './CompletedTaskStyle';
 
 export const ThanksCompletedTask = ({ helpRequestId }) => {
   const { state } = useLocation();

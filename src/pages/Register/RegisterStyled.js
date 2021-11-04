@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import { Tabs } from "antd";
-import { Link } from "react-router-dom";
-import { Typography } from "../../components";
+import styled from 'styled-components';
+import { Tabs } from 'antd';
+import { Link } from 'react-router-dom';
+import { Typography } from '../../components';
 
 const { TabPane } = Tabs;
 
@@ -41,7 +41,6 @@ export const AsideImage = styled.img`
   object-fit: cover;
 `;
 
-
 export const ImageText = styled.img`
   width: 155px;
   height: 40px;
@@ -61,7 +60,7 @@ export const SelectAside = styled.div`
   }
 `;
 export const TitleOnboarding = styled(Typography).attrs({
-  variant: "h2",
+  variant: 'h2',
 })`
   position: absolute;
   max-width: 75%;
@@ -115,13 +114,13 @@ export const HasRegister = styled(Link)`
 `;
 
 export const TitleRegistrations = styled(Typography).attrs({
-  variant: "h2",
+  variant: 'h2',
 })`
   color: ${(props) => props.theme.palette.colors.primary};
 `;
 
 export const DescriptionRegistrations = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
   font-size: ${(props) => props.theme.typography.body1.fontSizeSubtitles};
   color: ${(props) => props.theme.palette.colors.primary};

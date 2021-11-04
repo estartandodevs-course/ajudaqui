@@ -1,9 +1,9 @@
-import { useHistory } from "react-router-dom";
-import { Button } from "../ButtonComponent/ButtonStyled";
-import * as S from "./SplashScreenStyled";
+import { useNavigate } from 'react-router-dom';
+import { Button } from '../ButtonComponent/ButtonStyled';
+import * as S from './SplashScreenStyled';
 
 export const SplashScreen = ({ hasButton = true }) => {
-  const { push } = useHistory();
+  const navigation = useNavigate();
   return (
     <S.Container>
       <S.Title>
@@ -11,7 +11,7 @@ export const SplashScreen = ({ hasButton = true }) => {
       </S.Title>
       <S.Subtitle>Encontre um voluntário(a)</S.Subtitle>
       <S.ImageCenter src="/assets/svg/Logo completa.svg" />
-      {hasButton && <Button style={{ zIndex: "1" }} onClick={() => push("select-profile")}>Começar</Button>}
+      {hasButton && <Button style={{ zIndex: '1' }} onClick={() => navigation('select-profile')}>Começar</Button>}
     </S.Container>
   );
 };

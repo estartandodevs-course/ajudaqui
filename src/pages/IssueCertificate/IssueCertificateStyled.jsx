@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Typography } from "../../components";
+import styled from 'styled-components';
+import { Typography } from '../../components';
 
 export const ContainerDesktop = styled.div`
   display: grid;
@@ -31,7 +31,6 @@ export const ImageAside = styled.img`
   right: 0;
 `;
 
-
 export const ContainerPage = styled.div`
 display: flex;
 flex-direction: column;
@@ -59,21 +58,20 @@ height: 60px;
 
 export const Ellipsis = styled.img``;
 
-
 export const VoluntaryName = styled(Typography).attrs({
-  variant: "h1",
+  variant: 'h1',
 })`
 font-size: 26px;
 color: ${(props) => props.theme.palette.colors.primaryVariant};
 `;
 
 export const CertificateText = styled(Typography).attrs({
-  variant: "h2",
+  variant: 'h2',
 })`
 `;
 
 export const Paragraph = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
 width: 272px;
 text-align: center;
@@ -85,7 +83,7 @@ text-align: center;
 `;
 
 export const Paragraph2 = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
 width: 280px;
 text-align: center;
@@ -117,5 +115,3 @@ export const CertificateContent = styled.div`
 font-size: 12px;
 `;
 export const ImageDownload = styled.img``;
-
-

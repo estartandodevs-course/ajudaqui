@@ -1,7 +1,7 @@
-import { createContext, useEffect, useReducer } from "react";
-import { useStorage } from "../../utils/hooks/useStorage";
-import { authContextModel, initialStateAuthReducer } from "./models";
-import { AuthReducer } from "./reducers";
+import { createContext, useEffect, useReducer } from 'react';
+import { useStorage } from '../../utils/hooks/useStorage';
+import { authContextModel, initialStateAuthReducer } from './models';
+import { AuthReducer } from './reducers';
 
 const AuthContext = createContext(authContextModel);
 

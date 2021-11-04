@@ -1,1 +1,1 @@
-export { ProfileVoluntary } from "./ProfileVoluntary";
+export { ProfileVoluntary } from './ProfileVoluntary';

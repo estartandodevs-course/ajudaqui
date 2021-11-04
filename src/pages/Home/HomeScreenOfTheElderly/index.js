@@ -1,1 +1,1 @@
-export { HomeScreenOfTheElderly } from "./HomeScreenOfTheElderly";
+export { HomeScreenOfTheElderly } from './HomeScreenOfTheElderly';

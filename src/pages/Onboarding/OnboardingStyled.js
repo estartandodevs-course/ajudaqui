@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Typography } from "../../components";
+import styled from 'styled-components';
+import { Typography } from '../../components';
 
 export const OnboardingContainer = styled.div`
   width: 100%;
@@ -48,14 +48,14 @@ export const OnboardingImage = styled.img`
 `;
 
 export const OnboardingTitle = styled(Typography).attrs({
-  variant: "h2",
+  variant: 'h2',
 })`
   color: ${(props) => props.theme.palette.colors.primaryVariant};
   margin: 0;
 `;
 
 export const OnboardingDescription = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
   margin: 0;
 `;

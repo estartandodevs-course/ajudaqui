@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Typography } from "../../components/Typography";
+import styled from 'styled-components';
+import { Typography } from '../../components/Typography';
 
 export const PagesContainer = styled.div`
   display: grid;
@@ -82,7 +82,7 @@ export const ContainerImageElderly = styled.div`
 `;
 
 export const TextInterests = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
   font-weight: bold;
   @media (min-width: 1200px) {
@@ -94,7 +94,7 @@ export const TextInterests = styled(Typography).attrs({
 `;
 
 export const TextPeople = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
   font-weight: bold;
 `;
@@ -145,7 +145,7 @@ export const ContainerAskForHelp = styled.div`
 `;
 
 export const TextTitle = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
   margin-bottom: 16px;
   @media (min-width: 1200px) {
@@ -157,7 +157,7 @@ export const TextTitle = styled(Typography).attrs({
 `;
 
 export const Texts = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
   margin-bottom: 16px;
   @media (min-width: 1200px) {

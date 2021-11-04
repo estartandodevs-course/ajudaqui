@@ -22,17 +22,17 @@
 
   - Se for um componente novo:
 
-    `git commit -m "feat: input com estilizacao"`
+    `git commit -m 'feat: input com estilizacao'`
 
   - Se for um ajuste em um componente / container / rotas / style :
 
-    `git commit -m "chore: ajustando componente x"`
+    `git commit -m 'chore: ajustando componente x'`
 
   - Se for uma correcao de algum bug :
-    `git commit -m "fix:corrigindo componente x que esta errado" `
+    `git commit -m 'fix:corrigindo componente x que esta errado' `
 
   - Se esta no meio de uma tarefa e vai encerrar o dia , sempre adicionar WIP :
-    `git commit -m "chore: WIP componente x " `
+    `git commit -m 'chore: WIP componente x ' `
 
 ### PULL REQUEST
 

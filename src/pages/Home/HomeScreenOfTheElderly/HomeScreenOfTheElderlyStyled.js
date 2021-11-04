@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Typography } from "../../../components";
+import styled from 'styled-components';
+import { Typography } from '../../../components';
 
 export const ContainerPageAside = styled.div`
   display: grid;
@@ -49,10 +49,10 @@ export const TextContainer = styled.div`
   gap: 35px;
 `;
 export const Text = styled(Typography).attrs({
-  variant: "h2",
+  variant: 'h2',
 })``;
 export const Subtitle = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
   width: 320px;
   font-size: ${(props) => props.theme.typography.body1.fontSizeText};
@@ -92,7 +92,7 @@ export const ContainerCards = styled.div`
 `;
 
 export const Paragraph = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
   weight: 700,
 })`
   margin-bottom: 25px;
@@ -100,14 +100,14 @@ export const Paragraph = styled(Typography).attrs({
 `;
 
 export const Paragraph1 = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
   text-align: center;
   margin-bottom: 17px;
 `;
 
 export const Paragraph2 = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
   text-align: center;
   margin-bottom: 17px;
@@ -118,7 +118,7 @@ export const Paragraph2 = styled(Typography).attrs({
 `;
 
 export const TextInformation = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
   weight: 700,
 })`
   text-align: center;

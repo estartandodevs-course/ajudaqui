@@ -1,27 +1,27 @@
 export const userDataModel = {
-  uuid: "",
-  name: "",
-  email: "",
+  uuid: '',
+  name: '',
+  email: '',
   grade: 0,
-  photoURL: "",
-  profileType: "",
-  birthday: "",
-  gender: "",
+  photoURL: '',
+  profileType: '',
+  birthday: '',
+  gender: '',
   phoneNumber: null,
   location: {
-    uf: "",
-    city: "",
-    adress: "",
+    uf: '',
+    city: '',
+    adress: '',
   },
 };
 
 export const modelByProfile = {
   elderly: {
     ...userDataModel,
-    helpPreferrence: "",
+    helpPreferrence: '',
     health: {
       medicine: [],
-      specialConditions: "",
+      specialConditions: '',
     },
     contacts: [],
   },
@@ -34,7 +34,7 @@ export const modelByProfile = {
 export const initialStateAuthReducer = {
   isAuthenticated: false,
   loadingAuth: false,
-  profileType: "voluntary",
+  profileType: 'voluntary',
   user: userDataModel,
   authIsLoading: false,
   error: null,

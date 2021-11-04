@@ -1,13 +1,13 @@
-import toast, { Toaster } from "react-hot-toast";
-import { createContext, useEffect, useReducer } from "react";
-import { StoreReducer } from "./reducers";
-import { initialStateStoreReducer, storeContextModel } from "./models";
-import { useStorage } from "../../utils/hooks/useStorage";
-import { MountStoreActionsTypes } from "./types";
-import { fetchElderlys } from "../../services/elderlyService";
-import { fetchVoluntarys } from "../../services/voluntaryService";
-import { fetchTags } from "../../services/tagsService";
-import { fetchHelpRequests } from "../../services";
+import toast, { Toaster } from 'react-hot-toast';
+import { createContext, useEffect, useReducer } from 'react';
+import { StoreReducer } from './reducers';
+import { initialStateStoreReducer, storeContextModel } from './models';
+import { useStorage } from '../../utils/hooks/useStorage';
+import { MountStoreActionsTypes } from './types';
+import { fetchElderlys } from '../../services/elderlyService';
+import { fetchVoluntarys } from '../../services/voluntaryService';
+import { fetchTags } from '../../services/tagsService';
+import { fetchHelpRequests } from '../../services';
 
 const StoreContext = createContext(storeContextModel);
 const { Provider } = StoreContext;
@@ -58,7 +58,7 @@ const StoreProvider = ({ children }) => {
     })();
   }, []);
 
-  const notify = (content, type = "success") => {
+  const notify = (content, type = 'success') => {
     const TYPES = {
       success: () => toast.success(content),
       error: () => toast.error(content),

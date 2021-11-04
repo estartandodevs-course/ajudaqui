@@ -1,17 +1,15 @@
-import * as S from "./ServiceEvaluationStyled";
+import * as S from './ServiceEvaluationStyled';
 
 export const ServiceEvaluation = ({
   id, click, children, $active, ...restProps
-}) => {
-  return (
-    <S.ContentEvaluation>
-      <S.IconsEvaluation
-        onClick={click}
-        {...restProps}
-      />
-      <S.DescriptionEvaluation $active={$active}>
-        {children}
-      </S.DescriptionEvaluation>
-    </S.ContentEvaluation>
-  );
-};
+}) => (
+  <S.ContentEvaluation>
+    <S.IconsEvaluation
+      onClick={click}
+      {...restProps}
+    />
+    <S.DescriptionEvaluation $active={$active}>
+      {children}
+    </S.DescriptionEvaluation>
+  </S.ContentEvaluation>
+);

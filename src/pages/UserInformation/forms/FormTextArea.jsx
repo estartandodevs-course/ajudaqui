@@ -1,15 +1,15 @@
-import { Form, TextArea, Button } from "../../../components";
-import { useAuth } from "../../../contexts";
-import { validationHealthInformation } from "../validations";
-import * as S from "./FormStyled";
+import { Form, TextArea, Button } from '../../../components';
+import { useAuth } from '../../../contexts';
+import { validationHealthInformation } from '../validations';
+import * as S from './FormStyled';
 
 export const FormTextArea = () => {
   const { user, loadingAuth, updateProfile } = useAuth();
 
   const initialValues = {
     health: {
-      medicine: user?.health.medicine || "",
-      specialConditions: user?.health.specialConditions || "",
+      medicine: user?.health.medicine || '',
+      specialConditions: user?.health.specialConditions || '',
     },
   };
 
@@ -26,7 +26,7 @@ export const FormTextArea = () => {
 
   const getValues = Object.values(initialValues.health);
 
-  const verify = !(getValues.includes("")) ? "Editar" : "Salvar";
+  const verify = !(getValues.includes('')) ? 'Editar' : 'Salvar';
 
   return (
     <Form

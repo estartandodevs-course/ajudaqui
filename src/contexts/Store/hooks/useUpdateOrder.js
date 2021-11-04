@@ -1,8 +1,8 @@
-import { useContext } from "react";
-import { StoreContext } from "..";
-import { singHelpRequest } from "../../../services/helpRequestService";
-import { orderStatusId } from "../../../utils/constants";
-import { OrderActionsTypes } from "../types";
+import { useContext } from 'react';
+import { StoreContext } from '..';
+import { singHelpRequest } from '../../../services/helpRequestService';
+import { orderStatusId } from '../../../utils/constants';
+import { OrderActionsTypes } from '../types';
 
 export const useUpdateOrder = () => {
   const { dispatch, state } = useContext(StoreContext);

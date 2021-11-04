@@ -1,1 +1,1 @@
-export { ActivityProgress } from "./ActivityProgress";
+export { ActivityProgress } from './ActivityProgress';

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const ContainerPhoto = styled.div`
   width: 75px;
@@ -10,7 +10,7 @@ export const ContainerPhoto = styled.div`
   background: ${(props) => props.theme.palette.colors.secondaryVariant};
   border: 3px solid ${(props) => props.theme.palette.colors.primary};
   cursor: pointer;
-  
+
 `;
 
 export const Photo = styled.img`

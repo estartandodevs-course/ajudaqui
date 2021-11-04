@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { theme } from "../../../styles/themes";
-import { Typography } from "../../Typography";
+import styled from 'styled-components';
+import { theme } from '../../../styles/themes';
+import { Typography } from '../../Typography';
 
 export const CardContainer = styled.div`
   display: flex;
@@ -26,7 +26,7 @@ export const Close = styled.img`
 `;
 
 export const Title = styled(Typography).attrs({
-  variant: "h2",
+  variant: 'h2',
   color: theme.palette.colors.primary,
 })`
   font-size: ${(props) => props.theme.typography.h2?.fontSize};
@@ -40,7 +40,7 @@ export const LogoImage = styled.img`
 `;
 
 export const Description = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
   font-size: ${(props) => props.theme.typography.h2?.fontSizeText};
   width: 242px;

@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { Typography, Button } from "../../components";
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { Typography, Button } from '../../components';
 
 export const ContainerLogin = styled.div`
   display: grid;
@@ -57,13 +57,13 @@ export const ContentTitle = styled.div`
 `;
 
 export const LoginTitle = styled(Typography).attrs({
-  variant: "h2",
+  variant: 'h2',
 })`
   color: ${(props) => props.theme.palette.colors.primary};
 `;
 
 export const LoginDescription = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
   font-size: ${(props) => props.theme.typography.body1.fontSizeSubtitles};
   color: ${(props) => props.theme.palette.colors.primary};
@@ -133,7 +133,7 @@ export const ContainerOnboarding = styled.div`
 `;
 
 export const TitleOnboarding = styled(Typography).attrs({
-  variant: "h2",
+  variant: 'h2',
 })`
   position: absolute;
   max-width: 75%;

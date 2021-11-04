@@ -1,5 +1,4 @@
-import styled from "styled-components";
-
+import styled from 'styled-components';
 
 export const Close = styled.img`
   margin-right: 25px;

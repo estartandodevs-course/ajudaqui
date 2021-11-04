@@ -1,33 +1,33 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
 
   @font-face {
-    font-family: "Open Sans";
-    src: url("/fonts/OpenSans-Italic.ttf");
+    font-family: 'Open Sans';
+    src: url('/fonts/OpenSans-Italic.ttf');
   }
 
   @font-face {
-    font-family: "Open Sans";
-    src: url("/fonts/OpenSans-Regular.ttf");
+    font-family: 'Open Sans';
+    src: url('/fonts/OpenSans-Regular.ttf');
   }
 
   @font-face {
-    font-family: "Roboto";
-    src: url("/fonts/Roboto-Bold.ttf");
-  
+    font-family: 'Roboto';
+    src: url('/fonts/Roboto-Bold.ttf');
+
   }
 
   @font-face {
-    font-family: "Roboto";
-    src: url("/fonts/Roboto-Medium.ttf");
-  
+    font-family: 'Roboto';
+    src: url('/fonts/Roboto-Medium.ttf');
+
   }
 
   @font-face {
-    font-family: "Roboto";
-    src: url("/fonts/Roboto-Regular.ttf");
-  
+    font-family: 'Roboto';
+    src: url('/fonts/Roboto-Regular.ttf');
+
   }
 
   * {
@@ -38,7 +38,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Open Sans', 'Roboto', sans-serif;
   }
 
-  h1, h2, p { 
+  h1, h2, p {
     margin: 0;
     line-height: 1;
   }
@@ -47,7 +47,7 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100%;
     width: 100%;
   }
-  
+
 
 `;
 

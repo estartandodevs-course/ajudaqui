@@ -1,7 +1,7 @@
-import { useContext } from "react";
-import { AuthContext } from "..";
-import { updateUserData } from "../../../services";
-import { AuthActionsTypes } from "../types";
+import { useContext } from 'react';
+import { AuthContext } from '..';
+import { updateUserData } from '../../../services';
+import { AuthActionsTypes } from '../types';
 
 export const useUpdateProfile = () => {
   const { dispatch } = useContext(AuthContext);

@@ -1,2 +1,2 @@
-export { VoluntaryModalCard } from "./VoluntaryModalCard";
-export { ElderlyModalCard } from "./ElderlyModalCard";
+export { VoluntaryModalCard } from './VoluntaryModalCard';
+export { ElderlyModalCard } from './ElderlyModalCard';

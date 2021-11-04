@@ -1,8 +1,8 @@
-import { useContext } from "react";
-import { StoreContext } from "..";
-import { singHelpRequest } from "../../../services/helpRequestService";
-import { orderStatusId } from "../../../utils/constants";
-import { OrderActionsTypes } from "../types";
+import { useContext } from 'react';
+import { StoreContext } from '..';
+import { singHelpRequest } from '../../../services/helpRequestService';
+import { orderStatusId } from '../../../utils/constants';
+import { OrderActionsTypes } from '../types';
 
 export const useCancelOrder = () => {
   const { dispatch, state, notify } = useContext(StoreContext);
@@ -29,9 +29,9 @@ export const useCancelOrder = () => {
           )),
         },
       });
-      notify("Cancelado com sucesso");
+      notify('Cancelado com sucesso');
     } catch (error) {
-      notify("Houve um erro ao cancelar a tarefa.");
+      notify('Houve um erro ao cancelar a tarefa.');
       dispatch({
         type: OrderActionsTypes.CANCEL_ORDER_ERROR,
         payload: {

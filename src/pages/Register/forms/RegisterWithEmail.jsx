@@ -1,7 +1,7 @@
-import { Form, Input, Button } from "../../../components";
-import { useAuth } from "../../../contexts";
-import { validationRegisterWithEmail } from "../validations";
-import * as S from "./RegisterStyled";
+import { Form, Input, Button } from '../../../components';
+import { useAuth } from '../../../contexts';
+import { validationRegisterWithEmail } from '../validations';
+import * as S from './RegisterStyled';
 
 const RegisterWithEmail = () => {
   const {
@@ -10,11 +10,11 @@ const RegisterWithEmail = () => {
   return (
     <Form
       initialValues={{
-        name: "",
-        email1: "",
-        email2: "",
-        password1: "",
-        password2: "",
+        name: '',
+        email1: '',
+        email2: '',
+        password1: '',
+        password2: '',
       }}
       validationSchema={validationRegisterWithEmail}
       onSubmit={async ({ name, email1, password1 }) => {

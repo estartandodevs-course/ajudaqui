@@ -1,22 +1,22 @@
-import { parseISO, differenceInMinutes } from "date-fns";
-import React, { useContext } from "react";
-import { useHistory, useParams } from "react-router-dom";
-import { useAuth, useStore } from "../../contexts";
-import { StoreContext } from "../../contexts/Store";
+import { parseISO, differenceInMinutes } from 'date-fns';
+import React, { useContext } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useAuth, useStore } from '../../contexts';
+import { StoreContext } from '../../contexts/Store';
 import {
   mappedVoluntaryCardInfoByStatus,
   orderStatusId,
   orderStatusName,
   PROFILES_TYPES,
-} from "../../utils/constants";
-import * as S from "./OrderCard.Styled";
+} from '../../utils/constants';
+import * as S from './OrderCard.Styled';
 
 export const OrderCardVoluntary = ({ helpRequest }) => {
   const { profileType } = useAuth();
   const {
     handleCancelOrder, loadingStore, elderlys,
   } = useStore();
-  const { push } = useHistory();
+  const navigation = useNavigate();
   const { handleMount } = useContext(StoreContext);
   const { helpRequestId } = useParams();
   const runningTime = differenceInMinutes(new Date(), parseISO(helpRequest?.createdAt));
@@ -33,16 +33,16 @@ export const OrderCardVoluntary = ({ helpRequest }) => {
     switch (profileType) {
       case PROFILES_TYPES.ELDERLY: {
         if (hasFinished) {
-          return push(`/screen-evaluation/${helpRequestId}`);
+          return navigation(`/screen-evaluation/${helpRequestId}`);
         }
         break;
       }
       case PROFILES_TYPES.VOLUNTARY: {
         if (hasFinished) {
-          return push(`/screen-evaluation/${helpRequestId}`);
+          return navigation(`/screen-evaluation/${helpRequestId}`);
         }
 
-        return push(`/activity-progress/${helpRequestId}`);
+        return navigation(`/activity-progress/${helpRequestId}`);
       }
       default:
         break;
@@ -70,7 +70,7 @@ export const OrderCardVoluntary = ({ helpRequest }) => {
           <S.Icon src={helpRequest?.photoURL} alt={helpRequest?.name} />
         ) : (
           <S.ImageDefault
-            src={`/assets/svg/${!isCanceled ? "icon-ok.svg" : "icon-cancelado.svg"}`}
+            src={`/assets/svg/${!isCanceled ? 'icon-ok.svg' : 'icon-cancelado.svg'}`}
             alt="Icon ok"
           />
         )}
@@ -81,10 +81,10 @@ export const OrderCardVoluntary = ({ helpRequest }) => {
       <S.ContainerSubtitle>
         <S.Subtitle as="div">
           {
-          cardData?.subTitle.includes("/") ? (
+          cardData?.subTitle.includes('/') ? (
             <>
-              <strong>{cardData?.subTitle.split("/")[0]}</strong>
-              {cardData?.subTitle.split("/")[1]}
+              <strong>{cardData?.subTitle.split('/')[0]}</strong>
+              {cardData?.subTitle.split('/')[1]}
             </>
           ) : (
             cardData?.subTitle
@@ -95,7 +95,7 @@ export const OrderCardVoluntary = ({ helpRequest }) => {
       <S.ContainerTexts>
         <S.Texts>
           SOLICITAÇÃO:
-          <S.Description>{helpRequest?.order?.option ?? ""}</S.Description>
+          <S.Description>{helpRequest?.order?.option ?? ''}</S.Description>
         </S.Texts>
         <S.Texts>
           STATUS:
@@ -112,8 +112,8 @@ export const OrderCardVoluntary = ({ helpRequest }) => {
       </S.ContainerTexts>
       {/* {isCanceled && (
         <S.CardButtom
-          width="100%"
-          borderRadius="0"
+          width='100%'
+          borderRadius='0'
           onClick={handleCancelRequest}
           isLoading={loadingStore}
           disabled={isCanceled}
@@ -146,4 +146,3 @@ export const OrderCardVoluntary = ({ helpRequest }) => {
     </S.ContainerOrderCard>
   );
 };
-

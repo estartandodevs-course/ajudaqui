@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { Typography } from "../../components";
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { Typography } from '../../components';
 
 export const ContainerSelectProfile = styled.div`
   display: grid;
@@ -62,14 +62,14 @@ export const ContentChoice = styled.div`
 `;
 
 export const TitleRegister = styled(Typography).attrs({
-  variant: "h1",
+  variant: 'h1',
 })`
   padding: 5px 0;
   color: ${(props) => props.theme.palette.colors.primary};
 `;
 
 export const ChoiceProfile = styled(Typography).attrs({
-  variant: "h2",
+  variant: 'h2',
 })`
 @media(min-width: 1200px) {
   width: 100%;

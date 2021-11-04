@@ -1,9 +1,8 @@
-import { Layout } from "../../components";
-import { RegisterWithEmail, RegisterWithPhone } from "./forms";
-import "antd/dist/antd.css";
-import * as S from "./RegisterStyled";
-import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
-
+import { Layout } from '../../components';
+import { RegisterWithEmail, RegisterWithPhone } from './forms';
+import 'antd/dist/antd.css';
+import * as S from './RegisterStyled';
+import { useWidthScreen } from '../../utils/hooks/useWidthScreen';
 
 export const Register = ({ ...restProps }) => {
   const [widthScreen] = useWidthScreen();

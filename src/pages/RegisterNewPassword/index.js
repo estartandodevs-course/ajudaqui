@@ -1,1 +1,1 @@
-export { RegisterNewPassword } from "./RegisterNewPassword";
+export { RegisterNewPassword } from './RegisterNewPassword';

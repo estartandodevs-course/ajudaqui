@@ -1,4 +1,4 @@
-import { orderStatusId } from "../../../utils/constants";
+import { orderStatusId } from '../../../utils/constants';
 
 export const orderModels = {
   order: null,
@@ -8,12 +8,12 @@ export const orderModels = {
   elderly: {
     id: null,
     evaluation: null,
-    note: "",
+    note: '',
   },
   voluntary: {
     id: null,
     evaluation: null,
-    note: "",
+    note: '',
   },
 };
 

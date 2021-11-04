@@ -1,6 +1,6 @@
-import styled, { css } from "styled-components";
-import { theme } from "../../styles/themes";
-import { Typography } from "..";
+import styled, { css } from 'styled-components';
+import { theme } from '../../styles/themes';
+import { Typography } from '..';
 
 const variants = {
   default: css`
@@ -8,15 +8,11 @@ const variants = {
     height: 80px;
     flex-direction: column;
     text-align: center;
-    background: ${(props) => {
-    return props.theme.palette.colors.gradientBackground;
-  }};
+    background: ${(props) => props.theme.palette.colors.gradientBackground};
     color: ${(props) => props.theme.palette.colors.text};
   `,
   outlined: css`
-    background: ${(props) => {
-    return props.theme.palette.colors.white;
-  }};
+    background: ${(props) => props.theme.palette.colors.white};
     box-shadow: ${(props) => props.theme.shadow};
     width: 140px;
     height: 155px;
@@ -29,9 +25,7 @@ const variants = {
     color: ${(props) => props.theme.palette.colors.text};
   `,
   secondary: css`
-    background: ${(props) => {
-    return props.theme.palette.colors.secondary;
-  }};
+    background: ${(props) => props.theme.palette.colors.secondary};
     flex-direction: column;
     width: 93px;
     height: 80px;
@@ -57,15 +51,15 @@ export const ContainerCard = styled.div`
 export const IconCard = styled.img``;
 
 export const DescriptionCard = styled(Typography).attrs({
-  variant: "body1",
-  weight: "500",
+  variant: 'body1',
+  weight: '500',
 })`
   font-size: ${(props) => props.fontSize || props.theme.typography.body1.fontSizeText};
   color: ${(props) => props.color || props.theme.palette.colors.text};
 `;
 
 export const DaysCard = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
   color: theme.palette.colors.text,
-  weight: "700",
+  weight: '700',
 })``;
