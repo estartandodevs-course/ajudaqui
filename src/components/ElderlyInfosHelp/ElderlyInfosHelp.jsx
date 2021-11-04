@@ -1,14 +1,13 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
-import { EMERGENCY_MESSAGE } from "../../utils/constants";
-import * as S from "./ElderlyInfosHelpStyled";
+import { useNavigate } from 'react-router-dom';
+import { EMERGENCY_MESSAGE } from '../../utils/constants';
+import * as S from './ElderlyInfosHelpStyled';
 
 export const ElderlyInfosHelp = ({ elderlyInfos, helpRequestId }) => {
   const {
     name, health, contacts, photoURL,
   } = elderlyInfos;
 
-  const { push } = useHistory();
+  const navigation = useNavigate();
 
   return (
     <S.Card>
@@ -32,7 +31,7 @@ export const ElderlyInfosHelp = ({ elderlyInfos, helpRequestId }) => {
       </S.ContainerProfile>
       <S.ContainerProblem>
         <S.Texts>
-          {health.specialConditions && "Possui"}
+          {health.specialConditions && 'Possui'}
           <S.Problem>
             {health.specialConditions}
           </S.Problem>
@@ -47,7 +46,7 @@ export const ElderlyInfosHelp = ({ elderlyInfos, helpRequestId }) => {
           Medicamentos:
         </S.TextsTitles>
         {health.medicine.length > 0
-        && health?.medicine?.split("; ").map((medicine) => (
+        && health?.medicine?.split('; ').map((medicine) => (
           <S.Texts key={medicine}>
             {medicine}
           </S.Texts>
@@ -86,7 +85,7 @@ export const ElderlyInfosHelp = ({ elderlyInfos, helpRequestId }) => {
       <S.ContentButtom
         borderRadius="0"
         onClick={() => {
-          push(`/order-status/${helpRequestId}`);
+          navigation(`/order-status/${helpRequestId}`);
         }}
       >
         IR AO LOCAL

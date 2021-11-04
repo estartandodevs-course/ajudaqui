@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useHistory, useLocation } from "react-router-dom";
-import { useAuth } from "../../contexts";
-import { TabBarLinks } from "../../_mock";
-import * as S from "./TabBarStyled";
+import { useEffect, useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useAuth } from '../../contexts';
+import { TabBarLinks } from '../../mocks';
+import * as S from './TabBarStyled';
 
 export const TabBar = () => {
   const [currentRoute, setCurrentRoute] = useState(1);
@@ -10,7 +10,7 @@ export const TabBar = () => {
   const { pathname } = useLocation();
 
   const { profileType } = useAuth();
-  const { push } = useHistory();
+  const navigation = useNavigate();
 
   useEffect(() => {
     const activeRoute = TabBarLinks[profileType].find((tabData) => tabData.path === pathname);
@@ -27,7 +27,7 @@ export const TabBar = () => {
         {TabBarLinks[profileType].map((tabBarLink) => (
           <S.IconContent
             key={tabBarLink.key}
-            onClick={() => !tabBarLink?.noActive && push(tabBarLink.path)}
+            onClick={() => !tabBarLink?.noActive && navigation(tabBarLink.path)}
             $containerPosition={tabBarLink.containerPosition === currentContainer}
           >
             <S.ImageIcon

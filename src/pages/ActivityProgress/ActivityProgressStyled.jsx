@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Typography } from "../../components";
+import styled from 'styled-components';
+import { Typography } from '../../components';
 
 export const ContainerDesktop = styled.div`
   display: grid;
@@ -31,7 +31,6 @@ export const ImageAside = styled.img`
   right: 0;
 `;
 
-
 export const ContainerPage = styled.div`
   display: flex;
   flex-direction: column;
@@ -50,7 +49,7 @@ export const ContainerText = styled.div`
 `;
 
 export const Title = styled(Typography).attrs({
-  variant: "h2",
+  variant: 'h2',
 })`
   color: ${(props) => props.theme.palette.colors.primaryVariant};
 
@@ -60,7 +59,7 @@ export const Title = styled(Typography).attrs({
 `;
 
 export const Subtitle = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
   text-align: center;
   color: ${(props) => props.theme.palette.colors.text};
@@ -72,7 +71,7 @@ export const Subtitle = styled(Typography).attrs({
 `;
 
 export const Paragraph = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
   color: ${(props) => props.theme.palette.colors.text};
   font-weight: 700;

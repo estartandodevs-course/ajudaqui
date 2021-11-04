@@ -1,4 +1,4 @@
-import { firebaseAuth } from "./config";
+import { firebaseAuth } from './config';
 
 export const emailProviderRegister = async ({ email, password }) => {
   const result = await firebaseAuth.createUserWithEmailAndPassword(email, password);

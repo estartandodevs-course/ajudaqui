@@ -1,9 +1,8 @@
-import React from "react";
-import { useAuth, useStore } from "../../../contexts";
-import { Layout, HelpRequestCard } from "../../../components";
-import * as S from "./HomeScreenOfTheVoluntaryStyled";
-import { useWidthScreen } from "../../../utils/hooks/useWidthScreen";
-import { orderStatusId } from "../../../utils/constants";
+import { useAuth, useStore } from '../../../contexts';
+import { Layout, HelpRequestCard } from '../../../components';
+import * as S from './HomeScreenOfTheVoluntaryStyled';
+import { useWidthScreen } from '../../../utils/hooks/useWidthScreen';
+import { orderStatusId } from '../../../utils/constants';
 
 export const HomeScreenOfTheVoluntary = () => {
   const [widthScreen] = useWidthScreen();
@@ -30,10 +29,9 @@ export const HomeScreenOfTheVoluntary = () => {
 
   getOpenHelpRequests?.forEach((item) => {
     if (!elderlysNeedHelp.includes(item?.elderly?.id)) {
-      elderlysNeedHelp.push(item?.elderly?.id);
+      elderlysNeedHelp.navigation(item?.elderly?.id);
     }
   });
-
 
   return (
     <Layout hasTabBar showNavigation={showNavigation}>
@@ -53,15 +51,13 @@ export const HomeScreenOfTheVoluntary = () => {
             </S.LocationText>
           </S.HelpAvailable>
           <S.ContainerHelpCard>
-            {getOpenHelpRequests.map((help) => {
-              return (
-                <HelpRequestCard
-                  key={help.id}
-                  helpRequestData={help}
-                  isVoluntary={help?.voluntary?.id === user?.id}
-                />
-              );
-            })}
+            {getOpenHelpRequests.map((help) => (
+              <HelpRequestCard
+                key={help.id}
+                helpRequestData={help}
+                isVoluntary={help?.voluntary?.id === user?.id}
+              />
+            ))}
           </S.ContainerHelpCard>
         </S.ContainerPage>
 

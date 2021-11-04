@@ -1,14 +1,14 @@
-import { useEffect } from "react";
-import { useHistory } from "react-router-dom";
-import { Layout, Carousel } from "../../components";
-import { FormLogin } from "./forms";
-import { onboardingDataDesktop } from "../../_mock";
-import { useAuth } from "../../contexts";
-import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
-import * as S from "./LoginStyled";
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Layout, Carousel } from '../../components';
+import { FormLogin } from './forms';
+import { onboardingDataDesktop } from '../../mocks';
+import { useAuth } from '../../contexts';
+import { useWidthScreen } from '../../utils/hooks/useWidthScreen';
+import * as S from './LoginStyled';
 
 export const Login = () => {
-  const { push } = useHistory();
+  const navigation = useNavigate();
   const [widthScreen] = useWidthScreen();
 
   const showNavigation = widthScreen < 1200;
@@ -20,10 +20,9 @@ export const Login = () => {
     loginGoogle,
   } = useAuth();
 
-
   useEffect(() => {
     if (user.id) {
-      push("/");
+      navigation('/');
     }
   }, [user]);
   return (

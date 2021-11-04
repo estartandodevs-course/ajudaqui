@@ -1,1 +1,1 @@
-export { SelectProfile } from "./SelectProfile";
+export { SelectProfile } from './SelectProfile';

@@ -1,6 +1,5 @@
-import { Progress } from "antd";
-import { useEffect, useState } from "react";
-
+import { Progress } from 'antd';
+import { useEffect, useState } from 'react';
 
 export const SpinnerTime = ({ start = false, setStart = () => {} }) => {
   const [state, setState] = useState({

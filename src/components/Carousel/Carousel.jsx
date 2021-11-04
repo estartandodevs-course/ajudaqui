@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
-import * as S from "./CarouselStyled";
+import { useEffect, useRef } from 'react';
+import * as S from './CarouselStyled';
 
 export const Carousel = ({
   height,
@@ -23,9 +23,7 @@ export const Carousel = ({
     }
   };
 
-  useEffect(() => {
-    return clearTimeout(resetTimeout);
-  }, []);
+  useEffect(() => clearTimeout(resetTimeout), []);
 
   return (
     <S.ContainerCarousel

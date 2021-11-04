@@ -1,7 +1,7 @@
-import { emailProviderLogin, emailProviderRegister } from "./firebase/authEmail";
-import { googleProviderLogin } from "./firebase/authGoogle";
-import { getByKey, save, update } from "./firebase/handlers";
-import { http } from "./http";
+import { emailProviderLogin, emailProviderRegister } from './firebase/authEmail';
+import { googleProviderLogin } from './firebase/authGoogle';
+import { getByKey, save, update } from './firebase/handlers';
+import { http } from './http';
 
 const basePath = process.env.REACT_APP_FB_BASE_PATH;
 
@@ -19,12 +19,12 @@ export const loginWithGoogle = async (profileType, profileData) => {
     );
 
     http.post(
-      "new-user-ajudaqui",
+      'new-user-ajudaqui',
       {
         userEmail: newUser.email,
       },
       {
-        baseURL: "https://poker-champioship.herokuapp.com/",
+        baseURL: 'https://poker-champioship.herokuapp.com/',
       },
     );
 
@@ -36,7 +36,7 @@ export const loginWithGoogle = async (profileType, profileData) => {
 
   const userData = await getByKey(
     `${basePath}/${profileType}s`,
-    "email",
+    'email',
     user.email,
   );
 
@@ -64,12 +64,12 @@ export const registerWithEmailAndPassword = async (credentials, profileType, pro
     );
 
     http.post(
-      "new-user-ajudaqui",
+      'new-user-ajudaqui',
       {
         userEmail: newUser.email,
       },
       {
-        baseURL: "https://poker-champioship.herokuapp.com/",
+        baseURL: 'https://poker-champioship.herokuapp.com/',
       },
     );
 
@@ -81,7 +81,7 @@ export const registerWithEmailAndPassword = async (credentials, profileType, pro
 
   const userData = await getByKey(
     `${basePath}/${profileType}s`,
-    "email",
+    'email',
     user.email,
   );
 
@@ -112,7 +112,7 @@ export const loginWithEmailAndPassword = async (credentials, profileType, profil
 
   const userData = await getByKey(
     `${basePath}/${profileType}s`,
-    "email",
+    'email',
     user.email,
   );
 

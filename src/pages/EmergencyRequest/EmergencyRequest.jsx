@@ -1,8 +1,8 @@
-import { useParams } from "react-router-dom";
-import { ElderlyInfosHelp, Layout } from "../../components";
-import * as S from "./EmergencyRequestStyled";
-import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
-import { useStore } from "../../contexts";
+import { useParams } from 'react-router-dom';
+import { ElderlyInfosHelp, Layout } from '../../components';
+import * as S from './EmergencyRequestStyled';
+import { useWidthScreen } from '../../utils/hooks/useWidthScreen';
+import { useStore } from '../../contexts';
 
 export const EmergencyRequest = () => {
   const [widthScreen] = useWidthScreen();

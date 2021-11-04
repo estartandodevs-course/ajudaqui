@@ -1,9 +1,9 @@
-import { useParams } from "react-router-dom";
-import { Layout, OrderCard } from "../../components";
-import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
-import { useAuth, useStore } from "../../contexts";
-import * as S from "./OrderStatusStyled";
-import { orderStatusId, PROFILES_TYPES } from "../../utils/constants";
+import { useParams } from 'react-router-dom';
+import { Layout, OrderCard } from '../../components';
+import { useWidthScreen } from '../../utils/hooks/useWidthScreen';
+import { useAuth, useStore } from '../../contexts';
+import * as S from './OrderStatusStyled';
+import { orderStatusId, PROFILES_TYPES } from '../../utils/constants';
 
 export const OrderStatus = () => {
   const [widthScreen] = useWidthScreen();
@@ -27,14 +27,14 @@ export const OrderStatus = () => {
             {profileType === PROFILES_TYPES.ELDERLY
               && isCanceled
               && !hasConcluded
-              && "Por favor, aguarde."}
+              && 'Por favor, aguarde.'}
           </S.Title>
           <OrderCard helpRequest={getHelpRequests} />
           <S.Subtitle>
             {profileType === PROFILES_TYPES.ELDERLY
               && isCanceled
               && !hasConcluded
-              && "Você pode fechar essa tela, avisaremos quando o voluntário chegar."}
+              && 'Você pode fechar essa tela, avisaremos quando o voluntário chegar.'}
           </S.Subtitle>
         </S.ContainerPage>
         <S.Aside>

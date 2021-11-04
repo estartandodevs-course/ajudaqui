@@ -1,5 +1,5 @@
-import { useWidthScreen } from "../../../utils/hooks/useWidthScreen";
-import * as S from "./ElderlyModalCardStyled";
+import { useWidthScreen } from '../../../utils/hooks/useWidthScreen';
+import * as S from './ElderlyModalCardStyled';
 
 export const ElderlyModalCard = ({ onClick }) => {
   const [widthScreen] = useWidthScreen();

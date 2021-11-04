@@ -1,1 +1,1 @@
-export { HomeScreenOfTheVoluntary } from "./HomeScreenOfTheVoluntary";
+export { HomeScreenOfTheVoluntary } from './HomeScreenOfTheVoluntary';

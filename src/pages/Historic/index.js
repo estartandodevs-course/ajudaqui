@@ -1,1 +1,1 @@
-export { HistoricPage } from "./Historic";
+export { HistoricPage } from './Historic';

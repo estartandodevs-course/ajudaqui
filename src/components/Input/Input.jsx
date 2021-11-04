@@ -1,8 +1,7 @@
-import React from "react";
-import { useField, useFormikContext } from "formik";
-import PropTypes from "prop-types";
-import { masks } from "../../utils/masks";
-import * as S from "./InputStyles";
+import { useField, useFormikContext } from 'formik';
+import PropTypes from 'prop-types';
+import { masks } from '../../utils/masks';
+import * as S from './InputStyles';
 
 export const Input = ({
   label, mask, name, id, ...props
@@ -12,7 +11,7 @@ export const Input = ({
 
   const handleChange = (e) => {
     const { target } = e;
-    const maskedValue = masks[mask || "standard"](target?.value || "");
+    const maskedValue = masks[mask || 'standard'](target?.value || '');
     setFieldValue(name, maskedValue);
   };
   return (

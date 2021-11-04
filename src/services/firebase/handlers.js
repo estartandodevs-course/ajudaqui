@@ -1,4 +1,4 @@
-import { firebaseDatabase } from "./config";
+import { firebaseDatabase } from './config';
 
 export const save = async (path, body) => {
   const query = await firebaseDatabase
@@ -16,15 +16,14 @@ export const save = async (path, body) => {
   return newData;
 };
 
-
-export const getByKey = async (path, key = "", value = "") => {
+export const getByKey = async (path, key = '', value = '') => {
   const list = [];
   const query = await firebaseDatabase
     .collection(path)
-    .where(`${key}`, "==", `${value}`)
+    .where(`${key}`, '==', `${value}`)
     .get();
 
-  query.forEach((snapshot) => list.push({
+  query.forEach((snapshot) => list.navigation({
     ...(snapshot.data()),
     id: snapshot.id,
   }));
@@ -48,7 +47,7 @@ export const fetch = async (path) => {
     .collection(path)
     .get();
 
-  query.forEach((snapshot) => list.push({
+  query.forEach((snapshot) => list.navigation({
     ...(snapshot.data()),
     id: snapshot.id,
   }));

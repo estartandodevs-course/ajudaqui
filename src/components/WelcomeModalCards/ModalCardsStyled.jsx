@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { theme } from "../../styles/themes";
-import { Typography } from "../Typography";
+import styled from 'styled-components';
+import { theme } from '../../styles/themes';
+import { Typography } from '../Typography';
 
 export const CardContainer = styled.div`
   display: flex;
@@ -9,7 +9,7 @@ export const CardContainer = styled.div`
   width: 312px;
   height: 358px;
   border-radius: 10px;
-  background-color: ${(props) => props.theme.palette.colors.white};
+  background-color: ${theme.palette.colors.white};
   margin-bottom: 20px;
 `;
 export const Close = styled.img`
@@ -20,10 +20,10 @@ export const Close = styled.img`
 `;
 
 export const Title = styled(Typography).attrs({
-  variant: "h2",
+  variant: 'h2',
   color: theme.palette.colors.primary,
 })`
-  font-size: ${(props) => props.theme.typography.h2?.fontSize};
+  font-size: ${theme.typography.h2?.fontSize};
   margin-top: 13px;
 `;
 
@@ -34,9 +34,9 @@ export const LogoImage = styled.img`
 `;
 
 export const Description = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
-  font-size: ${(props) => props.theme.typography.h2?.fontSizeText};
+  font-size: ${theme.typography.h2?.fontSizeText};
   width: 242px;
   margin-top: 24px;
 `;
@@ -47,6 +47,6 @@ export const ArrowDown = styled.img`
 `;
 
 export const Span = styled.span`
-  color: ${(props) => props.theme.palette.colors.emergency};
+  color: ${theme.palette.colors.emergency};
   font-weight: 700;
 `;

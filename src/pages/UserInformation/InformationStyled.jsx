@@ -1,6 +1,6 @@
-import { Tabs } from "antd";
-import styled from "styled-components";
-import { Typography } from "../../components";
+import { Tabs } from 'antd';
+import styled from 'styled-components';
+import { Typography } from '../../components';
 
 const { TabPane } = Tabs;
 
@@ -65,7 +65,7 @@ export const ImgProfile = styled.img`
 `;
 
 export const ProfilePhotoText = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
   font-size: ${(props) => props.theme.typography.body1.fontSizeSubtitles};
   margin: 0;
@@ -73,7 +73,7 @@ export const ProfilePhotoText = styled(Typography).attrs({
 `;
 
 export const UserInformationTitle = styled(Typography).attrs({
-  variant: "h2",
+  variant: 'h2',
 })`
   color: ${(props) => props.theme.palette.colors.primary};
   margin-bottom: 20px;

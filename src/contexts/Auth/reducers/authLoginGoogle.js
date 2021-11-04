@@ -1,5 +1,4 @@
-
-import { AuthActionsTypes } from "../types";
+import { AuthActionsTypes } from '../types';
 
 export const AuthLoginGoogleReducer = () => {
   const REDUCERS = {
@@ -38,5 +37,3 @@ export const AuthLoginGoogleReducer = () => {
   };
   return REDUCERS;
 };
-
-

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const LayoutWrapper = styled.div`
   display: flex;
@@ -20,6 +20,6 @@ export const LayoutMainContent = styled.main`
   flex: 1;
   overflow-y: auto;
   @media(min-width: 1200px){
-    padding-left: ${({ $hasTabBar }) => $hasTabBar && "95px"};
+    padding-left: ${({ $hasTabBar }) => $hasTabBar && '95px'};
   }
 `;

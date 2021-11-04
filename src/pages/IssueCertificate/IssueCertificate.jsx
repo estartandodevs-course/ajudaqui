@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
-import { Layout, Button } from "../../components";
-import * as S from "./IssueCertificateStyled";
-import { certificateDatas } from "../../_mock";
-import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
-import { PROFILES_TYPES } from "../../utils/constants";
-import { useAuth } from "../../contexts";
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Layout, Button } from '../../components';
+import * as S from './IssueCertificateStyled';
+import { certificateDatas } from '../../mocks';
+import { useWidthScreen } from '../../utils/hooks/useWidthScreen';
+import { PROFILES_TYPES } from '../../utils/constants';
+import { useAuth } from '../../contexts';
 
 export const IssueCertificate = (props) => {
   const { hours = 30 } = props;
 
-  const { push } = useHistory();
+  const navigation = useNavigate();
   const { profileType, user } = useAuth();
 
   const [widthScreen] = useWidthScreen();
@@ -21,7 +21,7 @@ export const IssueCertificate = (props) => {
 
   useEffect(() => {
     if (profileType === PROFILES_TYPES.ELDERLY) {
-      push("/");
+      navigation('/');
     }
   }, []);
   return (
@@ -32,7 +32,7 @@ export const IssueCertificate = (props) => {
           <S.Paragraph>
             {!start
               ? `Você possui um total de ${hours}hrs de voluntariado, deseja emitir seu certificado?`
-              : "Infelizmente você não possui horas de voluntariado suficiente. Vamos ajudar alguém?"}
+              : 'Infelizmente você não possui horas de voluntariado suficiente. Vamos ajudar alguém?'}
           </S.Paragraph>
           <S.ContainerImage>
             <S.ImageLogo src="/assets/images/logo.png" alt="Logo" />
@@ -42,9 +42,9 @@ export const IssueCertificate = (props) => {
             onClick={() => {
               setStart(!start);
             }}
-            background={start ? "#F9F7FB" : undefined}
-            color={start ? "#47454F" : undefined}
-            textShadow={start ? "0px 4px 4px rgba(78, 54, 129, 0.3)" : undefined}
+            background={start ? '#F9F7FB' : undefined}
+            color={start ? '#47454F' : undefined}
+            textShadow={start ? '0px 4px 4px rgba(78, 54, 129, 0.3)' : undefined}
           >
             Emitir certificado
           </Button>

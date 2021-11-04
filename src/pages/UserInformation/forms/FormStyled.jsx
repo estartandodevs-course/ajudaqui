@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Typography } from "../../../components";
+import styled from 'styled-components';
+import { Typography } from '../../../components';
 
 export const TextAreaContainer = styled.div`
   display: flex;
@@ -36,7 +36,7 @@ export const ButtonContainer = styled.div`
 `;
 
 export const TextAreaTitle = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
   padding-bottom: 4px;
   font-weight: 700;

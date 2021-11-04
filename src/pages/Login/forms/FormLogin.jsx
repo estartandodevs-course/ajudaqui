@@ -1,14 +1,14 @@
-import { useState } from "react";
-import { Input, Form, Button } from "../../../components";
-import { validationLogin } from "../validation";
-import { useAuth } from "../../../contexts";
-import * as S from "../LoginStyled";
+import { useState } from 'react';
+import { Input, Form, Button } from '../../../components';
+import { validationLogin } from '../validation';
+import { useAuth } from '../../../contexts';
+import * as S from '../LoginStyled';
 
 export const FormLogin = () => {
   const [isEmail, setIsEmail] = useState(false);
 
   const onChangeEmailPhone = (e) => {
-    const email = e.target.value.includes("@");
+    const email = e.target.value.includes('@');
     if (email) {
       setIsEmail(true);
     } else setIsEmail(false);
@@ -23,8 +23,8 @@ export const FormLogin = () => {
   return (
     <Form
       initialValues={{
-        emailOrPhone: "",
-        password: "",
+        emailOrPhone: '',
+        password: '',
       }}
       validationSchema={validationLogin}
       onSubmit={async ({ emailOrPhone, password }) => {

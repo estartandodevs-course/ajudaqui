@@ -1,3 +1,3 @@
-import { SelectProfileType } from "./SelectProfileType";
+import { SelectProfileType } from './SelectProfileType';
 
 export { SelectProfileType };

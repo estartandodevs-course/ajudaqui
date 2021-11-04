@@ -1,17 +1,15 @@
-import { useField, useFormikContext } from "formik";
-import Select, { components } from "react-select";
-import * as S from "./SelectStyled";
-import { customStyles } from "./SelectStyled";
+import { useField, useFormikContext } from 'formik';
+import Select, { components } from 'react-select';
+import * as S from './SelectStyled';
+import { customStyles } from './SelectStyled';
 
 const DropdownIndicator = (
   props,
-) => {
-  return (
-    <components.DropdownIndicator {...props}>
-      <S.IconSelect src="/assets/svg/arrow.svg" alt="arrow" />
-    </components.DropdownIndicator>
-  );
-};
+) => (
+  <components.DropdownIndicator {...props}>
+    <S.IconSelect src="/assets/svg/arrow.svg" alt="arrow" />
+  </components.DropdownIndicator>
+);
 
 export const InputSelect = ({
   options = [], name, id, label, ...restProps
@@ -37,4 +35,3 @@ export const InputSelect = ({
     </S.SelectWrapper>
   );
 };
-

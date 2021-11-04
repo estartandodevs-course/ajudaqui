@@ -1,18 +1,17 @@
-
-import { Formik, Form, FieldArray } from "formik";
-import { Button, Input } from "../../../components";
-import { Contacts } from "./Contacts";
-import * as S from "./FormStyled";
-import { useAuth } from "../../../contexts";
+import { Formik, Form, FieldArray } from 'formik';
+import { Button, Input } from '../../../components';
+import { Contacts } from './Contacts';
+import * as S from './FormStyled';
+import { useAuth } from '../../../contexts';
 
 export const FormContacts = () => {
   const { user, loadingAuth, updateProfile } = useAuth();
 
   const initialValues = {
     contacts: user.contacts || [{
-      name: "",
-      kinship: "",
-      phone: "",
+      name: '',
+      kinship: '',
+      phone: '',
     }],
   };
 
@@ -27,7 +26,7 @@ export const FormContacts = () => {
     );
   };
 
-  const verify = !(user.contacts) ? "Editar" : "Salvar";
+  const verify = !(user.contacts) ? 'Editar' : 'Salvar';
 
   return (
     <Formik
@@ -39,10 +38,10 @@ export const FormContacts = () => {
       {({ values }) => (
         <Form
           style={{
-            width: "100%",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
+            width: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
           }}
         >
           <FieldArray
@@ -74,10 +73,10 @@ export const FormContacts = () => {
                     </Contacts>
                   ))
                 )}
-                <S.NewContact onClick={() => arrayHelpers.push({
-                  name: "",
-                  kinship: "",
-                  phone: "",
+                <S.NewContact onClick={() => arrayHelpers.navigation({
+                  name: '',
+                  kinship: '',
+                  phone: '',
                 })}
                 >
                   NOVO CONTATO

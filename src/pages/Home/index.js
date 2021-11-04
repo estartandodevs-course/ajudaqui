@@ -1,10 +1,9 @@
-import React from "react";
-import { SplashScreen, Layout } from "../../components";
-import { useAuth } from "../../contexts";
-import { PROFILES_TYPES } from "../../utils/constants";
-import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
-import { HomeScreenOfTheElderly } from "./HomeScreenOfTheElderly/HomeScreenOfTheElderly";
-import { HomeScreenOfTheVoluntary } from "./HomeScreenOfTheVoluntary";
+import { SplashScreen, Layout } from '../../components';
+import { useAuth } from '../../contexts';
+import { PROFILES_TYPES } from '../../utils/constants';
+import { useWidthScreen } from '../../utils/hooks/useWidthScreen';
+import { HomeScreenOfTheElderly } from './HomeScreenOfTheElderly/HomeScreenOfTheElderly';
+import { HomeScreenOfTheVoluntary } from './HomeScreenOfTheVoluntary';
 
 export const Home = () => {
   const { profileType, isAuthenticated } = useAuth();

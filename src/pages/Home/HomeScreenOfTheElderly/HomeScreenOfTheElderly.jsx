@@ -1,19 +1,21 @@
-import React, { useEffect } from "react";
-import { useHistory } from "react-router-dom";
-import * as S from "./HomeScreenOfTheElderlyStyled";
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useTheme } from 'styled-components';
+import * as S from './HomeScreenOfTheElderlyStyled';
 import {
   UserOverview, Card, Button, Layout, ElderlyModalCard,
-} from "../../../components";
-import { useWidthScreen } from "../../../utils/hooks/useWidthScreen";
-import { useModal, useStore, useAuth } from "../../../contexts";
-import { userSchema } from "./validationModalCompleteProfile";
+} from '../../../components';
+import { useWidthScreen } from '../../../utils/hooks/useWidthScreen';
+import { useModal, useStore, useAuth } from '../../../contexts';
+import { userSchema } from './validationModalCompleteProfile';
 
 export const HomeScreenOfTheElderly = () => {
+  const theme = useTheme();
   const { user } = useAuth();
   const [widthScreen] = useWidthScreen();
   const { handleCreateOrder, loadingStore, helpRequests } = useStore();
   const showNavigation = widthScreen < 1200;
-  const { push } = useHistory();
+  const navigation = useNavigate();
 
   const { showModal, setIsOpen } = useModal();
 
@@ -29,13 +31,13 @@ export const HomeScreenOfTheElderly = () => {
   const handleSubmit = async () => {
     await handleCreateOrder({
       order: {
-        option: "EMERGÊNCIA",
-        key: "emergency",
+        option: 'EMERGÊNCIA',
+        key: 'emergency',
       },
       elderly: {
         id: user.id,
         evaluation: null,
-        note: "",
+        note: '',
       },
     });
   };
@@ -83,7 +85,7 @@ export const HomeScreenOfTheElderly = () => {
                 src="/assets/svg/icon texto.svg"
                 color="#fff"
                 fontSize="14px"
-                onClick={() => push("/ask-for-help")}
+                onClick={() => navigation('/ask-for-help')}
               >
                 POR TEXTO
               </Card>
@@ -101,8 +103,8 @@ export const HomeScreenOfTheElderly = () => {
                 src="/assets/svg/icon saude.svg"
                 color="#fff"
                 fontSize="14px"
-                onClick={() => push("/user-information", {
-                  defaultActiveKey: "2",
+                onClick={() => navigation('/user-information', {
+                  defaultActiveKey: '2',
                 })}
               >
                 DADOS DE SAÚDE
@@ -112,8 +114,8 @@ export const HomeScreenOfTheElderly = () => {
                 src="/assets/svg/icon contato.svg"
                 color="#fff"
                 fontSize="14px"
-                onClick={() => push("/user-information", {
-                  defaultActiveKey: "3",
+                onClick={() => navigation('/user-information', {
+                  defaultActiveKey: '3',
                 })}
               >
                 AGENDA DE CONTATOS
@@ -132,7 +134,7 @@ export const HomeScreenOfTheElderly = () => {
             </S.Paragraph2>
             <S.PositionButton>
               <Button
-                background={(props) => props.theme.palette.colors.emergency}
+                background={theme.palette.colors.emergency}
                 isLoading={loadingStore}
                 onClick={handleSubmit}
               >
@@ -153,7 +155,7 @@ export const HomeScreenOfTheElderly = () => {
             </S.Subtitle>
           </S.TextContainer>
           <Button
-            background={(props) => props.theme.palette.colors.emergency}
+            background={theme.palette.colors.emergency}
             isLoading={loadingStore}
             onClick={handleSubmit}
           >

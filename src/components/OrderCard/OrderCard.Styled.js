@@ -1,9 +1,8 @@
-import styled, { keyframes, css } from "styled-components";
-import { Reload } from "@styled-icons/ionicons-outline/";
-import { theme } from "../../styles/themes";
-import { Typography } from "../Typography";
-import { Button } from "../ButtonComponent";
-
+import styled, { keyframes, css } from 'styled-components';
+import { Reload } from '@styled-icons/ionicons-outline/';
+import { theme } from '../../styles/themes';
+import { Typography } from '../Typography';
+import { Button } from '../ButtonComponent';
 
 const rotate = keyframes`
   from {
@@ -19,7 +18,6 @@ const reload = css`
   animation: ${rotate} 2s linear infinite;
 `;
 
-
 export const ReloadCard = styled(Reload)`
   cursor: pointer;
   max-width: 30px;
@@ -31,7 +29,6 @@ export const ReloadCard = styled(Reload)`
   right: 0;
   color: ${(props) => props.theme.palette.colors.primaryVariant};
 `;
-
 
 export const ContainerOrderCard = styled.div`
   width: 312px;
@@ -67,7 +64,7 @@ export const ContainerTitle = styled.div`
 `;
 
 export const Title = styled(Typography).attrs({
-  variant: "h1",
+  variant: 'h1',
   color: theme.palette.colors.text,
 })`
   text-align: center;
@@ -81,7 +78,7 @@ export const ContainerSubtitle = styled.div`
 `;
 
 export const Subtitle = styled(Typography).attrs({
-  variant: "h2",
+  variant: 'h2',
   color: theme.palette.colors.dark.gray,
 })`
   font-size: 16px;
@@ -90,8 +87,8 @@ export const Subtitle = styled(Typography).attrs({
 `;
 
 export const Texts = styled(Typography).attrs({
-  variant: "body1",
-  as: "div",
+  variant: 'body1',
+  as: 'div',
 })`
   display: flex;
   flex-direction: row;
@@ -103,7 +100,7 @@ export const Texts = styled(Typography).attrs({
 `;
 
 export const Description = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
   color: theme.palette.colors.light.gray,
 })`
   align-self: center;

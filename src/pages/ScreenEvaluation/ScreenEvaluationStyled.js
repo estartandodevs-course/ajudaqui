@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Typography } from "../../components";
+import styled from 'styled-components';
+import { Typography } from '../../components';
 
 export const ContainerDesktop = styled.div`
   display: grid;
@@ -63,7 +63,7 @@ export const ContainerEvaluation = styled.div`
 `;
 
 export const TitleHelp = styled(Typography).attrs({
-  variant: "h2",
+  variant: 'h2',
 })`
   color: ${(props) => props.theme.palette.colors.primaryVariant};
 
@@ -73,7 +73,7 @@ export const TitleHelp = styled(Typography).attrs({
 `;
 
 export const DescriptionPersonHelp = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
   font-weight: 700;
   max-width: 190px;
@@ -99,7 +99,7 @@ export const ContentEvaluation = styled.div`
 `;
 
 export const NamePersonHelp = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
   margin-top: 16px;
   @media (min-width: 1200px) {

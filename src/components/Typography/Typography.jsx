@@ -1,6 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Typographies } from "./TypographyStyled";
+import PropTypes from 'prop-types';
+import { Typographies } from './TypographyStyled';
 
 const Typography = (
   {
@@ -26,7 +25,7 @@ Typography.propTypes = {
 };
 
 Typography.defaultProps = {
-  variant: "h1",
+  variant: 'h1',
 
 };
 

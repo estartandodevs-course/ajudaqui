@@ -1,8 +1,8 @@
-import { useContext } from "react";
-import { StoreContext } from "..";
-import { createHelpRequest } from "../../../services/helpRequestService";
-import { OrderActionsTypes } from "../types";
-import { orderModels } from "../models";
+import { useContext } from 'react';
+import { StoreContext } from '..';
+import { createHelpRequest } from '../../../services/helpRequestService';
+import { OrderActionsTypes } from '../types';
+import { orderModels } from '../models';
 
 export const useCreateOrder = () => {
   const { state, dispatch, notify } = useContext(StoreContext);
@@ -25,7 +25,7 @@ export const useCreateOrder = () => {
           helpRequests: [...state.helpRequests, helpRequest],
         },
       });
-      notify("Pedido de ajuda enviado");
+      notify('Pedido de ajuda enviado');
       if (callback) callback(helpRequest.id);
     } catch (error) {
       dispatch({

@@ -1,2 +1,2 @@
-export { RegisterWithEmail } from "./RegisterWithEmail";
-export { RegisterWithPhone } from "./RegisterWithPhone";
+export { RegisterWithEmail } from './RegisterWithEmail';
+export { RegisterWithPhone } from './RegisterWithPhone';

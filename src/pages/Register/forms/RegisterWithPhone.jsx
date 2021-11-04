@@ -1,7 +1,7 @@
-import { Form, Input, Button } from "../../../components";
-import { useAuth } from "../../../contexts";
-import { validationRegisterWithPhone } from "../validations";
-import * as S from "./RegisterStyled";
+import { Form, Input, Button } from '../../../components';
+import { useAuth } from '../../../contexts';
+import { validationRegisterWithPhone } from '../validations';
+import * as S from './RegisterStyled';
 
 export const RegisterWithPhone = () => {
   const { profileType } = useAuth();
@@ -10,11 +10,11 @@ export const RegisterWithPhone = () => {
     <Form
       initialValues={{
         typeProfile: profileType,
-        name: "",
-        phone1: "",
-        phone2: "",
-        password1: "",
-        password2: "",
+        name: '',
+        phone1: '',
+        phone2: '',
+        password1: '',
+        password2: '',
       }}
       validationSchema={validationRegisterWithPhone}
     >

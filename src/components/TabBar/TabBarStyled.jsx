@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { theme } from "../../styles/themes";
-import { Typography } from "..";
+import styled from 'styled-components';
+import { theme } from '../../styles/themes';
+import { Typography } from '..';
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -95,12 +95,12 @@ export const ImageIcon = styled.img`
     margin-left: 15px;
     filter: ${(props) => (props.$containerPosition
     ? `${props} => ${props.theme.palette.colors.gradientBackground} 1`
-    : "brightness(100)")};
+    : 'brightness(100)')};
   }
 `;
 
 export const DescriptionIcon = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
   color: theme.palette.colors.primary,
 })`
   font-size: ${(props) => props.theme.typography.body1?.fontSizeSubtitles};

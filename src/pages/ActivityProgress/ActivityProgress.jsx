@@ -1,13 +1,13 @@
-import { useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
-import { Layout, SpinnerTime, Button } from "../../components";
-import { useStore } from "../../contexts";
-import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
-import * as S from "./ActivityProgressStyled";
+import { useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { Layout, SpinnerTime, Button } from '../../components';
+import { useStore } from '../../contexts';
+import { useWidthScreen } from '../../utils/hooks/useWidthScreen';
+import * as S from './ActivityProgressStyled';
 
 export const ActivityProgress = () => {
   const [start, setStart] = useState(false);
-  const { push } = useHistory();
+  const navigation = useNavigate();
   const [widthScreen] = useWidthScreen();
   const showNavigation = widthScreen < 1200;
 
@@ -15,12 +15,12 @@ export const ActivityProgress = () => {
   const { handleStartAttendance, handleEndAttendance } = useStore();
 
   const handleCompleteTask = async () => {
-    const verify = !start ? "Iniciar" : "Concluir";
-    const isCompleted = verify === "Concluir";
+    const verify = !start ? 'Iniciar' : 'Concluir';
+    const isCompleted = verify === 'Concluir';
 
     if (isCompleted) {
       await handleEndAttendance(helpRequestId);
-      return push(`/screen-evaluation/${helpRequestId}`);
+      return navigation(`/screen-evaluation/${helpRequestId}`);
     }
     await handleStartAttendance(helpRequestId);
     return verify;
@@ -36,13 +36,13 @@ export const ActivityProgress = () => {
           <S.ContainerText>
             <S.Title>
               {!start
-                ? "Iniciar"
-                : "Atividade em andamento"}
+                ? 'Iniciar'
+                : 'Atividade em andamento'}
             </S.Title>
             <S.Subtitle>
               {!start
-                ? "Você chegou ao local. Iniciar atividade?"
-                : "A atividade que você está realizando leva em média 20 minutos..."}
+                ? 'Você chegou ao local. Iniciar atividade?'
+                : 'A atividade que você está realizando leva em média 20 minutos...'}
             </S.Subtitle>
           </S.ContainerText>
           <SpinnerTime
@@ -59,8 +59,8 @@ export const ActivityProgress = () => {
             }}
           >
             {!start
-              ? "Iniciar"
-              : "Concluir"}
+              ? 'Iniciar'
+              : 'Concluir'}
           </Button>
         </S.ContainerPage>
         <S.Aside>

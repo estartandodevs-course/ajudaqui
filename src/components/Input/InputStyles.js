@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Field } from "formik";
+import styled from 'styled-components';
+import { Field } from 'formik';
 
 export const Input = styled(Field)`
   width: 100%;
@@ -28,7 +28,6 @@ export const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
-
 
 export const MessageError = styled.div`
   color: ${(props) => props.theme.palette.colors.emergency};

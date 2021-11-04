@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Typography } from "../Typography";
+import styled from 'styled-components';
+import { Typography } from '../Typography';
 
 export const Container = styled.div`
   display: flex;
@@ -50,12 +50,12 @@ export const FirstSection = styled.div`
   background-position: center;
   width: 296px;
   height: 127px;
-  background-image: url("/assets/svg/backgroundCurve.svg");
+  background-image: url('/assets/svg/backgroundCurve.svg');
 
   @media (min-width: 1200px) {
     width: 457px;
     height: 172px;
-    background-image: url("/assets/images/backgroundCurveDesktop.png");
+    background-image: url('/assets/images/backgroundCurveDesktop.png');
     background-size: 100% 100%;
   }
 `;
@@ -77,7 +77,7 @@ export const SecondSection = styled.div`
 `;
 
 export const Paragraph2 = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
   width: 200px;
   text-align: center;
@@ -90,7 +90,7 @@ export const Paragraph2 = styled(Typography).attrs({
 `;
 
 export const Paragraph1 = styled(Typography).attrs({
-  variant: "h2",
+  variant: 'h2',
 })`
   width: 200px;
   text-align: center;

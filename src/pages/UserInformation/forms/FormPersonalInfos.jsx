@@ -1,24 +1,24 @@
 import {
   Form, Input, Button,
-} from "../../../components";
-import { useAuth } from "../../../contexts";
-import { optionsPreference } from "../../../_mock";
-import * as S from "./FormStyled";
+} from '../../../components';
+import { useAuth } from '../../../contexts';
+import { optionsPreference } from '../../../mocks';
+import * as S from './FormStyled';
 
 export const PersonalInfos = () => {
   const { user, loadingAuth, updateProfile } = useAuth();
 
   const initialValues = {
-    name: user.name || "",
-    birthday: user.birthday || "",
-    gender: user.gender || "",
+    name: user.name || '',
+    birthday: user.birthday || '',
+    gender: user.gender || '',
     location: {
-      city: user.location.city || "",
-      uf: user.location.uf || "",
-      address: user.location.address || "",
+      city: user.location.city || '',
+      uf: user.location.uf || '',
+      address: user.location.address || '',
     },
-    phoneNumber: user.phoneNumber || "",
-    helpPreferrence: user.helpPreferrence || "",
+    phoneNumber: user.phoneNumber || '',
+    helpPreferrence: user.helpPreferrence || '',
   };
 
   const handleSubmit = async (values) => {
@@ -36,7 +36,7 @@ export const PersonalInfos = () => {
     const keys = Object.keys(initialValues);
     const values = Object.values(keys);
 
-    return !(values.includes("")) ? "Editar" : "Salvar";
+    return !(values.includes('')) ? 'Editar' : 'Salvar';
   };
 
   return (

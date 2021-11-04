@@ -1,1 +1,1 @@
-export { AuthActionsTypes } from "./AuthActionsTypes";
+export { AuthActionsTypes } from './AuthActionsTypes';

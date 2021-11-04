@@ -1,1 +1,1 @@
-export { ElderlyInfosHelp } from "./ElderlyInfosHelp";
+export { ElderlyInfosHelp } from './ElderlyInfosHelp';

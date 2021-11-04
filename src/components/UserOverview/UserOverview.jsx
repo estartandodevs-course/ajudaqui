@@ -1,11 +1,10 @@
-import React from "react";
-import { differenceInYears } from "date-fns";
-import { utcToZonedTime } from "date-fns-tz";
-import { ProfilePhoto } from "..";
-import { useAuth } from "../../contexts";
-import { UserGrade } from "../UserGrade";
-import { PROFILES_TYPES } from "../../utils/constants";
-import * as S from "./UserOverviewStyled";
+import { differenceInYears } from 'date-fns';
+import { utcToZonedTime } from 'date-fns-tz';
+import { ProfilePhoto } from '..';
+import { useAuth } from '../../contexts';
+import { UserGrade } from '../UserGrade';
+import { PROFILES_TYPES } from '../../utils/constants';
+import * as S from './UserOverviewStyled';
 
 export const UserOverview = ({ userData }) => {
   const {
@@ -14,8 +13,7 @@ export const UserOverview = ({ userData }) => {
 
   const { profileType } = useAuth();
 
-  const timeZone = "America/Sao_Paulo";
-
+  const timeZone = 'America/Sao_Paulo';
 
   const getUserAge = (_birthday) => {
     if (_birthday) {

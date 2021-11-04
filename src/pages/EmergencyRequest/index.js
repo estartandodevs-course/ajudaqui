@@ -1,1 +1,1 @@
-export { EmergencyRequest } from "./EmergencyRequest";
+export { EmergencyRequest } from './EmergencyRequest';

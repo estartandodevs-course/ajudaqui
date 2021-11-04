@@ -1,1 +1,1 @@
-export { SpinnerTime } from "./SpinnerTime";
+export { SpinnerTime } from './SpinnerTime';

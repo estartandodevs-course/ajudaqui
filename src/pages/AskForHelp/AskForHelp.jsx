@@ -1,16 +1,16 @@
-import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Button, Form, Input, Layout, Tag,
-} from "../../components";
-import { useAuth, useStore } from "../../contexts";
-import * as S from "./AskForHelpStyled";
-import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
+} from '../../components';
+import { useAuth, useStore } from '../../contexts';
+import * as S from './AskForHelpStyled';
+import { useWidthScreen } from '../../utils/hooks/useWidthScreen';
 
 export const AskForHelp = ({ ...restProps }) => {
   const [widthScreen] = useWidthScreen();
 
-  const { push } = useHistory();
+  const navigation = useNavigate();
   const showNavigation = widthScreen < 1200;
   const [isActive, setIsActive] = useState(null);
   const [selectedOptionHelp, setSelectedOptionHelp] = useState({});
@@ -30,11 +30,9 @@ export const AskForHelp = ({ ...restProps }) => {
           elderly: {
             id: user.id,
             evaluation: null,
-            note: "",
+            note: '',
           },
-        }, async (helpRequestId) => {
-          return push(`order-status/${helpRequestId}`);
-        });
+        }, async (helpRequestId) => navigation(`order-status/${helpRequestId}`));
       });
       return;
     }
@@ -43,11 +41,9 @@ export const AskForHelp = ({ ...restProps }) => {
       elderly: {
         id: user.id,
         evaluation: null,
-        note: "",
+        note: '',
       },
-    }, (helpRequestId) => {
-      return push(`order-status/${helpRequestId}`);
-    });
+    }, (helpRequestId) => navigation(`order-status/${helpRequestId}`));
   };
 
   return (
@@ -56,7 +52,7 @@ export const AskForHelp = ({ ...restProps }) => {
         <S.ContainerAskForHelp {...restProps}>
           <Form
             initialValues={{
-              option: "",
+              option: '',
             }}
             onSubmit={(values) => handleSubmit(values)}
           >
@@ -91,7 +87,6 @@ export const AskForHelp = ({ ...restProps }) => {
               <Button
                 type="submit"
                 isLoading={loadingStore}
-                // disabled={!isActive}s
               >
                 Enviar Pedido
               </Button>

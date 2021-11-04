@@ -1,17 +1,17 @@
-import styled, { css } from "styled-components";
-import { theme } from "../../styles/themes";
-import { Typography } from "..";
+import styled, { css } from 'styled-components';
+import { theme } from '../../styles/themes';
+import { Typography } from '..';
 
 export const CardWrapper = styled.div`
   width: 100%;
   display: flex;
   padding: 14px 24px;
-  
+
   @media(min-width: 1200px){
     max-width: 400px;
     margin: 0 auto;
   }
-  
+
   `;
 
 const variants = {
@@ -72,7 +72,7 @@ export const UserAction = styled.div`
 `;
 
 export const ActionDescription = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
   display: flex;
   justify-content: center;
@@ -112,21 +112,21 @@ export const DistanceTimeContainer = styled.div`
 `;
 
 export const UserName = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
   font-size: ${(props) => props.theme.typography.body1?.fontSizeText};
   font-weight: 700;
 `;
 
 export const RequestedTask = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
 })`
   font-size: ${(props) => props.theme.typography.body1?.fontSizeText};
   color: ${(props) => props.$colorTask || props.theme.palette.colors.light.gray};
 `;
 
 export const Distance = styled(Typography).attrs({
-  variante: "body1",
+  variante: 'body1',
 })`
   text-transform: uppercase;
   font-weight: 700;
@@ -134,7 +134,7 @@ export const Distance = styled(Typography).attrs({
 `;
 
 export const TaskTime = styled(Typography).attrs({
-  variant: "body1",
+  variant: 'body1',
   color: theme.palette.colors.light.gray,
 })`
   text-transform: uppercase;

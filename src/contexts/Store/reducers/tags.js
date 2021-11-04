@@ -1,4 +1,4 @@
-import { TagActionsTypes } from "../types";
+import { TagActionsTypes } from '../types';
 
 export const TagsReducer = () => {
   const REDUCERS = {

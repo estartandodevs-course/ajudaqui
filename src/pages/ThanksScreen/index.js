@@ -1,1 +1,1 @@
-export { ThanksScreen } from "./ThanksScreen";
+export { ThanksScreen } from './ThanksScreen';

@@ -1,8 +1,8 @@
-import { differenceInSeconds } from "date-fns";
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import Switch from "react-switch";
-import * as S from "./ProfileVoluntaryStyled";
+import { differenceInSeconds } from 'date-fns';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Switch from 'react-switch';
+import * as S from './ProfileVoluntaryStyled';
 import {
   Layout,
   UserOverview,
@@ -12,11 +12,11 @@ import {
   Form,
   Input,
   Typography,
-} from "../../components";
-import { useAuth, useStore } from "../../contexts";
-import { optionCardInterest } from "../../_mock/optionCardInterest";
-import { useWidthScreen } from "../../utils/hooks/useWidthScreen";
-import { orderStatusId } from "../../utils/constants";
+} from '../../components';
+import { useAuth, useStore } from '../../contexts';
+import { optionCardInterest } from '../../mocks/optionCardInterest';
+import { useWidthScreen } from '../../utils/hooks/useWidthScreen';
+import { orderStatusId } from '../../utils/constants';
 
 export const ProfileVoluntary = () => {
   const [editMode, setEditMode] = useState(false);
@@ -52,7 +52,7 @@ export const ProfileVoluntary = () => {
 
   const showNavigation = widthScreen < 1200;
 
-  const { push } = useHistory();
+  const navigation = useNavigate();
 
   const [isActive, setIsActive] = useState(null);
   const [selectedOptionHelp, setSelectedOptionHelp] = useState({});
@@ -76,7 +76,7 @@ export const ProfileVoluntary = () => {
 
   getOpenHelpRequests.forEach((item) => {
     if (!elderlysNeedHelp.includes(item.elderly.id)) {
-      elderlysNeedHelp.push(item.elderly.id);
+      elderlysNeedHelp.navigation(item.elderly.id);
     }
   });
 
@@ -93,13 +93,11 @@ export const ProfileVoluntary = () => {
               order: newTag,
               elderly: {
                 id: user.id,
-                evaluation: "",
-                note: "",
+                evaluation: '',
+                note: '',
               },
             },
-            (helpRequestId) => {
-              return push(`order-status/${helpRequestId}`);
-            },
+            (helpRequestId) => navigation(`order-status/${helpRequestId}`),
           );
         },
       );
@@ -109,13 +107,11 @@ export const ProfileVoluntary = () => {
         order: selectedOptionHelp,
         elderly: {
           id: user.id,
-          evaluation: "",
-          note: "",
+          evaluation: '',
+          note: '',
         },
       },
-      (helpRequestId) => {
-        return push(`order-status/${helpRequestId}`);
-      },
+      (helpRequestId) => navigation(`order-status/${helpRequestId}`),
     );
   };
 
@@ -184,7 +180,7 @@ export const ProfileVoluntary = () => {
             ))}
           </S.ContainerImageElderly>
           <Typography
-            style={{ alignSelf: "start" }}
+            style={{ alignSelf: 'start' }}
             variant="body1"
             onClick={logout}
           >
@@ -197,7 +193,7 @@ export const ProfileVoluntary = () => {
             <S.ContainerAskForHelp>
               <Form
                 initialValues={{
-                  option: "",
+                  option: '',
                 }}
                 onSubmit={(values) => handleSubmit(values)}
               >

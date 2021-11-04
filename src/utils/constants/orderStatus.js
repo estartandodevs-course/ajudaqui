@@ -7,33 +7,33 @@ export const orderStatusId = {
 };
 
 export const orderStatusName = {
-  1: "aguardando",
-  2: "aguardando voluntario(a)",
-  3: "sendo atendido",
-  4: "concluida",
-  5: "cancelado",
+  1: 'aguardando',
+  2: 'aguardando voluntario(a)',
+  3: 'sendo atendido',
+  4: 'concluida',
+  5: 'cancelado',
 };
 
 export const mappedVoluntaryCardInfoByStatus = (orderStatus, elderlyProfileData = {}) => {
   const TEXTS = {
     [orderStatusId.WAITING]: {
-      title: "Pedido liberado!",
-      subTitle: "Encaminhe-se ao encontro do idoso.",
+      title: 'Pedido liberado!',
+      subTitle: 'Encaminhe-se ao encontro do idoso.',
     },
     [orderStatusId.WAITING_VOLUNTARY]: {
-      title: "Pedido resgatado!",
+      title: 'Pedido resgatado!',
       subTitle: `${elderlyProfileData?.name}/ está te aguardando.`,
     },
     [orderStatusId.IN_PROGRESS]: {
-      title: "Pedido resgatado!",
+      title: 'Pedido resgatado!',
       subTitle: `${elderlyProfileData?.name}/ chegou ao local.`,
     },
     [orderStatusId.CONCLUDED]: {
-      title: "Pedido Concluído!",
-      subTitle: "😀",
+      title: 'Pedido Concluído!',
+      subTitle: '😀',
     },
     [orderStatusId.CANCELED]: {
-      title: "Pedido cancelado!",
+      title: 'Pedido cancelado!',
       subTitle: `${elderlyProfileData?.name}/ cancelou o pedido.`,
     },
   };
@@ -44,24 +44,24 @@ export const mappedVoluntaryCardInfoByStatus = (orderStatus, elderlyProfileData 
 export const mappedElderlyCardInfoByStatus = (orderStatus, voluntaryProfileData = {}) => {
   const TEXTS = {
     [orderStatusId.WAITING]: {
-      title: "Pedido enviado!",
-      subTitle: "Em breve você será atendido(a).",
+      title: 'Pedido enviado!',
+      subTitle: 'Em breve você será atendido(a).',
     },
     [orderStatusId.WAITING_VOLUNTARY]: {
-      title: "Pedido recebido!",
+      title: 'Pedido recebido!',
       subTitle: `${voluntaryProfileData?.name}/ está a caminho.`,
     },
     [orderStatusId.IN_PROGRESS]: {
-      title: "Pedido recebido!",
+      title: 'Pedido recebido!',
       subTitle: `${voluntaryProfileData?.name}/ chegou ao local.`,
     },
     [orderStatusId.CONCLUDED]: {
-      title: "Pedido Concluído!",
-      subTitle: "😀",
+      title: 'Pedido Concluído!',
+      subTitle: '😀',
     },
     [orderStatusId.CANCELED]: {
-      title: "Pedido cancelado!",
-      subTitle: "Você cancelou o pedido.",
+      title: 'Pedido cancelado!',
+      subTitle: 'Você cancelou o pedido.',
     },
   };
 

@@ -1,16 +1,16 @@
-import { useContext } from "react";
-import { useHistory } from "react-router-dom";
-import { AuthContext } from "..";
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '..';
 import {
   registerWithEmailAndPassword,
   loginWithEmailAndPassword,
-} from "../../../services";
-import { modelByProfile } from "../models";
-import { AuthActionsTypes } from "../types";
+} from '../../../services';
+import { modelByProfile } from '../models';
+import { AuthActionsTypes } from '../types';
 
 export const useAuthEmail = () => {
   const { dispatch } = useContext(AuthContext);
-  const { push } = useHistory();
+  const navigation = useNavigate();
 
   const registerEmail = async (credentials, profileType) => {
     dispatch({
@@ -28,7 +28,7 @@ export const useAuthEmail = () => {
           user,
         },
       });
-      push("onboarding");
+      navigation('onboarding');
     } catch (error) {
       dispatch({
         type: AuthActionsTypes.LOGIN_EMAIL_ERROR,

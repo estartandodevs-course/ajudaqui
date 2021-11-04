@@ -1,1 +1,1 @@
-export { ScreenEvaluation } from "./ScreenEvaluation";
+export { ScreenEvaluation } from './ScreenEvaluation';
