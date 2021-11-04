@@ -1,5 +1,5 @@
 import { differenceInSeconds } from 'date-fns';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Switch from 'react-switch';
 import * as S from './ProfileVoluntaryStyled';

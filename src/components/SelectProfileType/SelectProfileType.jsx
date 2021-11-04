@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { PROFILES_TYPES } from '../../utils/constants';
 import * as S from './SelectProfileTypeStyles';
 import { Card } from '../Card';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useAuth, useStore } from '../../../contexts';
 import { Layout, HelpRequestCard } from '../../../components';
 import * as S from './HomeScreenOfTheVoluntaryStyled';

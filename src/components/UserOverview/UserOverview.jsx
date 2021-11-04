@@ -1,4 +1,3 @@
-import React from 'react';
 import { differenceInYears } from 'date-fns';
 import { utcToZonedTime } from 'date-fns-tz';
 import { ProfilePhoto } from '..';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { differenceInMinutes, parseISO } from 'date-fns';
 import { useNavigate } from 'react-router-dom';
 import { orderStatusName } from '../../utils/constants';

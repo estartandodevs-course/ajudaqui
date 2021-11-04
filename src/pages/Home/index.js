@@ -1,4 +1,3 @@
-import React from 'react';
 import { SplashScreen, Layout } from '../../components';
 import { useAuth } from '../../contexts';
 import { PROFILES_TYPES } from '../../utils/constants';

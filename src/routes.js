@@ -1,4 +1,3 @@
-import React from 'react';
 import { Routes as Switch, Route } from 'react-router-dom';
 import {
   Home, Onboarding, Register, Login, AskForHelp, ScreenEvaluation, SelectProfile,

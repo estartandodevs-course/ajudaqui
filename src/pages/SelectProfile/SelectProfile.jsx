@@ -1,4 +1,3 @@
-import React from 'react';
 import { useAuth } from '../../contexts';
 import { useWidthScreen } from '../../utils/hooks/useWidthScreen';
 import { Layout, SelectProfileType, SplashScreen } from '../../components';

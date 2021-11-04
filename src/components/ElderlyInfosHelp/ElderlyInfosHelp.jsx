@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { EMERGENCY_MESSAGE } from '../../utils/constants';
 import * as S from './ElderlyInfosHelpStyled';

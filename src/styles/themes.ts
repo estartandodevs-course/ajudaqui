@@ -1,4 +1,6 @@
-const theme = {
+import { DefaultTheme } from 'styled-components';
+
+const theme: DefaultTheme = {
   shadow: ['0px 4px 4px rgba(0, 0, 0, 0.25)'],
   palette: {
     colors: {
@@ -42,7 +44,6 @@ const theme = {
       fontSizeSubtitles: '0.875rem',
     },
   },
-
   margins: {
     marginLateral: '24px',
     marginUpAndDown: '32px',

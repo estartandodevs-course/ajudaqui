@@ -1,4 +1,3 @@
-import React from 'react';
 import { differenceInSeconds } from 'date-fns';
 import { useLocation } from 'react-router-dom';
 import { useStore } from '../../contexts';
