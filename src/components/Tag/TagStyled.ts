@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 import { Typography } from '..';
 
-export const TagContainer = styled.div`
+interface ITagStyled {
+  isActive: boolean
+}
+
+export const TagContainer = styled.div<ITagStyled>`
   width: max-content;
   padding: 0 20px;
   height: 30px;

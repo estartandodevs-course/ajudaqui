@@ -1,5 +1,16 @@
-import PropTypes from 'prop-types';
 import { Typographies } from './TypographyStyled';
+
+interface ITypography {
+  children?: string;
+  variant?: 'h1' | 'h2' | 'body1';
+  color?: string;
+  style?: {},
+  onClick?: () => void
+}
+
+const TypographyDefaultProps: ITypography = {
+  variant: 'body1',
+};
 
 const Typography = (
   {
@@ -7,7 +18,7 @@ const Typography = (
     variant,
     color,
     ...restProps
-  },
+  }: ITypography,
 ) => {
   const Element = Typographies[variant];
 
@@ -18,15 +29,6 @@ const Typography = (
   );
 };
 
-Typography.propTypes = {
-  children: PropTypes.node.isRequired,
-  variant: PropTypes.string,
-  color: PropTypes.string,
-};
-
-Typography.defaultProps = {
-  variant: 'h1',
-
-};
+Typography.defaultProps = TypographyDefaultProps;
 
 export { Typography };

@@ -8,5 +8,5 @@ export const Modal = styled.div`
   background: ${(props) => `${props.theme.palette.colors.light.gray}CC`};
   display: flex;
   justify-content: center;
-  align-items: ${(props) => props.alignItems || 'center'};
+  align-items: 'center';
 `;

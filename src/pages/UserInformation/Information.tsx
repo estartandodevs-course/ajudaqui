@@ -9,7 +9,19 @@ import { useWidthScreen } from '../../utils/hooks/useWidthScreen';
 import * as S from './InformationStyled';
 import { useAuth } from '../../contexts';
 
-export const UserInformation = ({ location }) => {
+interface State {
+  defaultActiveKey: string;
+}
+
+interface Location {
+  state: State;
+}
+
+interface IUserInformationProps {
+  location?: Location
+}
+
+export const UserInformation = ({ location, ...restProps }: IUserInformationProps) => {
   const [widthScreen] = useWidthScreen();
 
   const showNavigation = widthScreen < 1200;
@@ -25,7 +37,11 @@ export const UserInformation = ({ location }) => {
   }, []);
 
   return (
-    <Layout hasTabBar showNavigation={showNavigation}>
+    <Layout
+      hasTabBar
+      showNavigation={showNavigation}
+      {...restProps}
+    >
       <S.ContainerDesktop>
         <S.ContainerForm>
           <S.UserInformationTitle>

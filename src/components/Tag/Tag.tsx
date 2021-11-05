@@ -1,6 +1,11 @@
 import * as S from './TagStyled';
 
-export const Tag = ({ isActive, children, ...restProps }) => (
+interface ITagProps {
+  isActive: boolean,
+  children: string,
+}
+
+export const Tag = ({ isActive, children, ...restProps }: ITagProps) => (
   <S.TagContainer
     isActive={isActive}
     {...restProps}
