@@ -28,6 +28,7 @@
       "react/jsx-props-no-spreading": "off",
       "react/prop-types": "off",
       "react/require-default-props": "off",
+      "no-bitwise": "off",
       // "jest-dom/prefer-checked": "error",
       // "jest-dom/prefer-enabled-disabled": "error",
       // "jest-dom/prefer-required": "error",

@@ -5,7 +5,7 @@ import { FormContacts } from './forms/FormContacts';
 import { FormTextArea } from './forms/FormTextArea';
 import { PersonalInfos } from './forms/FormPersonalInfos';
 import 'antd/dist/antd.css';
-import { useWidthScreen } from '../../utils/hooks/useWidthScreen';
+import { useScreen } from '../../utils/hooks/useScreen';
 import * as S from './InformationStyled';
 import { useAuth } from '../../contexts';
 
@@ -22,7 +22,7 @@ interface IUserInformationProps {
 }
 
 export const UserInformation = ({ location, ...restProps }: IUserInformationProps) => {
-  const [widthScreen] = useWidthScreen();
+  const [widthScreen] = useScreen();
 
   const showNavigation = widthScreen < 1200;
 
