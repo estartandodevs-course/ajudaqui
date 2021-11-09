@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { theme } from '../../styles/themes';
-import { Typography } from '..';
+import { Typography } from '../../elements/Typography';
 
 export const CardWrapper = styled.div`
   width: 100%;

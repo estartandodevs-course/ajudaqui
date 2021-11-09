@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { theme } from '../../styles/themes';
-import { Typography } from '..';
+import { theme } from '../../../styles';
+import { Typography } from '../../elements/Typography';
 
 export const Wrapper = styled.div`
   width: 100%;

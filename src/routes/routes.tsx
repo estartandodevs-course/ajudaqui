@@ -4,9 +4,9 @@ import {
   RegisterNewPassword, UserInformation, ProfileVoluntary,
   OrderStatus, ThanksScreen, EmergencyRequest, IssueCertificate, ActivityProgress,
   HistoricPage,
-} from './pages';
-import { Modal } from './components';
-import { useModal } from './contexts';
+} from '../pages';
+import { Modal } from '../components';
+import { useModal } from '../contexts';
 
 export default function Routes() {
   const { isOpen, modalContent } = useModal();
