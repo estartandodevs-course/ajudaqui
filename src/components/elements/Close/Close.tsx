@@ -1,19 +1,18 @@
 import { useNavigate } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import * as S from './CloseStyled';
+import { ICloseProps } from './interfaces';
 
-export const Close = ({ hasClose }) => {
+export const Close = ({ hasClose }: ICloseProps) => {
   const navigation = useNavigate();
   return (
     <>
-      { hasClose && <S.Close src="/assets/svg/close.svg" onClick={() => navigation('/')} /> }
+      {hasClose
+      && (
+      <S.Close
+        src="/assets/svg/close.svg"
+        onClick={() => navigation('/')}
+      />
+      )}
     </>
   );
-};
-
-Close.propTypes = {
-  hasClose: PropTypes.bool,
-};
-Close.defaultProps = {
-  hasClose: false,
 };

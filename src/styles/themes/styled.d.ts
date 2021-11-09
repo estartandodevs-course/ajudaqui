@@ -2,7 +2,7 @@ import 'styled-components';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
-    shadow: array,
+    shadow: string[],
     palette: {
       colors: {
         primary: string,

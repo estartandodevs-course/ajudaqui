@@ -1,14 +1,9 @@
+import { ITagProps } from './interfaces';
 import * as S from './TagStyled';
 
-interface ITagProps {
-  isActive: boolean,
-  children: string,
-}
-
-export const Tag = ({ isActive, children, ...restProps }: ITagProps) => (
+export const Tag = ({ isActive, children }: ITagProps) => (
   <S.TagContainer
     isActive={isActive}
-    {...restProps}
   >
     <S.TagContent>
       {children}

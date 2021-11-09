@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 interface IVariantProps {
-
   color: string,
 }
 
