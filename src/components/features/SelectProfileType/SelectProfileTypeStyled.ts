@@ -1,5 +1,9 @@
 import styled, { css } from 'styled-components';
 
+interface IProfileLabel {
+  selectedType: boolean
+}
+
 const isSelected = css`
   border: 2px solid;
   border-image: ${(props) => (`${props.theme.palette.colors.gradientBackground} 1`)};
@@ -13,6 +17,6 @@ export const ProfileTypeWrapper = styled.div`
   }
 `;
 
-export const ProfileLabel = styled.label`
+export const ProfileLabel = styled.label<IProfileLabel>`
   ${(props) => props.selectedType && isSelected}
 `;

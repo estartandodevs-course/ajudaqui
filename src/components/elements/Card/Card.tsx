@@ -5,12 +5,9 @@ export const Card = ({
   children,
   day,
   as,
-  ...restProps
 }: ICardProps) => (
-  <S.ContainerCard
-    {...restProps}
-  >
-    <S.IconCard {...restProps} />
+  <S.ContainerCard>
+    <S.IconCard />
     {day && <S.DaysCard>{day}</S.DaysCard>}
     <S.DescriptionCard
       as={as}

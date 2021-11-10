@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components';
-import { theme } from '../../styles/themes';
+import styled from 'styled-components';
+import { theme } from '../../../styles';
 import { Typography } from '../../elements/Typography';
 
 export const CardWrapper = styled.div`
@@ -12,9 +12,9 @@ export const CardWrapper = styled.div`
     margin: 0 auto;
   }
 
-  `;
+`;
 
-const variants = {
+/* const variants = {
   default: css`
     border: 1px solid ${(props) => `${props.theme.palette.colors.purple} `};
   `,
@@ -31,36 +31,35 @@ const variants = {
     border: 1px solid
     ${(props) => `${props.theme.palette.colors.primaryVariant} `};
   `,
-};
+}; */
 
 export const Card = styled.div`
   width: 100%;
   height: 175px;
   border-radius: 5px 5px 9px 9px;
-  ${(props) => props.$variant && variants[props.$variant]}
 `;
 
-const backgrounds = {
-  default: css`
-    background-color: ${(props) => `${props.theme.palette.colors.secondaryVariant} `};
-    border-top-color: ${(props) => `${props.theme.palette.colors.purple} `};
-  `,
+// const backgrounds = {
+//   default: css`
+//     background-color: ${(props) => `${props.theme.palette.colors.secondaryVariant} `};
+//     border-top-color: ${(props) => `${props.theme.palette.colors.purple} `};
+//   `,
 
-  emergency: css`
-    background-color: ${(props) => `${props.theme.palette.colors.emergency} `};
-    border-top-color: ${(props) => `${props.theme.palette.colors.emergency} `};
-  `,
+//   emergency: css`
+//     background-color: ${(props) => `${props.theme.palette.colors.emergency} `};
+//     border-top-color: ${(props) => `${props.theme.palette.colors.emergency} `};
+//   `,
 
-  aguardando: css`
-    background-image: ${(props) => `${props.theme.palette.colors.gradientBackground} `};
-    border-top-color: ${(props) => `${props.theme.palette.colors.gradientBackground} `};
-  `,
+//   aguardando: css`
+//     background-image: ${(props) => `${props.theme.palette.colors.gradientBackground} `};
+//     border-top-color: ${(props) => `${props.theme.palette.colors.gradientBackground} `};
+//   `,
 
-  primaryVariant: css`
-    background-color: ${(props) => `${props.theme.palette.colors.primaryVariant} `};
-    border-top-color: ${(props) => `${props.theme.palette.colors.primaryVariant} `};
-  `,
-};
+//   primaryVariant: css`
+//     background-color: ${(props) => `${props.theme.palette.colors.primaryVariant} `};
+//     border-top-color: ${(props) => `${props.theme.palette.colors.primaryVariant} `};
+//   `,
+// };
 
 export const UserAction = styled.div`
   width: 100%;
@@ -68,7 +67,7 @@ export const UserAction = styled.div`
   border-top: 1px solid;
   cursor: pointer;
   border-radius: 0 0 9px 9px;
-  ${(props) => props.$variant && backgrounds[props.$variant]}
+
 `;
 
 export const ActionDescription = styled(Typography).attrs({
@@ -122,7 +121,7 @@ export const RequestedTask = styled(Typography).attrs({
   variant: 'body1',
 })`
   font-size: ${(props) => props.theme.typography.body1?.fontSizeText};
-  color: ${(props) => props.$colorTask || props.theme.palette.colors.light.gray};
+  color: ${(props) => props.theme.palette.colors.light.gray};
 `;
 
 export const Distance = styled(Typography).attrs({

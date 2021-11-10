@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Typography } from '../Typography';
+import { Typography } from '../../elements';
 
 export const ContentEvaluation = styled.div`
   display: flex;
@@ -15,9 +15,12 @@ export const IconsEvaluation = styled.img`
   cursor: pointer;
 `;
 
+interface IDescriptionEvaluation {
+  $active: boolean
+}
 export const DescriptionEvaluation = styled(Typography).attrs({
   variant: 'h2',
-})`
-  color: ${(props) => (props.$active ? props.theme.palette.colors.promary : props.theme.palette.colors.secondary)};
+})<IDescriptionEvaluation>`
+  color: ${(props) => (props.$active ? props.theme.palette.colors.primary : props.theme.palette.colors.secondary)};
   font-size: ${(props) => props.theme.typography.body1.fontSizeSubtitles};
 `;

@@ -1,6 +1,6 @@
 import { differenceInSeconds } from 'date-fns';
 import { useLocation } from 'react-router-dom';
-import { useStore } from '../../contexts';
+import { useStore } from '../../../contexts';
 
 import * as S from './CompletedTaskStyle';
 

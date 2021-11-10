@@ -1,6 +1,14 @@
 import styled from 'styled-components';
 import { theme } from '../../../styles';
-import { Typography } from '../../elements/Typography';
+import { Typography } from '../../elements';
+
+interface Dot {
+  $dotPosition: number,
+}
+
+interface Container {
+  $containerPosition: boolean,
+}
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -39,7 +47,7 @@ export const TabBar = styled.div`
   }
 `;
 
-export const IconContent = styled.div`
+export const IconContent = styled.div<Container>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -63,7 +71,7 @@ export const IconContent = styled.div`
   }
 `;
 
-export const Ball = styled.div`
+export const Ball = styled.div<Dot>`
   position: absolute;
   width: 12px;
   height: 12px;
@@ -86,7 +94,7 @@ export const Ball = styled.div`
   }
 `;
 
-export const ImageIcon = styled.img`
+export const ImageIcon = styled.img<Container>`
   margin-bottom: 4px;
   max-width: 26px;
   max-height: 26px;

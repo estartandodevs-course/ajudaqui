@@ -1,8 +1,7 @@
 import styled, { keyframes, css } from 'styled-components';
 import { Reload } from '@styled-icons/ionicons-outline/';
-import { theme } from '../../styles/themes';
-import { Typography } from '../Typography';
-import { Button } from '../Button';
+import { theme } from '../../../styles';
+import { Typography, Button } from '../../elements';
 
 const rotate = keyframes`
   from {
@@ -18,7 +17,11 @@ const reload = css`
   animation: ${rotate} 2s linear infinite;
 `;
 
-export const ReloadCard = styled(Reload)`
+interface IReloadCard {
+  $isActive: boolean
+}
+
+export const ReloadCard = styled(Reload)<IReloadCard>`
   cursor: pointer;
   max-width: 30px;
  ${(props) => props.$isActive && reload};

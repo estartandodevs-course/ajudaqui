@@ -1,13 +1,13 @@
-import { ReactNode } from 'react';
+import { HTMLAttributes, ReactNode } from 'react';
 import ReactDOM from 'react-dom';
 import * as S from './ModalStyled';
 
-interface IModalProps {
+interface IModalProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode,
 }
 
-export const Modal = ({ children, ...restProps }: IModalProps) => ReactDOM.createPortal(
-  <S.Modal {...restProps}>
+export const Modal = ({ children }: IModalProps) => ReactDOM.createPortal(
+  <S.Modal>
     {children}
   </S.Modal>,
   document.getElementById('modal-root'),

@@ -1,10 +1,10 @@
-import React, { HTMLAttributes } from 'react';
+import React, { AllHTMLAttributes } from 'react';
 
-export interface ICardProps extends HTMLAttributes<HTMLDivElement> {
+export interface ICardProps extends AllHTMLAttributes<HTMLElement> {
   children?: React.ReactNode,
   variant?: string,
   day?: string,
-  as?: React.ElementType,
+  as?: any,
 }
 
 export const CardDefaultProps: ICardProps = {

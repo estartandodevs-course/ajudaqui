@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import { PROFILES_TYPES } from '../../utils/constants';
+import { PROFILES_TYPES } from '../../../utils/constants';
 import * as S from './SelectProfileTypeStyled';
-import { Card } from '../Card';
+import { Card } from '../../elements';
+import { ISelectProfileTypeProps } from './interfaces';
 
-export const SelectProfileType = ({ onChange, initialState }) => {
+export const SelectProfileType = ({ onChange, initialState }: ISelectProfileTypeProps) => {
   const [selectedType, setSelectedType] = useState(initialState);
 
   useEffect(() => {

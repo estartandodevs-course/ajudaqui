@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { Typography } from '../Typography';
-import { Button } from '../Button';
+import { Typography, Button } from '../../elements';
 
 export const Card = styled.div`
   border: 1px solid #BC1610;

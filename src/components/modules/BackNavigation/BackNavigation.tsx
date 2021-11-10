@@ -1,15 +1,15 @@
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import * as S from './BackNavigationStyled';
-import { Close } from '../Close';
+import { Close } from '../../elements';
 
-export const BackNavigation = ({ hasArrow, ...restProps }) => {
+export const BackNavigation = ({ hasArrow }) => {
   const navigation = useNavigate();
   return (
     <S.Container>
       <S.ImageTop src="/assets/svg/detalhe topo tela.svg" />
       { hasArrow && <S.Back src="/assets/svg/back.svg" onClick={() => navigation(-1)} /> }
-      <Close {...restProps} />
+      <Close />
     </S.Container>
   );
 };

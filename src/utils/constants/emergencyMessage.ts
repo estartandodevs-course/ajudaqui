@@ -1,1 +1,1 @@
-export const EMERGENCY_MESSAGE = 'Olá, posso ajudar?';
+export const EMERGENCY_MESSAGE: string = 'Olá, posso ajudar?';

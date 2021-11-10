@@ -1,17 +1,18 @@
 import { parseISO, differenceInMinutes } from 'date-fns';
 import { useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useAuth, useStore } from '../../contexts';
-import { StoreContext } from '../../contexts/Store';
+import { useAuth, useStore } from '../../../contexts';
+import { StoreContext } from '../../../contexts/Store';
 import {
   mappedVoluntaryCardInfoByStatus,
   orderStatusId,
   orderStatusName,
   PROFILES_TYPES,
-} from '../../utils/constants';
+} from '../../../utils/constants';
+import { IOrderCardProps } from './interfaces';
 import * as S from './OrderCardStyled';
 
-export const OrderCardVoluntary = ({ helpRequest }) => {
+export const OrderCardVoluntary = ({ helpRequest }: IOrderCardProps) => {
   const { profileType } = useAuth();
   const {
     handleCancelOrder, loadingStore, elderlys,
@@ -29,7 +30,7 @@ export const OrderCardVoluntary = ({ helpRequest }) => {
     elderly.id === helpRequest?.elderly?.id
   ));
 
-  const handleFinishedTask = () => {
+  const handleFinishedTask = (): unknown => {
     switch (profileType) {
       case PROFILES_TYPES.ELDERLY: {
         if (hasFinished) {
@@ -51,7 +52,7 @@ export const OrderCardVoluntary = ({ helpRequest }) => {
     return 1;
   };
 
-  const handleCancelRequest = async () => {
+  const handleCancelRequest = async (): Promise<void> => {
     await handleCancelOrder(helpRequestId);
   };
 
@@ -123,8 +124,6 @@ export const OrderCardVoluntary = ({ helpRequest }) => {
       )} */}
       {(helpRequest?.status === orderStatusId.WAITING) && (
         <S.CardButtom
-          width="100%"
-          borderRadius="0"
           onClick={handleCancelRequest}
           isLoading={loadingStore}
           disabled={isCanceled}
@@ -135,8 +134,6 @@ export const OrderCardVoluntary = ({ helpRequest }) => {
       )}
       {!hasFinished && !hasEvaluated && !hasConcluded && !isCanceled && (
         <S.CardButtom
-          width="100%"
-          borderRadius="0"
           onClick={handleFinishedTask}
         >
           Iniciar

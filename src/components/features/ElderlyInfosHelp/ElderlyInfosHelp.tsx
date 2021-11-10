@@ -1,8 +1,9 @@
 import { useNavigate } from 'react-router-dom';
-import { EMERGENCY_MESSAGE } from '../../utils/constants';
+import { EMERGENCY_MESSAGE } from '../../../utils/constants/emergencyMessage';
 import * as S from './ElderlyInfosHelpStyled';
+import { IElderlyInfosHelpProps } from './interfaces';
 
-export const ElderlyInfosHelp = ({ elderlyInfos, helpRequestId }) => {
+export const ElderlyInfosHelp = ({ elderlyInfos, helpRequestId }: IElderlyInfosHelpProps) => {
   const {
     name, health, contacts, photoURL,
   } = elderlyInfos;

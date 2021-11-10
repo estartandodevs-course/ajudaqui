@@ -51,7 +51,8 @@ export const mappedVoluntaryCardInfoByStatus = (
 interface IVoluntaryProfileData extends IElderlyProfileData {}
 
 export const mappedElderlyCardInfoByStatus = (
-  orderStatus: number, voluntaryProfileData: IVoluntaryProfileData,
+  orderStatus: number,
+  voluntaryProfileData: IVoluntaryProfileData,
 ) => {
   const TEXTS = {
     [orderStatusId.WAITING]: {

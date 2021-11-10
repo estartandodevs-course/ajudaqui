@@ -1,16 +1,12 @@
-import PropTypes from 'prop-types';
+import { INotificationProps } from './interfaces';
 import * as S from './NotificationStyled';
 
-export const Notification = ({ user, ...restProps }) => (
-  <S.ContainerNotification {...restProps}>
+export const Notification = ({ children }: INotificationProps) => (
+  <S.ContainerNotification>
     <S.NotificationIcon src="/assets/svg/confirm.svg" alt="confirm" />
     <S.ContentDescription>
       <S.DescriptionNotification>
-        <S.UserName>
-          {user}
-        </S.UserName>
-        {' '}
-        está a caminho para lhe ajudar
+        {`${children} está a caminho para lhe ajudar`}
       </S.DescriptionNotification>
     </S.ContentDescription>
     <S.ContentClose>
@@ -18,7 +14,3 @@ export const Notification = ({ user, ...restProps }) => (
     </S.ContentClose>
   </S.ContainerNotification>
 );
-
-Notification.propTypes = {
-  user: PropTypes.string,
-};

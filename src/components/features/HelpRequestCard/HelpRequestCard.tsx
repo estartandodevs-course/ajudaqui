@@ -1,13 +1,14 @@
 import { differenceInMinutes, parseISO } from 'date-fns';
 import { useNavigate } from 'react-router-dom';
-import { orderStatusName } from '../../utils/constants';
-import { useAuth, useStore } from '../../contexts';
+import { orderStatusName } from '../../../utils/constants';
+import { useAuth, useStore } from '../../../contexts';
 import * as S from './HelpRequestCardStyled';
-import { ProfilePhoto } from '../ProfilePhoto';
+import { ProfilePhoto } from '../../modules';
+import { IHelpRequestCardProps } from './interfaces';
 
 export const HelpRequestCard = ({
   helpRequestData, isVoluntary,
-}) => {
+}: IHelpRequestCardProps) => {
   const { elderlys, handleUpdateSubscribe } = useStore();
   const { user } = useAuth();
   const navigation = useNavigate();
@@ -30,6 +31,8 @@ export const HelpRequestCard = ({
    || (verifyWaitingStatus && 'aguardando')
    || 'default';
 
+  console.debug(verifyOrderStatus);
+
   const actionsTypes = (isVoluntary && 'ajudando')
     || (hasEmergency && 'emergência')
    || (verifyWaitingStatus && 'aguardando')
@@ -46,18 +49,14 @@ export const HelpRequestCard = ({
   return (
     <>
       <S.CardWrapper>
-        <S.Card
-          $variant={verifyOrderStatus}
-        >
+        <S.Card>
           <S.UserInfos>
             <S.Request>
               <S.NameTask>
                 <S.UserName>
                   {elderlyProfile?.name}
                 </S.UserName>
-                <S.RequestedTask
-                  $colorTask={hasEmergency ? '#BC1610' : undefined}
-                >
+                <S.RequestedTask>
                   {order.option}
                 </S.RequestedTask>
               </S.NameTask>
@@ -79,16 +78,14 @@ export const HelpRequestCard = ({
                 : <ProfilePhoto icon="/assets/svg/icon camera.svg" alt="camera" />}
             </S.UserImage>
           </S.UserInfos>
-          <S.UserAction
-            $variant={verifyOrderStatus}
-          >
+          <S.UserAction>
             <S.ActionDescription
               color={isVoluntary ? '#4e3681' : undefined}
               onClick={handleSubscribe}
             >
+              {`${actionsTypes} ${!isVoluntary
+                 && <img src="assets/svg/Vector.svg" alt="next" loading="lazy" />}`}
               {actionsTypes}
-              {!isVoluntary
-                 && <img src="assets/svg/Vector.svg" alt="next" loading="lazy" />}
             </S.ActionDescription>
           </S.UserAction>
         </S.Card>

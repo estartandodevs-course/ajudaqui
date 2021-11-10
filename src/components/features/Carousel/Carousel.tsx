@@ -2,19 +2,16 @@ import { useEffect, useRef } from 'react';
 import * as S from './CarouselStyled';
 
 export const Carousel = ({
-  height,
-  display,
-  margin,
   children,
   onNextEnd,
   infinity,
   autoPlaySpeed,
   ...restProps
 }) => {
-  let resetTimeout;
+  let resetTimeout: any;
   const carouselRef = useRef(null);
 
-  const handleInfinity = ({ index }, reference) => {
+  const handleInfinity = ({ index }, reference: any): void => {
     clearTimeout(resetTimeout);
     if (index + 1 === children?.length) {
       resetTimeout = setTimeout(() => {
@@ -27,10 +24,8 @@ export const Carousel = ({
 
   return (
     <S.ContainerCarousel
+      isRTL
       ref={carouselRef}
-      height={height}
-      margin={margin}
-      display={display}
       autoPlaySpeed={autoPlaySpeed}
       onNextEnd={(nextItem, index) => {
         if (onNextEnd) {

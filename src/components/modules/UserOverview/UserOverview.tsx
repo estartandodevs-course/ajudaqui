@@ -1,12 +1,26 @@
 import { differenceInYears } from 'date-fns';
 import { utcToZonedTime } from 'date-fns-tz';
 import { ProfilePhoto } from '..';
-import { useAuth } from '../../contexts';
+import { useAuth } from '../../../contexts';
 import { UserGrade } from '../UserGrade';
-import { PROFILES_TYPES } from '../../utils/constants';
+import { PROFILES_TYPES } from '../../../utils/constants';
 import * as S from './UserOverviewStyled';
 
-export const UserOverview = ({ userData }) => {
+interface Location {
+  city?: string,
+}
+interface UserData {
+  name: string,
+  photoURL?: string,
+  location?: Location,
+  grade?: number,
+  birthday?: string,
+}
+interface IUserOverview {
+  userData: UserData
+}
+
+export const UserOverview = ({ userData }: IUserOverview) => {
   const {
     name, photoURL, location, birthday, grade,
   } = userData;
@@ -50,8 +64,6 @@ export const UserOverview = ({ userData }) => {
               <S.Paragraph>Sua nota</S.Paragraph>
               <UserGrade
                 grade={grade}
-                width="18.88px"
-                height="16px"
               />
             </S.ContainerGrade>
           </S.ContainerData>
@@ -77,8 +89,7 @@ export const UserOverview = ({ userData }) => {
               <S.Paragraph>Sua nota</S.Paragraph>
               <UserGrade
                 grade={grade}
-                width="20px"
-                height="20px"
+
               />
             </S.ContainerGradeVoluntary>
           </S.ContentGradeName>

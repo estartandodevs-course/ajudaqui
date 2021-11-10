@@ -1,13 +1,13 @@
 import styled from 'styled-components';
-import { Typography } from '../Typography';
+import { Typography } from '../../elements';
 
 export const ContainerNotification = styled.div`
   max-width: 312px;
   height: 52px;
-  background: ${(props) => props.theme.palette.colors.white};
+  background: ${({ theme }) => theme.palette.colors.white};
   border-radius: 5px;
-  box-shadow: ${(props) => props.theme.shadow};
-  border: ${(props) => `1px solid ${props.theme.palette.colors.primary}`};
+  box-shadow: ${({ theme }) => theme.shadow};
+  border: ${({ theme }) => `1px solid ${theme.palette.colors.primary}`};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,8 +15,7 @@ export const ContainerNotification = styled.div`
 
 export const DescriptionNotification = styled(Typography).attrs({
   variant: 'body1',
-})`
-`;
+})``;
 
 export const UserName = styled(Typography).attrs({
   variant: 'body1',

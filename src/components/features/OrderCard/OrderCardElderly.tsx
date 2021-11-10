@@ -1,16 +1,17 @@
 import { parseISO, differenceInMinutes } from 'date-fns';
 import { useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useStore } from '../../contexts';
-import { StoreContext } from '../../contexts/Store';
+import { useStore } from '../../../contexts';
+import { StoreContext } from '../../../contexts/Store';
 import {
   mappedElderlyCardInfoByStatus,
   orderStatusId,
   orderStatusName,
-} from '../../utils/constants';
+} from '../../../utils/constants';
+import { IOrderCardProps } from './interfaces';
 import * as S from './OrderCardStyled';
 
-export const OrderCardElderly = ({ helpRequest }) => {
+export const OrderCardElderly = ({ helpRequest }: IOrderCardProps) => {
   const { handleCancelOrder, loadingStore, voluntarys } = useStore();
   const navigation = useNavigate();
   const { handleMount } = useContext(StoreContext);
@@ -93,8 +94,6 @@ export const OrderCardElderly = ({ helpRequest }) => {
       {(helpRequest?.status === orderStatusId.WAITING
         || helpRequest?.status === orderStatusId.WAITING_VOLUNTARY) && (
         <S.CardButtom
-          width="100%"
-          borderRadius="0"
           onClick={handleCancelRequest}
           isLoading={loadingStore}
           disabled={isCanceled}
@@ -116,8 +115,6 @@ export const OrderCardElderly = ({ helpRequest }) => {
       )} */}
       {hasFinished && !hasEvaluated && hasConcluded && (
         <S.CardButtom
-          width="100%"
-          borderRadius="0"
           onClick={handleFinishedTask}
         >
           Finalizar

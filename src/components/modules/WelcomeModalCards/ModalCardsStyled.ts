@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { theme } from '../../styles/themes';
-import { Typography } from '../Typography';
+import { theme } from '../../../styles';
+import { Typography } from '../../elements';
 
 export const CardContainer = styled.div`
   display: flex;
@@ -36,7 +36,7 @@ export const LogoImage = styled.img`
 export const Description = styled(Typography).attrs({
   variant: 'body1',
 })`
-  font-size: ${theme.typography.h2?.fontSizeText};
+  font-size: ${theme.typography.body1?.fontSizeText};
   width: 242px;
   margin-top: 24px;
 `;
