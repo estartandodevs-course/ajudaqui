@@ -1,5 +1,5 @@
 import { Formik } from 'formik';
-import { InputSelect } from '../Select';
+import { InputSelect } from '../..';
 import { ContainerForm } from './FormStyled';
 
 export const Form = ({

@@ -31,7 +31,9 @@ export const customStyles = {
   }),
 };
 
-export const IconSelect = styled.img``;
+export const IconSelect = styled.img`
+  text-decoration: none;
+`;
 
 export const Label = styled.label`
   margin-bottom: 8px;

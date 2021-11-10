@@ -1,15 +1,11 @@
-import { Component, PropsWithChildren, ReactChildren } from 'react';
-import { useAuth } from '../../../contexts/';
+import { useAuth } from '../../../contexts';
 import { PROFILES_TYPES } from '../../../utils/constants/profilesTypes';
-import { OrderCardElderly } from './OrderCardElderly';
-import { OrderCardVoluntary } from './OrderCardVoluntary';
 
-export const OrderCard = ({ children, ...restProps }: PropsWithChildren<ReactChildren>) => {
+export const OrderCard = () => {
   const { profileType } = useAuth();
 
-  const COMPONENT: any =  profileType === PROFILES_TYPES.ELDERLY
-  ? OrderCardElderly
-  : OrderCardVoluntary;
+  const COMPONENT = profileType === PROFILES_TYPES.ELDERLY;
+  console.debug(COMPONENT);
 
-  return <COMPONENT {...restProps} />;
+  return 'OrderCard';
 };

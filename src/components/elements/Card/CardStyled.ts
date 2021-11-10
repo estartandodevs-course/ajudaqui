@@ -42,7 +42,9 @@ export const ContainerCard = styled.div`
   border-radius: 5px;
 `;
 
-export const IconCard = styled.img``;
+export const IconCard = styled.img`
+  text-decoration: none;
+`;
 
 export const DescriptionCard = styled(Typography).attrs({
   variant: 'body1',
@@ -56,4 +58,6 @@ export const DaysCard = styled(Typography).attrs({
   variant: 'body1',
   color: theme.palette.colors.text,
   weight: '700',
-})``;
+})`
+  text-decoration: none;
+`;

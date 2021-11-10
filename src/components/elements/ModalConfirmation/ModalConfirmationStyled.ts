@@ -24,4 +24,7 @@ bottom:0;
 
 export const Text = styled(Typography).attrs({
   variant: 'body1',
-})``;
+})`
+text-decoration: none;
+
+`;

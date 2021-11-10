@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Typography } from '../../components/Typography';
+import { Typography } from '../../components';
 
 export const PagesContainer = styled.div`
   display: grid;
@@ -163,7 +163,7 @@ export const Texts = styled(Typography).attrs({
   @media (min-width: 1200px) {
     margin-bottom: 30px;
     font-size: 18px;
-    color: ${(props) => props.theme.palette.colors.shadow};
+    color: ${(props) => props.theme.shadow};
     font-weight: 400;
     text-align: -webkit-left;
   }

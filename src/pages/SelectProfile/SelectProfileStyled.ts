@@ -89,4 +89,6 @@ export const NextStep = styled(Link)`
   font-size: ${(props) => props.theme.typography.body1.fontSizeText};
 `;
 
-export const IconNext = styled.img``;
+export const IconNext = styled.img`
+  text-decoration: none;
+`;

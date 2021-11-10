@@ -91,7 +91,10 @@ export const Texts = styled.span`
 
 `;
 
-export const Problem = styled.p``;
+export const Problem = styled.p`
+  text-decoration: none;
+
+`;
 
 export const ContainerTextFinal = styled.div`
   width: 278px;

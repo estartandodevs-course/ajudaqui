@@ -1,10 +1,11 @@
 /* eslint-disable no-return-assign */
 export const useStorage = () => {
   const setStorageData = <T>(data: Record<string, T>) => {
+    if (!data) return;
     const keys = Object.keys(data);
 
     if (keys.length > 0) {
-      keys.forEach((key) => {
+      keys?.forEach((key) => {
         localStorage.setItem(key, JSON.stringify(data[key]));
       });
     }
@@ -13,14 +14,16 @@ export const useStorage = () => {
   const getStorageData = <T>(keys: Array<string>) => {
     const state: Record<string, T | {} | null > = {};
 
-    keys.forEach((key) => {
-      const data = localStorage.getItem(key);
+    if (keys.length > 0) {
+      keys.forEach((key) => {
+        const data = localStorage.getItem(key);
 
-      if (data) {
-        return state[key] = JSON.parse(data);
-      }
-      return state[key] = null;
-    });
+        if (data) {
+          return state[key] = JSON.parse(data);
+        }
+        return state[key] = null;
+      });
+    }
 
     return state;
   };

@@ -56,7 +56,9 @@ width: 60px;
 height: 60px;
 `;
 
-export const Ellipsis = styled.img``;
+export const Ellipsis = styled.img`
+  text-decoration: none;
+`;
 
 export const VoluntaryName = styled(Typography).attrs({
   variant: 'h1',
@@ -114,4 +116,6 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 export const CertificateContent = styled.div`
 font-size: 12px;
 `;
-export const ImageDownload = styled.img``;
+export const ImageDownload = styled.img`
+  text-decoration: none;
+`;

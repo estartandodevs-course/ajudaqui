@@ -148,4 +148,6 @@ export const TabsRegister = styled(Tabs)`
   width: 100%;
 `;
 
-export const TabsChoiced = styled(TabPane)``;
+export const TabsChoiced = styled(TabPane)`
+  text-decoration: none;
+`;

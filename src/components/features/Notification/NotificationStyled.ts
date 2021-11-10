@@ -15,7 +15,9 @@ export const ContainerNotification = styled.div`
 
 export const DescriptionNotification = styled(Typography).attrs({
   variant: 'body1',
-})``;
+})`
+  text-decoration: none;
+`;
 
 export const UserName = styled(Typography).attrs({
   variant: 'body1',

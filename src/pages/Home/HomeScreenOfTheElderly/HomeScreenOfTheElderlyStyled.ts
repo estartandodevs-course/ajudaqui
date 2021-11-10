@@ -50,7 +50,9 @@ export const TextContainer = styled.div`
 `;
 export const Text = styled(Typography).attrs({
   variant: 'h2',
-})``;
+})`
+  text-decoration: none;
+`;
 export const Subtitle = styled(Typography).attrs({
   variant: 'body1',
 })`
@@ -58,7 +60,9 @@ export const Subtitle = styled(Typography).attrs({
   font-size: ${(props) => props.theme.typography.body1.fontSizeText};
 `;
 
-export const HelpImage = styled.img``;
+export const HelpImage = styled.img`
+  text-decoration: none;
+`;
 
 export const ContainerUserOverview = styled.div`
   margin-top: -50px;

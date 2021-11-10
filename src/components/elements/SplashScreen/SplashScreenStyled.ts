@@ -28,7 +28,9 @@ export const Title = styled(Typography).attrs({
 export const Subtitle = styled(Typography).attrs({
   variant: 'body1',
   color: '#4E3681',
-})``;
+})`
+  text-decoration: none;
+`;
 
 export const ImageCenter = styled.img`
   margin-top: 32px;

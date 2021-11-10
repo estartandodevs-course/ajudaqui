@@ -2,14 +2,11 @@ import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Layout, SpinnerTime, Button } from '../../components';
 import { useStore } from '../../contexts';
-import { useScreen } from '../../utils/hooks/useScreen';
 import * as S from './ActivityProgressStyled';
 
 export const ActivityProgress = () => {
   const [start, setStart] = useState(false);
   const navigation = useNavigate();
-  const [widthScreen] = useScreen();
-  const showNavigation = widthScreen < 1200;
 
   const { helpRequestId } = useParams();
   const { handleStartAttendance, handleEndAttendance } = useStore();
@@ -29,7 +26,7 @@ export const ActivityProgress = () => {
   return (
     <Layout
       hasTabBar
-      showNavigation={showNavigation}
+
     >
       <S.ContainerDesktop>
         <S.ContainerPage>
@@ -47,7 +44,7 @@ export const ActivityProgress = () => {
           </S.ContainerText>
           <SpinnerTime
             start={start}
-            setStart={setStart}
+            setStart={() => setStart(false)}
           />
           <S.Paragraph>
             Nos informe quando a atividade for concluída

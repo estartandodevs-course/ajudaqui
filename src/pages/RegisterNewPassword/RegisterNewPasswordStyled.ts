@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Typography } from '../../components/Typography';
+import { Typography } from '../../components';
 
 export const TitlePage = styled(Typography).attrs({
   variant: 'h2',

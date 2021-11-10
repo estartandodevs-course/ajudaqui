@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { Typography } from '..';
+import { Typography } from '../Typography';
 
 interface ITagContainer {
-  isActive: boolean
+  $isActive: boolean
 }
 
 export const TagContainer = styled.div<ITagContainer>`
@@ -12,10 +12,7 @@ export const TagContainer = styled.div<ITagContainer>`
   border: ${({ theme }) => `1px solid ${theme.palette.colors.primaryVariant}`};
   display: flex;
   border-radius: 5px;
-  background: ${({ theme }) => (
-    isActive
-      ? theme.palette.colors.secondaryVariant
-      : theme.palette.colors.light.grayish)};
+  background: ${(props) => (props.$isActive ? props.theme.palette.colors.secondaryVariant : props.theme.palette.colors.light.grayish)};
   align-items: center;
   justify-content: center;
   cursor: pointer;

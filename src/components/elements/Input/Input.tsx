@@ -1,6 +1,6 @@
 import { useField, useFormikContext } from 'formik';
 import PropTypes from 'prop-types';
-import { masks } from '../../utils/masks';
+import { masks } from '../../../utils/masks';
 import * as S from './InputStyles';
 
 export const Input = ({

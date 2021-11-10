@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { theme } from '../../../styles';
-import { Typography } from '../../elements';
+import { Typography } from '../../elements/Typography';
 
 interface Dot {
   $dotPosition: number,
@@ -109,7 +109,6 @@ export const ImageIcon = styled.img<Container>`
 
 export const DescriptionIcon = styled(Typography).attrs({
   variant: 'body1',
-  color: theme.palette.colors.primary,
 })`
   font-size: ${(props) => props.theme.typography.body1?.fontSizeSubtitles};
 
