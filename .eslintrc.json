@@ -1,43 +1,41 @@
 {
-  "env": {
-    "browser": true,
-    "es2021": true,
-    "jest": true
-  },
-  "parser": "@typescript-eslint/parser",
-  "extends": [
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:jest-dom/recommended",
-    "airbnb"
-
-  ],
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "jest": true
     },
-    "ecmaVersion": 2021,
-    "sourceType": "module"
-  },
-  "plugins": [
-    "react",
-    "jest"
-  ],
-  "rules": {
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
-    "react/react-in-jsx-scope": "off",
-    "import/prefer-default-export": "off",
-    "react/jsx-props-no-spreading": "off",
-    "react/prop-types": "off",
-    "react/require-default-props": "off",
-    "jest-dom/prefer-checked": "error",
-    "jest-dom/prefer-enabled-disabled": "error",
-    "jest-dom/prefer-required": "error",
-    "jest-dom/prefer-to-have-attribute": "error",
-    // temporary
-    "import/no-unresolved": "off",
-    "import/extensions":  "off",
-    "@typescript-eslint/no-empty-function": "off"
-  }
+    "extends": [
+        "plugin:react/recommended",
+        "plugin:jest-dom/recommended",
+        "airbnb"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint"
+    ],
+    "rules": {
+      "import/prefer-default-export": "off",
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+      "react/react-in-jsx-scope": "off",
+      "react/jsx-props-no-spreading": "off",
+      "react/prop-types": "off",
+      "react/require-default-props": "off",
+      "no-bitwise": "off",
+      // "jest-dom/prefer-checked": "error",
+      // "jest-dom/prefer-enabled-disabled": "error",
+      // "jest-dom/prefer-required": "error",
+      // "jest-dom/prefer-to-have-attribute": "error",
+      // temporary
+      "import/no-unresolved": "off",
+      "import/extensions":  "off",
+      "@typescript-eslint/no-empty-function": "off"
+    }
 }
