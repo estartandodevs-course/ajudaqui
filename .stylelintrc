@@ -1,0 +1,17 @@
+{
+  "processors": [["stylelint-processor-styled-components"]],
+  "extends": [
+    "stylelint-config-recommended",
+    "stylelint-config-styled-components"
+  ],
+  "rules": {
+    "indentation": [
+      2,
+      {
+        "baseIndentLevel": 1
+      }
+    ],
+    "max-empty-lines": 2,
+    "max-line-length": 90
+  }
+}

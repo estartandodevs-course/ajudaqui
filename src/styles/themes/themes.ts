@@ -25,6 +25,9 @@ const theme: DefaultTheme = {
       gradientButton: 'linear-gradient(126.22deg, rgb(131, 96, 202) , rgb(161, 115, 255))',
       dotColor: '#DFDFDF',
     },
+    borders: {
+      emergency: '1px solid #BC1610',
+    },
   },
   typography: {
     h1: {

@@ -29,6 +29,9 @@ declare module 'styled-components' {
         gradientButton: string,
         dotColor: string,
       },
+      borders: {
+        emergency: string,
+      },
     },
     typography: {
       h1: {
