@@ -1,17 +1,12 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Layout, Carousel } from '../../components';
-import { FormLogin } from './forms';
 import { onboardingDataDesktop } from '../../mocks';
 import { useAuth } from '../../contexts';
-import { useScreen } from '../../utils/hooks/useScreen';
 import * as S from './LoginStyled';
 
 export const Login = () => {
   const navigation = useNavigate();
-  const [widthScreen] = useScreen();
-
-  const showNavigation = widthScreen < 1200;
 
   const {
     user,
@@ -21,12 +16,12 @@ export const Login = () => {
   } = useAuth();
 
   useEffect(() => {
-    if (user.id) {
+    if (user?.id) {
       navigation('/');
     }
   }, [user]);
   return (
-    <Layout showNavigation={showNavigation}>
+    <Layout>
       <S.ContainerLogin>
         <S.LoginForm>
           <S.Logo src="/assets/svg/logo.svg" alt="logo ajudaqui" />
@@ -38,16 +33,12 @@ export const Login = () => {
               Faça login e você estará pronto para ajudar
             </S.LoginDescription>
           </S.ContentTitle>
-          <FormLogin />
           <S.ContainerRegister>
-
             <S.DoRegister to="/register">
               Não tem cadastro?
             </S.DoRegister>
           </S.ContainerRegister>
           <S.GoogleButton
-            width="210px"
-            background="#7C7C7C"
             onClick={() => loginGoogle(profileType)}
             disabled={loadingAuth}
           >
@@ -62,9 +53,6 @@ export const Login = () => {
             showArrows={false}
             enableAutoPlay
             infinity
-            margin="0"
-            height="100vh"
-            display="none"
           >
             {onboardingDataDesktop[profileType]?.map(({ id, image, description }) => (
               <S.ContainerOnboarding key={id}>

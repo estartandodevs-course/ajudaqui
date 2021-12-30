@@ -1,7 +1,7 @@
 import { Routes as Switch, Route } from 'react-router-dom';
 import {
   Home, Onboarding, Register, Login, AskForHelp, ScreenEvaluation, SelectProfile,
-  RegisterNewPassword, UserInformation, ProfileVoluntary,
+  UserInformation, ProfileVoluntary,
   OrderStatus, ThanksScreen, EmergencyRequest, IssueCertificate, ActivityProgress,
   HistoricPage,
 } from '../pages';
@@ -25,7 +25,6 @@ export default function Routes() {
         <Route path="/register" element={<Register />} />
         <Route path="/user-information" element={<UserInformation />} />
         <Route path="/ask-for-help" element={<AskForHelp />} />
-        <Route path="/register-new-password" element={<RegisterNewPassword />} />
         <Route path="/screen-evaluation/:helpRequestId" element={<ScreenEvaluation />} />
         <Route path="/profile" element={<ProfileVoluntary />} />
         <Route path="/order-status/:helpRequestId" element={<OrderStatus />} />

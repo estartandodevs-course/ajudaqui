@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { Button } from '../Button/ButtonStyled';
+import { Button } from '../../elements';
 import { ISplashScreenProps, SplashScreenDefaultProps } from './interfaces';
 import * as S from './SplashScreenStyled';
 

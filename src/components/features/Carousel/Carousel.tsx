@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import * as S from './CarouselStyled';
+import { ICarousel } from './interfaces';
 
 export const Carousel = ({
   children,
@@ -7,7 +8,7 @@ export const Carousel = ({
   infinity,
   autoPlaySpeed,
   ...restProps
-}) => {
+} : ICarousel) => {
   let resetTimeout: any;
   const carouselRef = useRef(null);
 
@@ -29,7 +30,7 @@ export const Carousel = ({
       autoPlaySpeed={autoPlaySpeed}
       onNextEnd={(nextItem, index) => {
         if (onNextEnd) {
-          onNextEnd(nextItem, index);
+          onNextEnd(nextItem, index as number);
         }
         if (infinity) {
           handleInfinity(nextItem, carouselRef);

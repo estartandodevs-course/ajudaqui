@@ -25,9 +25,9 @@ export const Aside = styled.div`
   }
 `;
 export const AsideImage = styled.img`
-position: absolute;
-bottom: 0;
-right: 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 `;
 
 export const ContainerAskForHelp = styled.div`
@@ -39,9 +39,9 @@ export const ContainerAskForHelp = styled.div`
   padding: 14px 24px;
 
   @media (min-width: 1200px) {
-  width: 500px;
-  justify-content: center;
-  text-align: center;
+    width: 500px;
+    justify-content: center;
+    text-align: center;
   }
 `;
 
@@ -51,10 +51,10 @@ export const Text = styled(Typography).attrs({
   margin-bottom: 16px;
 
   @media (min-width: 1200px) {
-  margin-bottom: 50px;
-  font-size: 24px;
-  color: ${(props) => props.theme.palette.colors.primaryVariant};
-  font-weight: 400;
+    margin-bottom: 50px;
+    font-size: 24px;
+    color: ${(props) => props.theme.palette.colors.primaryVariant};
+    font-weight: 400;
   }
 `;
 
@@ -67,7 +67,7 @@ export const ContainerTag = styled.div`
   margin-bottom: 24px;
 
   @media (min-width: 1200px) {
-  margin-bottom: 35px;
+    margin-bottom: 35px;
   }
 `;
 
@@ -77,6 +77,6 @@ export const PositionButton = styled.div`
   justify-content: center;
 
   @media (min-width: 1200px) {
-  margin-top: 20px;
+   margin-top: 20px;
   }
 `;

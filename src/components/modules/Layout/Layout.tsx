@@ -1,4 +1,4 @@
-import { BackNavigation } from '../../modules/BackNavigation';
+import { BackNavigation } from '../../modules';
 import { TabBar } from '../../modules/TabBar';
 import { ILayoutProps, LayoutDefaultProps } from './interfaces';
 import * as S from './LayoutStyled';

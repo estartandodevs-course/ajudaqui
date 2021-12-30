@@ -75,8 +75,6 @@ export const ContainerOne = styled.div`
   max-width: 100%;
   margin: 0 auto;
   padding: 12px 0;
-  border-top: ${(props) => props.borderTop};
-  border-bottom: ${(props) => props.borderBottom};
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -1,36 +1,29 @@
 import { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import {
-  Button,
-  Form, Input, Layout, ServiceEvaluation, UserGrade, ThanksCompletedTask, ProfilePhoto,
+  Layout, ServiceEvaluation, UserGrade, ThanksCompletedTask, ProfilePhoto,
 } from '../../components';
 import { serviceEvaluationData } from '../../mocks';
 import * as S from './ScreenEvaluationStyled';
-import { useScreen } from '../../utils/hooks/useScreen';
 import { useAuth, useStore } from '../../contexts';
 import { PROFILES_TYPES } from '../../utils/constants';
 
 export const ScreenEvaluation = () => {
   const [evaluation, setEvaluation] = useState(0);
-
-  const [widthScreen] = useScreen();
-
-  const showNavigation = widthScreen < 1200;
-
   const { profileType } = useAuth();
 
   const {
     helpRequests,
     voluntarys,
     elderlys,
-    loadingStore,
-    handleEvaluationElderly,
-    handleEvaluationVoluntary,
+    // // loadingStore,
+    // handleEvaluationElderly,
+    // handleEvaluationVoluntary,
   } = useStore();
 
   const { helpRequestId } = useParams();
 
-  const navigation = useNavigate();
+  // const navigation = useNavigate();
 
   const helpRequestData = helpRequests?.find((requestData) => (
     requestData?.id === helpRequestId
@@ -44,37 +37,37 @@ export const ScreenEvaluation = () => {
     elderly?.id === helpRequestData?.elderly?.id
   ));
 
-  const handleSubmit = async (values) => {
-    if (profileType === PROFILES_TYPES.ELDERLY) {
-      await handleEvaluationVoluntary(
-        helpRequestId,
-        {
-          id: voluntaryProfileData?.id,
-          ...values,
-        },
-      );
-      return;
-    }
+  // const handleSubmit = async (values) => {
+  //   if (profileType === PROFILES_TYPES.ELDERLY) {
+  //     await handleEvaluationVoluntary(
+  //       helpRequestId,
+  //       {
+  //         id: voluntaryProfileData?.id,
+  //         ...values,
+  //       },
+  //     );
+  //     return;
+  //   }
 
-    await handleEvaluationElderly(
-      helpRequestId,
-      {
-        id: elderlysProfileData?.id,
-        ...values,
-      },
-      () => {
-        if (showNavigation) {
-          return navigation('/thanks', { helpRequestId });
-        }
-        return navigation('/');
-      },
-    );
-  };
+  //   await handleEvaluationElderly(
+  //     helpRequestId,
+  //     {
+  //       id: elderlysProfileData?.id,
+  //       ...values,
+  //     },
+  //     // () => {
+  //     //   if (showNavigation) {
+  //     //     return navigation('/thanks', { helpRequestId });
+  //     //   }
+  //     //   return navigation('/');
+  //     // },
+  //   );
+  // };
 
   return (
     <>
       {profileType === PROFILES_TYPES.ELDERLY ? (
-        <Layout hasTabBar showNavigation={showNavigation}>
+        <Layout hasTabBar>
           <S.ContainerDesktop>
             <S.ContainerScreenEvaluation>
               <S.ContentTitle>
@@ -105,17 +98,17 @@ export const ScreenEvaluation = () => {
                   {serviceEvaluationData.map((item) => (
                     <ServiceEvaluation
                       key={item.id}
-                      src={item.icon}
-                      alt={item.description}
+                      // src={item.icon}
+                      // alt={item.description}
                       $active={item.value === evaluation}
-                      click={() => setEvaluation(item.value)}
+                      onClick={() => setEvaluation(item.value)}
                     >
                       {item.description}
                     </ServiceEvaluation>
                   )) }
                 </S.ContainerEvaluation>
               </S.ContentEvaluation>
-              <Form
+              {/* <Form
                 initialValues={{
                   note: '',
                   evaluation,
@@ -133,7 +126,7 @@ export const ScreenEvaluation = () => {
                     enviar
                   </Button>
                 </S.PositionButton>
-              </Form>
+              </Form> */}
             </S.ContainerScreenEvaluation>
             <S.Aside>
               <S.AsideImage src="/assets/svg/arte idoso desktop.svg" />
@@ -141,7 +134,7 @@ export const ScreenEvaluation = () => {
           </S.ContainerDesktop>
         </Layout>
       ) : (
-        <Layout hasTabBar showNavigation={showNavigation}>
+        <Layout hasTabBar>
           <S.ContainerDesktop>
             <S.ContainerScreenEvaluation>
               <S.ContentTitle>
@@ -172,16 +165,16 @@ export const ScreenEvaluation = () => {
                   {serviceEvaluationData.map((item) => (
                     <ServiceEvaluation
                       key={item.id}
-                      src={item.icon}
-                      alt={item.description}
-                      click={() => setEvaluation(item.value)}
+                      // src={item.icon}
+                      // alt={item.description}
+                      onClick={() => setEvaluation(item.value)}
                     >
                       {item.description}
                     </ServiceEvaluation>
                   )) }
                 </S.ContainerEvaluation>
               </S.ContentEvaluation>
-              <Form
+              {/* <Form
                 initialValues={{
                   note: '',
                   evaluation,
@@ -199,7 +192,7 @@ export const ScreenEvaluation = () => {
                     enviar
                   </Button>
                 </S.PositionButton>
-              </Form>
+              </Form> */}
             </S.ContainerScreenEvaluation>
 
             <S.ContainerThanksCompletedTask>

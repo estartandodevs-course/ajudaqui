@@ -1,28 +1,47 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Button = styled.button`
+interface IButton {
+  variant: string
+}
+
+const resetStyles = css`
   display: flex;
-  justify-content: center;
   align-items: center;
-  width: 134px;
+
+  width: max-content;
   height: 44px;
-  border: none;
-  color: ${({ theme }) => theme.palette.colors.white};
-  text-shadow: none;
-  box-shadow: ${({ theme }) => theme.shadow};
-  background: ${({ theme }) => theme.palette.colors.gradientButton};
-  text-transform: uppercase;
-  font-family: ${({ theme }) => theme.typography.body1.fontFamily};
+
+  padding: 14px 26px;
   border-radius: 5px;
 
-  height: 44px;
-  font-weight: 500;
-  font-size: ${({ theme }) => theme.typography.body1.fontSizeSubtitles};
   cursor: pointer;
+  outline: none;
+  border: none;
 
+  text-transform: uppercase;
+`;
+
+const VARIANT = {
+  default: css`
+    color: ${({ theme }) => theme.palette.colors.white};
+    background: ${({ theme }) => theme.palette.colors.secondary};
+    `,
+  outlined: css`
+    color: ${({ theme }) => theme.palette.colors.emergency};
+    border: ${({ theme }) => theme.palette.borders.emergency};
+    background: ${({ theme }) => theme.palette.colors.white};
+    `,
+  emergency: css`
+    background: ${({ theme }) => theme.palette.colors.emergency};
+    color: ${({ theme }) => theme.palette.colors.white};
+  `,
+};
+
+export const Button = styled.button<IButton>`
+  ${resetStyles}
+  ${({ variant }) => variant && VARIANT[variant]};
   &:disabled {
-    background: ${({ theme }) => theme.palette.colors.primaryVariant};
-    color: ${({ theme }) => theme.palette.colors.light.grayish};
     cursor: not-allowed;
+    color: ${({ theme }) => theme.palette.colors.secondaryVariant};
   }
 `;

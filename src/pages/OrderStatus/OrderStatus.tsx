@@ -1,14 +1,11 @@
 import { useParams } from 'react-router-dom';
-import { Layout, OrderCard } from '../../components';
-import { useScreen } from '../../utils/hooks/useScreen';
+import { Layout } from '../../components';
 import { useAuth, useStore } from '../../contexts';
 import * as S from './OrderStatusStyled';
 import { orderStatusId, PROFILES_TYPES } from '../../utils/constants';
 
 export const OrderStatus = () => {
-  const [widthScreen] = useScreen();
   const { helpRequests } = useStore();
-  const showNavigation = widthScreen < 1200;
   const { helpRequestId } = useParams();
   const { profileType } = useAuth();
 
@@ -20,7 +17,7 @@ export const OrderStatus = () => {
   const isCanceled = getHelpRequests?.status !== orderStatusId.CANCELED;
 
   return (
-    <Layout hasTabBar showNavigation={showNavigation} hasClose>
+    <Layout hasTabBar hasClose>
       <S.ContainerDesktop>
         <S.ContainerPage>
           <S.Title>
@@ -29,7 +26,6 @@ export const OrderStatus = () => {
               && !hasConcluded
               && 'Por favor, aguarde.'}
           </S.Title>
-          <OrderCard helpRequest={getHelpRequests} />
           <S.Subtitle>
             {profileType === PROFILES_TYPES.ELDERLY
               && isCanceled
