@@ -4,6 +4,7 @@ import { ICloseProps } from './interfaces';
 
 export const Close = ({ hasClose }: ICloseProps) => {
   const navigation = useNavigate();
+
   return (
     <>
       {hasClose

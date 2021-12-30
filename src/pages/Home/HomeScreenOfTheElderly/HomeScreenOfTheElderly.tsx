@@ -1,26 +1,21 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useTheme } from 'styled-components';
 import * as S from './HomeScreenOfTheElderlyStyled';
 import {
   UserOverview, Card, Button, Layout, ElderlyModalCard,
 } from '../../../components';
-import { useScreen } from '../../../utils/hooks/useScreen';
 import { useModal, useStore, useAuth } from '../../../contexts';
 import { userSchema } from './validationModalCompleteProfile';
 
 export const HomeScreenOfTheElderly = () => {
-  const theme = useTheme();
   const { user } = useAuth();
-  const [widthScreen] = useScreen();
   const { handleCreateOrder, loadingStore, helpRequests } = useStore();
-  const showNavigation = widthScreen < 1200;
   const navigation = useNavigate();
 
   const { showModal, setIsOpen } = useModal();
 
   useEffect(() => {
-    if (!userSchema.isValidSync(user) || !user.contacts.length < 0) {
+    if (!userSchema.isValidSync(user)) {
       showModal(
         <ElderlyModalCard onClick={() => setIsOpen(false)} />,
         { agree: () => {}, disAgree: () => {} },
@@ -53,7 +48,6 @@ export const HomeScreenOfTheElderly = () => {
   return (
     <Layout
       hasTabBar
-      showNavigation={showNavigation}
     >
       <S.ContainerPageAside>
         <S.ContainerPage>
@@ -65,35 +59,26 @@ export const HomeScreenOfTheElderly = () => {
               }}
             />
           </S.ContainerUserOverview>
-          <S.ContainerOne
-            borderTop="1px solid #D8CDEE"
-            borderBottom="1px solid #D8CDEE"
-          >
+          <S.ContainerOne>
             <S.Paragraph>
               Como você prefere pedir ajuda?
             </S.Paragraph>
             <S.ContainerCards>
               <Card
                 src="/assets/svg/icon mic.svg"
-                color="#fff"
-                fontSize="14px"
                 disabled
               >
                 POR ÁUDIO
               </Card>
               <Card
                 src="/assets/svg/icon texto.svg"
-                color="#fff"
-                fontSize="14px"
                 onClick={() => navigation('/ask-for-help')}
               >
                 POR TEXTO
               </Card>
             </S.ContainerCards>
           </S.ContainerOne>
-          <S.ContainerOne
-            borderBottom="1px solid #D8CDEE"
-          >
+          <S.ContainerOne>
             <S.Paragraph1>
               Informações Pessoais
             </S.Paragraph1>
@@ -101,22 +86,14 @@ export const HomeScreenOfTheElderly = () => {
               <Card
                 variant="secondary"
                 src="/assets/svg/icon saude.svg"
-                color="#fff"
-                fontSize="14px"
-                onClick={() => navigation('/user-information', {
-                  defaultActiveKey: '2',
-                })}
+                onClick={() => navigation('/user-information')}
               >
                 DADOS DE SAÚDE
               </Card>
               <Card
                 variant="secondary"
                 src="/assets/svg/icon contato.svg"
-                color="#fff"
-                fontSize="14px"
-                onClick={() => navigation('/user-information', {
-                  defaultActiveKey: '3',
-                })}
+                onClick={() => navigation('/user-information')}
               >
                 AGENDA DE CONTATOS
               </Card>
@@ -134,7 +111,6 @@ export const HomeScreenOfTheElderly = () => {
             </S.Paragraph2>
             <S.PositionButton>
               <Button
-                background={theme.palette.colors.emergency}
                 isLoading={loadingStore}
                 onClick={handleSubmit}
               >
@@ -155,7 +131,7 @@ export const HomeScreenOfTheElderly = () => {
             </S.Subtitle>
           </S.TextContainer>
           <Button
-            background={theme.palette.colors.emergency}
+            variant="emergency"
             isLoading={loadingStore}
             onClick={handleSubmit}
           >

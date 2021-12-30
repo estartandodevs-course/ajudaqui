@@ -20,7 +20,7 @@ export const Aside = styled.div`
   position: relative;
   background-color: ${(props) => props.theme.palette.colors.light.grayish};
 
-@media (max-width: 1199px) {
+  @media (max-width: 1199px) {
     display: none;
   }
 `;
@@ -53,7 +53,7 @@ export const ContainerText = styled.div`
     padding: 0;
     text-align: center;
     gap: 14px;
-    }
+  }
 `;
 
 export const Title = styled(Typography).attrs({

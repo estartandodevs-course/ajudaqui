@@ -19,6 +19,12 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
   }
 
+  a {
+    text-decoration: none;
+    &:hover {
+      color: ${({ theme }) => theme.palette.colors.light.gray}
+    }
+  }
 `;
 
 export { GlobalStyle };

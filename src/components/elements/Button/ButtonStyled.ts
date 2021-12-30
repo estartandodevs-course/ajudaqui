@@ -42,5 +42,6 @@ export const Button = styled.button<IButton>`
   ${({ variant }) => variant && VARIANT[variant]};
   &:disabled {
     cursor: not-allowed;
+    color: ${({ theme }) => theme.palette.colors.secondaryVariant};
   }
 `;

@@ -4,15 +4,13 @@ import { Carousel, Button } from '../../components';
 import { useAuth } from '../../contexts';
 import { onboardingData } from '../../mocks';
 import * as S from './OnboardingStyled';
-import { useScreen } from '../../utils/hooks/useScreen';
 
 export const Onboarding = () => {
   const navigation = useNavigate();
   const { profileType } = useAuth();
-  const [widthScreen] = useScreen();
 
   useEffect(() => {
-    if (!profileType || widthScreen > 1200) {
+    if (!profileType) {
       navigation('/');
     }
   }, []);

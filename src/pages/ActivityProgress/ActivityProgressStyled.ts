@@ -20,7 +20,7 @@ export const Aside = styled.div`
   position: relative;
   background-color: ${(props) => props.theme.palette.colors.light.grayish};
 
-@media (max-width: 1199px) {
+  @media (max-width: 1199px) {
     display: none;
   }
 `;

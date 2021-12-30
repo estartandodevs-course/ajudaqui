@@ -1,6 +1,6 @@
-import { differenceInSeconds } from 'date-fns';
+// import { differenceInSeconds } from 'date-fns';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import Switch from 'react-switch';
 import * as S from './ProfileVoluntaryStyled';
 import {
@@ -9,19 +9,15 @@ import {
   Card,
   Tag,
   Button,
-  Form,
-  Input,
   Typography,
 } from '../../components';
 import { useAuth, useStore } from '../../contexts';
 import { optionCardInterest } from '../../mocks/optionCardInterest';
-import { useScreen } from '../../utils/hooks/useScreen';
-import { orderStatusId } from '../../utils/constants';
+// import { orderStatusId } from '../../utils/constants';
 
 export const ProfileVoluntary = () => {
   const [editMode, setEditMode] = useState(false);
   const { user, logout } = useAuth();
-  const [widthScreen] = useScreen();
   const { helpRequests, elderlys } = useStore();
 
   const activities = helpRequests?.filter((helpRequest) => (
@@ -30,17 +26,15 @@ export const ProfileVoluntary = () => {
 
   const activitiesElderlyIds = activities.map((activity) => activity?.elderly?.id);
 
-  const activitiesSeconds = activities?.filter((helpRequest) => (
-    helpRequest?.status === orderStatusId.CONCLUDED
-  )).reduce((prev, current) => {
-    const totalTimeTask = differenceInSeconds(
-      new Date(current?.endTime), new Date(current?.startTime),
-    );
-    return prev + totalTimeTask;
-  },
-  0);
-
-  const hours = parseInt(((activitiesSeconds / 60) / 60)?.toFixed(2), 10);
+  // const activitiesSeconds = activities?.filter((helpRequest) => (
+  //   helpRequest?.status === orderStatusId.CONCLUDED
+  // )).reduce((prev, current) => {
+  //   const totalTimeTask = differenceInSeconds(
+  //     new Date(current?.endTime), new Date(current?.startTime),
+  //   );
+  //   return prev + totalTimeTask;
+  // },
+  // 0);
 
   const helpedPeoples = elderlys.filter((elderly) => (
     (activitiesElderlyIds?.includes(elderly?.id) && !!elderly?.photoURL)
@@ -50,14 +44,12 @@ export const ProfileVoluntary = () => {
     activity?.voluntary?.evaluation && activity?.status === 4
   )).reduce((total, activity) => (activity?.voluntary.evaluation + total), 0);
 
-  const showNavigation = widthScreen < 1200;
-
-  const navigation = useNavigate();
+  // const navigation = useNavigate();
 
   const [isActive, setIsActive] = useState(null);
-  const [selectedOptionHelp, setSelectedOptionHelp] = useState({});
+  const [, setSelectedOptionHelp] = useState({});
   const {
-    handleCreateOrder, tags, handleCreateTag, loadingStore,
+    tags, loadingStore,
   } = useStore();
 
   const getOpenHelpRequests = helpRequests
@@ -76,47 +68,47 @@ export const ProfileVoluntary = () => {
 
   getOpenHelpRequests.forEach((item) => {
     if (!elderlysNeedHelp.includes(item.elderly.id)) {
-      elderlysNeedHelp.navigation(item.elderly.id);
+      elderlysNeedHelp.push(item.elderly.id);
     }
   });
 
-  const handleSubmit = async ({ option }) => {
-    if (option) {
-      await handleCreateTag(
-        {
-          option,
-          estimatedTime: 30,
-        },
-        async (newTag) => {
-          await handleCreateOrder(
-            {
-              order: newTag,
-              elderly: {
-                id: user.id,
-                evaluation: '',
-                note: '',
-              },
-            },
-            (helpRequestId) => navigation(`order-status/${helpRequestId}`),
-          );
-        },
-      );
-    }
-    await handleCreateOrder(
-      {
-        order: selectedOptionHelp,
-        elderly: {
-          id: user.id,
-          evaluation: '',
-          note: '',
-        },
-      },
-      (helpRequestId) => navigation(`order-status/${helpRequestId}`),
-    );
-  };
+  // const handleSubmit = async ({ option }) => {
+  //   if (option) {
+  //     await handleCreateTag(
+  //       {
+  //         option,
+  //         estimatedTime: 30,
+  //       },
+  //       async (newTag) => {
+  //         await handleCreateOrder(
+  //           {
+  //             order: newTag,
+  //             elderly: {
+  //               id: user.id,
+  //               evaluation: '',
+  //               note: '',
+  //             },
+  //           },
+  //           (helpRequestId) => navigation(`order-status/${helpRequestId}`),
+  //         );
+  //       },
+  //     );
+  //   }
+  //   await handleCreateOrder(
+  //     {
+  //       order: selectedOptionHelp,
+  //       elderly: {
+  //         id: user.id,
+  //         evaluation: '',
+  //         note: '',
+  //       },
+  //     },
+  //     (helpRequestId) => navigation(`order-status/${helpRequestId}`),
+  //   );
+  // };
 
   return (
-    <Layout hasTabBar showNavigation={showNavigation}>
+    <Layout hasTabBar>
       <S.PagesContainer>
         <S.ContainerPageOne>
           <UserOverview
@@ -126,11 +118,7 @@ export const ProfileVoluntary = () => {
             }}
           />
           <S.ContainerCard>
-            <Card
-              color="white"
-              textAlign="center"
-              as="span"
-            >
+            <Card>
               <S.NumberCard>
                 {activities.length}
               </S.NumberCard>
@@ -141,7 +129,7 @@ export const ProfileVoluntary = () => {
               as="span"
             >
               <S.NumberCard>
-                {hours?.toFixed(0) > 0 ? hours?.toFixed(0) : hours}
+                {/* {hours?.toFixed(0) > 0 ? hours?.toFixed(0) : hours} */}
               </S.NumberCard>
               Horas de Voluntariado
             </Card>
@@ -158,7 +146,6 @@ export const ProfileVoluntary = () => {
           </S.ContainerTag>
           <S.ContainerButton>
             <Button
-              width="187px"
               onClick={() => setEditMode(true)}
               disabled={editMode}
             >
@@ -191,12 +178,7 @@ export const ProfileVoluntary = () => {
         <S.ContainerPageTwo>
           {editMode ? (
             <S.ContainerAskForHelp>
-              <Form
-                initialValues={{
-                  option: '',
-                }}
-                onSubmit={(values) => handleSubmit(values)}
-              >
+              <form>
                 <S.TextTitle>
                   Editar interesses
                 </S.TextTitle>
@@ -222,7 +204,7 @@ export const ProfileVoluntary = () => {
                   Pode fazer outra coisa que não esta listada?(divida cada
                   atividade com “,”)
                 </S.Texts>
-                <Input type="text" name="option" placeholder="" />
+                <input type="text" name="option" placeholder="" />
                 <S.ContainerSwitch>
                   <Switch onChange={() => {}} checked />
                   <S.TextSwitch>Ativar notificações</S.TextSwitch>
@@ -239,15 +221,12 @@ export const ProfileVoluntary = () => {
                   <Button
                     type="submit"
                     isLoading={loadingStore}
-                    border="1px solid #BC1610"
-                    color="#BC1610"
-                    background="none"
                     onClick={() => setEditMode(false)}
                   >
                     Cancelar
                   </Button>
                 </S.PositionButton>
-              </Form>
+              </form>
             </S.ContainerAskForHelp>
           ) : (
             <S.ImageAside src="/assets/svg/arte voluntario.svg" alt="Voluntário" />

@@ -5,6 +5,7 @@ export interface ICardProps extends AllHTMLAttributes<HTMLElement> {
   variant?: string,
   day?: string,
   as?: any,
+  src?: string
 }
 
 export const CardDefaultProps: ICardProps = {
