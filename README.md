@@ -63,10 +63,13 @@ export const Ajudaqui = () => {
 
 # Créditos
 
+### Mentor
+
+[Jonatas Pinto](https://github.com/jonataspinto) 
+
 ### Desenvolvedores: 
 
 [Aida Figueiredo](https://github.com/AidaFig) -
-[Jonatas Pinto](https://github.com/jonataspinto) -
 [Rafaella Almeida](https://github.com/Rafaella-Almeida) -
 [Ramon Xavier](https://github.com/ramonxm)
 
